@@ -109,11 +109,11 @@ export class ExperimentCompareScalarChartsComponent implements OnInit, OnDestroy
   private metrics: GroupedList;
   groupByOptions = [
     {
-      name: 'Metric',
+      name: '指标',
       value: groupByCharts.metric
     },
     {
-      name: 'Metric + Variant',
+      name: '指标 + 变体',
       value: groupByCharts.none
     }
   ];

@@ -113,7 +113,7 @@ export class CommonExperimentOutputEffects {
             total: 0,
             direction: action.direction,
             refresh: action.refresh
-          })] : []) : [setServerError(error, null, 'Failed to fetch log')]),
+          })] : []) : [setServerError(error, null, '获取日志失败')]),
           outputActions.setExperimentLogLoading({loading: false})
         ])
       )
@@ -142,7 +142,7 @@ export class CommonExperimentOutputEffects {
       requestFailed(error),
       deactivateLoader(outputActions.experimentPlotsRequested.type),
       deactivateLoader(refreshExperiments.type),
-      setServerError(error, null, 'Failed to get Plot Charts')
+      setServerError(error, null, '获取图表失败')
     ])
   ));
 
@@ -212,7 +212,7 @@ export class CommonExperimentOutputEffects {
               requestFailed(error),
               deactivateLoader(action.type),
               deactivateLoader(refreshExperiments.type),
-              setServerError(error, null, 'Failed to get Scalar Charts')
+              setServerError(error, null, '获取标量图失败')
             ])
           );
       }

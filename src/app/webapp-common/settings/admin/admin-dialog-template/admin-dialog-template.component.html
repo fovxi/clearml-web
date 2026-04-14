@@ -20,7 +20,7 @@
     @if (!serviceUserMode) {
       <mat-tab-group [(selectedIndex)]="selectedIndex" mat-stretch-tabs="false" mat-align-tabs="center">
         <mat-tab label="本地 Python" ></mat-tab>
-        <mat-tab label="Jupyter Notebook" ></mat-tab>
+        <mat-tab label="Jupyter 笔记本" ></mat-tab>
       </mat-tab-group>
     }
     <div class="code-container" [class.jupyter]="isJupyter()">
@@ -76,7 +76,7 @@
       }
     </div>
   } @else {
-    <div class="instructions mt-2 mb-2">将下方内容加入 Notebook 以配置 ClearML</div>
+    <div class="instructions mt-2 mb-2">将下方内容加入 Jupyter 笔记本以配置 ClearML</div>
     <div class="code">
       <div class="content">
         <div>
@@ -107,7 +107,7 @@
   }
 </div>
 <ng-template #jupyter>
-  <div class="instructions">将下方内容加入 Notebook 以配置 ClearML</div>
+  <div class="instructions">将下方内容加入 Jupyter 笔记本以配置 ClearML</div>
   <div class="code">
     <div class="content" #jupyterCodeEl>{{jupyterCode}}</div>
     <sm-copy-clipboard

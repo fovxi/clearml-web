@@ -18,7 +18,7 @@ export class IdBadgeComponent {
   trigger = viewChild.required(MatMenuTrigger);
   id = input<string>();
   short = input(false);
-  caption = input('Copy full ID')
+  caption = input('复制完整 ID')
   copied = output();
 
   openMenu() {

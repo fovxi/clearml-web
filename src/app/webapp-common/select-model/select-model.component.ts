@@ -173,13 +173,13 @@ export class SelectModelComponent {
       return;
     }
     if (models.length === 0) {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, 'Compare module should include at least one model'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, '比较模块至少需要包含一个模型'));
       return;
     }
     if (models.length <= compareLimitations) {
       this.store.dispatch(setSelectedModels({models}));
     } else {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, compareLimitations + ' or fewer models can be compared'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, `最多可比较 ${compareLimitations} 个模型`));
     }
   }
 

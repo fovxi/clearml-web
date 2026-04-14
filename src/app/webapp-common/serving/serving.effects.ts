@@ -105,9 +105,9 @@ export class ServingEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader('Fetch Endpoint'),
-          addMessage(MESSAGES_SEVERITY.WARN, 'Fetch Endpoint for selection failed', [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch Endpoint for selection failed')]
+          addMessage(MESSAGES_SEVERITY.WARN, '获取用于选择的服务端点失败', [{
+            name: '更多信息',
+            actions: [setServerError(error, null, '获取用于选择的服务端点失败')]
           }])
         ])
       )
@@ -384,9 +384,9 @@ export class ServingEffects {
               ServingActions.setServingEndpointDetails({endpoint: null}),
               requestFailed(error),
               deactivateLoader(action.type),
-              addMessage(MESSAGES_SEVERITY.ERROR, 'Fetch Endpoint for selection failed', [{
-                name: 'More info',
-                actions: [setServerError(error, null, 'Fetch Endpoint for selection failed')]
+              addMessage(MESSAGES_SEVERITY.ERROR, '获取用于选择的服务端点失败', [{
+                name: '更多信息',
+                actions: [setServerError(error, null, '获取用于选择的服务端点失败')]
               }])
             ])
           );
@@ -454,7 +454,7 @@ export class ServingEffects {
           }),
           catchError(error => action.refresh ?
             of(requestFailed(error)) :
-            of(addMessage(MESSAGES_SEVERITY.WARN, 'Failed to fetch history \n' + JSON.stringify(error)))
+            of(addMessage(MESSAGES_SEVERITY.WARN, '获取历史数据失败\n' + JSON.stringify(error)))
           )
         );
       })

@@ -24,7 +24,7 @@ export class SettingsEffects {
       .pipe(
         map((res: { settings: StorageGetSettingsResponse }) => CredentialsSettingsActions.setCredentials({credentials: res.settings})),
         catchError(() => [
-          addMessage('error', 'Set storage credentials failed')
+          addMessage('error', '设置存储凭证失败')
         ])
       )),
   ));
@@ -35,7 +35,7 @@ export class SettingsEffects {
       .pipe(
         map(() => CredentialsSettingsActions.setCredentials({credentials: action.credentials})),
         catchError(() => [
-          addMessage('error', 'Update storage credentials failed')
+          addMessage('error', '更新存储凭证失败')
         ])
       ))
   ));

@@ -1,7 +1,7 @@
 import {ActionCreator, createSelector, on, ReducerTypes} from '@ngrx/store';
 import * as layoutActions from '../actions/layout.actions';
 import {apiRequest} from '@common/core/actions/http.actions';
-import {Ace} from 'ace-builds';
+import type {Ace} from 'ace-builds';
 import {IBreadcrumbsLink} from '@common/layout/breadcrumbs/breadcrumbs.component';
 import {
   headerActions,
@@ -220,4 +220,3 @@ export const viewReducers = [
   on(setHideEnterpriseFeatures, (state, action): ViewState =>
     ({...state, hideEnterpriseFeatures: action.hide})),
 ] as ReducerTypes<ViewState, ActionCreator[]>[];
-

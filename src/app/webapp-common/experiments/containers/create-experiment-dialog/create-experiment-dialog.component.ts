@@ -46,7 +46,7 @@ import {CodeEditorComponent} from '@common/shared/ui-components/data/code-editor
 import {shellBinaryValidator} from '@common/shared/validators/shell-binary.validator';
 import {MatExpansionPanel, MatExpansionPanelHeader} from '@angular/material/expansion';
 import {ButtonToggleComponent} from '@common/shared/ui-components/inputs/button-toggle/button-toggle.component';
-import {Ace} from 'ace-builds';
+import type {Ace} from 'ace-builds';
 import {containedInList} from '@common/shared/validators/containedInList.validator';
 import {minLengthTrimmed} from '@common/shared/validators/minLengthTrimmed';
 import {TaskTypeEnum} from '~/business-logic/model/tasks/taskTypeEnum';

@@ -122,11 +122,11 @@ export class ExperimentOutputScalarsComponent implements OnInit, OnDestroy {
   @ViewChild(ExperimentGraphsComponent) experimentGraphs;
   groupByOptions = [
     {
-      name: 'Metric',
+      name: '指标',
       value: groupByCharts.metric
     },
     {
-      name: 'None',
+      name: '无',
       value: groupByCharts.none
     }
   ];

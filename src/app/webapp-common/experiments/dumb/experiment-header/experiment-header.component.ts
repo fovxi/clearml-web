@@ -92,8 +92,8 @@ export class ExperimentHeaderComponent extends BaseEntityHeaderComponent {
   tableModeChanged = output<'table' | 'info' | 'compare'>();
 
   protected toggleButtons = computed(() => [
-    {label: 'Table view', value: 'table', icon: 'al-ico-table-view'},
-    {label: 'Details view', value: 'info', icon: 'al-ico-experiment-view'},
-    ...([EntityTypeEnum.experiment, EntityTypeEnum.controller].includes(this.entityType()) ? [{label: 'Compare view', value: 'compare', icon: 'al-ico-charts-view'}] : [])
+    {label: '表格视图', value: 'table', icon: 'al-ico-table-view'},
+    {label: '详情视图', value: 'info', icon: 'al-ico-experiment-view'},
+    ...([EntityTypeEnum.experiment, EntityTypeEnum.controller].includes(this.entityType()) ? [{label: '对比视图', value: 'compare', icon: 'al-ico-charts-view'}] : [])
   ]);
 }

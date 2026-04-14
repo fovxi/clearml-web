@@ -8,7 +8,7 @@ export const routes: Routes = [
     loadComponent: () => import('@common/projects/containers/projects-page/projects-page.component').then(c => c.ProjectsPageComponent),
     data: {
       staticBreadcrumb: [[{
-        name: 'PROJECTS',
+        name: '项目',
         type: CrumbTypeEnum.Feature
       }]]
     }}
@@ -23,4 +23,3 @@ export const routes: Routes = [
 })
 export class ProjectRouterModule {
 }
-

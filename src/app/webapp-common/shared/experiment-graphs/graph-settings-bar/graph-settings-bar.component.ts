@@ -78,15 +78,15 @@ export class GraphSettingsBarComponent {
 
   xAxisTypeOption = [
     {
-      name: 'Iterations',
+      name: '迭代次数',
       value: ScalarKeyEnum.Iter
     },
     {
-      name: 'Time from start',
+      name: '相对开始时间',
       value: ScalarKeyEnum.Timestamp
     },
     {
-      name: 'Wall time',
+      name: '绝对时间',
       value: ScalarKeyEnum.IsoTime
     },
   ];

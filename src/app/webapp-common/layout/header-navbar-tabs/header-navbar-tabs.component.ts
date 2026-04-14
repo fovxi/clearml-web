@@ -48,6 +48,10 @@ export class HeaderNavbarTabsComponent {
     plots: '图表',
     'debug samples': '调试样本',
     network: '网络',
+    general: '通用',
+    labels: '标签',
+    metadata: '元数据',
+    lineage: '血缘',
   };
 
   protected contextNavbar = this.store.selectSignal(selectHeaderMenu);

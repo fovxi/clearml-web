@@ -109,7 +109,7 @@ export class OpenDatasetVersionsComponent extends ControllersComponent {
           breadcrumbOptions: {
             showProjects: !!selectedProject,
             featureBreadcrumb: {
-              name: 'DATASETS',
+              name: '数据集',
               url: this.defaultNestedModeForFeature()['datasets'] ? 'datasets/simple/*/projects' : 'datasets'
             },
             projectsOptions: {

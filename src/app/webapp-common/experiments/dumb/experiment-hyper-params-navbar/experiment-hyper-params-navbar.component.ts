@@ -27,9 +27,9 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class ExperimentHyperParamsNavbarComponent {
   sectionReplaceMap= {
-    _legacy:'General',
-    properties: 'User Properties',
-    design: 'General'
+    _legacy:'常规',
+    properties: '用户属性',
+    design: '常规'
   };
   hyperParams = input<Record<string, any>>();
   configuration = input<Record<string, any>>();

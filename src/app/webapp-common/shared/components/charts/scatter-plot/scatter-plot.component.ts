@@ -101,8 +101,8 @@ export class ScatterPlotComponent {
               return [`${data[item.dataIndex].name}`,
                 ...(this.yAxisLabel() ? [`${this.yAxisLabel()}: ${data[item.dataIndex].y}`] : []),
                 ...(this.xAxisLabel() ? [`${this.xAxisLabel()}: ${data[item.dataIndex].x}`] : []),
-                ...(data[item.dataIndex]?.extraParamsHoverInfo?.length > 0 ? ['', 'Additional info:'] : []),
-                ...(data[item.dataIndex]?.extraParamsHoverInfo?.length === 0 ? ['', 'To see more info here please add additional data point information'] : []),
+                ...(data[item.dataIndex]?.extraParamsHoverInfo?.length > 0 ? ['', '附加信息：'] : []),
+                ...(data[item.dataIndex]?.extraParamsHoverInfo?.length === 0 ? ['', '若要在此查看更多信息，请添加附加数据点信息'] : []),
                 ...(data[item.dataIndex]?.extraParamsHoverInfo?.length > 0 ? data?.[item.dataIndex]?.extraParamsHoverInfo ?? [] : [])
               ];
             },

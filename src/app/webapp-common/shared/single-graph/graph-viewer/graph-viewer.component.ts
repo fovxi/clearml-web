@@ -220,7 +220,7 @@ export class GraphViewerComponent implements AfterViewInit, OnInit, OnDestroy {
         const groupedPlots = groupIterations(currentPlotEvents);
         const {graphs, parsingError} = convertPlots({plots: groupedPlots, id: 'viewer'});
         if (parsingError){
-          this.store.dispatch(addMessage('warn', `Couldn't read all plots. Please make sure all plots are properly formatted (NaN & Inf aren't supported).`, [], true));
+          this.store.dispatch(addMessage('warn', '部分图表读取失败，请确认图表格式正确（不支持 NaN 和 Inf）', [], true));
         }
         Object.values(graphs).forEach((graphss: ExtFrame[]) => {
           graphss.forEach((graph: ExtFrame) => {

@@ -158,7 +158,7 @@ export class ExperimentMenuComponent extends BaseContextMenuComponent {
           if (showShareWarningDialog) {
             this.showConfirmArchiveExperiments(selectedExperiments, entityType);
           } else if (showRunningWarningDialog) {
-            this.showConfirmArchiveExperiments(selectedExperiments, entityType, 'ARCHIVE A RUNNING TASK',
+            this.showConfirmArchiveExperiments(selectedExperiments, entityType, '归档运行中的任务',
               '您即将归档的部分任务当前正在运行或排队中。<br>归档运行中的任务也会将其<b>重置</b>。<br>要继续归档任务吗？',
               false);
           } else {

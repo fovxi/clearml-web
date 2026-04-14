@@ -34,7 +34,7 @@ export class ScrollTextareaComponent {
   disabled = input<boolean>();
   showSpinner = input<boolean>();
   forceEmpty = input(false);
-  emptyMessage = input('No changes logged');
+  emptyMessage = input('暂无变更记录');
   minHeight = input('250px');
   freezeForm = output();
   scroll = viewChild(CdkVirtualScrollViewport);

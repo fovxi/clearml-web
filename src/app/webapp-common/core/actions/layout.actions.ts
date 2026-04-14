@@ -2,7 +2,7 @@ import {VIEW_PREFIX} from '~/app.constants';
 import {Action, createAction, props} from '@ngrx/store';
 import {omit} from 'lodash-es';
 import {HttpErrorResponse} from '@angular/common/http';
-import {Ace} from 'ace-builds';
+import type {Ace} from 'ace-builds';
 import {MessageSeverityEnum} from '@common/constants';
 import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
 

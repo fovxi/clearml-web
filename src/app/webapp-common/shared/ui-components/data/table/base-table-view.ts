@@ -12,6 +12,8 @@ import {
 import {DATASETS_STATUS_LABEL} from '~/features/experiments/shared/experiments.const';
 import {FormControl} from '@angular/forms';
 import {Store} from '@ngrx/store';
+import {resetTablesFilterProjectsOptions} from '@common/core/actions/projects.actions';
+import {resetTablesFilterParentsOptions} from '@common/experiments/actions/common-experiments-view.actions';
 
 @Directive()
 export abstract class BaseTableView {
@@ -83,7 +85,8 @@ export abstract class BaseTableView {
     });
 
     this.destroy.onDestroy(() => {
-      this.resetFilterOptions.emit();
+      this.store.dispatch(resetTablesFilterProjectsOptions());
+      this.store.dispatch(resetTablesFilterParentsOptions());
     });
   }
 

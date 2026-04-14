@@ -230,7 +230,7 @@ export class ProjectsPageComponent implements OnDestroy {
           breadcrumbOptions: {
             showProjects: !!selectedProject,
             featureBreadcrumb: {
-              name: 'PROJECTS',
+              name: '项目',
               url: 'projects'
             },
             projectsOptions: {

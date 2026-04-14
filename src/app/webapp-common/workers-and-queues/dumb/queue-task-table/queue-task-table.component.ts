@@ -36,7 +36,7 @@ export class QueueTaskTableComponent {
     this.cols = [
       {
         id         : QUEUES_TABLE_COL_FIELDS.NAME,
-        header     : 'Task Name',
+        header     : '任务名称',
         style      : {width: '680px'},
         headerType : ColHeaderTypeEnum.title,
         disableDrag: true,
@@ -44,7 +44,7 @@ export class QueueTaskTableComponent {
       },
       {
         id         : QUEUES_TABLE_COL_FIELDS.ID,
-        header     : 'Task ID',
+        header     : '任务 ID',
         style      : {width: '300px'},
         headerType : ColHeaderTypeEnum.title,
         disableDrag: true,
@@ -52,7 +52,7 @@ export class QueueTaskTableComponent {
       },
       {
         id         : QUEUES_TABLE_COL_FIELDS.QUEUED,
-        header     : 'Queued At',
+        header     : '入队时间',
         style      : {width: '150px'},
         headerType : ColHeaderTypeEnum.title,
         disableDrag: true,

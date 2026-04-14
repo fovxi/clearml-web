@@ -61,7 +61,7 @@ export class ExperimentsCompareParamsEffects {
             catchError(error => [
                 requestFailed(error),
                 deactivateLoader(action.type),
-                setServerError(error, null, 'The attempt to retrieve your data failed. Refresh your browser and try again.')
+                setServerError(error, null, '获取数据失败，请刷新浏览器后重试。')
               ]
             )
           );
@@ -83,7 +83,7 @@ export class ExperimentsCompareParamsEffects {
           deactivateLoader(action.type),
           setServerError(
             error, null,
-            'The attempt to retrieve your experiment data failed. Refresh your browser and try again.',
+            '获取实验数据失败，请刷新浏览器后重试。',
             action.autoRefresh
           )
         ])
@@ -122,4 +122,3 @@ export class ExperimentsCompareParamsEffects {
       : of([]);
   }
 }
-

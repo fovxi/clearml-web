@@ -10,7 +10,7 @@ import {
   MdEditorOption,
   UploadResult
 } from 'ngx-markdown-editor';
-import {Ace} from 'ace-builds';
+import type {Ace} from 'ace-builds';
 import {MatDialog} from '@angular/material/dialog';
 import {
   MarkdownCheatSheetDialogComponent

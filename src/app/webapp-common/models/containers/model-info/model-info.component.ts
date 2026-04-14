@@ -88,11 +88,11 @@ export class ModelInfoComponent implements OnDestroy {
 
   groupByOptions = [
     {
-      name: 'Metric',
+      name: '指标',
       value: groupByCharts.metric
     },
     {
-      name: 'None',
+      name: '无',
       value: groupByCharts.none
     }
   ];
@@ -172,7 +172,7 @@ export class ModelInfoComponent implements OnDestroy {
     if (name.trim().length > 2) {
       this.store.dispatch(infoActions.updateModelDetails({id: this.modelId(), changes: {name}}));
     } else {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, 'Name must be more than three letters long'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '名称长度至少需要 3 个字符'));
     }
   }
 
@@ -221,7 +221,7 @@ export class ModelInfoComponent implements OnDestroy {
           this.store.dispatch(setBreadcrumbsOptions({
             breadcrumbOptions: {
               showProjects: false,
-              featureBreadcrumb: {name: 'Models'},
+              featureBreadcrumb: {name: '模型'},
             }
           }));
         } else {
@@ -229,7 +229,7 @@ export class ModelInfoComponent implements OnDestroy {
             breadcrumbOptions: {
               showProjects: !!selectedProject,
               featureBreadcrumb: {
-                name: 'PROJECTS',
+                name: '项目',
                 url: 'projects'
               },
               projectsOptions: {
@@ -239,7 +239,7 @@ export class ModelInfoComponent implements OnDestroy {
                 showSelectedProject: selectedProject?.id !== '*',
                 ...(selectedProject && {
                   selectedProjectBreadcrumb: {
-                    name: selectedProject?.id === '*' ? 'All Models' : selectedProject?.basename,
+                    name: selectedProject?.id === '*' ? '全部模型' : selectedProject?.basename,
                     url: this.getMinimizeURL(params, config), queryParamsHandling: 'preserve', linkLast: true
                   }
                 })
@@ -330,4 +330,3 @@ export class ModelInfoComponent implements OnDestroy {
   }
 
 }
-

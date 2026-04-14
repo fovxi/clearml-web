@@ -6,7 +6,7 @@
     <mat-radio-group [ngModel]="install"
                      (change)="setInstalledOption($event)"
                      name="installOption"
-                     aria-label="Select an option">
+                     aria-label="选择选项">
       <mat-radio-button value="install"><span>空白（Agent 将使用仓库中的 `requirements.txt` 安装依赖包）。{{showReset? '*': ''}}</span></mat-radio-button>
       <mat-radio-button value="dontInstall"><span>空白（Agent 不会安装任何依赖包）。{{showReset? '*': ''}}</span></mat-radio-button>
       @if (showReset){<mat-radio-button value="reset" class="mb-2">设为最初记录的依赖包（original-pip）。</mat-radio-button>}

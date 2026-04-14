@@ -53,9 +53,9 @@ export class ExperimentInfoTaskModelComponent {
 
   protected formData: ConfigurationItem;
   protected sectionReplaceMap = {
-    _legacy: 'General',
-    properties: 'User Properties',
-    design: 'General'
+    _legacy: '常规',
+    properties: '用户属性',
+    design: '常规'
   };
   protected configInfo$ = this.store.select(selectExperimentConfigObj);
   protected selectedConfigObj$ = this.store.select(selectExperimentSelectedConfigObjectFromRoute);
@@ -99,7 +99,7 @@ export class ExperimentInfoTaskModelComponent {
 
   editPrototext() {
     const editPrototextDialog = this.dialog.open(EditJsonComponent, {
-      data: {textData: this.formData?.value, readOnly: false, title: 'EDIT CONFIGURATION'} as EditJsonData
+      data: {textData: this.formData?.value, readOnly: false, title: '编辑配置'} as EditJsonData
     });
 
     editPrototextDialog.afterClosed().pipe(take(1)).subscribe((data) => {
@@ -120,10 +120,10 @@ export class ExperimentInfoTaskModelComponent {
   clearPrototext() {
     const confirmDialogRef: MatDialogRef<any, boolean> = this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'Clear model configuration',
-        body: 'Are you sure you want to clear the entire contents of Model Configuration?',
-        yes: 'Clear',
-        no: 'Keep',
+        title: '清空模型配置',
+        body: '确认要清空模型配置中的全部内容吗？',
+        yes: '清空',
+        no: '保留',
         iconClass: 'al-ico-trash',
         centerText: true,
       }

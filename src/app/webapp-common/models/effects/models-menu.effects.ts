@@ -86,9 +86,9 @@ export class ModelsMenuEffects {
               viewActions.resetState(),
               selectedModel ? infoActions.setModelInfo({model: selectedModel}) : emptyAction(),
               deactivateLoader(action.type),
-              addMessage(MESSAGES_SEVERITY.SUCCESS, `Model moved successfully to ${action.project.name ?? 'Projects root'}`)
+              addMessage(MESSAGES_SEVERITY.SUCCESS, `模型已成功移动到 ${action.project.name ?? '项目根目录'}`)
             ]),
-            catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Failed to Move model')])
+            catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, '移动模型失败')])
           );
       }
     )
@@ -102,11 +102,11 @@ export class ModelsMenuEffects {
           const task = tasks.tasks[0];
           const projectId = task.project ? task.project.id : '*';
           const taskLink = `<a target="_blank" href="projects/${projectId}/experiments/${task.id}">${task.name}</a>`;
-          return `Your attempt to publish this model failed.  The task that created this model may be in progress.<br>When the task ${taskLink} completes or is stopped by a user, you can try again.`;
+          return `发布该模型失败。创建此模型的任务可能仍在运行中。<br>当任务 ${taskLink} 完成或被用户停止后，可重试发布。`;
         })
       );
     } else {
-      const errorText = 'Your attempt to publish models failed.';
+      const errorText = '发布模型失败。';
       return of(errorText);
     }
   }

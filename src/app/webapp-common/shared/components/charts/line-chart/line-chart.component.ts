@@ -198,7 +198,7 @@ export class LineChartComponent {
               title: {
                 display: true,
                 color: this.colorScheme()[this.data().findIndex(topic => topic.secondAxis) % this.colorScheme()?.length],
-                text: 'Total',
+                text: '总计',
               },
               ticks: {
                 display: this.showTicks(),

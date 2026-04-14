@@ -59,11 +59,11 @@ export class ProjectSettingsDialogComponent {
   protected readonly data: ProjectSettingsDialogConfig = inject(MAT_DIALOG_DATA);
   groupByOptions = [
     {
-      name: 'Metric',
+      name: '指标',
       value: groupByCharts.metric
     },
     {
-      name: 'None',
+      name: '无',
       value: groupByCharts.none
     }
   ];
@@ -120,7 +120,7 @@ export class ProjectSettingsDialogComponent {
   protected scalarSettingsChanged = signal(false);
   protected generalChanged= signal(false);
   protected hiddenChanged= signal(false);
-  dialogTitle = signal<string>(`PROJECT SETTINGS: "${this.data.project.name}"`);
+  dialogTitle = signal<string>(`项目设置："${this.data.project.name}"`);
 
   constructor() {
     this.settingsStore.setProject(this.data.project.id);
@@ -228,4 +228,3 @@ export class ProjectSettingsDialogComponent {
     }
   }
 }
-

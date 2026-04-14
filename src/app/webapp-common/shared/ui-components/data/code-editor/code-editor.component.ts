@@ -4,7 +4,7 @@ import {
   ElementRef,
   NgZone, input, output, viewChild, inject, effect, computed
 } from '@angular/core';
-import {Ace} from 'ace-builds';
+import type {Ace} from 'ace-builds';
 import {Store} from '@ngrx/store';
 import {selectAceReady, selectThemeMode} from '@common/core/reducers/view.reducer';
 import {addMessage} from '@common/core/actions/layout.actions';

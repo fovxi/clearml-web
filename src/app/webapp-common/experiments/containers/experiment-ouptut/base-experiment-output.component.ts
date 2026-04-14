@@ -85,11 +85,11 @@ export abstract class BaseExperimentOutputComponent implements OnInit, OnDestroy
 
   groupByOptions = [
     {
-      name: 'Metric',
+      name: '指标',
       value: groupByCharts.metric
     },
     {
-      name: 'None',
+      name: '无',
       value: groupByCharts.none
     }
   ];
@@ -177,7 +177,7 @@ export abstract class BaseExperimentOutputComponent implements OnInit, OnDestroy
     if (name.trim().length > 2) {
       this.store.dispatch(experimentDetailsUpdated({id: this.selectedExperiment().id, changes: {name}}));
     } else {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, 'Name must be more than three letters long'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '名称长度至少需要 3 个字符'));
     }
   }
 
@@ -204,7 +204,7 @@ export abstract class BaseExperimentOutputComponent implements OnInit, OnDestroy
         breadcrumbOptions: {
           showProjects: !!selectedProject,
           featureBreadcrumb: {
-            name: 'PROJECTS',
+            name: '项目',
             url: 'projects'
           },
           projectsOptions: {

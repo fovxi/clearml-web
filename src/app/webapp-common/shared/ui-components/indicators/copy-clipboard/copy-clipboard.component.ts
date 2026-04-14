@@ -23,8 +23,8 @@ export class CopyClipboardComponent {
 
   clipboardText = input<string>();
   disabled = input(false);
-  label = input<string>('Copy to clipboard');
-  tooltipText = input('Copy to clipboard');
+  label = input<string>('复制到剪贴板');
+  tooltipText = input('复制到剪贴板');
   copyIcon = input<string>();
   tooltipPosition = input<TooltipPosition>('above');
   smallIcon = input(false);

@@ -79,7 +79,7 @@ export const tryParseJson = (plotString: string): { data: any; layout: any; conf
   try {
     parsed = JSON.parse(plotString);
   } catch (e) {
-    parsed = {data: [], layout: {title: 'Unknown data'}};
+    parsed = {data: [], layout: {title: '未知数据'}};
   }
   return parsed;
 };
@@ -90,7 +90,7 @@ export const convertPlot = (graph: MetricsPlotEvent, experimentId?: string): { p
   }
   const json = tryParseJson(graph.plot_str);
   let hadError;
-  if (json.data.length === 0 && json.layout.title === 'Unknown data') {
+  if (json.data.length === 0 && json.layout.title === '未知数据') {
     hadError = true;
   }
   json.data.task = json.data?.task || experimentId;
@@ -124,7 +124,7 @@ export const convertSplitScalars = (scalars: GroupedList, experimentId: string):
           line: {width: 1, ...data.line},
           type: 'scatter'
         }],
-        {type: 'scalar', title: {text: variant}, xaxis: {title: {text: 'Iterations'}}, yaxis: {tickformat}},
+        {type: 'scalar', title: {text: variant}, xaxis: {title: {text: '迭代次数'}}, yaxis: {tickformat}},
         {},
         {metric: key, type: 'scalar', variant, variants: [variant]}
       ));
@@ -145,7 +145,7 @@ export const convertScalars = (scalars: GroupedList, experimentId: string): Reco
 
     acc[key] = [prepareGraph(
       chartData,
-      {type: 'scalar', title: {text: key}, xaxis: {title: {text: 'Iterations'}}, yaxis: {tickformat: getAxisFormat(graph)}},
+      {type: 'scalar', title: {text: key}, xaxis: {title: {text: '迭代次数'}}, yaxis: {tickformat: getAxisFormat(graph)}},
       {},
       {metric: key, type: 'scalar', variants: Object.keys(graph)}
     )];
@@ -439,7 +439,7 @@ export const seperateMultiplotsVariants = (mixedPlot: IMultiplot, isMultipleVari
     const plot = iteration.plots[0];
     const parsed: { data: ExtData[], layout: ExtLayout, config?: plotly.Config } = experimentsPlots[experimentId] ?? tryParseJson(plot.plot_str);
     const title = typeof parsed.layout.title === 'object' ? parsed.layout.title?.text : (parsed.layout.title as string);
-    if (parsed.data.length === 0 && (title === 'Unknown data')) {
+    if (parsed.data.length === 0 && (title === '未知数据')) {
       parsingError = true;
     }
     if (shouldBeMergedObj(experimentsPlots)) {
@@ -650,4 +650,3 @@ export const timeInWords = (milliseconds: number, granularityLevel = 3) => {
   }
   return output.join(' ');
 };
-

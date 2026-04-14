@@ -51,7 +51,7 @@ export const INITIAL_MODEL_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
     style: {width: '300px'},
     excludeFilter: true,
     andFilter: true,
-    columnExplain: 'Click to include tag. Click again to exclude.',
+    columnExplain: '点击以包含该标签，再次点击可排除该标签。',
   },
   {
     id: EXPERIMENTS_TABLE_COL_FIELDS.STATUS,

@@ -63,16 +63,16 @@ const VALUE_MODES: ValueModes = {
 
   min_values: {
     key: 'min_value',
-    name: 'Min Value'
+    name: '最小值'
   },
 
   max_values: {
     key: 'max_value',
-    name: 'Max Value'
+    name: '最大值'
   },
   values: {
     key: 'value',
-    name: 'Last Value'
+    name: '最后值'
   }
 };
 
@@ -358,17 +358,19 @@ export class ExperimentCompareMetricValuesComponent implements OnInit, OnDestroy
   }
 
   exportToCSV() {
+    const metricHeader = '指标';
+    const variantHeader = '变体';
     const headers = this.experiments.map(ex => ex.name);
     const options = mkConfig({
-      filename: `Scalars compare table`,
+      filename: '标量对比表',
       showColumnHeaders: true,
-      columnHeaders: ['Metric', 'Variant'].concat(headers)
+      columnHeaders: [metricHeader, variantHeader].concat(headers)
     });
     const csv = generateCsv(options)(this.dataTableFiltered.map(row => {
       const values = Object.values(row.values).map(value => value?.[this.valuesMode.key] ?? '');
       return {
-        Metric: row.metric,
-        Variant: row.variant,
+        [metricHeader]: row.metric,
+        [variantHeader]: row.variant,
         ...headers.reduce((acc, header, i) => {
           acc[header] = typeof values[i]=== 'string' ?
             sanitizeCSVCell(values[i].replace(/\r?\n|\r/g, '')) :

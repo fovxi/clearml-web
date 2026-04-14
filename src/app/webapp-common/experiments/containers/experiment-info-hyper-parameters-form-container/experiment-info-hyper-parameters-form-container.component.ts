@@ -57,9 +57,9 @@ export class ExperimentInfoHyperParametersFormContainerComponent {
   private executionParamsForm = viewChild(ExperimentExecutionParametersComponent);
 
   sectionReplaceMap = {
-    _legacy: 'General',
-    properties: 'User Properties',
-    design: 'General'
+    _legacy: '常规',
+    properties: '用户属性',
+    design: '常规'
   };
 
   protected selectedSectionHyperParams = this.store.selectSignal(selectExperimentHyperParamsSelectedSectionParams);

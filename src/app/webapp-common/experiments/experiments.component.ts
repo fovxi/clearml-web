@@ -782,7 +782,7 @@ export class ExperimentsComponent extends BaseEntityPageComponent implements OnD
   }
 
   downloadTableAsCSV() {
-    this.table().table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*' ? 'All' : this.selectedProject()?.basename?.substring(0, 60)} Experiments`);
+    this.table().table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*' ? '全部' : this.selectedProject()?.basename?.substring(0, 60)} 任务`);
   }
 
   downloadFullTableAsCSV() {
@@ -797,7 +797,7 @@ export class ExperimentsComponent extends BaseEntityPageComponent implements OnD
           breadcrumbOptions: {
             showProjects: !!selectedProject,
             featureBreadcrumb: {
-              name: 'PROJECTS',
+              name: '项目',
               url: 'projects'
             },
             ...(this.projectDeepMode() && selectedProject?.id !== '*' && {

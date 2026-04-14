@@ -215,7 +215,7 @@ export class ProjectsEffects {
           map(res => actions.updateProjectCompleted({id: action.id, changes: res?.fields || action.changes})),
           catchError(err => [
             requestFailed(err),
-            setServerError(err, null, 'Update project failed'),
+            setServerError(err, null, '更新项目失败'),
             actions.setSelectedProjectId({projectId: action.id})
           ])
         )
@@ -287,7 +287,7 @@ export class ProjectsEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, 'Fetch tags failed')]
+          setServerError(error, null, '获取标签失败')]
         )
       );
     })
@@ -372,7 +372,7 @@ export class ProjectsEffects {
       map(res => actions.setAllProjectUsers({users: res})),
       catchError(error => [
         requestFailed(error),
-        setServerError(error, null, 'Fetch all projects users failed')]
+        setServerError(error, null, '获取所有项目用户失败')]
       )
     ))
   ));
@@ -402,7 +402,7 @@ export class ProjectsEffects {
       map(res => actions.setProjectUsers(res)),
       catchError(error => [
         requestFailed(error),
-        setServerError(error, null, 'Fetch users failed')]
+        setServerError(error, null, '获取用户失败')]
       )
     ))
   ));
@@ -423,7 +423,7 @@ export class ProjectsEffects {
       catchError(error => [
         requestFailed(error),
         deactivateLoader(action.type),
-        setServerError(error, null, 'Fetch users failed')]
+        setServerError(error, null, '获取用户失败')]
       )
     ))
   ));
@@ -478,4 +478,3 @@ export class ProjectsEffects {
     }));
   }
 }
-

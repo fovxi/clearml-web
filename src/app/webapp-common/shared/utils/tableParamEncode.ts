@@ -31,9 +31,9 @@ export const excludedKey = '__$not';
 const metricVariantDelimiter = '\u203A';
 
 export const MetricValueTypeStrings = {
-  value: '(Last)',
-  max_value: '(Max)',
-  min_value: '(Min)'
+  value: '（最后值）',
+  max_value: '（最大值）',
+  min_value: '（最小值）'
 };
 
 export const getValueTypeName = (valueType: MetricValueType) => MetricValueTypeStrings[valueType] ?? valueType;

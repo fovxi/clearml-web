@@ -120,6 +120,6 @@ export class ModelInfoHeaderComponent {
   }
 
   copyToClipboard() {
-    this.store.dispatch(addMessage('success', 'Copied to clipboard'));
+    this.store.dispatch(addMessage('success', '已复制到剪贴板'));
   }
 }

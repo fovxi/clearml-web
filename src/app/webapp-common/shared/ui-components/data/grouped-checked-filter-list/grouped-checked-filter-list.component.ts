@@ -34,7 +34,7 @@ export type HyperParams<T> = ReadonlyMap<string, T[]>;
 })
 export class GroupedCheckedFilterListComponent {
 
-  renameMap = {_legacy: 'General'};
+  renameMap = {_legacy: '常规'};
   private debounceTimer: number;
 
   public expanded = signal<{ string: boolean }>({} as { string: boolean });

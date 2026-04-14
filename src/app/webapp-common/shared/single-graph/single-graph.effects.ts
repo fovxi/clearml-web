@@ -139,7 +139,7 @@ export class SingleGraphEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(getGraphDisplayFullDetailsScalars.type),
-          setServerError(error, null, 'Failed to get full detailed Chart')
+          setServerError(error, null, '获取完整详细图表失败')
         ])))
   ));
 

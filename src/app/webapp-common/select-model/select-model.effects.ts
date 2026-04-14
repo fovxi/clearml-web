@@ -50,9 +50,9 @@ export class SelectModelEffects {
         ]),
         catchError(error => [
           requestFailed(error),
-          addMessage('warn', 'Fetch frameworks failed', [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch frameworks failed')]
+          addMessage('warn', '获取框架列表失败', [{
+            name: '更多信息',
+            actions: [setServerError(error, null, '获取框架列表失败')]
           }])]
         )
       )
@@ -70,9 +70,9 @@ export class SelectModelEffects {
       ]),
       catchError(error => [
         requestFailed(error),
-        addMessage('warn', 'Fetch tags failed', [{
-          name: 'More info',
-          actions: [setServerError(error, null, 'Fetch tags failed')]
+        addMessage('warn', '获取标签失败', [{
+          name: '更多信息',
+          actions: [setServerError(error, null, '获取标签失败')]
         }])]
       )
     ))
@@ -98,7 +98,7 @@ export class SelectModelEffects {
           actions.setCurrentScrollId({scrollId: res.scroll_id}),
           deactivateLoader(action.type)
         ]),
-        catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Fetch Models failed')])
+        catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, '获取模型失败')])
       )
     )
   ));
@@ -115,7 +115,7 @@ export class SelectModelEffects {
             actions.setCurrentScrollId({scrollId: res.scroll_id}),
             deactivateLoader(action.type)
           ]),
-          catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Fetch Models failed')])
+          catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, '获取模型失败')])
         )
     )
   ));

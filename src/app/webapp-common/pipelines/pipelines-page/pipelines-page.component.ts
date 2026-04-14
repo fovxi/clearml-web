@@ -182,7 +182,7 @@ if __name__ == '__main__':
         breadcrumbOptions: {
           showProjects: !!selectedProject,
           featureBreadcrumb: {
-            name: 'PIPELINES',
+            name: '流水线',
             url: defaultNestedModeForFeature['pipelines'] ? 'pipelines/*/projects' : 'pipelines'
           },
           projectsOptions: {

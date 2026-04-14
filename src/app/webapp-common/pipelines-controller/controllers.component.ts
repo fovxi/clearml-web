@@ -128,7 +128,7 @@ export class ControllersComponent extends ExperimentsComponent {
   }
 
   override downloadTableAsCSV() {
-    this.table().table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*'? 'All': this.selectedProject()?.basename?.substring(0,60)} Pipelines`);
+    this.table().table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*' ? '全部' : this.selectedProject()?.basename?.substring(0, 60)} 流水线`);
   }
   override setupBreadcrumbsOptions() {
     effect(() => {
@@ -138,7 +138,7 @@ export class ControllersComponent extends ExperimentsComponent {
           breadcrumbOptions: {
             showProjects: !!selectedProject,
             featureBreadcrumb: {
-              name: 'PIPELINES',
+              name: '流水线',
               url: this.defaultNestedModeForFeature()['pipelines'] ? 'pipelines/*/projects' : 'pipelines'
             },
             projectsOptions: {

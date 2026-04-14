@@ -91,7 +91,7 @@ export class ModelsInfoEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            setServerError(error, null, 'Fetch Model failed')
+            setServerError(error, null, '获取模型详情失败')
           ])
         )
     )
@@ -165,7 +165,7 @@ export class ModelsInfoEffects {
           ]),
           catchError(err => [
             requestFailed(err),
-            setServerError(err, null, 'edit models failed'),
+            setServerError(err, null, '编辑模型失败'),
             setBackdrop({active: false}),
             infoActions.getModelInfo({id: action.model.id})
           ])
@@ -190,7 +190,7 @@ export class ModelsInfoEffects {
           catchError(err => [
             setBackdrop({active: false}),
             requestFailed(err),
-            setServerError(err, null, 'Update metadata failed')
+            setServerError(err, null, '更新元数据失败')
           ])
         )
     ),
@@ -217,7 +217,7 @@ export class ModelsInfoEffects {
           }),
           catchError(err => [
             requestFailed(err),
-            setServerError(err, null, 'Update models failed'),
+            setServerError(err, null, '更新模型失败'),
             infoActions.getModelInfo({id: action.id})
           ])
         )
@@ -246,7 +246,7 @@ export class ModelsInfoEffects {
       requestFailed(error),
       deactivateLoader(infoActions.getPlots.type),
       deactivateLoader(infoActions.refreshModelInfo.type),
-      setServerError(error, null, 'Failed to get Plot Charts')
+      setServerError(error, null, '获取图表失败')
     ])
   ));
 }

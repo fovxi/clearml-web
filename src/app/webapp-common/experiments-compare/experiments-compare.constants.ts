@@ -20,23 +20,23 @@ export interface DataDictionary {
 }
 
 export const RENAME_MAP = {
-  'network_design': 'Network Design',
-  'uncommitted_changes': 'Uncommitted Changes',
-  'installed_packages': 'Python Packages',
-  'setup_shell_script': 'Setup Shell Script',
-  ' input models': 'Input Models',
-  ' output models': 'Output Models',
-  'model': 'Model',
-  'source': 'Source',
-  ' default': 'Default',
-  'augmentation': 'Augmentation',
-  'filtering': 'Filtering',
-  'iteration': 'Iteration',
-  'labels_enumeration': 'Labels Enumeration',
-  'mapping': 'Mapping',
-  'view': 'View',
-  '_legacy': 'General',
-  'container': 'Container'
+  'network_design': '网络结构',
+  'uncommitted_changes': '未提交变更',
+  'installed_packages': 'Python 包',
+  'setup_shell_script': '初始化 Shell 脚本',
+  ' input models': '输入模型',
+  ' output models': '输出模型',
+  'model': '模型',
+  'source': '源码',
+  ' default': '默认',
+  'augmentation': '增强',
+  'filtering': '过滤',
+  'iteration': '迭代',
+  'labels_enumeration': '标签枚举',
+  'mapping': '映射',
+  'view': '视图',
+  '_legacy': '通用',
+  'container': '容器'
 };
 
 export const MAX_ROWS_FOR_SMART_COMPARE_ARRAYS = 20000;

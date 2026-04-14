@@ -616,7 +616,7 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
 
     if (['multiScalar', 'scalar'].includes(graph.layout.type)) {
       modeBarButtonsToAdd.push({
-        name: 'Log view',
+        name: '对数视图',
         title: this.getLogButtonTitle(this.chartSettings().log),
         icon: this.getLogIcon(this.chartSettings().log),
         click: (gd: plotly.PlotlyHTMLElement, ev: MouseEvent) => {

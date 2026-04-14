@@ -38,7 +38,7 @@ const routes = [{
   path: '',
   component: PipelinesPageComponent,
   data: {search: true, features: FeaturesEnum.Pipelines, staticBreadcrumb:[[{
-      name: 'PIPELINES',
+      name: '流水线',
       type: CrumbTypeEnum.Feature
     }]]},
 }] as Routes;

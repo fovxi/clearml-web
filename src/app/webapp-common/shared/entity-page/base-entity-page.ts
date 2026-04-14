@@ -275,10 +275,10 @@ export abstract class BaseEntityPageComponent implements OnDestroy {
           if (this.getSelectedEntities().length > 0 && !neverShow?.includes('go-to-archive')) {
             return this.dialog.open(ConfirmDialogComponent, {
               data: {
-                title: 'Are you sure?',
-                body: `Navigating between "Live" and "Archive" will deselect your selected ${this.entityType}s.`,
-                yes: 'Proceed',
-                no: 'Back',
+                title: '确认继续吗？',
+                body: `在“运行中”和“归档”之间切换会取消当前已选中的 ${this.entityType}。`,
+                yes: '继续',
+                no: '返回',
                 iconClass: 'al-ico-alert',
                 conColor: 'var(--color-warning)',
                 showNeverShowAgain: true

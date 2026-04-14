@@ -25,7 +25,7 @@
               @case (sourceTypesEnum.VersionNum) {
                 {{sourceCodeForm.controls.version_num.value}}
                 @if (sourceCodeForm.controls.branch.value) {
-                  (in branch {{sourceCodeForm.controls.branch.value}})
+                  （分支 {{sourceCodeForm.controls.branch.value}}）
                 }
               }
               @case (sourceTypesEnum.Branch) {

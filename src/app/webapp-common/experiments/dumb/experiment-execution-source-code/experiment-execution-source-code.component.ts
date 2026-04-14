@@ -78,28 +78,28 @@ export class ExperimentExecutionSourceCodeComponent implements ControlValueAcces
   protected scriptTypeOptions = [
     {
       value: sourceTypesEnum.VersionNum,
-      label: 'Commit Id'
+      label: '提交 ID'
     },
     {
       value: sourceTypesEnum.Tag,
-      label: 'Tag name'
+      label: '标签名'
     },
     {
       value: sourceTypesEnum.Branch,
-      label: 'Last Commit In Branch'
+      label: '分支最新提交'
     },
   ];
 
   protected readonly scriptPlaceHolders = {
-    [sourceTypesEnum.VersionNum]: 'Insert commit id',
-    [sourceTypesEnum.Tag]       : 'Insert tag name',
-    [sourceTypesEnum.Branch]    : 'Insert branch name',
+    [sourceTypesEnum.VersionNum]: '输入提交 ID',
+    [sourceTypesEnum.Tag]       : '输入标签名',
+    [sourceTypesEnum.Branch]    : '输入分支名',
   };
 
   protected readonly flagNameMap = {
-    [sourceTypesEnum.VersionNum]: 'COMMIT ID',
-    [sourceTypesEnum.Tag]       : 'TAG NAME',
-    [sourceTypesEnum.Branch]    : 'BRANCH NAME'
+    [sourceTypesEnum.VersionNum]: '提交 ID',
+    [sourceTypesEnum.Tag]       : '标签名',
+    [sourceTypesEnum.Branch]    : '分支名'
   };
 
   protected readonly binaryValidationRegexp = /(^python.*)|(^sh$)|(^bash$)|(^zsh$)/;

@@ -158,7 +158,7 @@ export class CommonExperimentsMenuEffects {
           ]),
           catchError(error => [
             deactivateLoader(action.type),
-            setServerError(error, null, 'Run Pipeline failed'),
+            setServerError(error, null, '运行 Pipeline 失败'),
             requestFailed(error)
           ])
         )
@@ -249,7 +249,7 @@ export class CommonExperimentsMenuEffects {
             }),
             catchError(error => [
               deactivateLoader(action.type),
-              setServerError(error, null, 'Clone Task failed'),
+              setServerError(error, null, '克隆任务失败'),
               requestFailed(error)
             ])
           )
@@ -294,7 +294,7 @@ export class CommonExperimentsMenuEffects {
           confirmed ? stopClicked({selectedEntities: action.experiments, includePipelineSteps: isPipeline }) : emptyAction(),
           deactivateLoader(action.type)
         ]),
-        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, 'Failed to fetch tasks running children')])
+        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, '获取运行中子任务失败')])
       )),
   ));
 
@@ -332,9 +332,9 @@ export class CommonExperimentsMenuEffects {
             ...action.selectedEntities.map(exp => this.setExperimentIfSelected(selectedExperiment, exp.id, {project: action.project ?? '*'})),
             deactivateLoader(action.type),
             viewActions.getExperiments(),
-            addMessage(MESSAGES_SEVERITY.SUCCESS, `Task moved successfully to ${action.project.name ?? 'Projects root'}`)
+            addMessage(MESSAGES_SEVERITY.SUCCESS, `任务已成功移动到 ${action.project.name ?? '项目根目录'}`)
           ]),
-          catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Failed to move tasks')])
+          catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, '移动任务失败')])
         )
     )
   ));

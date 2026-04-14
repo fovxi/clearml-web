@@ -60,10 +60,10 @@ export class ProjectStatsComponent implements OnDestroy {
   public variantDisplay = '选择指标和变体';
   private sub = new Subscription();
   states = [
-    {label: 'Completed or Stopped', type: TaskStatusEnum.Completed},
-    {label: 'Published', type: TaskStatusEnum.Published},
-    {label: 'Failed', type: TaskStatusEnum.Failed},
-    {label: 'Running', type: TaskStatusEnum.InProgress}
+    {label: '已完成或已停止', type: TaskStatusEnum.Completed},
+    {label: '已发布', type: TaskStatusEnum.Published},
+    {label: '失败', type: TaskStatusEnum.Failed},
+    {label: '运行中', type: TaskStatusEnum.InProgress}
   ] as {label: string; type: string; color?: string}[];
 
   project = input<Project>();
@@ -87,7 +87,7 @@ export class ProjectStatsComponent implements OnDestroy {
           const data = cols[0];
           this.variantDisplay = data?.header;
         } else if (cols?.length > 1) {
-          this.variantDisplay = 'ADD METRICS'
+          this.variantDisplay = '添加指标';
         }
         this.loading = true;
         this.store.dispatch(fetchGraphData());
@@ -130,7 +130,7 @@ export class ProjectStatsComponent implements OnDestroy {
             label: this.selectedVariants.find(v => v.id === group).header,
             backgroundColor: this.variantToColor(group)
           } : {
-            label: group,
+            label: this.statusToLabel(group),
             backgroundColor: this.statusToColor(group),
           }),
           data: points.map(point => ({
@@ -138,7 +138,7 @@ export class ProjectStatsComponent implements OnDestroy {
             y: point.y,
             id: point.id,
             name: point.name,
-            description: `Created By ${point.user}, Finished ${new Date(point.x).toLocaleString()}`,
+            description: `创建者 ${point.user}，结束时间 ${new Date(point.x).toLocaleString()}`,
           })),
         } as ScatterPlotSeries));
         this.cdr.markForCheck();
@@ -206,6 +206,21 @@ export class ProjectStatsComponent implements OnDestroy {
     return color;
   }
 
+  private statusToLabel(status: string) {
+    switch (status) {
+      case 'Completed or Stopped':
+        return '已完成或已停止';
+      case TaskStatusEnum.Failed:
+        return '失败';
+      case TaskStatusEnum.Published:
+        return '已发布';
+      case TaskStatusEnum.InProgress:
+        return '运行中';
+      default:
+        return status;
+    }
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
@@ -217,11 +232,11 @@ export class ProjectStatsComponent implements OnDestroy {
   getValueName(valueType: string) {
     switch (valueType) {
       case 'max_value':
-        return 'Max';
+        return '最大值';
       case 'min_value':
-        return 'Min';
+        return '最小值';
       default:
-        return 'Last';
+        return '最后值';
     }
   }
 }

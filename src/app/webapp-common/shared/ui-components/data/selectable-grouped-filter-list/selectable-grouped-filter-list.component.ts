@@ -49,7 +49,7 @@ export class SelectableGroupedFilterListComponent {
   searchTerm = input<string>();
   checkedList = input<string[]>([]);
   titleLabel = input<string>();
-  placeHolder = input<string>('Find scalars');
+  placeHolder = input<string>('查找标量');
 
   itemSelect = output<string>();
   selectedChanged = output<string[]>();

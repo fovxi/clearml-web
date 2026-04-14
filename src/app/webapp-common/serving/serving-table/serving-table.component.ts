@@ -192,7 +192,7 @@ export class ServingTableComponent extends BaseTableView {
     ),
     ...Object.entries(this.metadataValuesOptions() || {}).reduce((acc, [id, values]) => {
       acc![id] = values === null ? null : [{
-        label: '(No Value)',
+        label: '（无值）',
         value: null
       }].concat(values.map(value => ({
         label: value,

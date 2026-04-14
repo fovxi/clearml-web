@@ -59,7 +59,7 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     style: {width: '300px'},
     excludeFilter: true,
     andFilter: true,
-    columnExplain: 'Click to include tag. Click again to exclude.',
+    columnExplain: '点击可包含该标签，再次点击可排除该标签。',
     showInCardFilters: true
   },
   {

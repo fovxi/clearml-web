@@ -114,8 +114,8 @@
   <div class="footer-info"
        [style.visibility]="isPlayer() ? 'hidden' : 'visible'">
     <div class="d-flex justify-content-center params" smTooltip="图片宽高（像素）">
-      <div class="single-parameter"><label>w: </label>{{ debugImage.naturalWidth }}</div>
-      <div class="single-parameter"><label>h: </label>{{ debugImage.naturalHeight }}</div>
+      <div class="single-parameter"><label>宽： </label>{{ debugImage.naturalWidth }}</div>
+      <div class="single-parameter"><label>高： </label>{{ debugImage.naturalHeight }}</div>
     </div>
     <div class="d-flex justify-content-center params" smTooltip="跟踪光标坐标" data-id="coordiantesPanel">
       <div class="single-parameter" data-id="xPositionCoordinate">
@@ -128,7 +128,7 @@
     </div>
     <div class="d-flex justify-content-center params" smTooltip="图片缩放" data-id="Zoomdescription">
       <div class="double-parameter">
-        Zoom: {{ this.scaleOffset().scale | toPercentage }}%
+        缩放：{{ this.scaleOffset().scale | toPercentage }}%
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 import {TaskStatusEnum} from '~/business-logic/model/tasks/taskStatusEnum';
 import {ModelsArchiveManyResponse} from '~/business-logic/model/models/modelsArchiveManyResponse';
 import {TasksArchiveManyResponse} from '~/business-logic/model/tasks/tasksArchiveManyResponse';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {addMessage} from '@common/core/actions/layout.actions';
 import {openMoreInfoPopup} from '@common/core/actions/projects.actions';
 import {TaskTypeEnum} from '~/business-logic/model/tasks/taskTypeEnum';
@@ -156,38 +156,83 @@ export enum MoreMenuItems {
 
 export type AllMenuItems = MenuItems | MoreMenuItems;
 
-const pastify = (verb: AllMenuItems): string => {
+const operationLabelMap = (verb: AllMenuItems): string => {
   switch (verb) {
     case MenuItems.abort:
-      return 'aborted';
+      return '中止';
     case MenuItems.archive:
-      return 'archived';
+      return '归档';
     case MoreMenuItems.restore:
-      return 'restored';
+      return '恢复';
     case MenuItems.delete:
-      return 'deleted';
+      return '删除';
     case MenuItems.dequeue:
-      return 'dequeued';
+      return '移出队列';
     case MenuItems.enqueue:
-      return 'enqueued';
+      return '加入队列';
     case MenuItems.reset:
-      return 'reset';
+      return '重置';
     case MenuItems.publish:
-      return 'published';
+      return '发布';
+    case MenuItems.run:
+      return '启动';
+    case MenuItems.moveTo:
+      return '移动';
+    case MenuItems.retry:
+      return '重试';
+    case MenuItems.continue:
+      return '继续';
     default:
       return verb;
+  }
+};
+
+const operationSuccessLabelMap = (verb: AllMenuItems): string => {
+  switch (verb) {
+    case MenuItems.abort:
+      return '已中止';
+    case MenuItems.archive:
+      return '已归档';
+    case MoreMenuItems.restore:
+      return '已恢复';
+    case MenuItems.delete:
+      return '已删除';
+    case MenuItems.dequeue:
+      return '已移出队列';
+    case MenuItems.enqueue:
+      return '已加入队列';
+    case MenuItems.reset:
+      return '已重置';
+    case MenuItems.publish:
+      return '已发布';
+    case MenuItems.run:
+      return '已启动';
+    case MenuItems.moveTo:
+      return '已移动';
+    case MenuItems.retry:
+      return '已重试';
+    case MenuItems.continue:
+      return '已继续';
+    default:
+      return `${verb}成功`;
   }
 };
 
 export const getNotificationAction = (res: ModelsArchiveManyResponse | TasksArchiveManyResponse, action, operationName: AllMenuItems, entityType: EntityTypeEnum, notificationActions = []) => {
   const totalNum = res.failed.length + res.succeeded.length;
   const allFailed = res.succeeded.length === 0;
+  const succeededNum = res.succeeded.length;
+  const entityLabel = ENTITY_TYPE_LABELS[entityType] ?? entityType;
+  const operationLabel = operationLabelMap(operationName);
+  const operationSuccessLabel = operationSuccessLabelMap(operationName);
+  const successCountText = succeededNum === totalNum ? `${succeededNum}` : `${succeededNum}/${totalNum}`;
 
-  const message = allFailed ? `${totalNum === 1 ? '' : totalNum} ${entityType}${totalNum > 1 ? 's' : ''} failed to ${operationName}` :
-    `${totalNum === 1 ? '' : res.succeeded.length} ${totalNum > res.succeeded.length ? 'of ' + totalNum : ''} ${entityType}${res.succeeded.length > 1 ? 's' : ''} ${pastify(operationName)} successfully`;
+  const message = allFailed ?
+    `${totalNum}个${entityLabel}${operationLabel}失败` :
+    `${successCountText}个${entityLabel}${operationSuccessLabel}`;
 
   return addMessage(res.failed.length > 0 ? 'error' : 'success', message, [
-    res.failed.length > 0 ? {actions: [openMoreInfoPopup({parentAction: action, operationName, res, entityType: EntityTypeEnum[entityType]})], name: 'More info'} : null,
+    res.failed.length > 0 ? {actions: [openMoreInfoPopup({parentAction: action, operationName, res, entityType: EntityTypeEnum[entityType]})], name: '更多信息'} : null,
     ...notificationActions
   ].filter(a => a));
 };

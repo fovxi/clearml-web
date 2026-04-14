@@ -122,7 +122,7 @@ export class OpenDatasetVersionInfoComponent extends PipelineControllerInfoCompo
     const editJsonComponent = this.dialog.open(EditJsonComponent, {
       data: {
         textData: dataset.comment,
-        title: 'EDIT DESCRIPTION',
+        title: '编辑描述',
       } as EditJsonData
     });
     editJsonComponent.afterClosed().subscribe(res => {

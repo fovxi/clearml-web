@@ -119,7 +119,7 @@ export class CommonAuthEffects {
         ]),
         catchError(error => [
           requestFailed(error),
-          setServerError(error, null, 'Unable to update credentials'),
+          setServerError(error, null, '更新凭据失败'),
           deactivateLoader(action.type)])
       ))
   ));

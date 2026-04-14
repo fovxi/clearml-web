@@ -63,7 +63,7 @@ export class ExperimentModelsFormViewComponent extends BaseClickableArtifactComp
   }
 
   copySuccess() {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'Copied to clipboard'));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, '已复制到剪贴板'));
   }
 
   ngOnDestroy(): void {

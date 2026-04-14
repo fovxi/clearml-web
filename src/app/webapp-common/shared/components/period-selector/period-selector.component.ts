@@ -51,10 +51,10 @@ export class PeriodSelectorComponent implements ControlValueAccessor {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   timeFrameOptions = input([
-    { label: 'Current month', value: 'currentMonth' },
-    { label: 'Last 7 days', value: 'week' },
-    { label: 'Last 30 days', value: 'thirtyDays' },
-    { label: 'Last 60 days', value: 'sixtyDays' },
+    { label: '本月', value: 'currentMonth' },
+    { label: '最近 7 天', value: 'week' },
+    { label: '最近 30 天', value: 'thirtyDays' },
+    { label: '最近 60 天', value: 'sixtyDays' },
   ]);
   // Internal form to manage the UI state
   protected rangeControl = new FormGroup({

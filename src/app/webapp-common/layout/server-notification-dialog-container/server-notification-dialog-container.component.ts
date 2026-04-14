@@ -28,7 +28,7 @@ export class ServerNotificationDialogContainerComponent {
           data: {
             title    : notification.title,
             body     : notification.message,
-            yes      : 'Ok',
+            yes      : '确定',
             iconClass: 'i-completed',
           }
         }).afterClosed()

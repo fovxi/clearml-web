@@ -61,7 +61,7 @@ export class ExperimentsCompareDetailsEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            setServerError(error, null, 'The attempt to retrieve your data failed. Refresh your browser and try again.')
+            setServerError(error, null, '获取数据失败，请刷新浏览器后重试。')
           ])
         );
     })
@@ -81,7 +81,7 @@ export class ExperimentsCompareDetailsEffects {
         deactivateLoader(action.type),
         setServerError(
           error, null,
-          'The attempt to retrieve your data failed. Refresh your browser and try again.',
+          '获取数据失败，请刷新浏览器后重试。',
           action.autoRefresh
         )
       ])
@@ -126,4 +126,3 @@ export class ExperimentsCompareDetailsEffects {
       setModels({models: experiments as ModelDetail[]}) : setExperiments({experiments: experiments as IExperimentDetail[]});
   }
 }
-

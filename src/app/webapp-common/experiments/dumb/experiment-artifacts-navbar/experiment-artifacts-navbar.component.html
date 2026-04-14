@@ -1,7 +1,7 @@
 @if (inputModels()?.length || editable()) {
   <mat-expansion-panel [expanded]="true" class="secondary-panel grouped-selection">
     <mat-expansion-panel-header collapsedHeight="40px" expandedHeight="40px" class="active">
-      INPUT MODELS
+      输入模型
     </mat-expansion-panel-header>
     @if (noItemsMode()) {
       <div
@@ -10,7 +10,7 @@
         [routerLink]="'input-model/input-model'"
         [class.selected]="activeSection() === ACTIVE_SECTIONS['input-model']"
         >
-        <i class="icon sm al-ico-import"></i> Input Model
+        <i class="icon sm al-ico-import"></i> 输入模型
       </div>
     } @else {
       @for (model of inputModels(); track model.id + model.taskName) {
@@ -32,7 +32,7 @@
 @if (outputModels()?.length) {
   <mat-expansion-panel [expanded]="true" class="secondary-panel grouped-selection">
     <mat-expansion-panel-header collapsedHeight="40px" expandedHeight="40px" class="active">
-      OUTPUT MODELS
+      输出模型
     </mat-expansion-panel-header>
     @for (model of outputModels(); track model.id + model.taskName) {
       <div
@@ -51,7 +51,7 @@
 @if (dataAuditArtifacts()?.length > 0) {
   <mat-expansion-panel [expanded]="true" class="secondary-panel grouped-selection">
     <mat-expansion-panel-header collapsedHeight="40px" expandedHeight="40px" class="active">
-      DATA AUDIT
+      数据审计
     </mat-expansion-panel-header>
     @for (artifact of dataAuditArtifacts(); track artifact.key + artifact.mode) {
       <div
@@ -69,7 +69,7 @@
 @if (otherArtifacts()?.length > 0) {
   <mat-expansion-panel [expanded]="true" class="secondary-panel grouped-selection">
     <mat-expansion-panel-header collapsedHeight="40px" expandedHeight="40px" class="active">
-      OTHER
+      其他
     </mat-expansion-panel-header>
     @for (artifact of otherArtifacts(); track artifact.key + artifact.mode) {
       <div
