@@ -144,8 +144,8 @@ export const endpointsStatsParamInfo = {
 };
 
 export const modelServingRoutes = [
-  {header: '运行中', link: 'endpoints/active'},
-  {header: '加载中', subHeader: '', link: 'endpoints/loading'}
+  {header: '运行中', featureName: 'active', link: 'endpoints/active'},
+  {header: '加载中', featureName: 'loading', subHeader: '', link: 'endpoints/loading'}
 ] as HeaderNavbarTabConfig[];
 
 export function sortAndFilterEndpoints(endpoints: EndpointStats[] | ContainerInfo[], filters: Record<string, FilterMetadata>, sortFields: SortMeta[]): EndpointStats[] | ContainerInfo[] {

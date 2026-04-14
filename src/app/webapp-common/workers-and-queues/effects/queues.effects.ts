@@ -90,11 +90,11 @@ export class QueuesEffect {
         ConfirmDialogComponent,
         {
           data: {
-            title: 'Delete Queue',
-            body: `Are you sure you would like to delete the "<b>${escape(action.queue.caption)}</b>" queue?`,
+            title: '删除队列',
+            body: `确认删除队列“<b>${escape(action.queue.caption)}</b>”吗？`,
             centerText: true,
-            yes: 'Delete',
-            no: 'Cancel',
+            yes: '删除',
+            no: '取消',
             iconClass: 'al-ico-trash'
           }
         }).afterClosed().pipe(
@@ -106,7 +106,7 @@ export class QueuesEffect {
       catchError(err => [
         deactivateLoader(queueActions.deleteQueue.type),
         requestFailed(err),
-        addMessage(MESSAGES_SEVERITY.ERROR, 'Delete Queue failed')
+        addMessage(MESSAGES_SEVERITY.ERROR, '删除队列失败')
       ])
     );
   });
@@ -126,7 +126,7 @@ export class QueuesEffect {
         catchError(err => [
           deactivateLoader(action.type),
           requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Clear queue failed')])
+          addMessage(MESSAGES_SEVERITY.ERROR, '清空队列失败')])
       ))
     );
   });
@@ -143,7 +143,7 @@ export class QueuesEffect {
         catchError(err => [
           deactivateLoader(action.type),
           requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Move Task failed')])
+          addMessage(MESSAGES_SEVERITY.ERROR, '移动任务失败')])
       ))
     )
   });
@@ -158,7 +158,7 @@ export class QueuesEffect {
       map(() => queueActions.fetchQueue({id: queue.id, autoRefresh: true})),
       catchError(err => [deactivateLoader(action.type),
         requestFailed(err),
-        addMessage(MESSAGES_SEVERITY.ERROR, 'Move Task failed')])
+        addMessage(MESSAGES_SEVERITY.ERROR, '移动任务失败')])
     ))
   ));
 
@@ -176,7 +176,7 @@ export class QueuesEffect {
           queueActions.fetchQueue({id: queue.id}),
           deactivateLoader(action.type),
           requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Move Queue failed')])
+          addMessage(MESSAGES_SEVERITY.ERROR, '移动队列任务失败')])
       )
     ),
   ));
@@ -194,7 +194,7 @@ export class QueuesEffect {
         queueActions.getQueues({})
       ]),
       catchError(err => [deactivateLoader(action.type), requestFailed(err),
-        addMessage(MESSAGES_SEVERITY.ERROR, 'Remove Queue failed')])
+        addMessage(MESSAGES_SEVERITY.ERROR, '移除队列任务失败')])
     ))
   ));
 
@@ -208,7 +208,7 @@ export class QueuesEffect {
           ]
         ),
         catchError(err => [deactivateLoader(action.type), requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, `Failed to move task, ${this.errService.getErrorMsg(err.error)}`)])
+          addMessage(MESSAGES_SEVERITY.ERROR, `移动任务失败，${this.errService.getErrorMsg(err.error)}`)])
       )
     )
   ));
@@ -253,7 +253,7 @@ export class QueuesEffect {
                 metric: 'queueAvgWait',
                 dates: newQueue.dates,
                 stats: [{
-                  aggregation: 'duration',
+                  aggregation: '时长',
                   values: newQueue.avg_waiting_times
                 }]
               }]
@@ -264,16 +264,16 @@ export class QueuesEffect {
                 metric: 'queueLen',
                 dates: newQueue.dates,
                 stats: [{
-                  aggregation: 'count',
+                  aggregation: '数量',
                   values: newQueue.queue_lengths
                 }]
               }]
             }];
             newStats = {
               wait: addStats(currentStats.wait, waitData, action.maxPoints,
-                [{key: 'queueAvgWait'}], 'wait', {queueAvgWait: {title: 'Queue Average Wait Time', multiply: 1}}),
+                [{key: 'queueAvgWait'}], 'wait', {queueAvgWait: {title: '队列平均等待时长', multiply: 1}}),
               length: addStats(currentStats.length, lenData, action.maxPoints,
-                [{key: 'queueLen'}], 'length', {queueLen: {title: 'Queues Average Length', multiply: 1}})
+                [{key: 'queueLen'}], 'length', {queueLen: {title: '队列平均长度', multiply: 1}})
             };
             if (Array.isArray(newStats.wait) && newStats.wait.some(topic => topic.dates.length > 0)) {
               addFullRangeMarkers(newStats.wait, now - range, now);

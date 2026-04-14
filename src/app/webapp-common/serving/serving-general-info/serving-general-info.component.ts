@@ -49,13 +49,13 @@ export class ServingGeneralInfoComponent {
     if (this.endpoint()) {
       const modelUrl = this.endpoint().instances[0]?.reference.find(ref => ref.type === 'url');
       return [
-        {label: 'ENDPOINT NAME', value: this.endpoint().endpoint || NA},
-        {label: 'ENDPOINT URL', value: this.endpoint().url || NA, href: ''},
-        {label: 'MODEL NAME', value: this.endpoint().model || NA, href: modelUrl?.value},
-        {label: 'UPTIME', value: this.endpoint().uptime_sec ? (this.duration.transform(this.endpoint().uptime_sec)) : NA},
-        {label: 'PREPROCESS ARTIFACT', value: this.endpoint().preprocess_artifact || NA},
-        {label: 'INPUT TYPE', value: this.endpoint().input_type || NA},
-        {label: 'INPUT SIZE', value: this.endpoint().input_size ? this.fileSize.transform(this.endpoint().input_size, fileSizeConfigStorage) : NA}
+        {label: '端点名称', value: this.endpoint().endpoint || NA},
+        {label: '端点 URL', value: this.endpoint().url || NA, href: ''},
+        {label: '模型名称', value: this.endpoint().model || NA, href: modelUrl?.value},
+        {label: '运行时长', value: this.endpoint().uptime_sec ? (this.duration.transform(this.endpoint().uptime_sec)) : NA},
+        {label: '预处理工件', value: this.endpoint().preprocess_artifact || NA},
+        {label: '输入类型', value: this.endpoint().input_type || NA},
+        {label: '输入大小', value: this.endpoint().input_size ? this.fileSize.transform(this.endpoint().input_size, fileSizeConfigStorage) : NA}
       ];
     } else {
       return [];
@@ -65,38 +65,38 @@ export class ServingGeneralInfoComponent {
   columns: ISmCol[] = [
     {
       id: 'id',
-      header: 'INSTANCE ID',
+      header: '实例 ID',
       key: '',
       bodyStyleClass: ''
     },
     {
       id: 'uptime_sec',
-      header: 'UPTIME',
+      header: '运行时长',
       key: '',
       style: {maxWidth: '360px'}
     },
     {
       id: 'requests',
-      header: '# REQUESTS',
+      header: '请求数',
       key: ''
     }, {
       id: 'requests_min',
-      header: 'REQUESTS/MIN',
+      header: '每分钟请求数',
       key: ''
     },
     {
       id: 'cpu_count',
-      header: 'CPU COUNT',
+      header: 'CPU 数量',
       key: ''
     },
     {
       id: 'gpu_count',
-      header: 'GPU COUNT',
+      header: 'GPU 数量',
       key: ''
     },
     {
       id: 'latency_ms',
-      header: 'LATENCY',
+      header: '延迟',
       key: '',
       style: {maxWidth: '80px'}
     }

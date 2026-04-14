@@ -76,14 +76,14 @@ export class WorkloadsPageComponent {
   ));
 
   protected timeFrameOptions = [
-    {label: '1 Week', value: (TIME_INTERVALS.WEEK).toString()},
-    {label: '1 Month', value: (TIME_INTERVALS.MONTH).toString()},
-    {label: '3 Months', value: (TIME_INTERVALS.MONTH * 3).toString()},
-    {label: '6 Months', value: (TIME_INTERVALS.MONTH * 6).toString()},
+    {label: '1 周', value: (TIME_INTERVALS.WEEK).toString()},
+    {label: '1 个月', value: (TIME_INTERVALS.MONTH).toString()},
+    {label: '3 个月', value: (TIME_INTERVALS.MONTH * 3).toString()},
+    {label: '6 个月', value: (TIME_INTERVALS.MONTH * 6).toString()},
   ];
   protected nominalOptions = [
-    {label: 'Running Hours', value: 'running'},
-    {label: 'GPU Hours', value: 'gpu'},
+    {label: '运行时长', value: 'running'},
+    {label: 'GPU 时长', value: 'gpu'},
   ];
   protected timeControl = new FormControl<string>({value: this.timeFrameOptions[0].value, disabled: false});
   protected localRunsControl = new FormControl<boolean>(false);

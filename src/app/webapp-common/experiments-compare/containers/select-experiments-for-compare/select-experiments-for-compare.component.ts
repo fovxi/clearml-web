@@ -330,10 +330,10 @@ export class SelectExperimentsForCompareComponent implements OnInit, OnDestroy {
     switch (entityType) {
       case this.entityTypes.controller:
         return INITIAL_CONTROLLER_TABLE_COLS.map((col) =>
-          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: 'RUN'} : col);
+          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: '运行'} : col);
       case this.entityTypes.dataset:
         return INITIAL_CONTROLLER_TABLE_COLS.map((col) =>
-          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: 'VERSION NAME'} : col);
+          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: '版本名称'} : col);
       default:
         return INITIAL_EXPERIMENT_TABLE_COLS;
     }

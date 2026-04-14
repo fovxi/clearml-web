@@ -88,7 +88,7 @@ export class OpenDatasetsComponent extends PipelinesPageComponent implements OnI
         breadcrumbOptions: {
           showProjects: !!selectedProject,
           featureBreadcrumb: {
-            name: 'DATASETS',
+            name: '数据集',
             url: defaultNestedModeForFeature['datasets'] ? 'datasets/simple/*/projects' : 'datasets'
           },
           projectsOptions: {

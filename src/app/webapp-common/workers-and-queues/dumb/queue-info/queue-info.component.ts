@@ -72,9 +72,9 @@ export class QueueInfoComponent {
     {header: '', class: ''}
   ];
   public readonly workersCols = [
-    {header: 'NAME', class: ''},
+    {header: '名称', class: ''},
     {header: 'IP', class: ''},
-    {header: 'CURRENTLY EXECUTING', class: ''}
+    {header: '当前执行任务', class: ''}
   ];
 
   @HostListener('document:click', ['$event'])

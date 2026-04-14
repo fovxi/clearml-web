@@ -16,7 +16,13 @@ import {MatIcon} from '@angular/material/icon';
 import {TooltipDirective} from '@common/shared/ui-components/indicators/tooltip/tooltip.directive';
 import {fromEvent} from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-declare const ace;
+
+type AceGlobal = {
+  config: {
+    loadModule: (module: string) => void;
+  };
+  edit: (element: HTMLElement) => Ace.Editor;
+};
 
 @Component({
     selector: 'sm-code-editor',
@@ -45,10 +51,9 @@ export class CodeEditorComponent {
   private aceMode = computed(() => 'ace/mode/' + this .mode());
   private theme = this.store.selectSignal(selectThemeMode);
   private aceReady = this.store.selectSignal(selectAceReady);
+  private searchboxLoaded = false;
 
   constructor() {
-    ace.config.loadModule('ace/ext/searchbox');
-
     fromEvent(document, 'keyup')
       .pipe(takeUntilDestroyed())
       .subscribe((event: KeyboardEvent) => {
@@ -91,13 +96,28 @@ export class CodeEditorComponent {
 
   private aceEditor: Ace.Editor;
 
+  private getAceGlobal(): AceGlobal | null {
+    return (window as Window & {ace?: AceGlobal}).ace ?? null;
+  }
+
   private initAceEditor() {
-    if (!this.aceEditorElement()) {
+    const aceGlobal = this.getAceGlobal();
+    if (this.aceEditor) {
+      return;
+    }
+
+    if (!this.aceEditorElement() || !aceGlobal) {
       this.aceEditor = null;
       return;
     }
+
+    if (!this.searchboxLoaded) {
+      aceGlobal.config.loadModule('ace/ext/searchbox');
+      this.searchboxLoaded = true;
+    }
+
     this.zone.runOutsideAngular(() => {
-      const aceEditor = ace.edit(this.aceEditorElement().nativeElement) as Ace.Editor;
+      const aceEditor = aceGlobal.edit(this.aceEditorElement().nativeElement) as Ace.Editor;
       this.aceEditor = aceEditor;
       aceEditor.setOptions({
         readOnly: this.readonly(),
@@ -150,6 +170,6 @@ export class CodeEditorComponent {
   }
 
   openSearch() {
-    this.aceEditor.execCommand('find');
+    this.aceEditor?.execCommand('find');
   }
 }

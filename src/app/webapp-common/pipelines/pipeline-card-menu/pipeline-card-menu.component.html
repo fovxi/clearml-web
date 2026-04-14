@@ -3,14 +3,14 @@
 </button>
 <mat-menu #pipelinesMenu="matMenu">
   <button mat-menu-item (click)="rename.emit()">
-    <mat-icon fontSet="al" [fontIcon]="icons.EDIT"></mat-icon>Rename
+    <mat-icon fontSet="al" [fontIcon]="icons.EDIT"></mat-icon>重命名
   </button>
   <button mat-menu-item [matMenuTriggerFor]="tagsMenu.matMenu">
-    <mat-icon fontSet="al" [fontIcon]="icons.TAG"></mat-icon>Add Tag
+    <mat-icon fontSet="al" [fontIcon]="icons.TAG"></mat-icon>添加标签
   </button>
   <hr>
   <button mat-menu-item (click)="delete.emit()">
-    <mat-icon fontSet="al" [fontIcon]="icons.REMOVE"></mat-icon>Delete
+    <mat-icon fontSet="al" [fontIcon]="icons.REMOVE"></mat-icon>删除
   </button>
 </mat-menu>
 <sm-tags-menu

@@ -54,7 +54,7 @@ export class WorkersStatsComponent {
     chart: this.chartData(),
     refreshChart: signal(!this.chartData())
   }))
-  public yAxisLabel = computed(() => this.activeWorker() ? this.yAxisLabels[this.currentParam()] : 'Count');
+  public yAxisLabel = computed(() => this.activeWorker() ? this.yAxisLabels[this.currentParam()] : '数量');
 
   formatY = computed(() => {
     // Capture the dependencies
@@ -96,18 +96,18 @@ export class WorkersStatsComponent {
 
   timeFrameOptions = timeFrameOptions;
   public chartParamOptions: IOption[] = [
-    {label: 'CPU and GPU Usage', value: 'cpu_usage;gpu_usage'},
-    {label: 'Memory Usage', value: 'memory_used'},
-    {label: 'GPU Memory', value: 'gpu_memory_used'},
-    {label: 'Network Usage', value: 'network_rx;network_tx'}
+    {label: 'CPU 与 GPU 使用率', value: 'cpu_usage;gpu_usage'},
+    {label: '内存占用', value: 'memory_used'},
+    {label: 'GPU 显存占用', value: 'gpu_memory_used'},
+    {label: '网络使用量', value: 'network_rx;network_tx'}
     //    {label: 'Frames Processed', value: 'frames'},
   ];
 
   public yAxisLabels = {
-    'cpu_usage;gpu_usage': 'Usage %',
-    memory_used: 'Bytes',
-    gpu_memory_used: 'Bytes',
-    'network_rx;network_tx': 'Bytes/sec'
+    'cpu_usage;gpu_usage': '使用率 %',
+    memory_used: '字节',
+    gpu_memory_used: '字节',
+    'network_rx;network_tx': '字节/秒'
   };
 
   chartParamChange(event: string) {

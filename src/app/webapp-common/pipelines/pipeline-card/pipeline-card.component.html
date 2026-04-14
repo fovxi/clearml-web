@@ -1,6 +1,6 @@
 <sm-card class="project-card"
   (click)="projectClicked()"
-  [isExample]="!['全部任务'].includes(project.name) && !isRootProject && (!project.company || ! project.company.id)"
+  [isExample]="project.id !== '*' && !isRootProject && (!project.company || ! project.company.id)"
   [showFolder]="false"
   [oneTabMode]="true"
   [subFolderTitle]="project?.sub_projects?.length + ' 个子项目'"

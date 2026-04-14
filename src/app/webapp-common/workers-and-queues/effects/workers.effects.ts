@@ -108,7 +108,7 @@ export class WorkersEffects {
           }),
           catchError(err => [requestFailed(err),
             workersActions.setStats({data: []}),
-            addMessage(MESSAGES_SEVERITY.WARN, 'Failed to fetching activity worker statistics')])
+            addMessage(MESSAGES_SEVERITY.WARN, '获取工作节点活动统计失败')])
         );
       } else {
         const req: WorkersGetActivityReportRequest = {
@@ -129,14 +129,14 @@ export class WorkersEffects {
                   metric: 'total',
                   dates: res.total.dates,
                   stats: [{
-                    aggregation: 'count',
+                    aggregation: '数量',
                     values: res.total.counts
                   }]
                 }, {
                   metric: 'active',
                   dates: res.active.dates,
                   stats: [{
-                    aggregation: 'count',
+                    aggregation: '数量',
                     values: res.active.counts
                   }]
                 }]
@@ -144,8 +144,8 @@ export class WorkersEffects {
               result = addStats(currentStats, statsData, action.maxPoints,
                 [{key: 'active'}, {key: 'total'}], 'activity',
                 {
-                  total: {title: 'Total Workers', multiply: 1},
-                  active: {title: 'Active Workers', multiply: 1}
+                  total: {title: '工作节点总数', multiply: 1},
+                  active: {title: '活跃工作节点', multiply: 1}
                 });
             }
             return [workersActions.setStats({data: result}), hideNoStatsNotice()];

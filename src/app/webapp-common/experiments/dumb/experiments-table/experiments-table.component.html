@@ -11,7 +11,7 @@
     [columns]="tableCols()"
     [lazyLoading]="true"
     [minimizedView]="minimizedView()"
-    minimizedTableHeader="{{entityType().replace('pipeline ', '')}}S LIST"
+    [minimizedTableHeader]="(entityType() | replaceViaMapPipe: entityTypeLabels) + '列表'"
     [noMoreData]="noMoreExperiments()"
     [autoLoadMore]="true"
     [selection]="selectedExperiment()"
@@ -42,7 +42,7 @@
         [subValue]="filtersSubValues()[experimentsTableColFields.TAGS]"
         [columns]="initialColumns()"
         [andFilter]="filtersMatch()['tags'] === 'AND'"
-        fixedOptionsSubheader="System tags"
+        fixedOptionsSubheader="系统标签"
         (subFilterChanged)="tableFilterChanged({id:'system_tags'}, $event)"
         (filterChanged)="tableFilterChanged({id: $event.col}, $event)"
         (menuOpened)="columnFilterOpened($event)"
@@ -87,7 +87,7 @@
         [options]="filtersOptions()[col.id] | filter:searchValues[col.id]:'label'"
         [sortOrder]="tableSortFieldsObject()[col.id]"
         [tooltip]="col.metric_hash || col.isParam"
-        [fixedOptionsSubheader]="col.id === experimentsTableColFields.TAGS ? 'System tags' : ''"
+        [fixedOptionsSubheader]="col.id === experimentsTableColFields.TAGS ? '系统标签' : ''"
         [andFilter]="col.andFilter ? filtersMatch()[col.id] === 'AND' : null"
         (sortOrderChanged)="onSortChanged($event, col.id)"
         (filterChanged)="tableFilterChanged(col, $event);"
@@ -162,7 +162,7 @@
           <mat-checkbox #cb
                         smClickStopPropagation
                         data-id="Select All Loaded Tasks"
-                        [smTooltip]="selectionReachedLimit() && !(checkedExperiments() | isRowSelected:experiment)? 'Reached selection limit': null"
+                        [smTooltip]="selectionReachedLimit() && !(checkedExperiments() | isRowSelected:experiment)? '已达到选择上限': null"
                         [disabled]="selectionReachedLimit() && !(checkedExperiments() | isRowSelected:experiment)"
                         [checked]="checkedExperiments() | isRowSelected:experiment"
                         (click)="rowSelectedChanged({ value: cb.checked, event: $event}, experiment)">

@@ -40,7 +40,7 @@ import {
 } from '../../actions/common-experiments-view.actions';
 import {createFiltersFromStore, excludedKey, uniqueFilterValueAndExcluded} from '@common/shared/utils/tableParamEncode';
 import {getRoundedNumber} from '../../shared/common-experiments.utils';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
 import {IExperimentInfo, ISelectedExperiment} from '~/features/experiments/shared/experiment-info.model';
 import {computedPrevious} from 'ngxtension/computed-previous';
@@ -171,6 +171,7 @@ export class ExperimentsTableComponent extends BaseTableView {
   }>();
   clearAllFilters = output<Record<string, FilterMetadata>>();
   protected readonly experimentsTableColFields = EXPERIMENTS_TABLE_COL_FIELDS;
+  protected readonly entityTypeLabels = ENTITY_TYPE_LABELS;
   protected readonly timeFormatString = TIME_FORMAT_STRING;
   protected isDevelopment = isDevelopment;
   protected readonly colHeaderTypeEnum = ColHeaderTypeEnum;
@@ -279,7 +280,7 @@ export class ExperimentsTableComponent extends BaseTableView {
   calcOptionalTagsList() {
     const tags = uniqueFilterValueAndExcluded(this.tags() || [], this.filtersValues()[EXPERIMENTS_TABLE_COL_FIELDS.TAGS])
       .map(tag => ({
-        label: tag === null ? '(No tags)' : tag,
+        label: tag === null ? '（无标签）' : tag,
         value: tag
       }) as IOption);
     const selectedTags = (this.sortByFilterValues()[EXPERIMENTS_TABLE_COL_FIELDS.TAGS] || [])

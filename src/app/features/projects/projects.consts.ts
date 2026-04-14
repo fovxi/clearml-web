@@ -5,10 +5,10 @@ import EntityEnum = ProjectsGetUserNamesRequest.EntityEnum;
 export const PROJECTS_FEATURES = ['models',' experiments', 'overview'];
 
 export const PROJECT_ROUTES = [
-  {header: '概览', id: 'overviewTab'},
-  {header: '工作负载', id: 'workloadTab'},
-  {header: '任务', id: 'experimentsTab'},
-  {header: '模型', id: 'modelsTab'}
+  {header: 'overview', id: 'overviewTab'},
+  {header: 'workloads', id: 'workloadTab'},
+  {header: 'tasks', id: 'experimentsTab'},
+  {header: 'models', id: 'modelsTab'}
 ] as HeaderNavbarTabConfig[];
 
 export const fetchUsersForTypes: EntityEnum[] = ['task', 'model']

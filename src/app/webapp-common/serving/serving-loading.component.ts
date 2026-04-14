@@ -139,7 +139,7 @@ export class ServingLoadingComponent extends BaseEntityPageComponent implements 
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: 'Search for endpoints'}));
+    this.store.dispatch(initSearch({payload: '搜索服务端点'}));
     this.searchQuery$
       .pipe(
         takeUntilDestroyed(),
@@ -239,7 +239,7 @@ export class ServingLoadingComponent extends BaseEntityPageComponent implements 
         filter(config => !!config),
       )
       .subscribe(() => {
-        this.store.dispatch(headerActions.setTabs({contextMenu: modelServingRoutes, active: modelServingRoutes[1].link as string}));
+        this.store.dispatch(headerActions.setTabs({contextMenu: modelServingRoutes, active: modelServingRoutes[1].featureName as string}));
       });
   }
 

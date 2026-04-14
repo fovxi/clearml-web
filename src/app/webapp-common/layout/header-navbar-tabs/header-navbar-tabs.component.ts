@@ -5,7 +5,6 @@ import {headerActions} from '@common/core/actions/router.actions';
 import {MatTab, MatTabGroup, MatTabLabel} from '@angular/material/tabs';
 import {CheckPermissionDirective} from '~/shared/directives/check-permission.directive';
 import {NavigationCancel, NavigationCancellationCode, NavigationEnd, Router} from '@angular/router';
-import {UpperCasePipe} from '@angular/common';
 import {TooltipDirective} from '@common/shared/ui-components/indicators/tooltip/tooltip.directive';
 import {SafeHtmlPipe} from 'primeng/menu';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
@@ -28,7 +27,6 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
     MatTab,
     CheckPermissionDirective,
     MatTabLabel,
-    UpperCasePipe,
     TooltipDirective,
     SafeHtmlPipe,
     FormsModule
@@ -42,6 +40,14 @@ export class HeaderNavbarTabsComponent {
     workloads: '工作负载',
     tasks: '任务',
     models: '模型',
+    workers: '工作节点',
+    queues: '队列',
+    details: '详情',
+    hyperparameters: '超参数',
+    scalars: '标量',
+    plots: '图表',
+    'debug samples': '调试样本',
+    network: '网络',
   };
 
   protected contextNavbar = this.store.selectSignal(selectHeaderMenu);
@@ -54,10 +60,26 @@ export class HeaderNavbarTabsComponent {
   private lastKnownGoodIndex = this.getCurrentTabIndexFromRoute();
   private lastKnownGoodContextTabs = this.contextNavbar();
 
+  private getRouteActiveKey(route: {featureName?: string; link?: string | string[]; header?: string} | null | undefined): string {
+    if (!route) {
+      return '';
+    }
+
+    if (route.featureName) {
+      return route.featureName;
+    }
+
+    if (route.link) {
+      return Array.isArray(route.link) ? String(route.link.at(-1) ?? '') : route.link;
+    }
+
+    return route.header ?? '';
+  }
+
   setFeature(index) {
     const route = this.contextNavbar()?.[index];
     if (route?.link && index !== this.index()) {
-      this.store.dispatch(headerActions.setActiveTab({activeFeature: route.featureName ?? route.header}));
+      this.store.dispatch(headerActions.setActiveTab({activeFeature: this.getRouteActiveKey(route)}));
       if (typeof route.link === 'string') {
         this.router.navigateByUrl(route.link as string);
       } else {
@@ -93,7 +115,7 @@ export class HeaderNavbarTabsComponent {
           if (this.lastKnownGoodContextTabs && (this.tabGroup()?.selectedIndex !== this.lastKnownGoodIndex || this.lastKnownGoodContextTabs?.length !== this.contextNavbar()?.length)) {
             this.store.dispatch(headerActions.setTabs({
               contextMenu: this.lastKnownGoodContextTabs,
-              active: this.lastKnownGoodContextTabs?.[this.lastKnownGoodIndex]?.header
+              active: this.getRouteActiveKey(this.lastKnownGoodContextTabs?.[this.lastKnownGoodIndex])
             }));
           }
         }

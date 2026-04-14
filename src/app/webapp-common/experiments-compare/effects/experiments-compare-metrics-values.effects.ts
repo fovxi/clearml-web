@@ -42,7 +42,7 @@ export class ExperimentsCompareMetricsValuesEffects {
         id: action.taskIds,
         // eslint-disable-next-line @typescript-eslint/naming-convention
         only_fields: ['last_metrics', 'name', 'last_update', 'last_iteration', 'last_iteration', 'project.name', 'tags', 'ready']
-      }).pipe(map((res: ModelsGetAllExResponse) => ({models: res.models.map(model => ({...model, status: model.ready ? 'Ready' : 'Draft'}))})))
+      }).pipe(map((res: ModelsGetAllExResponse) => ({models: res.models.map(model => ({...model, status: model.ready ? '可用' : '草稿'}))})))
       : this.tasksApiService.tasksGetAllEx({
         id: action.taskIds,
         // eslint-disable-next-line @typescript-eslint/naming-convention

@@ -31,7 +31,10 @@ export class StatusIconLabelComponent {
   protected showSpinner = computed(() => [
     TASKS_STATUS.IN_PROGRESS,
     TASKS_STATUS.FAILED,
-    TASKS_STATUS.STOPPED
+    TASKS_STATUS.STOPPED,
+    '运行中',
+    '失败',
+    '已中止'
   ].includes(this.status()));
 
   statusIcon = computed(() => {
@@ -39,6 +42,7 @@ export class StatusIconLabelComponent {
       case 'created':
       case 'draft':
       case 'Draft':
+      case '草稿':
         return 'al-ico-status-draft';
       case 'completed':
       case 'stopped':
@@ -47,20 +51,28 @@ export class StatusIconLabelComponent {
       case 'Ready':
       case 'available':
       case 'committed':
+      case '已完成':
+      case '最终版本':
+      case '可用':
         return 'al-ico-completed';
       case 'committing':
       case 'in_progress':
       case 'Uploading':
       case 'active':
       case 'routing':
+      case '上传中':
+      case '运行中':
         return 'al-ico-running';
       case 'failed':
+      case '失败':
         return 'al-ico-dialog-x';
       case 'queued':
       case 'pending':
+      case '等待中':
         return 'al-ico-pending';
       case 'published':
       case 'publishing':
+      case '已发布':
         return 'al-ico-published';
       default:
         return '';

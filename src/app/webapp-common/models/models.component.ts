@@ -261,7 +261,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: 'Search for models'}));
+    this.store.dispatch(initSearch({payload: '搜索模型'}));
     this.searchQuery$
       .pipe(
         takeUntilDestroyed(),
@@ -517,7 +517,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
   }
 
   downloadTableAsCSV() {
-    this.table.table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*'? 'All': this.selectedProject()?.basename?.substring(0, 60)} Models`);
+    this.table.table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*'? '全部': this.selectedProject()?.basename?.substring(0, 60)} 模型`);
   }
 
   downloadFullTableAsCSV() {
@@ -532,7 +532,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
           this.store.dispatch(setBreadcrumbsOptions({
             breadcrumbOptions: {
               showProjects: false,
-              featureBreadcrumb: {name: 'Models'},
+              featureBreadcrumb: {name: '模型'},
             }
           }));
         } else {
@@ -545,7 +545,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
               },
               ...(this.projectDeepMode() && selectedProject?.id !== '*' && {
                 subFeatureBreadcrumb: {
-                  name: 'All Models'
+                  name: '全部模型'
                 }
               }),
               projectsOptions: {
@@ -555,7 +555,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
                 showSelectedProject: selectedProject?.id !== '*',
                 ...(selectedProject && {
                   selectedProjectBreadcrumb: {
-                    name: selectedProject?.id === '*' ? 'All Models' : selectedProject?.basename,
+                    name: selectedProject?.id === '*' ? '全部模型' : selectedProject?.basename,
                     url: `projects/${selectedProject?.id}/projects`
                   }
                 })

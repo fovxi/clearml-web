@@ -53,7 +53,7 @@ export class OpenDatasetVersionsComponent extends ControllersComponent {
   protected override get tableCols() {
     return INITIAL_CONTROLLER_TABLE_COLS.map((col) =>
       col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ?
-        {...col, header: 'VERSION NAME'} :
+        {...col, header: '版本名称'} :
         col.id === EXPERIMENTS_TABLE_COL_FIELDS.SELECTED ? {...col, disablePointerEvents: false} : col);
   }
 
@@ -99,7 +99,7 @@ export class OpenDatasetVersionsComponent extends ControllersComponent {
   }
 
   override downloadTableAsCSV() {
-    this.table().table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*'? 'All': this.selectedProject()?.basename?.substring(0,60)} Datasets`);
+    this.table().table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*'? '全部': this.selectedProject()?.basename?.substring(0,60)} 数据集`);
   }
   override setupBreadcrumbsOptions() {
     effect(() => {

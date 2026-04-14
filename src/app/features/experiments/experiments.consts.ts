@@ -15,17 +15,16 @@ export interface Link {
 }
 
 export const infoTabLinks = [
-  {name: 'execution', url: ['execution']},
-  {name: 'configuration', url: ['hyper-params', 'hyper-param', '_empty_'], activeBy: 'hyper-params'},
-  {name: 'artifacts', url: ['artifacts']},
-  {name: 'info', url: ['general']},
-  {name: 'console', url: ['log'], output: true},
-  {name: 'scalars', url: ['scalars'], output: true},
-  {name: 'plots', url: ['plots'], output: true},
-  {name: 'debug samples', url: ['debugImages'], output: true}
+  {name: '执行', url: ['execution']},
+  {name: '配置', url: ['hyper-params', 'hyper-param', '_empty_'], activeBy: 'hyper-params'},
+  {name: '工件', url: ['artifacts']},
+  {name: '信息', url: ['general']},
+  {name: '控制台', url: ['log'], output: true},
+  {name: '标量', url: ['scalars'], output: true},
+  {name: '图表', url: ['plots'], output: true},
+  {name: '调试样本', url: ['debugImages'], output: true}
 ];
 
 export const FILTERED_EXPERIMENTS_STATUS_OPTIONS = (isDataset) => Object.entries(EXPERIMENTS_STATUS_LABELS)
   .filter(([key]: [TaskStatusEnum, string]) => key !== TaskStatusEnum.Closed)
   .map(([key, val]) => ({label: isDataset && DATASETS_STATUS_LABEL[key] || val, value: key}));
-

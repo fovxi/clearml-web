@@ -31,21 +31,21 @@ export class ExperimentDetailsReverterService extends ExperimentDetailsReverterS
 
   public revertInfo(experiment: ITask) {
     return {
-      archive: experiment.system_tags.includes(TAGS.HIDDEN) ? 'Yes' : 'No',
-      'changed at': experiment.last_change && formatDate(experiment.last_change, TIME_FORMAT_STRING, this.locale) || NA,
-      'last iteration': experiment.last_iteration || NA,
-      'status message': experiment.status_message || NA,
-      'status reason': experiment.status_reason || NA,
-      'created at': experiment.created && formatDate(experiment.created, TIME_FORMAT_STRING, this.locale) || NA,
-      'started at': experiment.started && formatDate(experiment.started, TIME_FORMAT_STRING, this.locale) || NA,
-      'last update at': experiment.last_update && formatDate(experiment.last_update, TIME_FORMAT_STRING, this.locale) || NA,
-      'completed at': experiment.completed && formatDate(experiment.completed, TIME_FORMAT_STRING, this.locale) || NA,
-      'run time': this.durationPipe.transform(experiment.active_duration) || NA,
-      'queue': experiment.execution.queue?.display_name || experiment.execution.queue?.name || NA,
-      'worker': experiment.last_worker || NA,
-      'created by': experiment.user.name || NA,
-      'parent task': (experiment.parent as ITask)?.name || NA,
-      'project': experiment.project?.name || NA,
+      archive: experiment.system_tags.includes(TAGS.HIDDEN) ? '是' : '否',
+      '变更时间': experiment.last_change && formatDate(experiment.last_change, TIME_FORMAT_STRING, this.locale) || NA,
+      '最后迭代': experiment.last_iteration || NA,
+      '状态信息': experiment.status_message || NA,
+      '状态原因': experiment.status_reason || NA,
+      '创建时间': experiment.created && formatDate(experiment.created, TIME_FORMAT_STRING, this.locale) || NA,
+      '开始时间': experiment.started && formatDate(experiment.started, TIME_FORMAT_STRING, this.locale) || NA,
+      '最后更新时间': experiment.last_update && formatDate(experiment.last_update, TIME_FORMAT_STRING, this.locale) || NA,
+      '完成时间': experiment.completed && formatDate(experiment.completed, TIME_FORMAT_STRING, this.locale) || NA,
+      '运行时长': this.durationPipe.transform(experiment.active_duration) || NA,
+      '队列': experiment.execution.queue?.display_name || experiment.execution.queue?.name || NA,
+      '工作节点': experiment.last_worker || NA,
+      '创建者': experiment.user.name || NA,
+      '父任务': (experiment.parent as ITask)?.name || NA,
+      '项目': experiment.project?.name || NA,
       ...Object.entries(experiment.runtime || {})
         .filter(([key,]) => !key.startsWith('_'))
         .reduce((res, [key, val]) => {
@@ -57,8 +57,8 @@ export class ExperimentDetailsReverterService extends ExperimentDetailsReverterS
 
   revertArtifacts(experiment: ITask): any {
     const result = {
-      ' input models': this.revertModels(experiment.models.input),
-      ' output models': this.revertModels(experiment.models.output)
+      ' 输入模型': this.revertModels(experiment.models.input),
+      ' 输出模型': this.revertModels(experiment.models.output)
     };
     experiment.execution.artifacts.forEach(artifact => result[artifact.key] = this.revertArtifact(artifact));
     return result;
@@ -77,9 +77,9 @@ export class ExperimentDetailsReverterService extends ExperimentDetailsReverterS
     const {uri, content_size, hash, timestamp, display_data, mode, key, type_data, ...restArtifact} = artifact;
     const result = {
       ...restArtifact,
-      'file size': content_size,
-      'file hash': hash,
-      'file path': {
+      '文件大小': content_size,
+      '文件哈希': hash,
+      '文件路径': {
         dataDictionary: true,
         link: uri,
         dataValue: uri
@@ -88,9 +88,9 @@ export class ExperimentDetailsReverterService extends ExperimentDetailsReverterS
 
     if (type_data) {
       const preview = type_data.preview && type_data.preview.trim().split('\n') || [];
-      result['content type'] = type_data['content_type'] || '';
-      result['preview'] = (preview.length < 3000 && preview[0]?.length < 3000) ? preview : [`** Content is too large to display. Hash: ${crc32(type_data.preview)}`];
-      result['data hash'] = type_data.data_hash || '';
+      result['内容类型'] = type_data['content_type'] || '';
+      result['预览'] = (preview.length < 3000 && preview[0]?.length < 3000) ? preview : [`** 内容过大，无法显示。哈希：${crc32(type_data.preview)}`];
+      result['数据哈希'] = type_data.data_hash || '';
     }
     display_data.forEach(pair => result[pair[0]] = pair[1]);
 
@@ -125,7 +125,7 @@ export class ExperimentDetailsReverterService extends ExperimentDetailsReverterS
     let diff = experiment?.script?.diff as any;
     if (diff) {
       diff = (Array.isArray(diff)) ? diff : diff.split('\n');
-      diff = (diff.length < 3000 && diff[0]?.length < 3000) ? diff : [`** Content is too large to display. Hash: ${crc32(experiment?.script?.diff)}`];
+      diff = (diff.length < 3000 && diff[0]?.length < 3000) ? diff : [`** 内容过大，无法显示。哈希：${crc32(experiment?.script?.diff)}`];
     }
 
     return {

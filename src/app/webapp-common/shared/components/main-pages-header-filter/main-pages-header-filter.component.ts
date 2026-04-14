@@ -126,7 +126,7 @@ export class MainPagesHeaderFilterComponent {
     searchableFilter: true,
     filterable: true,
     sortable: false,
-    header: 'USER',
+    header: '用户',
     style: {width: '115px'},
     showInCardFilters: true
   };

@@ -55,19 +55,19 @@ export class ServingMonitorComponent {
 
   timeFrameOptions = timeFrameOptions;
   public chartParamOptions: { label: string; value: MetricTypeEnum }[] = [
-    {label: 'NUMBER OF REQUESTS', value: MetricTypeEnum.Requests},
-    {label: 'REQUESTS PER MINUTE', value: MetricTypeEnum.RequestsMin},
-    {label: 'AVERAGE LATENCY (ms)', value: MetricTypeEnum.LatencyMs},
-    {label: 'CPU COUNT', value: MetricTypeEnum.CpuCount},
-    {label: 'GPU COUNT', value: MetricTypeEnum.GpuCount},
-    {label: 'AVERAGE CPU LOAD (%)', value: MetricTypeEnum.CpuUtil},
-    {label: 'AVERAGE GPU UTILIZATION (%)', value: MetricTypeEnum.GpuUtil},
-    {label: 'MEMORY USAGE (GB)', value: MetricTypeEnum.RamTotal},
-    {label: 'MEMORY FREE (GB)', value: MetricTypeEnum.RamFree},
-    {label: 'GPU MEMORY USAGE (GB)', value: MetricTypeEnum.GpuRamTotal},
-    {label: 'GPU MEMORY FREE (GB)', value: MetricTypeEnum.GpuRamFree},
-    {label: 'NETWORK THROUGHPUT RX (MBps)', value: MetricTypeEnum.NetworkRx},
-    {label: 'NETWORK THROUGHPUT TX (MBps)', value: MetricTypeEnum.NetworkTx}
+    {label: '请求总数', value: MetricTypeEnum.Requests},
+    {label: '每分钟请求数', value: MetricTypeEnum.RequestsMin},
+    {label: '平均延迟 (ms)', value: MetricTypeEnum.LatencyMs},
+    {label: 'CPU 数量', value: MetricTypeEnum.CpuCount},
+    {label: 'GPU 数量', value: MetricTypeEnum.GpuCount},
+    {label: '平均 CPU 负载 (%)', value: MetricTypeEnum.CpuUtil},
+    {label: '平均 GPU 利用率 (%)', value: MetricTypeEnum.GpuUtil},
+    {label: '内存使用量 (GB)', value: MetricTypeEnum.RamTotal},
+    {label: '内存空闲量 (GB)', value: MetricTypeEnum.RamFree},
+    {label: 'GPU 显存使用量 (GB)', value: MetricTypeEnum.GpuRamTotal},
+    {label: 'GPU 显存空闲量 (GB)', value: MetricTypeEnum.GpuRamFree},
+    {label: '网络吞吐量 RX (MBps)', value: MetricTypeEnum.NetworkRx},
+    {label: '网络吞吐量 TX (MBps)', value: MetricTypeEnum.NetworkTx}
   ];
 
   chartsList: GroupedList = this.chartParamOptions.reduce((acc, curr) => {

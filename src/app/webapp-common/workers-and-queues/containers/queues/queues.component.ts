@@ -73,7 +73,7 @@ export class QueuesComponent {
   protected queuesManager = this.route.snapshot.data.queuesManager;
 
   constructor() {
-    this.store.dispatch(initSearch({payload: 'Search for queues'}));
+    this.store.dispatch(initSearch({payload: '搜索队列'}));
     this.store.dispatch(queueActions.getQueues({}));
 
     effect(() => {
@@ -116,10 +116,10 @@ export class QueuesComponent {
   clearQueue(queue: Queue) {
     this.dialog.open<ConfirmDialogComponent, ConfirmDialogConfig, boolean>(ConfirmDialogComponent, {
       data: {
-        title: 'Clear all pending tasks',
-        body: `Are you sure you want to dequeue the ${queue.entries_count} task${queue.entries_count > 1 ? 's' : ''} currently pending on the ${queue.caption} queue?`,
-        yes: 'Clear Queue',
-        no: 'Cancel',
+        title: '清空所有待处理任务',
+        body: `确认将队列 ${queue.caption} 中当前待处理的 ${queue.entries_count} 个任务全部出队吗？`,
+        yes: '清空队列',
+        no: '取消',
         iconClass: 'al-ico-alert',
         iconColor: 'var(--color-warning)'
       }
@@ -183,6 +183,6 @@ export class QueuesComponent {
   }
 
   copySuccess(key: string) {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, `Queue ${key} copied to clipboard`));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, `队列 ${key} 已复制到剪贴板`));
   }
 }

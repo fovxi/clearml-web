@@ -21,12 +21,12 @@ export const WORKERS_TABLE_COL_FIELDS = {
 
 const MiB                            = 1024 * 1024;
 export const WORKER_STATS_PARAM_INFO = {
-  cpu_usage      : {title: 'CPU', multiply: 1, suffix: 'Usage' },
-  gpu_usage      : {title: 'GPU', multiply: 1, suffix: 'Usage' },
-  memory_used    : {title: 'Memory Used', multiply: MiB},
-  gpu_memory_used: {title: 'GPU', multiply: MiB, suffix: 'Memory' },
-  network_rx     : {title: 'Network Receive', multiply: MiB},
-  network_tx     : {title: 'Network Transmit', multiply: MiB}
+  cpu_usage      : {title: 'CPU', multiply: 1, suffix: '使用率' },
+  gpu_usage      : {title: 'GPU', multiply: 1, suffix: '使用率' },
+  memory_used    : {title: '内存占用', multiply: MiB},
+  gpu_memory_used: {title: 'GPU', multiply: MiB, suffix: '显存' },
+  network_rx     : {title: '网络接收', multiply: MiB},
+  network_tx     : {title: '网络发送', multiply: MiB}
 };
 
 const HOUR  = 60 * 60;

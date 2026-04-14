@@ -316,7 +316,7 @@ export class ProjectsPageComponent implements OnDestroy {
   }
 
   public projectCardClicked(project: ProjectsGetAllResponseSingle) {
-    const allExperiments = project.name === '全部任务';
+    const allExperiments = project.id === '*';
     if (allExperiments) {
       this.store.dispatch(setDeep({deep: true}));
     }

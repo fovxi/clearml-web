@@ -10,7 +10,7 @@
         (projectNameChanged)="projectNameChanged.emit({id: project.id, name:$event})"
         (moveToClicked)="moveToClicked.emit($event)"
         (projectSettingsClicked)="projectSettingsClicked.emit($event)"
-        [hideMenu]="['全部任务'].includes(project.name) || $any(project).isRoot || isExample(project)"
+        [hideMenu]="project.id === '*' || $any(project).isRoot || isExample(project)"
         [project]="project"
         [projectsNames]="projectsNames()"
       ></sm-project-card>

@@ -10,8 +10,8 @@
     <sm-button-toggle
       left-items
       [options]="[
-             {value: false, icon: 'al-ico-flat-view',  label: 'List view'},
-             {value: true, icon:'al-ico-project-path', label: 'Project view'}
+             {value: false, icon: 'al-ico-flat-view',  label: '列表视图'},
+             {value: true, icon:'al-ico-project-path', label: '项目视图'}
             ]"
       [ngModel]="true"
       (ngModelChange)="toggleNestedView.emit($any($event))"
@@ -25,7 +25,7 @@
     @for (project of projectsList(); track project.id + $index + projectsList().length) {
       @if ($index + totalVirtualCards() < projectsList().length || noMoreProjects() || searching()) {
         <sm-nested-card
-          [hideMenu]="['全部任务'].includes(project.name) || project['isRoot'] || isExample(project)"
+          [hideMenu]="project.id === '*' || project['isRoot'] || isExample(project)"
           [entityType]="entityType()"
           [project]="project"
           (projectCardClicked)="cardClicked.emit($event)"

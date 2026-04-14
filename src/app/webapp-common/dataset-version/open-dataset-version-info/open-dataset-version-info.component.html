@@ -7,7 +7,7 @@
 <div class="console-button">
   <button mat-flat-button data-id="detailsButton" (click)="toggleDetails()">
     <mat-icon fontSet="al" fontIcon="al-ico-console"></mat-icon>
-    DETAILS
+    详情
   </button>
 </div>
 <!-- diagramContainer is referenced in pipeline controller info -->
@@ -68,9 +68,9 @@
     <sm-button-toggle
       [ngModel]="detailsPanelMode()"
         [options]="[
-          {label: 'CONTENT', value: statusOption.content},
-          {label: 'PREVIEW', value: statusOption.preview},
-          {label: 'CONSOLE', value: statusOption.log}
+          {label: '内容', value: statusOption.content},
+          {label: '预览', value: statusOption.preview},
+          {label: '控制台', value: statusOption.log}
         ]"
       (ngModelChange)="detailsPanelMode.set($event)"
     ></sm-button-toggle>

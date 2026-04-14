@@ -38,12 +38,12 @@ export class QueueStatsComponent {
 
   private selectedQueueId: string;
   public timeFrameOptions: IOption[] = [
-    {label: '3 Hours', value: (3 * TIME_INTERVALS.HOUR).toString()},
-    {label: '6 Hours', value: (6 * TIME_INTERVALS.HOUR).toString()},
-    {label: '12 Hours', value: (12 * TIME_INTERVALS.HOUR).toString()},
-    {label: '1 Day', value: (TIME_INTERVALS.DAY).toString()},
-    {label: '1 Week', value: (TIME_INTERVALS.WEEK).toString()},
-    {label: '1 Month', value: (TIME_INTERVALS.MONTH).toString()}];
+    {label: '3 小时', value: (3 * TIME_INTERVALS.HOUR).toString()},
+    {label: '6 小时', value: (6 * TIME_INTERVALS.HOUR).toString()},
+    {label: '12 小时', value: (12 * TIME_INTERVALS.HOUR).toString()},
+    {label: '1 天', value: (TIME_INTERVALS.DAY).toString()},
+    {label: '1 周', value: (TIME_INTERVALS.WEEK).toString()},
+    {label: '1 个月', value: (TIME_INTERVALS.MONTH).toString()}];
 
   queue = input<string>();
   caption = input<string>();

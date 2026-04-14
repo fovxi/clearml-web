@@ -111,7 +111,7 @@ export class NestedOpenDatasetsPageComponent extends ProjectsPageComponent imple
         breadcrumbOptions: {
           showProjects: !!selectedProject,
           featureBreadcrumb: {
-            name: 'DATASETS',
+            name: '数据集',
             url: defaultNestedModeForFeature['datasets'] ? 'datasets/simple/*/projects' : 'datasets'
           },
           projectsOptions: {

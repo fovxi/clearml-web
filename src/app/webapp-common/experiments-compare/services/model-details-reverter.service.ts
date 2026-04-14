@@ -29,7 +29,7 @@ export class ModelDetailsReverterService {
       return {
         id: model.id,
         name: model.name,
-        status: model.ready ? 'Ready' : 'Draft',
+        status: model.ready ? '可用' : '草稿',
         last_update: model.last_update,
         last_iteration: model.last_iteration,
         project: model?.project,
@@ -49,7 +49,7 @@ export class ModelDetailsReverterService {
       return {
         id: model.id,
         name: model.name,
-        status: model.ready ? 'Ready' : 'Draft',
+        status: model.ready ? '可用' : '草稿',
         last_update: model.last_update,
         last_iteration: model.last_iteration,
         project: model?.project,
@@ -60,16 +60,16 @@ export class ModelDetailsReverterService {
   }
   public revertGeneral(model: IModelInfo) {
     return {
-      'created at': model.created && formatDate(model.created, TIME_FORMAT_STRING, this.locale) || NA,
-      'update at': model.last_update && formatDate(model.last_update, TIME_FORMAT_STRING, this.locale) || NA,
+      '创建时间': model.created && formatDate(model.created, TIME_FORMAT_STRING, this.locale) || NA,
+      '更新时间': model.last_update && formatDate(model.last_update, TIME_FORMAT_STRING, this.locale) || NA,
       framework: model.framework,
-      'model url':{
+      '模型地址':{
         dataDictionary: true,
         link: model.uri,
         dataValue: model.uri,
       },
       user: model.user.name || NA,
-      archive: model.system_tags.includes(TAGS.HIDDEN) ? 'Yes' : 'No',
+      archive: model.system_tags.includes(TAGS.HIDDEN) ? '是' : '否',
       project: model.project?.name || NA,
     };
   }
@@ -91,8 +91,8 @@ export class ModelDetailsReverterService {
 
   private revertLineage(model: IModelInfo, tasks: ITask[]) {
     return {
-      ...(model.task && {'created by': `${model.task.name} (${model.task.id})`}),
-      'Used by': tasks.reduce((acc, curr) => {
+      ...(model.task && {'创建任务': `${model.task.name} (${model.task.id})`}),
+      '被以下任务使用': tasks.reduce((acc, curr) => {
         acc[`hash_${curr.name}${curr.id}`] = `${curr.name} : ${curr.id}`;
         return acc;
       }, {} as {id: string; name: string})

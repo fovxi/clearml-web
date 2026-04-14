@@ -1,6 +1,6 @@
 import {allItemsAreSelected} from '../../../utils/shared-utils';
 import {unionBy} from 'lodash-es';
-import {computed, DestroyRef, Directive, effect, inject, input, output, viewChild,} from '@angular/core';
+import {computed, DestroyRef, Directive, effect, EventEmitter, inject, input, output, Output, viewChild,} from '@angular/core';
 import {ISmCol, TABLE_SORT_ORDER, TableSortOrderEnum} from './table.consts';
 import {TableComponent} from './table.component';
 import {SortMeta} from 'primeng/api';
@@ -45,7 +45,7 @@ export abstract class BaseTableView {
   columnsReordered = output<string[]>();
   cardsCollapsedChanged = output();
   closePanel = output();
-  resetFilterOptions = output();
+  @Output() resetFilterOptions = new EventEmitter<void>();
 
   table = viewChild<TableComponent<{ id: string; }>>(TableComponent);
 

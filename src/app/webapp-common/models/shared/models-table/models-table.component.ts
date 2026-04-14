@@ -265,7 +265,7 @@ export class ModelsTableComponent extends BaseTableView implements OnChanges {
   calcOptionalTagsList() {
     const tagsAndActiveFilter = uniqueFilterValueAndExcluded(this.tags(), this.filtersValues()[MODELS_TABLE_COL_FIELDS.TAGS]);
     return this.sortOptionsList(tagsAndActiveFilter.map(tag => ({
-        label: tag === null ? '(No tags)' : tag,
+        label: tag === null ? '（无标签）' : tag,
         value: tag
       }) as IOption),
       this.sortByFilterValues()[MODELS_TABLE_COL_FIELDS.TAGS]

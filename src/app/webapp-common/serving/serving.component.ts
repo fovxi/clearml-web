@@ -166,7 +166,7 @@ export class ServingComponent extends BaseEntityPageComponent implements OnDestr
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: 'Search for endpoints'}));
+    this.store.dispatch(initSearch({payload: '搜索服务端点'}));
     // this.sub.add(this.searchQuery$.pipe(skip(1)).subscribe(query => this.store.dispatch(ServingActions.globalFilterChanged(query))));
   }
 
@@ -341,7 +341,7 @@ export class ServingComponent extends BaseEntityPageComponent implements OnDestr
         distinctUntilChanged()
       )
       .subscribe((feature) => {
-        this.store.dispatch(headerActions.setTabs({contextMenu: modelServingRoutes, active: feature[0]?.path}));
+        this.store.dispatch(headerActions.setTabs({contextMenu: modelServingRoutes, active: feature?.path}));
       });
   }
 }
