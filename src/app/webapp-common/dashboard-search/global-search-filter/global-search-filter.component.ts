@@ -54,7 +54,7 @@ export class GlobalSearchFilterComponent {
     searchableFilter: true,
     filterable: true,
     sortable: false,
-    header: 'USER',
+    header: '用户',
     style: {width: '115px'},
     showInCardFilters: true
   };
@@ -211,7 +211,7 @@ export class GlobalSearchFilterComponent {
   });
   usersOptionsLabels = computed(() => {
     return this.sortOptionsList(this.usersOptions()?.map(user => ({
-      label: user.name ? user.name : 'Unknown User',
+      label: user.name ? user.name : '未知用户',
       value: user.id,
       tooltip: ''
     })) ?? [],this.sortByUsersList() );

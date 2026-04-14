@@ -4,7 +4,7 @@
       @for (parameter of form(); track parameter.id) {
         <div class="w-100 d-flex pe-2">
           <mat-form-field
-            [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*Required': ''"
+            [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*必填': ''"
             appearance="outline"
             class="strength">
             <input
@@ -12,7 +12,7 @@
               #row="matInput"
               [(ngModel)]="parameter['name']"
               (keydown.enter)="nextRow($event, $index)"
-              placeholder="Parameter"
+              placeholder="参数"
               name="parameterKey-{{parameter.id}}"
               matInput
               smUniqueNameValidator
@@ -22,17 +22,17 @@
               required/>
             @if (parameterKey.invalid && parameterKey?.errors?.required) {
               <mat-error>
-                Required
+                必填
               </mat-error>
             }
             @if (parameterKey.invalid && parameterKey?.errors?.smNotAllowedStringsValidator) {
               <mat-error>
-                .(dot) $(dollar) and space are not allowed in parameter key.
+                参数键中不允许包含点号、美元符号和空格。
               </mat-error>
             }
             @if (!parameterKey?.errors?.required && parameterKey.invalid && parameterKey?.errors?.uniqueName) {
               <mat-error>
-                key already exists
+                键已存在
               </mat-error>
             }
           </mat-form-field>
@@ -41,7 +41,7 @@
               [(ngModel)]="parameter['value']"
               (keydown.enter)="nextRow($event, $index)"
               name="parameterValue-{{parameter.id}}"
-              placeholder="Value"
+              placeholder="值"
               [class.highlight-text]="(searchedText()?.length > 0) && parameter['value'].includes(searchedText())"
               [class.current-match]="searchIndexList[matchIndex]?.index === $index && searchIndexList[matchIndex]?.col==='value'"
               matInput/>
@@ -62,7 +62,7 @@
 @if (editable()) {
   <button mat-stroked-button (click)="addRow()">
     <mat-icon fontSet="al" fontIcon="al-ico-plus" data-id="AddParamterButton"></mat-icon>
-    ADD PARAMETER
+    添加参数
   </button>
 }
 @if (!editable()) {
@@ -93,7 +93,7 @@
                 mat-icon-button
                 class="allow-multi-space sm"
                 customClass="hyper-parameters-tooltip"
-                smTooltip="{{(row.type ? ('Type: '+ row.type+'\n') : '') + (row?.description|| '')}}"
+                smTooltip="{{(row.type ? ('类型：'+ row.type+'\n') : '') + (row?.description|| '')}}"
                 matTooltipPosition="before"
               >
                 <mat-icon fontSet="al" fontIcon="al-ico-description"></mat-icon>
@@ -150,4 +150,3 @@
     </sm-table>
   </div>
 }
-

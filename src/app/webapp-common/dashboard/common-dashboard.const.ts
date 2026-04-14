@@ -19,7 +19,7 @@ export const RECENT_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
   {
     id            : RECENT_TASKS_TABLE_COL_FIELDS.TYPE,
     headerType    : ColHeaderTypeEnum.title,
-    header        : 'TYPE',
+    header        : '类型',
     bodyStyleClass: 'type-col',
     disableDrag   : true,
     disablePointerEvents: true
@@ -27,7 +27,7 @@ export const RECENT_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
   {
     id         : RECENT_TASKS_TABLE_COL_FIELDS.NAME,
     headerType : ColHeaderTypeEnum.title,
-    header     : 'TITLE',
+    header     : '标题',
     disableDrag: true,
     disablePointerEvents: true
 
@@ -35,7 +35,7 @@ export const RECENT_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
   {
     id         : RECENT_TASKS_TABLE_COL_FIELDS.PROJECT,
     headerType : ColHeaderTypeEnum.title,
-    header     : 'PROJECT',
+    header     : '项目',
     disableDrag: true,
     disablePointerEvents: true
 
@@ -43,7 +43,7 @@ export const RECENT_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
   {
     id         : RECENT_TASKS_TABLE_COL_FIELDS.STARTED,
     headerType : ColHeaderTypeEnum.title,
-    header     : 'STARTED',
+    header     : '开始时间',
     disableDrag: true,
     disablePointerEvents: true
 
@@ -51,7 +51,7 @@ export const RECENT_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
   {
     id         : RECENT_TASKS_TABLE_COL_FIELDS.LAST_UPDATE,
     headerType : ColHeaderTypeEnum.title,
-    header     : 'UPDATED',
+    header     : '更新时间',
     disableDrag: true,
     disablePointerEvents: true
 
@@ -59,7 +59,7 @@ export const RECENT_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
   {
     id            : RECENT_TASKS_TABLE_COL_FIELDS.STATUS,
     headerType    : ColHeaderTypeEnum.title,
-    header        : 'STATUS',
+    header        : '状态',
     bodyStyleClass: 'status-col',
     disableDrag   : true,
     disablePointerEvents: true

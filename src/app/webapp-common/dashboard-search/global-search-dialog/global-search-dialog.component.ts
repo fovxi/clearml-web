@@ -66,7 +66,7 @@ export class GlobalSearchDialogComponent {
   protected regExp = signal(false);
   protected advanced = signal(false);
   protected activeLink = signal<ActiveSearchLink>(null);
-  protected placeholder = computed(() => this.advanced() ? 'eg.: {"status": ["stopped"], "order_by": ["-last_update"]}' : 'Type to search')
+  protected placeholder = computed(() => this.advanced() ? '例如：{"status": ["stopped"], "order_by": ["-last_update"]}' : '输入内容开始搜索')
   jsonValid = signal(true);
 
   protected regexError = signal(false);
@@ -75,8 +75,8 @@ export class GlobalSearchDialogComponent {
   protected filters = this.store.selectSignal(selectFilters);
   protected searchQuery$ = this.store.select(selectSearchTerm);
   private itemSelected = false;
-  advancedTooltip = `Explicit DB query specification <br>
-(JSON format. see e.g. <a target="_blank" title="https://clear.ml/docs/latest/docs/references/sdk/task/#taskquery_tasks" data-renderer-mark="true" href="https://clear.ml/docs/latest/docs/references/sdk/task/#taskquery_tasks">Task.query_tasks()</a>)`;
+  advancedTooltip = `显式数据库查询说明 <br>
+（JSON 格式，示例参见 <a target="_blank" title="https://clear.ml/docs/latest/docs/references/sdk/task/#taskquery_tasks" data-renderer-mark="true" href="https://clear.ml/docs/latest/docs/references/sdk/task/#taskquery_tasks">Task.query_tasks()</a>）`;
 
   constructor() {
     this.store.dispatch(searchActivated());

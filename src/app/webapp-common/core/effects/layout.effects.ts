@@ -70,7 +70,7 @@ export class LayoutEffects {
       }
       const resultMessage = this.error.getErrorMsg(action.serverError.error);
       this.alertDialogRef = this.dialog.open(AlertDialogComponent, {
-        data: {alertMessage: action.errorHeader ?? 'Error', alertSubMessage: customMessage, resultMessage}
+        data: {alertMessage: action.errorHeader ?? '错误', alertSubMessage: customMessage, resultMessage}
       });
 
       this.alertDialogRef.beforeClosed().pipe(take(1)).subscribe(() => this.dialog.closeAll());
@@ -97,10 +97,10 @@ export class LayoutEffects {
     ofType(requestFailed),
     filter(action => action.err?.status === 403),
     map(action => {
-      const errorData = action.err?.error?.meta?.error_data?.access ===  'read_write' ? 'modifying' : 'accessing';
+      const errorData = action.err?.error?.meta?.error_data?.access ===  'read_write' ? '修改' : '访问';
       return addMessage(MESSAGES_SEVERITY.ERROR,
-        `Insufficient privileges for ${errorData} this ${action.err?.error?.meta?.error_data?.type?.replace('datasetversion', 'dataset version') || 'resource'}.
-    Contact your service admin for information.`, [], true);
+        `你没有足够的权限${errorData}此${action.err?.error?.meta?.error_data?.type?.replace('datasetversion', '数据集版本') || '资源'}。
+    请联系服务管理员获取帮助。`, [], true);
     })
   ));
 
@@ -134,5 +134,4 @@ export class LayoutEffects {
     }
   }
 }
-
 

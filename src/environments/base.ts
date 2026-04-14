@@ -107,11 +107,10 @@ export const BASE_ENV = {
   docsLink: 'https://clear.ml/docs',
   supportEmail: 'support@clear.ml',
   branding: {logo: 'assets/logo-white.svg?v=7', logoSmall: 'assets/small-logo-white.svg?=2'},
-  serverDownMessage: 'The ClearML server is currently unavailable.<BR>' +
-    'Please try to reload this page in a little while.<BR>' +
-    'If the problem persists, verify your network connection is working and check the ClearML server logs for possible errors',
+  serverDownMessage: 'ClearML 服务器当前不可用。<BR>' +
+    '请稍后尝试重新加载此页面。<BR>' +
+    '如果问题持续存在，请确认你的网络连接正常，并检查 ClearML 服务器日志以排查可能的错误',
   platformYoutubeChannel: 'https://www.youtube.com/c/ClearML/featured',
   newExperimentYouTubeVideoId: 's3k9ntmQmD4',
   displayTips: true,
 } as Environment;
-

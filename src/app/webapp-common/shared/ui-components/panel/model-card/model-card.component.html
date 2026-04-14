@@ -14,7 +14,7 @@
   <div class="d-flex justify-content-around w-100">
     <sm-circle-status [status]="$any(model()).framework" defaultStatus="i-model"></sm-circle-status>
     <sm-circle-counter
-      [counter]="model()?.stats?.labels_count" label="LABELS" [type]="CircleTypeEnum['model-labels']"
+      [counter]="model()?.stats?.labels_count" label="标签" [type]="CircleTypeEnum['model-labels']"
     ></sm-circle-counter>
     <sm-circle-status [status]="model().ready ? 'published' : 'created'"></sm-circle-status>
   </div>
@@ -22,11 +22,11 @@
 
   <div footer class="brio-footer">
     <div class="model-footer">
-      <div class="top-labels ellipsis" [smTooltip]="$any(model()?.task)?.name">CREATOR TASK:
+      <div class="top-labels ellipsis" [smTooltip]="$any(model()?.task)?.name">创建任务：
           {{$any(model()?.task)?.name}})
       </div>
       <div class="top-labels ellipsis d-flex justify-content-between">
-        <span [smTooltip]="model().created | date : TIME_FORMAT_STRING">Created {{model().created | timeAgo}}</span>
+        <span [smTooltip]="model().created | date : TIME_FORMAT_STRING">创建于 {{model().created | timeAgo}}</span>
         <span>{{$any(model()?.user)?.name}}</span>
       </div>
     </div>

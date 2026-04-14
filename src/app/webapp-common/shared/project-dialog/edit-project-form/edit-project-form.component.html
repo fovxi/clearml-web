@@ -1,6 +1,6 @@
 <form [formGroup]="projectForm" class="d-flex flex-column">
   <mat-form-field appearance="outline" class="mat-light">
-    <mat-label>Project name</mat-label>
+    <mat-label>项目名称</mat-label>
     <input name="projectName"
            formControlName="name"
            matInput
@@ -10,22 +10,22 @@
     @if (projectForm.controls.name.invalid && projectForm.controls.name.errors; as errors) {
       <mat-error>
         @if (errors?.required) {
-          Please add name.
+          请输入名称。
         }
         @else if (errors?.uniqueProject) {
-          Project name in this path already exists.
+          该路径下已存在同名项目。
         }
         @else if (errors?.minlength) {
-          Project name can't contain only spaces.
+          项目名称不能只包含空格。
         }
         @else if (errors?.pattern &&  !errors?.minlength) {
-          Project name can't contain slash (/)
+          项目名称不能包含斜杠（/）
         }
       </mat-error>
     }
   </mat-form-field>
 <mat-form-field appearance="outline" class="mat-light">
-  <mat-label>Project path</mat-label>
+  <mat-label>项目路径</mat-label>
   <input matInput
          name="parent"
          formControlName="parent"
@@ -33,7 +33,7 @@
 </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Default output destination</mat-label>
+    <mat-label>默认输出位置</mat-label>
     <input class="project-output-dest"
            matInput
            name="default_output_destination"
@@ -42,7 +42,7 @@
     @if (projectForm.controls.default_output_destination.invalid && projectForm.controls.default_output_destination.errors; as errors) {
       <mat-error>
         @if (errors?.pattern) {
-          Illegal output destination (e.g. s3://bucket. gs://bucket)
+          输出位置格式不合法（例如：s3://bucket、gs://bucket）
         }
       </mat-error>
     }

@@ -12,7 +12,7 @@
       <div
         class="label"
         [class.mt-2]="missingSource()">
-        {{missingSource() ? 'Source not available' : 'Unable to load image'}}
+        {{missingSource() ? '源地址不可用' : '无法加载图片'}}
       </div>
     }
     <div class="file-path w-100" [smTooltip]="baseFile()" smShowTooltipIfEllipsis>{{baseFile()}}</div>
@@ -21,13 +21,13 @@
     <div class="clickable-icon d-flex align-items-center justify-content-center pointer"
       [class.disabled]="missingSource()"
       ngxClipboard
-      smTooltip="Copy Image URL"
+      smTooltip="复制图片 URL"
       [cbContent]="copyContent()"
       (cbOnSuccess)="copyToClipboardSuccess(true)">
       <i class="al-icon sm-md al-ico-copy-to-clipboard" data-id="copyToClipBoardButton"></i>
     </div>
     <div class="clickable-icon d-flex align-items-center justify-content-center pointer"
-      smTooltip="Open Image"
+      smTooltip="打开图片"
       (click)="openImageClicked.emit()"
       >
       <i class="al-icon sm-md al-ico-export"></i>

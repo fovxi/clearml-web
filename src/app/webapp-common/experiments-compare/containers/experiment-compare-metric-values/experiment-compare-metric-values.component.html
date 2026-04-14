@@ -24,13 +24,13 @@
     @if (dataTable?.length === 0) {
       <div class="no-output">
         <mat-icon fontSet="al" fontIcon="al-ico-no-data-table" class="xxl"></mat-icon>
-        <h4>NO METRICS</h4>
+        <h4>没有指标</h4>
       </div>
     }
 
     @if (dataTable?.length > 0 && dataTableFiltered?.length === 0) {
       <div class="no-output all-filtered-message">
-        All metrics hidden. <a class="link" (click)="clear(); showAll()">Clear filters</a>
+        所有指标均已隐藏。<a class="link" (click)="clear(); showAll()">清除筛选</a>
       </div>
     }
 
@@ -53,7 +53,7 @@
               >
                 <mat-icon fontSet="al"
                   [fontIcon]="dataTable?.length > dataTableFiltered?.length ? 'al-ico-filter-on' : 'al-ico-filter-off'"
-                  [smTooltip]="dataTableFiltered?.length + '/' + dataTable?.length + ' filtered'"
+                  [smTooltip]="'已筛选 ' + dataTableFiltered?.length + '/' + dataTable?.length"
                   [matTooltipDisabled]="dataTableFiltered?.length === dataTable?.length"
                   [showTooltip]="showFilterTooltip"
                 >
@@ -64,7 +64,7 @@
                 <input #filterRef
                   name="filter"
                   [formControl]="variantFilter"
-                  placeholder="Search metric"
+                  placeholder="搜索指标"
                   matInput
                   autocomplete="off">
                 @if (variantFilter.value) {
@@ -107,7 +107,7 @@
               <span class="ellipsis variant-name" [smTooltip]="metricVariant.variant" smShowTooltipIfEllipsis>{{ metricVariant.variant }}</span>
               @if (metricVariant.min === metricVariant.max) {
                 <mat-icon fontSet="al" fontIcon="al-ico-equal-outline" class="sm row-info-icon"
-                          smTooltip="All scalars have the same value in this row"></mat-icon>
+                          smTooltip="此行所有标量值都相同"></mat-icon>
               }
             </div>
           </td>
@@ -117,10 +117,10 @@
                 <span class="value-text" smShowTooltipIfEllipsis [smTooltip]="metricVariant.values[exp.id]?.[valuesMode.key]">{{ metricVariant.values[exp.id]?.[valuesMode.key] }}</span>
                 @if ((selectShowRowExtremes$ | ngrxPush) && metricVariant.min !== metricVariant.max) {
                   @if (metricVariant.values[exp.id]?.[valuesMode.key] === metricVariant.max) {
-                    <span class="tag tag-max">MAX</span>
+                    <span class="tag tag-max">最大值</span>
                   }
                   @if (metricVariant.values[exp.id]?.[valuesMode.key] === metricVariant.min) {
-                    <span class="tag tag-min">MIN</span>
+                    <span class="tag tag-min">最小值</span>
                   }
                 }
               </div>

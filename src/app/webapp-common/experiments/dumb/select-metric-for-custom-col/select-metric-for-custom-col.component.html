@@ -2,7 +2,7 @@
   @if (goBack.observed) {
     <div class="head">
       <i (click)="goBack.emit()" data-id="Back button" class="al-icon sm-md al-ico-back pointer m-auto" smClickStopPropagation></i>
-      <h3>SELECT METRIC TO DISPLAY</h3>
+      <h3>选择要显示的指标</h3>
     </div>
   }
   <sm-search
@@ -10,7 +10,7 @@
     [value]="searchText"
     [minimumChars]="0"
     [debounceTime]="0"
-    placeholder="Search metric"
+    placeholder="搜索指标"
     (valueChanged)="searchQ($event)"
   ></sm-search>
   <div class="metrics" [class.has-title]="goBack.observed">
@@ -21,12 +21,12 @@
     }
     <div class="actions">
       @if (enableClearSelection && !(metricsCols| isEmpty)) {
-        <a href="" class="pointer" (click)="$event.preventDefault(); clearSelection.emit()">Clear Selection</a>
+        <a href="" class="pointer" (click)="$event.preventDefault(); clearSelection.emit()">清除选择</a>
       }
     </div>
     @if (filteredMetricTree && filteredMetricTree.length === 0) {
       <div class="empty-container">
-        <div class="empty-state">No data to show</div>
+        <div class="empty-state">暂无数据</div>
       </div>
     }
     @for (metric of filteredMetricTree; track metric[1][0].metric_hash) {
@@ -65,21 +65,21 @@
                                   data-id="Select All Loaded Tasks"
                                   [checked]="metricsCols[variant.metric_hash + variant.variant_hash]?.includes('value')"
                                   (change)="toggleMetricToDisplay(variant, last.checked, 'value')">
-                      LAST
+                      最新值
                     </mat-checkbox>
                     <mat-checkbox #min
                                   smClickStopPropagation
                                   data-id="Select All Loaded Tasks"
                                   [checked]="metricsCols[variant.metric_hash + variant.variant_hash]?.includes('min_value')"
                                   (change)="toggleMetricToDisplay(variant, min.checked, 'min_value')">
-                      MIN
+                      最小值
                     </mat-checkbox>
                     <mat-checkbox #max
                                   smClickStopPropagation
                                   data-id="Select All Loaded Tasks"
                                   [checked]="metricsCols[variant.metric_hash + variant.variant_hash]?.includes('max_value')"
                                   (change)="toggleMetricToDisplay(variant, max.checked, 'max_value')">
-                      MAX
+                      最大值
                     </mat-checkbox>
                   </div>
                 }
@@ -99,9 +99,9 @@
                       [ngModel]="metricsCols[variant.metric_hash + variant.variant_hash]?.[0]"
                       (change)="toggleMetricToDisplay(variant, true, $event.value)"
                     >
-                      <mat-radio-button class="sm" value="value">LAST</mat-radio-button>
-                      <mat-radio-button class="sm px-3" value="min_value">MIN</mat-radio-button>
-                      <mat-radio-button class="sm" value="max_value">MAX</mat-radio-button>
+                      <mat-radio-button class="sm" value="value">最新值</mat-radio-button>
+                      <mat-radio-button class="sm px-3" value="min_value">最小值</mat-radio-button>
+                      <mat-radio-button class="sm" value="max_value">最大值</mat-radio-button>
                     </mat-radio-group>
                   </div>
                 }
@@ -112,7 +112,7 @@
       </mat-expansion-panel>
     }
     @if (moreResults > 0) {
-      <div class="more-results">And {{ moreResults }} more, use search to narrow selection</div>
+      <div class="more-results">还有 {{ moreResults }} 项，请使用搜索缩小范围</div>
     }
   </div>
 </div>

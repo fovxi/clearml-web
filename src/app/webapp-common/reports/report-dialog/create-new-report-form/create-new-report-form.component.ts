@@ -42,7 +42,7 @@ export class CreateNewReportFormComponent {
   private builder = inject(FormBuilder);
 
   private createNew: string;
-  public readonly projectsRoot = {name: 'Projects root', id: null};
+  public readonly projectsRoot = {name: '项目根目录', id: null};
 
   // public reportsNames: string[];
   protected reportForm = this.builder.group({
@@ -112,4 +112,3 @@ export class CreateNewReportFormComponent {
     this.filterSearchChanged.emit({value: value, loadMore});
   }
 }
-

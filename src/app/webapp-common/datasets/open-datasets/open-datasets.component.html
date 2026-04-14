@@ -11,20 +11,20 @@
       left-items
       [ngModel]="!!projectId"
       [options]="[
-                  {value: false, icon: 'al-ico-flat-view',  label: 'List view'},
-                  {value: true, icon:'al-ico-project-path', label: 'Project view'}
+                  {value: false, icon: 'al-ico-flat-view',  label: '列表视图'},
+                  {value: true, icon:'al-ico-project-path', label: '项目视图'}
             ]"
       (ngModelChange)="!(!!projectId && $event) && toggleNestedView($event)"
     ></sm-button-toggle>
     <button mat-flat-button (click)="createDataset()" data-id="New Dataset">
       <mat-icon fontSet="al" fontIcon="al-ico-add"></mat-icon>
-      NEW DATASET
+      新建数据集
     </button>
   </sm-projects-header>
   @if (((projectsList$ | ngrxPush)?.length !== 0 && (!allExamples || (showExamples$ | ngrxPush)))||  searching) {
     @for (project of projectsList$ | ngrxPush; track project.id + $index) {
       <sm-open-dataset-card
-        [hideMenu]="['All Tasks'].includes(project.name) || project['isRoot'] || isExample(project)"
+        [hideMenu]="['全部任务'].includes(project.name) || project['isRoot'] || isExample(project)"
         [hideProjectPathIcon]="!!projectId"
         [project]="project"
         [allTags]="projectsTags$ | ngrxPush"
@@ -40,11 +40,11 @@
       <div class="title-icon">
         <mat-icon fontSet="al" fontIcon="al-ico-datasets" class="xxl"></mat-icon>
       </div>
-      <div class="title">NO DATASETS TO SHOW</div>
-      <div class="sub-title">Run your first dataset to see it displayed here
+      <div class="title">暂无可显示的数据集</div>
+      <div class="sub-title">运行你的第一个数据集后将在此显示
         @if (allExamples) {
-          or <a href="" (click)="$event.preventDefault(); createExamples()" class="link">generate
-          example
+          或 <a href="" (click)="$event.preventDefault(); createExamples()" class="link">生成
+          示例
         </a>
       }
     </div>

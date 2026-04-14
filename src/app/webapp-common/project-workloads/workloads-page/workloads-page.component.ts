@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, computed, effect, inject, signal, un
 import {DateFnsAdapter, MAT_DATE_FNS_FORMATS, provideDateFnsAdapter} from '@angular/material-date-fns-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {addDays, format, parseISO, startOfDay, subSeconds} from 'date-fns';
-import {enGB} from 'date-fns/locale';
+import {zhCN} from 'date-fns/locale';
 import {HeaderMenuService} from '~/shared/services/header-menu.service';
 import {selectIsDeepMode, selectSelectedProject} from '@common/core/reducers/projects.reducer';
 import {isExample} from '@common/shared/utils/shared-utils';
@@ -50,7 +50,7 @@ import {PeriodSelectorComponent} from '@common/shared/components/period-selector
     PeriodSelectorComponent,
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: enGB},
+    { provide: MAT_DATE_LOCALE, useValue: zhCN},
     { provide: DateAdapter, useClass: DateFnsAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MAT_DATE_FNS_FORMATS },
     provideDateFnsAdapter()
@@ -202,7 +202,7 @@ export class WorkloadsPageComponent {
           },
           ...(this.isDeep() && this.project()?.id !== '*' && {
             subFeatureBreadcrumb: {
-              name: 'All Tasks'
+              name: '全部任务'
             }
           }),
           projectsOptions: {
@@ -212,7 +212,7 @@ export class WorkloadsPageComponent {
             showSelectedProject: this.project()?.id !== '*',
             ...(this.project() && {
               selectedProjectBreadcrumb: {
-                name: this.project()?.id === '*' ? 'All Tasks' : this.project()?.basename,
+                name: this.project()?.id === '*' ? '全部任务' : this.project()?.basename,
                 url: `projects/${this.project()?.id}/projects`
               }
             })

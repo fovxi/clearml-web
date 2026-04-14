@@ -27,10 +27,10 @@
               @if (lastGroup && lastCrumb && breadcrumb.linkLast){
                 <a class="ellipsis name" [smTooltip]="breadcrumb.name" smShowTooltipIfEllipsis [routerLink]="breadcrumb.linkLast && breadcrumb.url"
                    [queryParamsHandling]="breadcrumb.queryParamsHandling"
-                >{{breadcrumb.name}}{{breadcrumb.example ? ' (example)' : ''}}</a>
+                >{{breadcrumb.name}}{{breadcrumb.example ? '（示例）' : ''}}</a>
               } @else {
                 <div class="ellipsis name" [smTooltip]="breadcrumb.name" smShowTooltipIfEllipsis
-                >{{breadcrumb.name}}{{breadcrumb.example ? ' (example)' : ''}}</div>
+                >{{breadcrumb.name}}{{breadcrumb.example ? '（示例）' : ''}}</div>
               }
 
               @if (breadcrumb.id) {
@@ -88,18 +88,18 @@
         (menuOpened)="openShareModal()"
         >
         @if (showShareButton && !isCommunity()) {
-          <mat-icon fontSet="al" fontIcon="al-ico-shared-item" class="share pointer" smTooltip="Share"></mat-icon>
+          <mat-icon fontSet="al" fontIcon="al-ico-shared-item" class="share pointer" smTooltip="分享"></mat-icon>
         }
       </div>
       <mat-menu #shareModal="matMenu">
         <div class="share-menu-container" smClickStopPropagation>
           <div class="d-flex align-items-center justify-content-between top">
-            <div class="share-title">SHARE VIEW</div>
+            <div class="share-title">分享视图</div>
             <button mat-icon-button (click)="menuTrigger.closeMenu()" smClickStopPropagation>
               <mat-icon fontSet="al" fontIcon="al-ico-dialog-x"></mat-icon>
             </button>
           </div>
-          <div class="copy-title">Copy the following URL to share this view with others</div>
+          <div class="copy-title">复制以下 URL 与他人分享该视图</div>
 
           <div class="share-link-container" [class.hidden]="!(currentUrl)">
             <div class="ellipsis share-link">
@@ -116,7 +116,7 @@
       </mat-menu>
     </div>
     @if (showArchive()) {
-      <div data-id="Archive Label" class="archive"><mat-icon fontSet="al" fontIcon="al-ico-archive" class="xs me-1"></mat-icon>Archive
+      <div data-id="Archive Label" class="archive"><mat-icon fontSet="al" fontIcon="al-ico-archive" class="xs me-1"></mat-icon>归档
     </div>
   }
 </div>

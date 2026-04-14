@@ -10,15 +10,15 @@ export class SelectedTagsFooterItem extends ItemFooterModel {
     super();
     this.id = MenuItems.tags;
     this.isTag = true;
-    this.disableDescription = 'Tags';
+    this.disableDescription = '标签';
   }
 
   getItemState(state: IFooterState<{id: string; tags: string[]}>) {
     const tags = state.data[this.id];
     return {
       disable: state.selectionAllHasExample,
-      description: this.menuItemText.transform(tags?.selectedFiltered?.length, 'Add Tag'),
-      disableDescription: 'Tags',
+      description: this.menuItemText.transform(tags?.selectedFiltered?.length, '添加标签'),
+      disableDescription: '标签',
       emitValue: tags.selectedFiltered,
       tags: selectionTags(state.selected),
       companyTags: state.companyTags,

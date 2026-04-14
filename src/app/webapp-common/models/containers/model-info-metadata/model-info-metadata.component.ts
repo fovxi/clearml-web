@@ -75,18 +75,18 @@ export class ModelInfoMetadataComponent {
 
   public inEdit = signal(false);
   public cols = [
-    {id : 'key', header: 'Key', style: {width: '200px', maxWidth: '200px'}},
-    {id : 'type', header: 'Type', style: {width: '200px', maxWidth: '200px'}},
-    {id : 'value', header: 'Value', style: {width: '200px', maxWidth: '200px'}}
+    {id : 'key', header: '键', style: {width: '200px', maxWidth: '200px'}},
+    {id : 'type', header: '类型', style: {width: '200px', maxWidth: '200px'}},
+    {id : 'value', header: '值', style: {width: '200px', maxWidth: '200px'}}
   ] as ISmCol[];
   protected calcCols$ = this.resize$
     .pipe(
       startWith({width: 500}),
       map(res => res.width),
       map(width => [
-        {id : 'key', header: 'Key', style: {width: `${(width - 64) / 3}px`, maxWidth: `${(width - 64) / 3}px`}},
-        {id : 'type', header: 'Type', style: {width: `${(width - 64) / 3}px`, maxWidth: `${(width - 64) / 3}px`}},
-        {id : 'value', header: 'Value', style: {width: `${(width - 64) / 3}px`, maxWidth: `${(width - 64) / 3}px`}}
+        {id : 'key', header: '键', style: {width: `${(width - 64) / 3}px`, maxWidth: `${(width - 64) / 3}px`}},
+        {id : 'type', header: '类型', style: {width: `${(width - 64) / 3}px`, maxWidth: `${(width - 64) / 3}px`}},
+        {id : 'value', header: '值', style: {width: `${(width - 64) / 3}px`, maxWidth: `${(width - 64) / 3}px`}}
       ])
     );
   public metadata = null as IModelMetadataItem[];

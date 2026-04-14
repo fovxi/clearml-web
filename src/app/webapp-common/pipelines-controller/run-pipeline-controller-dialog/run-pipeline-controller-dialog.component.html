@@ -1,4 +1,4 @@
-<sm-dialog-template [closeOnX]="false" (xClicked)="closeDialog(false)" header="NEW RUN"
+<sm-dialog-template [closeOnX]="false" (xClicked)="closeDialog(false)" header="新建运行"
                     [pageHeader]="getTitle()"
                     iconClass="al-ico-pipelines">
 
@@ -7,7 +7,7 @@
     <input name="focus_trap" style="opacity: 0; height: 0; width: 0">
 
     @if (paramsArray.controls.length > 0) {
-      <div class="section-title first">Parameters</div>
+      <div class="section-title first">参数</div>
 
     <!-- Dynamic Params Loop -->
     <div formArrayName="params">
@@ -22,7 +22,7 @@
               <mat-form-field appearance="outline" subscriptSizing="dynamic">
                 <input type="text" matInput formControlName="value">
                 @if (control.get('value').hasError('pattern')) {
-                  <mat-error>Please provide a float</mat-error>
+                  <mat-error>请输入浮点数</mat-error>
                 }
               </mat-form-field>
             }
@@ -30,7 +30,7 @@
               <mat-form-field appearance="outline" subscriptSizing="dynamic">
                 <input type="text" step="1" matInput formControlName="value">
                 @if (control.get('value').hasError('pattern')) {
-                  <mat-error>Please provide an integer</mat-error>
+                  <mat-error>请输入整数</mat-error>
                 }
               </mat-form-field>
             }
@@ -44,12 +44,12 @@
       }
     </div>
     }
-    <div class="section-title d-flex align-items-center">Configuration</div>
+    <div class="section-title d-flex align-items-center">配置</div>
 
     <!-- Queue Selection -->
     <div class="param-line">
       <div class="param-key" [class.error]="form.controls.queue.invalid && form.controls.queue.touched">
-        Pipeline controller queue*
+        流水线控制器队列*
       </div>
 
       <mat-form-field appearance="outline" class="no-bottom queue-select">
@@ -84,10 +84,10 @@
 </sm-dialog-template>
 
 <mat-dialog-actions>
-  <button mat-stroked-button mat-dialog-close data-id="cancleNewRun">CANCEL</button>
+  <button mat-stroked-button mat-dialog-close data-id="cancleNewRun">取消</button>
   <button mat-flat-button
           [disabled]="form.invalid || form.controls.params.invalid"
           (click)="closeDialog(true)"
           data-id="confirmNewRun"
-  >RUN</button>
+  >运行</button>
 </mat-dialog-actions>

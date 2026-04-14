@@ -69,11 +69,11 @@
       </div>
       <mat-menu #selectionMenu="matMenu">
         @if (entityType() === entityTypes.experiment) {
-          <div class="menu-title">Select from project</div>
+          <div class="menu-title">从项目中选择</div>
         }
-        <button mat-menu-item data-id="All Option" (click)="selectAll()">All</button>
-        <button mat-menu-item data-id="None Option" (click)="emitSelection([])">None</button>
-        <button mat-menu-item data-id="All Matching Filter Option" (click)="selectAll(true)">All matching filter
+        <button mat-menu-item data-id="All Option" (click)="selectAll()">全部</button>
+        <button mat-menu-item data-id="None Option" (click)="emitSelection([])">不选</button>
+        <button mat-menu-item data-id="All Matching Filter Option" (click)="selectAll(true)">全部匹配筛选项
         </button>
       </mat-menu>
     </ng-template>
@@ -134,7 +134,7 @@
         @case (experimentsTableColFields.USER) {
           <span class="ellipsis"
             smShowTooltipIfEllipsis
-          [smTooltip]="experiment.user?.name ? experiment.user?.name : 'Unknown User'">{{ experiment.user?.name ? experiment.user?.name : 'Unknown User' }}</span>
+          [smTooltip]="experiment.user?.name ? experiment.user?.name : '未知用户'">{{ experiment.user?.name ? experiment.user?.name : '未知用户' }}</span>
         }
         @case (experimentsTableColFields.PROJECT) {
           <span
@@ -278,11 +278,11 @@
         @if (!cardsCollapsed()) {
           <span animate.enter="enter" animate.leave="leaving">
             <div class="d-flex justify-content-between compact-columns-data" [class.selected]="selected">
-              <span class="ellipsis">Updated {{ experiment.last_update | timeAgo }}<span
-              class="dot">●</span>Created by {{ experiment.user?.name || 'Unknown User' }}
+              <span class="ellipsis">更新于 {{ experiment.last_update | timeAgo }}<span
+              class="dot">●</span>创建者 {{ experiment.user?.name || '未知用户' }}
             </span>
             @if (experiment.last_iteration) {
-              <span>{{ experiment.last_iteration }} Iterations</span>
+              <span>{{ experiment.last_iteration }} 轮次</span>
             }
           </div>
         </span>

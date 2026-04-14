@@ -74,36 +74,36 @@ export class WelcomeMessageComponent {
   WEB_SERVER_URL = window.location.origin + this.locationStrategy.getBaseHref();
   GETTING_STARTED_STEPS: StepObject[] = [{
     id: 1,
-    header: 'Get started in a jiffy:',
-    title: '1. Install',
+    header: '快速开始：',
+    title: '1. 安装',
     code: 'pip install clearml',
   }, {
     id: 2,
-    title: '2. Configure',
+    title: '2. 配置',
     code: 'clearml-init'
   }];
   ORPHANED_QUEUE_STEPS: StepObject[] =
     [{
       id: 1,
       header: null, code: null,
-      subNote: 'See ClearML Documentation for different ways of deploying workers'
+      subNote: '了解不同的工作节点部署方式，请参阅 ClearML 文档'
     }, {
       id: 2,
-      header: 'To setup a worker',
-      title: '1. Install',
+      header: '设置工作节点',
+      title: '1. 安装',
       code: 'pip install clearml-agent',
     }, {
       id: 3,
-      title: '2. Configure',
+      title: '2. 配置',
       code: 'clearml-agent init'
     }
     ];
-  public links = ['Set up ClearML', 'Run your ML code', 'Relaunch previous experiments'];
+  public links = ['设置 ClearML', '运行你的 ML 代码', '重新运行之前的实验'];
   public doNotShowAgain: boolean;
   public credentialsLabel: string;
   public src: string;
   public queue: Queue = this.data?.queue;
-  public entityName: string = this.data?.entityName ?? 'Tasks';
+  public entityName: string = this.data?.entityName ?? '任务';
   protected showTabs = this.data?.showTabs;
   protected currentLink = this.showTabs ? this.links[0] : undefined;
   protected host = `${window.location.protocol}//${window.location.hostname}`;
@@ -125,7 +125,7 @@ export class WelcomeMessageComponent {
 
     if (this.queue) {
       steps[0].code = `clearml-agent daemon --queue ${this.queue.name}`;
-      steps[0].header = `To assign a worker to the ${this.queue.display_name || this.queue.name} queue, run:`;
+      steps[0].header = `要将工作节点分配到 ${this.queue.display_name || this.queue.name} 队列，请运行：`;
       steps[1].code = `pip install clearml-agent`;
       steps[2].code = `clearml-agent init`;
     } else {
@@ -147,8 +147,8 @@ export class WelcomeMessageComponent {
       if(this.credentialsLabel) {
         steps[this.queue ? 2 : 1].code += `# ${this.credentialsLabel}\n`;
       }
-      steps[this.queue ? 2 : 1].code += `%env CLEARML_API_ACCESS_KEY=${this.accessKey() || '<Your API access key>'}
-%env CLEARML_API_SECRET_KEY=${this.secretKey() ||  '<Your API secret key>'}`;
+      steps[this.queue ? 2 : 1].code += `%env CLEARML_API_ACCESS_KEY=${this.accessKey() || '<你的 API 访问密钥>'}
+%env CLEARML_API_SECRET_KEY=${this.secretKey() ||  '<你的 API 密钥>'}`;
     }
     return steps;
   });
@@ -219,20 +219,20 @@ export class WelcomeMessageComponent {
     if(this.showTabs) {
       return `import numpy as np
 import matplotlib.pyplot as plt
-# Add the following two lines to your code, to have ClearML automatically log your experiment
+# 在你的代码中加入下面两行，让 ClearML 自动记录实验
 from ${this.configGettingStarted()?.packageName || 'clearml'} import Task
 
-task = Task.init(project_name='My Project', task_name='My Experiment')
-# Create a plot using matplotlib, or you can also use plotly
+task = Task.init(project_name='我的项目', task_name='我的实验')
+# 使用 matplotlib 创建一个图表，也可以使用 plotly
 plt.scatter(np.random.rand(50), np.random.rand(50), c=np.random.rand(50), alpha=0.5)
-# Plot will be reported automatically to clearml
+# 图表会自动上报到 ClearML
 plt.show()
 
-# Report some scalars
+# 上报一些标量
 for i in range(100):
-  task.get_logger().report_scalar(title="graph title", series="linear", value=i*2, iteration=i)`;
+  task.get_logger().report_scalar(title="图表标题", series="linear", value=i*2, iteration=i)`;
     }
     return `from ${this.configGettingStarted()?.packageName || 'clearml'} import Task
-task = Task.init(project_name="my project", task_name="my task")`;
+task = Task.init(project_name="我的项目", task_name="我的任务")`;
   }
 }

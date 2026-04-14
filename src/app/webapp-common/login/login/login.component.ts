@@ -104,7 +104,7 @@ export class LoginComponent {
 
   protected loginFailed = signal(false);
   protected showSpinner = signal<boolean>(null);
-  protected loginTitle = signal<string>(this.isInvite ? '' : 'Login');
+  protected loginTitle = signal<string>(this.isInvite ? '' : '登录');
   private title = computed(() => this.config.configuration().branding?.faviconUrl ? '' : 'ClearML');
   private titlePrefix = computed(() => this.title() ? this.title() + ' - ' : '')
   touLink = computed(() => this.environment().legal.TOULink);
@@ -116,14 +116,14 @@ export class LoginComponent {
   private originalTheme = signal(this.theme());
 
   get buttonCaption() {
-    return this.loginMode() === loginModes.simple ? 'START' : 'LOGIN';
+    return this.loginMode() === loginModes.simple ? '开始' : '登录';
   }
 
   constructor() {
     if (!this.config.configuration().forceTheme) {
       this.setTheme(this.environment().communityServer ? 'light' : 'dark');
     }
-    this.titleService.setTitle(`${this.titlePrefix()}Login`);
+    this.titleService.setTitle(`${this.titlePrefix()}登录`);
 
     effect(() => {
       if (this.config.configuration()) {
@@ -134,7 +134,7 @@ export class LoginComponent {
 
     this.store.dispatch(setBreadcrumbs({
       breadcrumbs: [[{
-        name: 'Login',
+        name: '登录',
         type: CrumbTypeEnum.Feature
       }]]}));
 
@@ -168,8 +168,7 @@ export class LoginComponent {
       mergeMap(inviteId => this.loginService.getInviteInfo(inviteId))
     ).subscribe((inviteInfo: any) => {
       const shorterName = inviteInfo.user_given_name || inviteInfo.user_name?.split(' ')[0];
-      this.loginTitle.set(!shorterName ? '' : `Accept ${shorterName ? shorterName + '\'s' : ''} invitation and
-      join their team`);
+      this.loginTitle.set(!shorterName ? '' : `接受 ${shorterName ? shorterName + ' 的' : ''} 邀请并加入其团队`);
     });
 
     this.route.queryParams
@@ -278,7 +277,7 @@ export class LoginComponent {
         disableClose: true,
         data: {
           body: this.environment().loginPopup,
-          yes: 'OK',
+          yes: '确定',
           iconClass: 'al-ico-alert',
           iconColor: 'var(--color-warning)'
         }

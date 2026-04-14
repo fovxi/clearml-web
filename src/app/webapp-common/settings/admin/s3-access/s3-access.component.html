@@ -2,12 +2,12 @@
   <form [formGroup]="S3Form" class="form-container">
       @if (bucketCredentials.controls.length > 0 || externalCredentials()?.length) {
         <div class="s3-row header">
-          <div>Bucket</div>
-          <div>Key</div>
-          <div>Secret / SAS</div>
-          <div>Token</div>
-          <div>AWS Region</div>
-          <div>Host (Endpoint)</div>
+          <div>存储桶</div>
+          <div>访问密钥</div>
+          <div>密钥 / SAS</div>
+          <div>令牌</div>
+          <div>AWS 区域</div>
+          <div>端点主机</div>
         </div>
       }
     <div class="credentials-container">
@@ -34,17 +34,17 @@
             <mat-form-field appearance="outline" class="no-bottom">
               <input matInput class="form-control" formControlName="Token"></mat-form-field>
             <mat-form-field appearance="outline" class="no-bottom">
-              <input matInput class="form-control" formControlName="Region" placeholder="us-east-2"></mat-form-field>
+              <input matInput class="form-control" formControlName="Region" placeholder="例如：us-east-2"></mat-form-field>
             <mat-form-field appearance="outline" class="no-bottom">
-              <input #endpoint matInput class="form-control" formControlName="Endpoint" placeholder="Leave empty for AWS S3">
+              <input #endpoint matInput class="form-control" formControlName="Endpoint" placeholder="使用 AWS S3 时可留空">
             </mat-form-field>
             <div class="d-flex justify-content-end">
               @if (endpoint.value.startsWith('http://') && secured) {
-                <span class="alert-icon me-2" smTooltip="Embedding images through a non-secure transport (HTTP) in a secure web application might require special configuration of your browser">
+                <span class="alert-icon me-2" smTooltip="在安全的前端页面中通过不安全的传输方式（HTTP）嵌入图片，可能需要对浏览器进行特殊配置">
                 <i class="al-icon sm-md al-ico-alert"></i>
               </span>
               }
-              <button mat-icon-button smTooltip="Remove" matTooltipShowDelay="500" (click)="removeBucket($index)">
+              <button mat-icon-button smTooltip="移除" matTooltipShowDelay="500" (click)="removeBucket($index)">
                 <mat-icon fontSet="al" [fontIcon]="ICONS.REMOVE"></mat-icon>
               </button>
             </div>
@@ -55,7 +55,7 @@
     <div>
       <button mat-button (click)="addBucket({})">
         <mat-icon fontSet="al" fontIcon="al-ico-add"></mat-icon>
-        Add Access Keys
+        添加访问密钥
       </button>
     </div>
   </form>

@@ -15,8 +15,8 @@ export class AbortAllChildrenFooterItem extends ItemFooterModel {
     const {available, disable} = selectionDisabledAbortAllChildren(state.selected);
     return {
       disable,
-      description: `Abort all children for (${available} items)`,
-      disableDescription: state.selectionIsOnlyExamples ? 'Abort all children' : `You can only abort all children of tasks with Type Controller or Optimizer `
+      description: `中止全部子项（${available}项）`,
+      disableDescription: state.selectionIsOnlyExamples ? '中止全部子项' : '仅可中止类型为“控制器”或“优化器”的任务子项'
     };
   }
 

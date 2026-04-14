@@ -1,15 +1,15 @@
-<sm-dialog-template header="ABORT PIPELINE RUN{{experiments.length > 1 ? 's' : ''}}" [iconClass]="'al-ico-abort'">
+<sm-dialog-template header="中止流水线运行{{experiments.length > 1 ? '记录' : ''}}" [iconClass]="'al-ico-abort'">
   @if (shouldBeAbortedTasks !== null) {
     <div>
-      <div>This will abort the execution of {{experiments.length > 1 ? experiments.length : 'the '}}
+      <div>这将中止 {{experiments.length > 1 ? experiments.length : '该'}}
         @if (experiments.length === 1) {
           <b>{{experiments[0]?.name ? '"' + experiments[0]?.name + '"' : ''}} </b>
-        } pipeline run{{experiments.length > 1 ? 's' : ''}}
+        } 条流水线运行
       </div>
     </div>
   }
 </sm-dialog-template>
 <div mat-dialog-actions>
-  <button mat-stroked-button mat-dialog-close data-id ="CancelButton">CANCEL</button>
-  <button mat-flat-button [mat-dialog-close]="{shouldBeAbortedTasks}" data-id ="AbortButton">ABORT</button>
+  <button mat-stroked-button mat-dialog-close data-id ="CancelButton">取消</button>
+  <button mat-flat-button [mat-dialog-close]="{shouldBeAbortedTasks}" data-id ="AbortButton">中止</button>
 </div>

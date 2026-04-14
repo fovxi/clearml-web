@@ -46,10 +46,10 @@ export class ProjectDialogEffects {
         mergeMap(() => [
             deactivateLoader(action.type),
             newProjectActions.setCreationStatus({status: CREATION_STATUS.SUCCESS}),
-            addMessage(MESSAGES_SEVERITY.SUCCESS, `${(new ShortProjectNamePipe()).transform(action.req.name)} has been created successfully in ${(new ProjectLocationPipe()).transform(action.req.name)}`)
+            addMessage(MESSAGES_SEVERITY.SUCCESS, `已在 ${(new ProjectLocationPipe()).transform(action.req.name)} 中成功创建 ${(new ShortProjectNamePipe()).transform(action.req.name)}`)
           ]
         ),
-        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, 'Project Created Failed'), newProjectActions.setCreationStatus({status: CREATION_STATUS.FAILED})])
+        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, '项目创建失败'), newProjectActions.setCreationStatus({status: CREATION_STATUS.FAILED})])
       )
     )
   ));
@@ -63,10 +63,10 @@ export class ProjectDialogEffects {
         mergeMap(() => [
             deactivateLoader(action.type),
             newProjectActions.setCreationStatus({status: CREATION_STATUS.SUCCESS}),
-            addMessage(MESSAGES_SEVERITY.SUCCESS, `${(new ShortProjectNamePipe()).transform(action.req.name)} has been updated successfully in ${(new ProjectLocationPipe()).transform(action.req.name)}`),
+            addMessage(MESSAGES_SEVERITY.SUCCESS, `已在 ${(new ProjectLocationPipe()).transform(action.req.name)} 中成功更新 ${(new ShortProjectNamePipe()).transform(action.req.name)}`),
           ]
         ),
-        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, 'Project Created Failed'), newProjectActions.setCreationStatus({status: CREATION_STATUS.FAILED})])
+        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, '项目更新失败'), newProjectActions.setCreationStatus({status: CREATION_STATUS.FAILED})])
       )
     )
   ));
@@ -81,10 +81,10 @@ export class ProjectDialogEffects {
         mergeMap(() => [
             deactivateLoader(action.type),
             newProjectActions.setCreationStatus({status: CREATION_STATUS.SUCCESS}),
-            addMessage(MESSAGES_SEVERITY.SUCCESS, `${action.projectName} has been moved from ${action.fromName} to ${action.toName}`)
+            addMessage(MESSAGES_SEVERITY.SUCCESS, `已将 ${action.projectName} 从 ${action.fromName} 移动到 ${action.toName}`)
           ]
         ),
-        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, 'Project Move Failed'), newProjectActions.setCreationStatus({status: CREATION_STATUS.FAILED})])
+        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, '项目移动失败'), newProjectActions.setCreationStatus({status: CREATION_STATUS.FAILED})])
       )
     )
   ));

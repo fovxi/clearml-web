@@ -10,7 +10,7 @@ export class MenuItemTextPipe implements PipeTransform {
       return itemName;
     }
     if (numberOfItems > 0) {
-      return `${itemName} (${numberOfItems} item${numberOfItems > 1 ? 's' : ''}) `;
+      return `${itemName}（${numberOfItems}项）`;
     }
     return itemName;
   }

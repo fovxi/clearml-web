@@ -11,7 +11,7 @@
           <div data-id="iterationPanel">
             @if (minMaxIterations.max_iteration !== minMaxIterations.min_iteration || minMaxIterations.min_iteration > 0) {
               <span>
-                Iteration <span class="number" data-id="iterationCount">{{ iteration }}</span>
+                迭代 <span class="number" data-id="iterationCount">{{ iteration }}</span>
               </span>
             }
             @if (minMaxIterations.max_iteration !== minMaxIterations.min_iteration) {
@@ -36,14 +36,14 @@
     </div>
     <div class="d-flex third actions">
       <div (click)="embedCodeClick($event)"
-           smTooltip="Copy embed code" data-id="copyEmbedCodeButton" class="icon-container"
+           smTooltip="复制嵌入代码" data-id="copyEmbedCodeButton" class="icon-container"
            [style.visibility]="embedFunction ? 'visible' : 'hidden'">
         <i class="al-icon al-ico-code-square"></i>
       </div>
-      <div (click)="downloadImage()" [smTooltip]="isFileserverUrl(url()) ? 'Download' : 'Open in a new tab'" data-id="downloadButton" class="icon-container">
+      <div (click)="downloadImage()" [smTooltip]="isFileserverUrl(url()) ? '下载' : '在新标签页中打开'" data-id="downloadButton" class="icon-container">
         <i class="al-icon" [class]="isFileserverUrl(url()) ? 'al-ico-download' : 'al-ico-export sm-md'"></i>
       </div>
-      <div (click)="closeImageViewer()" smTooltip="Close" data-id="closeButton" class="icon-container">
+      <div (click)="closeImageViewer()" smTooltip="关闭" data-id="closeButton" class="icon-container">
         <i class="al-icon al-ico-dialog-x"></i>
       </div>
     </div>
@@ -79,23 +79,23 @@
          [style.visibility]="isPlayer() ? 'hidden' : 'visible'">
       <div (click)="fitToScreen()"
            class="fit-to-screen controller icon-container"
-           smTooltip="Fit to window" data-id="fitToScreenButton" matTooltipPosition="left"
+           smTooltip="适应窗口" data-id="fitToScreenButton" matTooltipPosition="left"
            [class.disabled]="scaleOffset().scale === autoFitScale">
         <i class="al-icon al-ico-fit" data-id="fitToScreen"></i>
       </div>
       <div class="zoom controller">
         <div class="icon-container" [class.disabled]="maxScale <= scaleOffset()?.scale">
-          <i class="al-icon al-ico-plus"  (click)="calculateNewScale(true)" smTooltip="Zoom in"
+          <i class="al-icon al-ico-plus"  (click)="calculateNewScale(true)" smTooltip="放大"
              matTooltipPosition="left" data-id="ZoomInButton"></i>
         </div>
         <div class="d-flex flex-column justify-content-around align-items-center icon-container" (click)="resetScale()"
-             smTooltip="Zoom to 1:1" matTooltipPosition="left"
+             smTooltip="缩放至 1:1" matTooltipPosition="left"
              [class.disabled]="scaleOffset().scale === 1">
           <i class="al-icon al-ico-zoom-1-to-1 sm-md" data-id="zoomTo1:1Ratio"></i>
         </div>
         <div class="icon-container">
           <div class="al-icon al-ico-minus" (click)="calculateNewScale(false)"
-               smTooltip="Zoom out" matTooltipPosition="left" data-id="zoomOutButton"></div>
+               smTooltip="缩小" matTooltipPosition="left" data-id="zoomOutButton"></div>
         </div>
       </div>
     </div>
@@ -113,11 +113,11 @@
 
   <div class="footer-info"
        [style.visibility]="isPlayer() ? 'hidden' : 'visible'">
-    <div class="d-flex justify-content-center params" smTooltip="Image Width & Height in pixels">
+    <div class="d-flex justify-content-center params" smTooltip="图片宽高（像素）">
       <div class="single-parameter"><label>w: </label>{{ debugImage.naturalWidth }}</div>
       <div class="single-parameter"><label>h: </label>{{ debugImage.naturalHeight }}</div>
     </div>
-    <div class="d-flex justify-content-center params" smTooltip="Tracks cursor coordinates" data-id="coordiantesPanel">
+    <div class="d-flex justify-content-center params" smTooltip="跟踪光标坐标" data-id="coordiantesPanel">
       <div class="single-parameter" data-id="xPositionCoordinate">
         x:
         <span [style.visibility]="dragging ? 'hidden' : 'visible'">{{ xCord }}</span>
@@ -126,7 +126,7 @@
         y:
         <span [style.visibility]="dragging?'hidden':'visible'">{{ yCord }}</span></div>
     </div>
-    <div class="d-flex justify-content-center params" smTooltip="Image zoom" data-id="Zoomdescription">
+    <div class="d-flex justify-content-center params" smTooltip="图片缩放" data-id="Zoomdescription">
       <div class="double-parameter">
         Zoom: {{ this.scaleOffset().scale | toPercentage }}%
       </div>

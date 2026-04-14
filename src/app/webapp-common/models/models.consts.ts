@@ -26,8 +26,8 @@ export const MODELS_PREFIX_VIEW = 'MODELS_';
 
 
 export const STATUS = {
-  PUBLISHED: 'Published',
-  DRAFT    : 'Draft'
+  PUBLISHED: '已发布',
+  DRAFT    : '草稿'
 };
 
 export const MODELS_TABLE_COLS: ISmCol[] = [

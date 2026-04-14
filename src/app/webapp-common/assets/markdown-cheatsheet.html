@@ -218,24 +218,24 @@
 
 <div class="modal-content">
 
-    <p class="intro">The following is a quick reference for the Markdown syntax that can be used in ClearML Reports.</p>
+    <p class="intro">以下是可在 ClearML 报告中使用的 Markdown 语法速查表。</p>
 
     <!-- EMBEDDED VISUALIZATIONS -->
     <section>
-        <h2>Embedded Visualizations</h2>
-        <p>You can embed most ClearML plots and images appearing in tasks (or task comparison). Each such asset will show a "<b>Copy embed code</b>" button on hover, which will copy specific HTML embed code that, pasted in a report, will embed that asset.</p>
+        <h2>嵌入可视化内容</h2>
+        <p>您可以嵌入任务中显示的大多数 ClearML 图表和图片（包括任务对比视图）。鼠标悬停到这些资源上时会显示“<b>复制嵌入代码</b>”按钮，点击后会复制对应的 HTML 嵌入代码，将其粘贴到报告中即可嵌入该资源。</p>
 <code class="md-code hljs html word-break"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/widgets?type=scalar&amp;tasks=e-f6b6632fdd3648d1948fb311baaa3d03&amp;metrics=train&amp;company=aec6c91852c548158a76778aa40c1772"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"c66c0fda-5196-4d5f-ab0d-50ead9cb8738"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"400"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span></code>
-        <p><small>The rendered output looks like this:</small></p>
+        <p><small>渲染效果如下：</small></p>
         <figure>
             <img class="graph" src="app/webapp-common/assets/icons/training_loss_graph.png"
-                 alt="Training loss">
-            <figcaption><small>Training loss from the Pytorch MNIST example</small></figcaption>
+                 alt="训练损失">
+            <figcaption><small>Pytorch MNIST 示例中的训练损失</small></figcaption>
         </figure>
     </section>
 
     <!-- HEADING -->
     <section>
-       <h2>Heading</h2>
+       <h2>标题</h2>
 <code class="md-code"># H1
 ## H2
 ### H3
@@ -243,7 +243,7 @@
 ##### H5
 ###### H6
 </code>
-       <p><small>The rendered output looks like this:</small></p>
+       <p><small>渲染效果如下：</small></p>
        <h1>H1</h1>
        <h2>H2</h2>
        <h3>H3</h3>
@@ -254,29 +254,29 @@
 
     <!-- EMPHASIS -->
     <section>
-        <h2>Emphasis</h2>
- <code class="md-code">**This is bold text** and __so is this__
-*This is italic text* and _so is this_
+        <h2>强调</h2>
+ <code class="md-code">**这是加粗文本**，__这也是__
+*这是斜体文本*，_这也是_
 ~~Strikethrough~~</code>
-        <p><small>The rendered output looks like this:</small></p>
-        <p><strong>This is bold text</strong> and <strong>so is this</strong></p>
-        <p><em>This is italic text</em> and <em>so is this</em></p>
-        <p><del>Strikethrough</del></p>
+        <p><small>渲染效果如下：</small></p>
+        <p><strong>这是加粗文本</strong>，<strong>这也是</strong></p>
+        <p><em>这是斜体文本</em>，<em>这也是</em></p>
+        <p><del>删除线</del></p>
     </section>
 
     <!-- BLOCKQUOTES -->
     <section>
-        <h2>Blockquotes</h2>
- <code class="md-code">> Blockquotes can be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.</code>
-        <p><small>The rendered output looks like this:</small></p>
+        <h2>引用块</h2>
+ <code class="md-code">> 引用块可以嵌套...
+>> ...只需连续使用多个大于号...
+> > > ...也可以在箭头之间加入空格。</code>
+        <p><small>渲染效果如下：</small></p>
         <blockquote>
-            <p>Blockquotes can be nested...</p>
+            <p>引用块可以嵌套...</p>
             <blockquote>
-                <p>...by using additional greater-than signs right next to each other...</p>
+                <p>...只需连续使用多个大于号...</p>
                 <blockquote>
-                    <p>...or with spaces between arrows.</p>
+                    <p>...也可以在箭头之间加入空格。</p>
                 </blockquote>
             </blockquote>
         </blockquote>
@@ -284,38 +284,38 @@
 
    <!-- LIST -->
    <section>
-       <h2>List</h2>
+       <h2>列表</h2>
 
-       <h3>Unordered</h3>
-<code class="md-code">+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-   - Marker character change forces new list start:
-   * Ac tristique libero volutpat at
-   + Facilisis in pretium nisl aliquet
-   - Nulla volutpat aliquam velit
-+ [x] Checkmarks are supported as well.
+       <h3>无序列表</h3>
+<code class="md-code">+ 使用 `+`、`-` 或 `*` 开头即可创建列表
++ 通过缩进 2 个空格可以创建子列表：
+   - 更换标记符会开始新的列表：
+   * 示例条目一
+   + 示例条目二
+   - 示例条目三
++ [x] 也支持复选框。
 </code>
-<p><small>The rendered output looks like this:</small></p>
+<p><small>渲染效果如下：</small></p>
        <ul>
-           <li>Create a list by starting a line with <code>+</code>, <code>-</code>, or <code>*</code></li><li>Sub-lists are made by indenting 2 spaces:<ul>
-           <li>Marker character change forces new list start:<ul>
-           <li>Ac tristique libero volutpat at</li><li>Facilisis in pretium nisl aliquet</li><li>Nulla volutpat aliquam velit</li></ul>
+           <li>使用 <code>+</code>、<code>-</code> 或 <code>*</code> 开头即可创建列表</li><li>通过缩进 2 个空格可以创建子列表：<ul>
+           <li>更换标记符会开始新的列表：<ul>
+           <li>示例条目一</li><li>示例条目二</li><li>示例条目三</li></ul>
            </li></ul>
-           </li><li><i class="fa-solid fa-check-square"></i> Checkmarks are supported as well.</li>
+           </li><li><i class="fa-solid fa-check-square"></i> 也支持复选框。</li>
        </ul>
        <hr/>
-       <h3>Ordered</h3>
-<code class="md-code">1. Start with a numbered element...
-2. And just keep going.
-1. You can use sequential numbers...
-1. ...or keep all the numbers as `1.`
+       <h3>有序列表</h3>
+<code class="md-code">1. 从编号项目开始...
+2. 然后继续往下写。
+1. 可以使用连续编号...
+1. ...也可以全部写成 `1.`
 </code>
-<p><small>The rendered output looks like this:</small></p>
+<p><small>渲染效果如下：</small></p>
        <ol>
-           <li>Start with a numbered element...</li>
-           <li>And just keep going.</li>
-           <li>You can use sequential numbers...</li>
-           <li>...or keep all the numbers as <code>1.</code></li>
+           <li>从编号项目开始...</li>
+           <li>然后继续往下写。</li>
+           <li>可以使用连续编号...</li>
+           <li>...也可以全部写成 <code>1.</code></li>
        </ol>
    </section>
 
@@ -323,21 +323,21 @@
 
    <!-- TABLES -->
    <section>
-       <h2>Tables</h2>
-<code class="md-code">|          | Align Right | Align Left | Align Center |
+       <h2>表格</h2>
+<code class="md-code">|          | 右对齐 | 左对齐 | 居中对齐 |
 | —————-—— | —————————-—:|:—————————- |:—————————-——:|
 | 1        |           1 | 1          |      1       |
 | 11       |          11 | 11         |      11      |
 </code>
-       <p><small>The rendered output looks like this:</small></p>
+       <p><small>渲染效果如下：</small></p>
 
        <table class="table" style="width: 100%">
            <thead>
                <tr>
                    <th></th>
-                   <th style="text-align: right;">Align Right</th>
-                   <th style="text-align: left;">Align Left</th>
-                   <th style="text-align: center;">Align Center</th>
+                   <th style="text-align: right;">右对齐</th>
+                   <th style="text-align: left;">左对齐</th>
+                   <th style="text-align: center;">居中对齐</th>
                </tr>
            </thead>
            <tbody>
@@ -360,55 +360,55 @@
 
    <!-- COLLAPSIBLE SECTIONS -->
    <section>
-       <h2>Collapsible sections</h2>
+       <h2>可折叠区域</h2>
 <code class="md-code hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>Extra detailed information<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
-   All the gory details!
+   <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>展开查看详细信息<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+   这里是更完整的详细内容！
 <span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span></code>
 
-       <p><small>The rendered output looks like this:</small></p>
+       <p><small>渲染效果如下：</small></p>
        <details>
-           <summary>Extra detailed information</summary>
-           All the gory details!
+           <summary>展开查看详细信息</summary>
+           这里是更完整的详细内容！
        </details>
    </section>
 
 
    <!-- CODE -->
    <section>
-       <h2>Code</h2>
+       <h2>代码</h2>
 
-       <h3>Inline code</h3>
-<code class="md-code">Putting `code` in the middle of the sentence</code>
-        <p><small>The rendered output looks like this:</small></p>
-       <p>Putting <code>code</code> in the middle of the sentence</p>
+       <h3>行内代码</h3>
+<code class="md-code">在句子中间插入 `code`</code>
+        <p><small>渲染效果如下：</small></p>
+       <p>在句子中间插入 <code>code</code></p>
        <hr/>
-       <h3>Block code with indentation</h3>
+       <h3>使用缩进的代码块</h3>
 <pre>
-    // Comment
+    // 注释
     line 1
     line 2
     line 3</pre>
-       <p><small>The rendered output looks like this:</small></p>
-<code class="md-code">// Comment
+       <p><small>渲染效果如下：</small></p>
+<code class="md-code">// 注释
 line 1
 line 2
 line 3</code>
         <hr/>
-       <h3>Block code using "fences"</h3>
+       <h3>使用围栏语法的代码块</h3>
 <pre>```
-Meaningful code
+有意义的代码
 ```</pre>
-       <p><small>The rendered output looks like this:</small></p>
-       <code class="md-code">Meaningful code</code>
+       <p><small>渲染效果如下：</small></p>
+       <code class="md-code">有意义的代码</code>
        <hr/>
-       <h3>Syntax highlighting</h3>
+       <h3>语法高亮</h3>
 
 <code class="md-code">```py
 from clearml import task
 t = task.Init(project_name='Groundbreaking research', task_name='Baseline')
 ```</code>
-   <p><small>The rendered output looks like this:</small></p>
+   <p><small>渲染效果如下：</small></p>
 <code class="md-code"><span class="hljs-keyword">from</span> clearml <span class="hljs-keyword">import</span> task
 t = task.Init(project_name=<span class="hljs-string">'Groundbreaking research'</span>, task_name=<span class="hljs-string">'Baseline'</span>)
 </code>
@@ -417,21 +417,21 @@ t = task.Init(project_name=<span class="hljs-string">'Groundbreaking research'</
 
    <!-- LINKS -->
    <section>
-        <h2>Links</h2>
-<code class="md-code hljs md">[<span class="hljs-string">link text</span>](<span class="hljs-link">http://ww.clear.ml</span>)
-[<span class="hljs-string">link with tooltip</span>](<span class="hljs-link">http://www.clear.ml/docs/latest/docs/ "ClearML Documentation"</span>)</code>
-        <p><small>The rendered output looks like this:</small></p>
-        <p><a href="http://www.clear.ml" target="_blank">link text</a></p>
-        <p><a href="http://www.clear.ml/docs/latest/docs/" target="_blank" title="ClearML Documentation">link with tooltip</a></p>
+        <h2>链接</h2>
+<code class="md-code hljs md">[<span class="hljs-string">链接文本</span>](<span class="hljs-link">http://ww.clear.ml</span>)
+[<span class="hljs-string">带提示的链接</span>](<span class="hljs-link">http://www.clear.ml/docs/latest/docs/ "ClearML 文档"</span>)</code>
+        <p><small>渲染效果如下：</small></p>
+        <p><a href="http://www.clear.ml" target="_blank">链接文本</a></p>
+        <p><a href="http://www.clear.ml/docs/latest/docs/" target="_blank" title="ClearML 文档">带提示的链接</a></p>
     </section>
 
     <!-- HORIZONTAL RULES -->
     <section>
-        <h2>Horizontal Rules</h2>
+        <h2>分隔线</h2>
 <code class="md-code">___
 ---
 ***</code>
-        <p><small>The rendered output looks like this:</small></p>
+        <p><small>渲染效果如下：</small></p>
         <hr>
         <hr>
         <hr>
@@ -440,11 +440,11 @@ t = task.Init(project_name=<span class="hljs-string">'Groundbreaking research'</
 
     <!-- IMAGES -->
     <section>
-        <h2>Images</h2>
-<code class="md-code">![Logo with text](c-logomark.svg "ClearML Logo with title")</code>
-        <p><small>The rendered output looks like this:</small></p>
+        <h2>图片</h2>
+<code class="md-code">![带文字的标志](c-logomark.svg "ClearML 标志标题")</code>
+        <p><small>渲染效果如下：</small></p>
         <p class="text-center">
-            <img style="max-width: 50%;" src="app/webapp-common/assets/icons/c-logomark.svg" alt="Logo with text" title="ClearML Logo with title">
+            <img style="max-width: 50%;" src="app/webapp-common/assets/icons/c-logomark.svg" alt="带文字的标志" title="ClearML 标志标题">
         </p>
     </section>
 

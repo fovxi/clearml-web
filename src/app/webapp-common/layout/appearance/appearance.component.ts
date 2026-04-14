@@ -27,9 +27,9 @@ interface Themes {
 })
 export class AppearanceComponent {
   themes: Themes[] = [
-    {value: 'light', name: 'Light'},
-    {value: 'dark', name: 'Dark'},
-    {value: 'system', name: 'System'},
+    {value: 'light', name: '浅色'},
+    {value: 'dark', name: '深色'},
+    {value: 'system', name: '跟随系统'},
   ];
   private store = inject(Store);
   protected userTheme = this.store.selectSignal(selectUserTheme);

@@ -1,6 +1,6 @@
 <sm-dialog-template [displayX]="true"
-  [header]="queue? 'NO WORKERS ASSIGNED TO QUEUE': (step() === 1 ? 'Welcome to ClearML' : (showTabs? 'CREATE NEW TASK' : 'GETTING STARTED'))"
-  [subHeader]="showTabs ? 'To create a new task you can either run your ML code instrumented with the ClearML SDK, or relaunch a previously run task by cloning it.' : ''"
+  [header]="queue? '队列暂无可用工作节点': (step() === 1 ? '欢迎使用 ClearML' : (showTabs? '创建新任务' : '开始使用'))"
+  [subHeader]="showTabs ? '要创建新任务，你可以运行已接入 ClearML SDK 的 ML 代码，或通过克隆之前运行过的任务重新启动。' : ''"
   (xClicked)="closeDialog()" [closeOnX]="false"
   [iconClass]="queue?'al-ico-queues': 'i-welcome-researcher'" xmlns="http://www.w3.org/1999/html">
 
@@ -35,28 +35,28 @@
             <mat-icon fontSet="al" fontIcon="al-ico-card-example" class="xl foreground"></mat-icon>
             <span class="background"></span>
           </span>
-          <div class="mt-2">See the pre-loaded examples to quickly get familiar with ClearML’s various capabilities.</div>
+          <div class="mt-2">查看预置示例，快速了解 ClearML 的各项能力。</div>
         </div>
         <div class="info">
           <mat-icon fontSet="al" fontIcon="al-ico-help-outlined" class="xl"></mat-icon>
-          <div class="mt-2">Browse "Pro Tips" in the Help menu to jump start your work flow.</div>
+          <div class="mt-2">在帮助菜单中查看“使用技巧”，快速开始工作流程。</div>
         </div>
         <div class="info">
           <mat-icon fontSet="al" fontIcon="al-ico-documentation" class="xl"></mat-icon>
-          <div class="mt-2">Check out the <a target="_blank" [href]="docsLink()">ClearML docs</a> for advanced information and in depth how-to’s.
+          <div class="mt-2">查看 <a target="_blank" [href]="docsLink()">ClearML 文档</a>，了解更多高级信息与深入教程。
         </div>
       </div>
     </div>
     <div class="separator"></div>
     <div class="d-flex justify-content-center">
-      <button mat-flat-button (click)="nextSteps($event)">GET STARTED</button>
+      <button mat-flat-button (click)="nextSteps($event)">开始使用</button>
     </div>
   </div>
 } @else {
   <div class="steps-content">
     @if (queue) {
       <div class="text">
-        {{entityName}} have been enqueued on the <b>{{queue?.display_name || queue?.name}}</b> queue, which is currently not serviced by any worker. They will remain in the 'pending' state until a ClearML worker services this queue.
+        {{entityName}} 已加入 <b>{{queue?.display_name || queue?.name}}</b> 队列，但该队列当前没有工作节点处理。它们将保持“待处理”状态，直到有 ClearML 工作节点接入该队列。
       </div>
     }
     @if (!currentLink || currentLink === links[0]) {
@@ -64,13 +64,13 @@
         <div class="step-container">
           <div class="step-header">{{step.header}}</div>
           <div class="step">{{step.title}}</div>
-          @if (step.title==='2. Configure') {
+          @if (step.id === 2) {
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [(selectedIndex)]="target">
-              <mat-tab label="LOCAL PYTHON" data-id="LocalPythonTab"></mat-tab>
-              <mat-tab label="JUPYTER NOTEBOOK" data-id="JupyterNotebookTab"></mat-tab>
+              <mat-tab label="本地 Python" data-id="LocalPythonTab"></mat-tab>
+              <mat-tab label="Jupyter 笔记本" data-id="JupyterNotebookTab"></mat-tab>
             </mat-tab-group>
           }
-          <div class="sub-note mt-2 mb-2">{{isJupyter() ? 'Set the ClearML environment for your notebook':'Run the ClearML setup script'}}</div>
+          <div class="sub-note mt-2 mb-2">{{isJupyter() ? '为笔记本设置 ClearML 环境':'运行 ClearML 设置脚本'}}</div>
           <div class="code">
             <div class="content" #stepCode>{{step.code}}</div>
             <sm-copy-clipboard
@@ -83,9 +83,9 @@
             <div class="sub-note"><mat-icon fontSet="al" fontIcon="al-ico-info-circle" class="me-1 sm"></mat-icon>
             @if ((isJupyter() && ((queue && $index === 2) || (!queue && $index === 1)))) {
               @if (accessKey()) {
-                Manage your API credentials in the <a class="ms-1" target="_blank" href="settings/workspace-configuration">workspace settings page</a>
+                在 <a class="ms-1" target="_blank" href="settings/workspace-configuration">工作区设置页面</a> 管理你的 API 凭证
               } @else {
-                Fill in your API credentials (if you don’t have any, create new credentials)
+                填写你的 API 凭证（如果没有，请创建新凭证）
               }
             } @else {
               {{step.subNote}}
@@ -99,11 +99,11 @@
     }
     <div class="step-container cred-step" [class.jupyter]="isJupyter()" [class.first-step]="!credentialsCreated()" [class.has-ws]="community() && workspace.name" [class.has-label]="credentialsLabel">
       @if (!isJupyter()) {
-        <div class="sub-note" >Complete the clearml configuration information as prompted.</div>
+        <div class="sub-note" >请按提示完成 ClearML 配置信息。</div>
       }
       @if (!credentialsCreated()) {
         <button mat-flat-button class="my-2" data-id="New Credentials" (click)="createCredentials()">
-          CREATE NEW CREDENTIALS
+          创建新凭证
         </button>
       }
       <div class="cred-visible" [class.invisible]="!accessKey() || isJupyter()">
@@ -146,7 +146,7 @@
             [clipboardText]="getCopyConfig()"></sm-copy-clipboard>
         </div>
     @if (!showTabs) {
-      <div class="sub-note"><mat-icon fontSet="al" fontIcon="al-ico-info-circle" class="me-1 sm info"></mat-icon>Manage your API credentials in the<a class="ms-1" target="_blank" href="settings/workspace-configuration">workspace settings page</a></div>
+      <div class="sub-note"><mat-icon fontSet="al" fontIcon="al-ico-info-circle" class="me-1 sm info"></mat-icon>在<a class="ms-1" target="_blank" href="settings/workspace-configuration">工作区设置页面</a>管理你的 API 凭证</div>
     }
   </div>
 </div>
@@ -155,16 +155,16 @@
   @if (!queue) {
     <div class="step-container">
       @if (!showTabs) {
-        <div class="step">3. Integrate</div>
+        <div class="step">3. 集成</div>
       }
-      <div class="sub-note">Add ClearML to your code. For example:</div>
+      <div class="sub-note">将 ClearML 集成到你的代码中，例如：</div>
       <div class="code">
         @if (!showTabs) {
           <div class="content">
             <div>
               <span class="variable">from</span> {{configGettingStarted()?.packageName || 'clearml'}} <span class="variable">import</span> Task
             </div>
-            <div>task <span class="operation">=</span> Task.<span class="variable">init</span>(project_name<span class="operation">=</span><span class="string">"my project"</span>, task_name<span class="operation">=</span><span class="string">"my task"</span>)
+            <div>task <span class="operation">=</span> Task.<span class="variable">init</span>(project_name<span class="operation">=</span><span class="string">"我的项目"</span>, task_name<span class="operation">=</span><span class="string">"我的任务"</span>)
             </div>
           </div>
         } @else {
@@ -175,20 +175,20 @@
             <div>
               <span class="variable">import</span> matplotlib.pyplot <span class="variable">as</span> plt
             </div>
-            <div># Add the following two lines to your code, to have ClearML automatically log your task</div>
+            <div># 在你的代码中加入下面两行，让 ClearML 自动记录任务</div>
             <div>
               <span class="variable">from</span> clearml <span class="variable">import</span> Task
             </div>
-            <div>task = Task.init(project_name=<span class="string">'My Project'</span>, task_name=<span class="string">'My Task'</span>)</div>
-            <div># Create a plot using matplotlib, or you can also use plotly</div>
+            <div>task = Task.init(project_name=<span class="string">'我的项目'</span>, task_name=<span class="string">'我的任务'</span>)</div>
+            <div># 使用 matplotlib 创建图表，也可以使用 plotly</div>
             <div><code>plt.scatter(np.random.rand(50), np.random.rand(50), c=np.random.rand(50), alpha=0.5)</code></div>
-            <div># Plot will be reported automatically to clearml</div>
+            <div># 图表会自动上报到 ClearML</div>
             <div>plt.show()</div>
-            <div># Report some scalars</div>
+            <div># 上报一些标量</div>
             <div>
               <span class="variable">for</span> i <span class="variable">in</span> range(100):
             </div>
-            <div class="ms-2">task.get_logger().report_scalar(title=<span class="string">"graph title"</span>, series=<span class="string">"linear"</span>, value=i*2, iteration=i)</div>
+            <div class="ms-2">task.get_logger().report_scalar(title=<span class="string">"图表标题"</span>, series=<span class="string">"linear"</span>, value=i*2, iteration=i)</div>
           </div>
         }
         <sm-copy-clipboard
@@ -202,16 +202,16 @@
 }
 @if (!queue && (currentLink === links[2])) {
   <div class="step-container">
-    <div class="step">1. Clone a previously run task</div>
-    <div class="sub-note mt-2">Use the <span class="bolder">“Clone”</span> action to create a new draft copy.</div>
-    <div class="sub-note">You can change any of the new task's configurations.</div>
-    <div class="sub-note mt-3">Tasks table</div>
+    <div class="step">1. 克隆之前运行的任务</div>
+    <div class="sub-note mt-2">使用 <span class="bolder">“克隆”</span> 操作创建新的草稿副本。</div>
+    <div class="sub-note">你可以修改新任务的任意配置。</div>
+    <div class="sub-note mt-3">任务列表</div>
     <div class="new-experiment-table"></div>
-    <div class="step">2. Run your task</div>
-    <div class="sub-note mt-2">Use the <span class="bolder">“Enqueue”</span> action to enqueue the new task on an available queue.</div>
-    <div class="sub-note mb-1">To have an agent service a queue, on your target machine run:</div>
+    <div class="step">2. 运行你的任务</div>
+    <div class="sub-note mt-2">使用 <span class="bolder">“入队”</span> 操作将新任务加入可用队列。</div>
+    <div class="sub-note mb-1">要让代理处理该队列，请在目标机器上运行：</div>
     <div class="code">
-      <div #content class="content">clearml-agent daemon —queue &lt;queue name&gt;</div>
+      <div #content class="content">clearml-agent daemon --queue &lt;队列名称&gt;</div>
       <sm-copy-clipboard
         [label]="''"
         [clipboardText]="content.textContent"
@@ -236,7 +236,7 @@
   <div class="text">
     <mat-checkbox [checked]="doNotShowAgain"
                   (change)="doNotShowThisAgain($event.checked)">
-      Don’t show again
+      不再显示
     </mat-checkbox>
   </div>
 }

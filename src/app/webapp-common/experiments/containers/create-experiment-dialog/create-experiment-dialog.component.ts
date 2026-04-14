@@ -54,8 +54,8 @@ import {TaskTypeOptions} from '~/features/dashboard-search/dashboard-search.cons
 import {EXPERIMENTS_TYPE_LABELS} from '~/shared/constants/non-common-consts';
 
 const venvOptions = [
-  {label: 'Discover', value: 'discover'},
-  {label: 'manual', value: 'Specify'},
+  {label: '自动发现', value: 'discover'},
+  {label: '手动指定', value: 'Specify'},
 ];
 
 type VenvOption = typeof venvOptions[number]['value'];
@@ -162,9 +162,9 @@ export class CreateExperimentDialogComponent {
 
   protected gitTypes = ['branch', 'commit', 'tag'];
   protected requirementOptions: IOption[] = [
-    {label: 'Skip', value: 'skip'},
+    {label: '跳过', value: 'skip'},
     {label: 'requirements.txt', value: 'text'},
-    {label: 'Manual', value: 'manual'}
+    {label: '手动指定', value: 'manual'}
   ];
 
   codeFormGroup = this.formBuilder.group({

@@ -4,7 +4,7 @@
   [iconClass]="iconClass">
 
   @if (failed > 0) {
-    <div class="errors-title">The following {{failed === 1 ? '' : failed}} {{action.entityType}}{{failed > 1 ? 's' : ''}} failed to {{action.operationName}}:</div>
+    <div class="errors-title">{{failed}}个{{action.entityType}}执行{{action.operationName}}失败：</div>
   }
   <ul class="list-container">
     @for (fail of failedList; track fail) {
@@ -16,6 +16,5 @@
   </ul>
 </sm-dialog-template>
 <div mat-dialog-actions>
-  <button mat-flat-button mat-dialog-close>Close</button>
+  <button mat-flat-button mat-dialog-close>关闭</button>
 </div>
-

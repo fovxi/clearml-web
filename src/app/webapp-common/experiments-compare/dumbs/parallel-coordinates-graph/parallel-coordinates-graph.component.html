@@ -2,19 +2,19 @@
   <div class="actions">
       <button
         mat-icon-button
-        smTooltip="Copy embed code"
+        smTooltip="复制嵌入代码"
         (click)="creatingEmbedCode($any($event.target).getBoundingClientRect())"
         ><mat-icon fontSet="al" fontIcon="al-ico-code"></mat-icon>
       </button>
       <button
         mat-icon-button
-        smTooltip="Download as PNG"
+        smTooltip="下载为 PNG"
         (click)="downloadImage()"
         ><mat-icon fontSet="al" fontIcon="al-ico-download"></mat-icon>
       </button>
       <button
         mat-icon-button
-        [smTooltip]="maximized()? '' : 'Maximize' "
+        [smTooltip]="maximized()? '' : '最大化' "
         (click)="maximize()"
       ><mat-icon fontSet="al" [fontIcon]="maximized()? 'al-ico-dialog-x':'al-ico-maximize'"></mat-icon>
       </button>

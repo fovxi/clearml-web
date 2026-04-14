@@ -11,7 +11,7 @@
     <sm-button-toggle
       class="ms-3"
       [disabled]="!tableMode() || noData()"
-      [options]="[{label: 'Table view', value: 'table', icon: 'al-ico-table-view'}, {label: 'Details view', value: 'info', icon: 'al-ico-experiment-view'}]"
+      [options]="[{label: '表格视图', value: 'table', icon: 'al-ico-table-view'}, {label: '详情视图', value: 'info', icon: 'al-ico-experiment-view'}]"
       [rippleEffect]="rippleEffect()"
       [ngModel]="!noData() && tableMode()"
       (ngModelChange)="tableModeChanged.emit($any($event))"></sm-button-toggle>
@@ -25,22 +25,22 @@
         (clearTableFilters)="clearTableFilters.emit(tableFilters())"
       ></sm-clear-filters-button>
     }
-    <div smTooltip="Download table as CSV">
+    <div smTooltip="将表格下载为 CSV">
       <sm-menu
         iconClass="al-ico-download"
         [disabled]="noData()"
         data-id="downloadCSVButton"
       >
-        <sm-menu-item (itemClicked)="downloadTableAsCSV.emit()" itemLabel="Download on screen items"></sm-menu-item>
-        <sm-menu-item (itemClicked)="downloadFullTableAsCSV.emit()" [itemLabel]="'Download first '+ (maxDownloadItems$ | ngrxPush) +' items'"></sm-menu-item>
+        <sm-menu-item (itemClicked)="downloadTableAsCSV.emit()" itemLabel="下载当前屏幕中的条目"></sm-menu-item>
+        <sm-menu-item (itemClicked)="downloadFullTableAsCSV.emit()" [itemLabel]="'下载前 ' + (maxDownloadItems$ | ngrxPush) + ' 条记录'"></sm-menu-item>
       </sm-menu>
     </div>
     @if (!minimizedView() || sharedView()) {
       <sm-custom-cols-menu
         [sections]="[{name: 'metrics', options: metricVariants(), template: metricsTemplate}, {name: 'metadata', options: metadataKeys(), template: metadataTemplate}]"
-        menuTooltip="Customize table"
-        [topTitle]="'CUSTOMIZE COLUMNS'"
-        [sectionsTitle]="'ADD CUSTOM COLUMN'"
+        menuTooltip="自定义表格"
+        [topTitle]="'自定义列'"
+        [sectionsTitle]="'添加自定义列'"
         [tableCols]="tableCols2()"
         [isLoading]="false"
         [disabled]="tableMode() === 'compare' && metricVariants()?.length === 0"

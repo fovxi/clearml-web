@@ -21,11 +21,11 @@ export class AdminCredentialTableBaseDirective {
   confirmPopUp(credential) {
     const confirmDialogRef: MatDialogRef<any, boolean> = this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'Are you sure?',
-        body: `Are you sure you want to revoke the ${credential.label || ''} credentials (${credential.access_key})?<br>\n
-              Once revoked, these credentials cannot be recovered.`,
-        yes: 'Revoke',
-        no: 'Cancel',
+        title: '确定吗？',
+        body: `确定要撤销凭证 ${credential.label || ''}（${credential.access_key}）吗？<br>\n
+              撤销后将无法恢复这些凭证。`,
+        yes: '撤销',
+        no: '取消',
         iconClass: 'al-ico-alert',
         iconColor: 'var(--color-warning)'
       }
@@ -42,9 +42,9 @@ export class AdminCredentialTableBaseDirective {
     this.dialog.open(EditCredentialLabelDialogComponent, {
       data: {
         label: credential.label,
-        title: 'EDIT LABEL',
-        yes: ' SAVE ',
-        no: 'CANCEL',
+        title: '编辑标签',
+        yes: '保存',
+        no: '取消',
         iconClass: 'al-ico-access-key',
         width: '200px',
 

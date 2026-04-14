@@ -42,7 +42,7 @@
               <sm-menu iconClass="al-ico-copy-to-clipboard" [class.selected]="queue.id === selectedQueue()?.[0]?.id">
                 <button
                   mat-menu-item
-                  smTooltip="Copy Queue ID"
+                  smTooltip="复制队列 ID"
                   [matTooltipShowDelay]="500"
                   ngxClipboard
                   [cbContent]="queue?.id"
@@ -53,14 +53,14 @@
                 </button>
                 <button
                   mat-menu-item
-                  smTooltip="Copy Queue Resource Name"
+                  smTooltip="复制队列资源名称"
                   [matTooltipShowDelay]="500"
                   ngxClipboard
                   [cbContent]="queue?.name"
                   (cbOnSuccess)="copySuccess.emit('name')"
                 >
                   <mat-icon fontSet="al" fontIcon="al-ico-copy-to-clipboard"></mat-icon>
-                  Name
+                  名称
                 </button>
               </sm-menu>
             </div>

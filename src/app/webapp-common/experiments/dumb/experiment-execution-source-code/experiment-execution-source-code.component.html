@@ -1,6 +1,6 @@
 <form [formGroup]="sourceCodeForm">
   <div [class.source-code-container]="editable()">
-    <sm-labeled-row label="REPOSITORY">
+    <sm-labeled-row label="仓库">
       @if (!editable()) {
         @if (repoData().targetUrl) {
           <a [href]="repoData().targetUrl" target="_blank" class="d-inline-flex ">
@@ -17,7 +17,7 @@
         </mat-form-field>
       }
     </sm-labeled-row>
-    <sm-labeled-row [label]="editable() ? 'COMMIT' : (sourceCodeForm.controls.scriptType.value | replaceViaMapPipe: flagNameMap)">
+    <sm-labeled-row [label]="editable() ? '提交' : (sourceCodeForm.controls.scriptType.value | replaceViaMapPipe: flagNameMap)">
       @if (!editable()) {
         <div>
           <div>
@@ -30,12 +30,12 @@
               }
               @case (sourceTypesEnum.Branch) {
                 @if (sourceCodeForm.controls.branch.value) {
-                  Latest in branch {{sourceCodeForm.controls.branch.value}}
+                  分支 {{sourceCodeForm.controls.branch.value}} 的最新版本
                 }
               }
               @case (sourceTypesEnum.Tag) {
                 @if (sourceCodeForm.controls.version_num.value) {
-                  {{sourceCodeForm.controls.tag.value}} (commit id {{sourceCodeForm.controls.version_num.value}})
+                  {{sourceCodeForm.controls.tag.value}}（提交 ID {{sourceCodeForm.controls.version_num.value}}）
                 } @else {
                   {{sourceCodeForm.controls.tag.value}}
                 }
@@ -46,7 +46,7 @@
       } @else {
         <div class="d-flex w-100" style="gap: 12px">
           <mat-form-field appearance="outline" class="flex-grow-1">
-            <mat-label>Type</mat-label>
+            <mat-label>类型</mat-label>
             <mat-select panelClass="light-theme" formControlName="scriptType">
               @for (type of scriptTypeOptions; track type) {
                 <mat-option [value]="type.value">{{type.label}}</mat-option>
@@ -56,8 +56,8 @@
           @switch (sourceCodeForm.controls.scriptType.value) {
             @case (sourceTypesEnum.VersionNum) {
               <mat-form-field appearance="outline" class="flex-grow-1">
-                <mat-error>Required</mat-error>
-                <mat-label>Commit ID</mat-label>
+                <mat-error>必填</mat-error>
+                <mat-label>提交 ID</mat-label>
                 <input matInput type="text" formControlName="version_num"
                        (blur)="resetOtherScriptParameters(sourceTypesEnum.VersionNum)"
                        [placeholder]="scriptPlaceHolders[sourceTypesEnum.VersionNum]">
@@ -65,8 +65,8 @@
             }
             @case (sourceTypesEnum.Branch) {
               <mat-form-field appearance="outline" class="flex-grow-1">
-                <mat-label>Branch</mat-label>
-                <mat-error>Required</mat-error>
+                <mat-label>分支</mat-label>
+                <mat-error>必填</mat-error>
                 <input matInput type="text" formControlName="branch"
                        (blur)="resetOtherScriptParameters(sourceTypesEnum.Branch)"
                        [placeholder]="scriptPlaceHolders[sourceTypesEnum.Branch]">
@@ -74,8 +74,8 @@
             }
             @case (sourceTypesEnum.Tag) {
               <mat-form-field appearance="outline" class="flex-grow-1">
-                <mat-error>Required</mat-error>
-                <mat-label>Tag</mat-label>
+                <mat-error>必填</mat-error>
+                <mat-label>标签</mat-label>
                 <input matInput type="text" formControlName="tag"
                        (blur)="resetOtherScriptParameters(sourceTypesEnum.Tag)"
                        [placeholder]="scriptPlaceHolders[sourceTypesEnum.Tag]">
@@ -85,7 +85,7 @@
         </div>
       }
     </sm-labeled-row>
-    <sm-labeled-row label="SCRIPT PATH">
+    <sm-labeled-row label="脚本路径">
       @if (!editable()) {
         <div>{{sourceCodeForm.controls.entry_point.value}}</div>
       } @else {
@@ -94,7 +94,7 @@
         </mat-form-field>
       }
     </sm-labeled-row>
-    <sm-labeled-row label="WORKING DIRECTORY">
+    <sm-labeled-row label="工作目录">
       @if (!editable()) {
         <div>{{sourceCodeForm.controls.working_dir.value}}</div>
       }
@@ -104,14 +104,14 @@
         </mat-form-field>
       }
     </sm-labeled-row>
-    <sm-labeled-row label="BINARY">
+    <sm-labeled-row label="二进制文件">
       @if (!editable()) {
         <div class="d-flex align-items-center">
           {{sourceCodeForm.controls.binary.value}}
           @if (sourceCodeForm.controls.binary.value && !(sourceCodeForm.controls.binary.value.substring(sourceCodeForm.controls.binary.value.lastIndexOf('/')+1)).match(binaryValidationRegexp)) {
             <i
               class="al-icon al-ico-alert-outline sm ms-2"
-              smTooltip="This binary is not supported by ClearML agent - System python will be used for execution"
+              smTooltip="ClearML Agent 不支持该二进制文件，将使用系统 Python 执行"
             ></i>
           }
         </div>

@@ -72,10 +72,10 @@ export class EditJsonComponent {
     this.typeJson = this.data.format === 'json';
     let defaultPlaceHolder: string;
     if (this.typeJson) {
-      defaultPlaceHolder = `e.g.:
+      defaultPlaceHolder = `例如：
 
 {
-  "location" : "london",
+  "位置" : "伦敦",
   "date" : "2019-01-31 22:41:03"
 }`;
     } else {
@@ -120,7 +120,7 @@ export class EditJsonComponent {
         this.textData = text;
         this.dialogRef.close(text ? (this.typeJson ? JSON.parse(text) : text) : '');
       } catch {
-        this.store.dispatch(addMessage('warn', 'Not a valid JSON'));
+        this.store.dispatch(addMessage('warn', '不是有效的 JSON'));
         // this.showErrors = true; // shows warning message bellow texterea
       }
     } else {

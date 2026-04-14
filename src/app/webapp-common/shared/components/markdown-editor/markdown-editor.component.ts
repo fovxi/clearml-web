@@ -75,8 +75,8 @@ export class MarkdownEditorComponent {
   public postRender = (dirty: string): string => {
     if (this.blockUserScripts()) {
       return '<div class="d-flex-center flex-column h-100 mt-4">' +
-        '<div>Preview not available because 3rd party scripts are blocked.</div>' +
-        '<div>You can enable it in under <a href="/settings/webapp-configuration">User Preferences</a>.</div>' +
+        '<div>由于第三方脚本被阻止，无法显示预览。</div>' +
+        '<div>您可以在 <a href="/settings/webapp-configuration">用户偏好设置</a> 中启用该功能。</div>' +
         '</div>';
     }
     return DOMPurify.sanitize(dirty, {ADD_TAGS: ['iframe'], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling'], FORBID_ATTR: ['action']});
@@ -277,4 +277,3 @@ export class MarkdownEditorComponent {
     this.ace.insert(`![${decodeURIComponent(getBaseName(resource))}](${resource})\n`);
   }
 }
-

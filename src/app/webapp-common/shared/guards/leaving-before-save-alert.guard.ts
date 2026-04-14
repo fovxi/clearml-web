@@ -26,10 +26,10 @@ export const leavingBeforeSaveAlertGuard = (inEditSelector: MemoizedSelector<any
 
           return dialog.open(ConfirmDialogComponent, {
             data: {
-              title    : 'Attention',
-              body     : 'You have unsaved changes. Do you want to stay on this page or leave without saving?',
-              yes      : 'Leave',
-              no       : 'Stay',
+              title    : '提示',
+              body     : '您有未保存的更改。要留在此页面继续编辑，还是不保存并离开？',
+              yes      : '离开',
+              no       : '留下',
               iconClass: 'al-ico-alert',
               iconColor: 'var(--color-warning)',
               width: 440

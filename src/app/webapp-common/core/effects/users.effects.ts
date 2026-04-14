@@ -47,7 +47,7 @@ export class CommonUserEffects {
         return logoutSuccess();
       }),
       catchError(err => [
-        addMessage(MESSAGES_SEVERITY.ERROR, `Logout Failed ${this.errorService.getErrorMsg(err?.error)}`)
+        addMessage(MESSAGES_SEVERITY.ERROR, `退出登录失败 ${this.errorService.getErrorMsg(err?.error)}`)
       ])
     )),
   ));
@@ -67,7 +67,6 @@ export class CommonUserEffects {
       filter((res: UsersUpdateResponse) => res.updated > 0),
       map(() => setCurrentUserName({name: user.name}))
     )),
-    catchError(err => [addMessage(MESSAGES_SEVERITY.ERROR, `Update User Failed ${this.errorService.getErrorMsg(err?.error)}`)])
+    catchError(err => [addMessage(MESSAGES_SEVERITY.ERROR, `更新用户失败 ${this.errorService.getErrorMsg(err?.error)}`)])
   ));
 }
-

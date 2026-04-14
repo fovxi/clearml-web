@@ -52,7 +52,7 @@ export class ExperimentsCompareScalarsGraphEffects {
           }),
           catchError(error => [
             requestFailed(error), deactivateLoader(action.type),
-            setServerError(error, null, 'Failed to get Compared Experiments')
+            setServerError(error, null, '获取对比实验失败')
           ])
         )
     ))

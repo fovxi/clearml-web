@@ -66,7 +66,7 @@ export class ProjectsPageComponent implements OnDestroy {
 
   public ALL_EXPERIMENTS_CARD: ProjectsGetAllResponseSingle = {
     id: '*',
-    name: 'All Tasks',
+    name: '全部任务',
     stats: {
       active: {
         status_count: {queued: '∞' as any, in_progress: '∞' as any, published: '∞' as any},
@@ -212,8 +212,8 @@ export class ProjectsPageComponent implements OnDestroy {
     return [{
       ...((selectedProjectId && selectedProject?.id) ? selectedProject : this.ALL_EXPERIMENTS_CARD),
       id: selectedProjectId ? selectedProjectId : '*',
-      name: 'All Tasks',
-      basename: 'All Tasks',
+      name: '全部任务',
+      basename: '全部任务',
       sub_projects: null
     } as ProjectsGetAllResponseSingle];
   }
@@ -249,15 +249,15 @@ export class ProjectsPageComponent implements OnDestroy {
     const name = this.getName();
     this.dialog.open<ConfirmDialogComponent, ConfirmDialogConfig, boolean>(ConfirmDialogComponent, {
       data: {
-        title: `Unable to Delete ${name[0].toUpperCase()}${name.slice(1)}`,
-        body: `You cannot delete ${name} "<b>${readyForDeletion.project.name.split('/').pop()}</b>" with un-archived ${name === 'project' ? popupEntitiesListConst : this.getDeletePopupEntitiesList()}s. <br/>
-                   You have ${getDeleteProjectPopupStatsBreakdown(
+        title: `无法删除${name === 'project' ? '项目' : name}`,
+        body: `无法删除包含未归档${name === 'project' ? popupEntitiesListConst : this.getDeletePopupEntitiesList()}的${name === 'project' ? '项目' : name}“<b>${readyForDeletion.project.name.split('/').pop()}</b>”。<br/>
+                   当前${name === 'project' ? '项目' : name}中包含 ${getDeleteProjectPopupStatsBreakdown(
           readyForDeletion,
           'unarchived',
-          `un-archived ${this.getDeletePopupEntitiesList()}`
-        )} in this ${name}. <br/>
-                   If you wish to delete this ${name}, you must first archive${name === 'project' ? `, delete, or move these items to another ${name}` : ' or delete these items'} .`,
-        no: 'OK',
+          `未归档${this.getDeletePopupEntitiesList()}`
+        )}。<br/>
+                   如需删除该${name === 'project' ? '项目' : name}，请先归档${name === 'project' ? '、删除，或将这些内容移动到其他项目' : '或删除这些内容'}。`,
+        no: '确定',
         iconClass: 'al-ico-alert',
         iconColor: 'var(--color-warning)'
       }
@@ -299,7 +299,7 @@ export class ProjectsPageComponent implements OnDestroy {
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: `Search for ${this.getName()}s`}));
+    this.store.dispatch(initSearch({payload: `搜索${this.getName()}列表`}));
     this.searchQuery$
       .pipe(
         takeUntilDestroyed(),
@@ -316,7 +316,7 @@ export class ProjectsPageComponent implements OnDestroy {
   }
 
   public projectCardClicked(project: ProjectsGetAllResponseSingle) {
-    const allExperiments = project.name === 'All Tasks';
+    const allExperiments = project.name === '全部任务';
     if (allExperiments) {
       this.store.dispatch(setDeep({deep: true}));
     }

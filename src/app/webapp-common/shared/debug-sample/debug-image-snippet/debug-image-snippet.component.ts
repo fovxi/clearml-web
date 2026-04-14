@@ -97,7 +97,7 @@ export class DebugImageSnippetComponent implements OnDestroy{
   copyToClipboardSuccess(success: boolean) {
     this.store.dispatch(addMessage(
       success ? MESSAGES_SEVERITY.SUCCESS : MESSAGES_SEVERITY.ERROR,
-      success ? 'Path copied to clipboard' : 'No path to copy'
+      success ? '路径已复制到剪贴板' : '没有可复制的路径'
     ));
   }
 

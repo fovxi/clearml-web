@@ -16,7 +16,7 @@
         class="item ellipsis"
         [value]="{label:filterText, value:filterText}"
         (onSelectionChange)= "customOptionSelected($event)"
-        >"{{filterText}}" <span class="new">(Add item)</span></mat-option>
+        >"{{filterText}}" <span class="new">（添加条目）</span></mat-option>
       }
       @for (option of filteredItems(); track option.label + $index) {
         <mat-option [value]="option">{{option.label}}</mat-option>

@@ -17,23 +17,23 @@
           <mat-form-field class="custom-selector" subscriptSizing="dynamic">
             <mat-date-range-input [rangePicker]="picker">
               <input matStartDate
-                     placeholder="Start date"
+                     placeholder="开始日期"
                      formControlName="from"
                      (blur)="applyChanges()"
                      (keyup.enter)="applyChanges()">
               <input matEndDate
-                     placeholder="End date"
+                     placeholder="结束日期"
                      formControlName="to"
                      (blur)="applyChanges()"
                      (keyup.enter)="applyChanges()">
             </mat-date-range-input>
-            <mat-datepicker-toggle matIconSuffix [for]="picker">Custom</mat-datepicker-toggle>
+            <mat-datepicker-toggle matIconSuffix [for]="picker">自定义</mat-datepicker-toggle>
             <mat-date-range-picker #picker (closed)="applyChanges()"></mat-date-range-picker>
           </mat-form-field>
         </div>
       </mat-option>
       @if (rangeControl.hasError('datesInverted') && rangeControl.get('from')?.value) {
-        <div class="date-range-alert">Please ensure the start date precedes the end date.</div>
+        <div class="date-range-alert">请确保开始日期早于或等于结束日期。</div>
       }
     </mat-select>
   </mat-form-field>

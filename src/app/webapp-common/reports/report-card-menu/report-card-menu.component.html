@@ -3,26 +3,26 @@
 </button>
 <mat-menu #pipelinesMenu="matMenu">
   <button mat-menu-item (click)="rename.emit()" [disabled]="isExample">
-    <mat-icon fontSet="al" [fontIcon]="icons.EDIT"></mat-icon>Rename
+    <mat-icon fontSet="al" [fontIcon]="icons.EDIT"></mat-icon>重命名
   </button>
   <button mat-menu-item (click)="share.emit()">
-    <mat-icon fontSet="al" [fontIcon]="icons.SHARE"></mat-icon>Share
+    <mat-icon fontSet="al" [fontIcon]="icons.SHARE"></mat-icon>分享
   </button>
   <button mat-menu-item [matMenuTriggerFor]="tagsMenu.matMenu">
-    <mat-icon fontSet="al" [fontIcon]="icons.TAG"></mat-icon>Add Tag
+    <mat-icon fontSet="al" [fontIcon]="icons.TAG"></mat-icon>添加标签
   </button>
   <hr>
     <button mat-menu-item (click)="moveTo.emit()" [disabled]="isExample">
-      <mat-icon fontSet="al" [fontIcon]="icons.MOVE_TO"></mat-icon>Move to
+      <mat-icon fontSet="al" [fontIcon]="icons.MOVE_TO"></mat-icon>移动到
     </button>
     <button mat-menu-item (click)="archive.emit(!isArchived)" [disabled]="isExample">
       <mat-icon fontSet="al"
-                [fontIcon]="isArchived ? icons.RESTORE : icons.ARCHIVE"></mat-icon>{{isArchived ? 'Restore from archive' : 'Archive'}}
+                [fontIcon]="isArchived ? icons.RESTORE : icons.ARCHIVE"></mat-icon>{{isArchived ? '从归档恢复' : '归档'}}
     </button>
     @if (isArchived) {
       <button mat-menu-item (click)="delete.emit()">
         <mat-icon fontSet="al"
-                  [fontIcon]="icons.REMOVE"></mat-icon>Delete
+                  [fontIcon]="icons.REMOVE"></mat-icon>删除
       </button>
     }
 

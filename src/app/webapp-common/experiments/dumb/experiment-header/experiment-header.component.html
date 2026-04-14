@@ -29,15 +29,15 @@
       ></sm-clear-filters-button>
     }
     @if (tableMode() !== 'compare') {
-      <div smTooltip="Download table as CSV">
+      <div smTooltip="将表格下载为 CSV">
         <sm-menu
           iconClass="al-ico-download"
           [disabled]="noData()"
           data-id="downloadCSV"
         >
-          <sm-menu-item (itemClicked)="downloadTableAsCSV.emit()" itemLabel="Download on screen items"></sm-menu-item>
+          <sm-menu-item (itemClicked)="downloadTableAsCSV.emit()" itemLabel="下载当前屏幕中的条目"></sm-menu-item>
           <sm-menu-item (itemClicked)="downloadFullTableAsCSV.emit()"
-                        [itemLabel]="'Download first '+ (maxDownloadItems$ | ngrxPush) +' items'"></sm-menu-item>
+                        [itemLabel]="'下载前 ' + (maxDownloadItems$ | ngrxPush) + ' 条记录'"></sm-menu-item>
         </sm-menu>
       </div>
     }
@@ -49,24 +49,24 @@
           [ngModel]="compareView()"
           (selectionChange)="compareViewChanged.emit($event.value)"
         >
-          <mat-option value="scalars">Scalars</mat-option>
-          <mat-option value="plots">Plots</mat-option>
+          <mat-option value="scalars">标量</mat-option>
+          <mat-option value="plots">图表</mat-option>
         </mat-select>
       </mat-form-field>
     }
 
     @if (tableMode() === 'compare' && compareView() === 'scalars') {
-      <button mat-icon-button (click)="toggleShowCompareSettings.emit()" [class.menu-opened]="showCompareScalarSettings()" smTooltip="Settings">
+      <button mat-icon-button (click)="toggleShowCompareSettings.emit()" [class.menu-opened]="showCompareScalarSettings()" smTooltip="设置">
         <mat-icon fontSet="al" fontIcon="al-ico-tune" [class.active]="showCompareScalarSettings()"></mat-icon>
       </button>
     }
 
     @if (!minimizedView() || tableMode() === 'compare') {
       <sm-custom-cols-menu
-        [sections]="tableMode() === 'compare' ? [{title: 'add metric', name: 'metrics', options: metricVariants(), template: metricsTemplate}] : [{title: 'add metric',name: 'metrics', options: metricVariants(), template: metricsTemplate}, {name: 'hyperparameters', options: hyperParams(), template: hyperParamsTemplate}]"
-        [topTitle]="tableMode() === 'compare' ? 'Customize charts view' : 'Customize columns'"
-        [menuTooltip]="tableMode() === 'compare' ? 'Customize charts view' : 'Customize table'"
-        [sectionsTitle]="'ADD CUSTOM COLUMN'"
+        [sections]="tableMode() === 'compare' ? [{title: '添加指标', name: 'metrics', options: metricVariants(), template: metricsTemplate}] : [{title: '添加指标',name: 'metrics', options: metricVariants(), template: metricsTemplate}, {name: '超参数', options: hyperParams(), template: hyperParamsTemplate}]"
+        [topTitle]="tableMode() === 'compare' ? '自定义图表视图' : '自定义列'"
+        [menuTooltip]="tableMode() === 'compare' ? '自定义图表视图' : '自定义表格'"
+        [sectionsTitle]="'添加自定义列'"
         [tableCols]="tableColsWithHeader()"
         [isLoading]="isMetricsLoading()"
         [disabled]="tableMode() === 'compare' && metricVariants()?.length === 0"

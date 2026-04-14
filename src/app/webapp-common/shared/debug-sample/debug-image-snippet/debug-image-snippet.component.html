@@ -19,7 +19,7 @@
               <div class="toolbar top">
                 <div class="clickable-icon d-flex align-items-center justify-content-center pointer"
                      (click)="createEmbedCodeClicked($event)"
-                     smTooltip="Copy embed code"
+                     smTooltip="复制嵌入代码"
                      data-id="copyToReportButton">
                   <i class="al-icon al-ico-code sm"></i>
                 </div>
@@ -56,7 +56,7 @@
               @if (!noHoverEffects()) {
                 <div class="clickable-icon d-flex align-items-center justify-content-center pointer"
                      (click)="createEmbedCodeClicked($event)"
-                     smTooltip="Copy embed code" data-id="CopyToReportButton">
+                     smTooltip="复制嵌入代码" data-id="CopyToReportButton">
                   <i class="al-icon al-ico-code sm"></i>
                 </div>
               }
@@ -67,7 +67,7 @@
           <div class="html-snippet">
             <div class="html-wrap" [class.loading]="!blockUserScripts() && loading()">
               @if (blockUserScripts()) {
-                <div class="scripts-blocked">Preview not available because 3rd party scripts are blocked</div>
+                <div class="scripts-blocked">由于第三方脚本被阻止，无法显示预览</div>
               } @else {
                 <iframe
                   class="html-viewer"
@@ -84,12 +84,12 @@
               <div class="toolbar">
                 <div class="clickable-icon d-flex align-items-center justify-content-center pointer"
                      (click)="createEmbedCodeClicked($event)"
-                     smTooltip="Copy embed code" data-id="CopyToReportButton">
+                     smTooltip="复制嵌入代码" data-id="CopyToReportButton">
                   <i class="al-icon al-ico-code sm"></i>
                 </div>
                 <div class="clickable-icon d-flex align-items-center justify-content-center pointer"
                      ngxClipboard
-                     smTooltip="Copy URL"
+                     smTooltip="复制 URL"
                      data-id="CopyURLButton"
                      [cbContent]="source"
                      (cbOnSuccess)="copyToClipboardSuccess(true)">
@@ -97,7 +97,7 @@
                 </div>
                 @if (!blockUserScripts()) {
                   <div class="clickable-icon d-flex align-items-center justify-content-center pointer"
-                       smTooltip="Open URL in a new Tab"
+                       smTooltip="在新标签页中打开 URL"
                        data-id="openURLInNewTab"
                        (click)="openInNewTab(source)">
                     <i class="al-icon al-ico-export sm"></i>

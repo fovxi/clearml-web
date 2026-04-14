@@ -1,6 +1,4 @@
 export const FORCED_COLORS_FOR_STRING = {
-  'Any label' : [0, 0, 0],
-  'Any Label' : [0, 0, 0],
-  'All Labels': [0, 0, 0],
-  'All labels': [0, 0, 0],
+  '任意标签' : [0, 0, 0],
+  '所有标签': [0, 0, 0],
 };

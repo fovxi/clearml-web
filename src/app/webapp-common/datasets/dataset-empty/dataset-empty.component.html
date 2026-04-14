@@ -1,5 +1,5 @@
 @if (!showButton()) {
-  <sm-dialog-template iconClass="al-ico-datasets" header="CREATE NEW DATASET">
+  <sm-dialog-template iconClass="al-ico-datasets" header="创建新数据集">
     <ng-container *ngTemplateOutlet="content"></ng-container>
   </sm-dialog-template>
 } @else {
@@ -9,9 +9,9 @@
   <div class="content">
     <div class="code">
       <p>
-        Use ClearML Data from CLI or in your Python code.<br>
-        Run these code snippets for a quick example (Requires ClearML 1.7 or above).<br>
-        For more details see the <a [class.dark]="showButton()" [href]="confService.configuration().docsLink + '/latest/docs/clearml_data'" target="_blank" data-id="documentationLink">documentation</a>
+        可通过 CLI 或 Python 代码使用 ClearML Data。<br>
+        运行以下代码片段即可快速体验（需要 ClearML 1.7 或更高版本）。<br>
+        更多详情请参阅<a [class.dark]="showButton()" [href]="confService.configuration().docsLink + '/latest/docs/clearml_data'" target="_blank" data-id="documentationLink">文档</a>
       </p>
       <div class="navbar">
         <mat-tab-group [(selectedIndex)]="index">

@@ -37,6 +37,12 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 export class HeaderNavbarTabsComponent {
   private store = inject(Store);
   private router = inject(Router);
+  private readonly localizedLabels: Record<string, string> = {
+    overview: '概览',
+    workloads: '工作负载',
+    tasks: '任务',
+    models: '模型',
+  };
 
   protected contextNavbar = this.store.selectSignal(selectHeaderMenu);
   contextNavbarLength = computed(() => {
@@ -96,5 +102,13 @@ export class HeaderNavbarTabsComponent {
 
   getCurrentTabIndexFromRoute(): number {
     return this.index() ?? 0;
+  }
+
+  getLocalizedLabel(header: string | null | undefined): string {
+    if (!header) {
+      return '';
+    }
+
+    return this.localizedLabels[header] ?? header.toUpperCase();
   }
 }

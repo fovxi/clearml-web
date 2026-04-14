@@ -14,6 +14,6 @@ export class LabelValuePipe implements PipeTransform {
     if (!value.every(item => typeof item === 'string')) {
       return value as any;
     }
-    return value.map(item => ({label: item === '*' ? 'Any Label' : item, value: item}));
+    return value.map(item => ({label: item === '*' ? '任意标签' : item, value: item}));
   }
 }

@@ -146,7 +146,7 @@ export class CodeEditorComponent {
   }
 
   copySuccess() {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'Code copied to clipboard'));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, '代码已复制到剪贴板'));
   }
 
   openSearch() {

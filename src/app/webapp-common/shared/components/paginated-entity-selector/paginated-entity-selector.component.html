@@ -11,7 +11,7 @@
          (focusout)="onTouched && onTouched()"
   >
   @if (createNewSuffix() && !state().loading()) {
-    <span matSuffix class="creat-new-suffix">(Create New)</span>
+    <span matSuffix class="creat-new-suffix">（新建）</span>
   }
   @if (control.value) {
    <button class="sm" mat-icon-button matSuffix (click)="$event.stopPropagation(); control.setValue(null); getEntities.emit(null); inputRef.focus()">
@@ -27,7 +27,7 @@
                     autoActiveFirstOption>
     @if (createNewSuffix() && !state().loading()) {
       <mat-option class="item" [value]="control.value" (onSelectionChange)="createNewSelected.emit($event.source.value)">
-        "{{ control.value }}" <span class="new">(Create New)</span>
+        "{{ control.value }}" <span class="new">（新建）</span>
       </mat-option>
     }
     @for (entity of data(); track entity.id) {

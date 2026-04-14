@@ -1,6 +1,6 @@
 <div class="x-axis-options" [class.vertical-layout]="verticalLayout()" [class.short-mode]="shortMode() && !verticalLayout()" data-id="scalarSettings">
   <div class="d-flex field" [class.width-100]="verticalLayout()">
-    <span class="label-text" data-id="GroupBytext">Group by</span>
+    <span class="label-text" data-id="GroupBytext">分组方式</span>
     <mat-form-field appearance="outline" class="group-by-field no-bottom thin" data-id="GroupByField">
       <mat-select [value]="groupBy()" (selectionChange)="groupByChanged($event)" [hideSingleSelectionIndicator]="true">
         @for (type of groupByOptions(); track type) {
@@ -10,7 +10,7 @@
     </mat-form-field>
   </div>
   <div class="d-flex field" [class.width-100]="verticalLayout()">
-    <span class="label-text" data-id="HorizontalAxisText">Horizontal Axis</span>
+    <span class="label-text" data-id="HorizontalAxisText">横轴</span>
     <mat-form-field appearance="outline" class="axis-type-field no-bottom thin" data-id="HorizontalAxisField">
       <mat-select [value]="xAxisType()" (selectionChange)="xAxisTypeChanged($event)" panelClass="light-theme" [hideSingleSelectionIndicator]="true"
                   name="scriptType">
@@ -21,7 +21,7 @@
     </mat-form-field>
   </div>
   <div class="d-flex field divider" [class.width-100]="verticalLayout()">
-    <span class="label-text" data-id="SmoothingText">Smoothing</span>
+    <span class="label-text" data-id="SmoothingText">平滑</span>
     <mat-form-field appearance="outline" class="smooth-type-field no-bottom thin" data-id="SmoothingInputField">
       <mat-select [panelClass]="'light-theme'" [value]="smoothType()" (selectionChange)="selectSmoothType($event)" [hideSingleSelectionIndicator]="true">
         @for (smoothTypeOption of smoothTypeEnum | keyvalue; track smoothTypeOption) {
@@ -39,7 +39,7 @@
       }
       @switch (smoothType()) {
         @case (smoothTypeEnum.gaussian) {
-          <span class="label-text smoothing-label">Kernel</span>
+          <span class="label-text smoothing-label">核大小</span>
           <div class="d-flex align-items-center slider">
             <mat-slider [max]="15" [min]="3" [step]="2">
               <input matSliderThumb [ngModel]="smoothState().weight()" (ngModelChange)="changeWeight.emit($any($event))"/>
@@ -48,7 +48,7 @@
           </div>
         }
         @case (smoothTypeEnum.runningAverage) {
-          <span class="label-text smoothing-label">Window size</span>
+          <span class="label-text smoothing-label">窗口大小</span>
           <div class="d-flex align-items-center slider">
             <mat-slider [max]="35" [min]="3" [step]="2">
               <input matSliderThumb [ngModel]="smoothState().weight()" (ngModelChange)="changeWeight.emit($any($event))"/>
@@ -57,7 +57,7 @@
           </div>
         }
         @case (smoothTypeEnum.exponential) {
-          <span class="label-text smoothing-label">Alpha</span>
+          <span class="label-text smoothing-label">平滑系数</span>
           <div class="d-flex align-items-center slider">
             <mat-slider [max]="0.999" [min]="0" [step]="0.001">
               <input matSliderThumb [ngModel]="smoothState().weight()" (ngModelChange)="changeWeight.emit($any($event))"/>
@@ -72,7 +72,7 @@
         @if (verticalLayout()) {
           <div class="spacer"></div>
         }
-        <span class="label-text smoothing-label">Sigma</span>
+        <span class="label-text smoothing-label">标准差</span>
         <div class="d-flex align-items-center slider">
           <mat-slider [max]="3" [min]="0.5" [step]="0.1" [disabled]="smoothType() === smoothTypeEnum.any">
             <input matSliderThumb [(ngModel)]="smoothState().sigma" (ngModelChange)="changeSigma.emit($any($event))"/>
@@ -81,7 +81,7 @@
         </div>
       </div>
     }
-    <mat-slide-toggle class="smooth-slide-field" [ngModel]="showOrigin()" (ngModelChange)="changeShowOrigin.emit($event)" labelPosition="before">Show Originals</mat-slide-toggle>
+    <mat-slide-toggle class="smooth-slide-field" [ngModel]="showOrigin()" (ngModelChange)="changeShowOrigin.emit($event)" labelPosition="before">显示原始曲线</mat-slide-toggle>
   }
   @if (!verticalLayout()) {
     <button mat-icon-button class="close-button" (click)="toggleSettings.emit()" data-id="CloseScalarSetting">
@@ -91,11 +91,11 @@
   @if (clearable() !== null) {
     <div class="reset-button me-auto mt-2"
          [class.divider]="verticalLayout()"
-         smTooltip="Apply as default scalar view configuration for this project">
+         smTooltip="设为此项目的默认标量视图配置">
       <button mat-button
               [disabled]="!clearable()"
               (click)="setToProjectLevel()"
-      >Set as default
+      >设为默认
       </button>
     </div>
   }

@@ -14,8 +14,7 @@
       [selected]="selected()" >
     </sm-debug-images>
     @if (plots.plotsList !== undefined && plots.plotsListLength < 1 && debugImages.debugImages !== null && !debugImages.debugImages?.[selected()?.id]?.data) {
-      <div class="no-data flex-middle">No preview to show</div>
+      <div class="no-data flex-middle">暂无可显示的预览</div>
     }
   </div>
 }
-

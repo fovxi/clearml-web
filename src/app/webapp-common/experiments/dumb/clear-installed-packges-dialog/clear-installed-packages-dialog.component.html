@@ -1,24 +1,24 @@
-<sm-dialog-template header="Reset python packages"
+<sm-dialog-template header="重置 Python 依赖包"
                     (xClicked)="closeDialog(false)"
                     iconClass="al-ico-reset">
-  <div class="sub-header mb-3">Set Python Packages to:</div>
+  <div class="sub-header mb-3">将 Python 依赖包设置为：</div>
   <div class="d-flex align-center">
     <mat-radio-group [ngModel]="install"
                      (change)="setInstalledOption($event)"
                      name="installOption"
                      aria-label="Select an option">
-      <mat-radio-button value="install"><span>Empty (Agent will install packages using 'requirements.txt' from repository). {{showReset? '*': ''}}</span></mat-radio-button>
-      <mat-radio-button value="dontInstall"><span>Empty (Agent will not install any packages). {{showReset? '*': ''}}</span></mat-radio-button>
-      @if (showReset){<mat-radio-button value="reset" class="mb-2">Set to originally recorded packages (original-pip).</mat-radio-button>}
-      <div class="mt-2">{{showReset? '* ':''}}This will clear all packages{{showReset? ' - Both originally recorded, and from latest execution.':'.'}}</div>
+      <mat-radio-button value="install"><span>空白（Agent 将使用仓库中的 `requirements.txt` 安装依赖包）。{{showReset? '*': ''}}</span></mat-radio-button>
+      <mat-radio-button value="dontInstall"><span>空白（Agent 不会安装任何依赖包）。{{showReset? '*': ''}}</span></mat-radio-button>
+      @if (showReset){<mat-radio-button value="reset" class="mb-2">设为最初记录的依赖包（original-pip）。</mat-radio-button>}
+      <div class="mt-2">{{showReset? '* ':''}}这将清空所有依赖包{{showReset? '，包括最初记录的依赖包和最近一次执行中的依赖包。':'。'}}</div>
     </mat-radio-group>
   </div>
   <div class="buttons">
     <button mat-flat-button (click)="closeDialog(true)" class="yes-button" data-id="ClearButton">
-      RESET
+      重置
     </button>
     <button mat-stroked-button (click)="closeDialog(false)" data-id="CancelButton">
-      CANCEL
+      取消
     </button>
   </div>
 </sm-dialog-template>

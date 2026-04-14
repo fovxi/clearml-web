@@ -14,8 +14,8 @@
     <sm-status-icon-label [status]="experiment.status"></sm-status-icon-label>
   @if (experiment.last_iteration !== undefined) {
     <span class="dot"></span>
-    <span class="flex-shrink-0">{{experiment.last_iteration | number | NA}} iterations</span>
+    <span class="flex-shrink-0">{{experiment.last_iteration | number | NA}} 轮次</span>
   }
   <span class="dot"></span>
-  <span class="flex-shrink-1" [smTooltip]="(experiment.last_update | date : timeFormatString) || ''">Last updated {{experiment.last_update | timeAgo | NA}}</span>
+  <span class="flex-shrink-1" [smTooltip]="(experiment.last_update | date : timeFormatString) || ''">最后更新于 {{experiment.last_update | timeAgo | NA}}</span>
 </div>

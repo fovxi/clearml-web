@@ -7,7 +7,7 @@
   (saveClicked)="saveClicked()"
   (cancelClicked)="cancelEdit()"
 >
-  <sm-section-header label="LABELS"></sm-section-header>
+  <sm-section-header label="标签"></sm-section-header>
     @if (editable) {
       <form
         #labelsForm="ngForm"
@@ -27,21 +27,21 @@
                        matInput>
                 @if (parameterLabel.invalid && parameterLabel?.errors?.required) {
                   <mat-error>
-                    Required
+                    必填
                   </mat-error>
                 }
               </mat-form-field>
               @if (labelsForm?.errors?.uniqueName) {
                 <mat-error class='outside-error'>
-                  Labels must be unique.
+                  标签必须唯一。
                 </mat-error>
               }
               @if (labelsForm?.errors?.uniqueName2 && labelsForm?.errors?.uniqueName2[i]) {
                 <span class="outside-error">
-                  Label must be unique.
+                  标签必须唯一。
                 </span>
               }
-              <mat-form-field [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*Required': ''" appearance="outline" class="w-100">
+              <mat-form-field [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*必填': ''" appearance="outline" class="w-100">
                 <input #parameterKey="ngModel"
                        [(ngModel)]="parameter.id"
                        type="number"
@@ -54,12 +54,12 @@
                        required>
                 @if (parameterKey.invalid && parameterKey?.errors?.required) {
                   <mat-error>
-                    Required
+                    必填
                   </mat-error>
                 }
                 @if (parameterKey.invalid && parameterKey?.errors?.pattern) {
                   <mat-error>
-                    Only integers are allowed
+                    仅允许整数
                   </mat-error>
                 }
               </mat-form-field>
@@ -90,6 +90,5 @@
     </cdk-virtual-scroll-viewport>
   }
 </sm-editable-section>
-
 
 

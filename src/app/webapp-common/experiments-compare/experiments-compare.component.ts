@@ -161,9 +161,9 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
         this.store.dispatch(setBreadcrumbsOptions({
           breadcrumbOptions: {
             showProjects: false,
-            featureBreadcrumb: {name: 'Models', url: 'models'},
+            featureBreadcrumb: {name: '模型', url: 'models'},
             subFeatureBreadcrumb: {
-              name: `Compare ${this.titleCasePipe.transform(this.entityType)}s`
+              name: '模型对比'
             },
           }
         }));
@@ -176,7 +176,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
               url: projectType
             },
             subFeatureBreadcrumb: {
-              name: `Compare ${this.titleCasePipe.transform(this.entityType)}s`
+              name: this.entityType === 'model' ? '模型对比' : '实验对比'
             },
             projectsOptions: {
               basePath: projectTypeBasePath[projectType],
@@ -185,7 +185,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
               showSelectedProject: selectedProject && selectedProject?.id !== '*',
               ...(selectedProject && {
                 selectedProjectBreadcrumb: {
-                  name: selectedProject?.id === '*' ? `All ${this.titleCasePipe.transform(this.entityType)}s` : selectedProject?.basename,
+                  name: selectedProject?.id === '*' ? (this.entityType === 'model' ? '全部模型' : '全部实验') : selectedProject?.basename,
                   url: `${projectTypeBasePath[projectType]}/${selectedProject?.id}/${this.entityType === 'model' ? 'model' : 'task'}s`
                 }
               })
@@ -216,7 +216,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
         data: {
           selectionMode: 'multiple',
           selectedModels: selectedIds,
-          header: 'Select compared model'
+          header: '选择要比较的模型'
         },
         panelClass: 'full-screen',
       }).afterClosed().pipe(filter(ids => !!ids)).subscribe(ids => this.updateUrl(ids));

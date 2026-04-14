@@ -21,7 +21,7 @@
           class="btn-toggle-filters"
           [class.has-filter]="isFiltered()"
           [disabled]="activeLink()==='modelEndpoints' || advanced()"
-          [smTooltip]="showFilter()? 'Hide filters': 'Show filters'"
+          [smTooltip]="showFilter()? '隐藏筛选器': '显示筛选器'"
           [matTooltipShowDelay]="500"
           (click)="toggleFilter()">
     <mat-icon fontSet="al" [fontIcon]="isFiltered()? 'al-ico-filter-on' : 'al-ico-filter-off'">
@@ -42,12 +42,12 @@
   <mat-drawer-content>
     <div #list class="list">
       @if (noData()) {
-        <span class="no-data">No data to show</span>
+        <span class="no-data">暂无数据</span>
       } @else {
         @for (itemsList of getAllResults(); let i = $index; track activeLinkConfiguration()[i]?.name) {
           @if (itemsList?.length > 0) {
             <div class="list__category">
-              <div class="list__category__title">{{isEmpty() ? 'RECENTLY UPDATED' : 'MATCHING'}} {{activeLinkConfiguration()[i].title}}</div>
+              <div class="list__category__title">{{isEmpty() ? '最近更新' : '匹配结果'}} {{activeLinkConfiguration()[i].title}}</div>
               @for (item of itemsList; track item.id) {
                 <ng-container *ngTemplateOutlet="
                 activeLinkConfiguration()[i].name === searchPages.projects ? ProjectTemplate :
@@ -64,7 +64,7 @@
               }
               @if (!advanced() && activeLinkConfiguration()[i].viewAllResults && itemsList.length === SEARCH_PAGE_SIZE) {
                 <div>
-                  <a [routerLink]="activeLinkConfiguration()[i].viewAllResultsLink" [queryParams]="viewAllQueryParams" (click)="closeDialog.emit()" class="list__view-all-link">View all results</a>
+                  <a [routerLink]="activeLinkConfiguration()[i].viewAllResultsLink" [queryParams]="viewAllQueryParams" (click)="closeDialog.emit()" class="list__view-all-link">查看全部结果</a>
                 </div>
               }
               @if ((advanced() || !activeLinkConfiguration()[i].viewAllResults) &&
@@ -75,7 +75,7 @@
                       @if (loading()) {
                         <mat-spinner [diameter]="16" [strokeWidth]="2" mode="indeterminate"></mat-spinner>
                       }
-                      <span>LOAD MORE</span>
+                      <span>加载更多</span>
                     </div>
                   </button>
                 </div>

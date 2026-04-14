@@ -8,7 +8,7 @@ export class TemplateInjectorPipe implements PipeTransform {
 
   transform(formChanged, formGroup: any, index: number): string {
     if (!formGroup.collapsibleTitleTemplate) {
-      return `${formGroup.title || formGroup.name || 'Item '} #${index + 1}`;
+      return `${formGroup.title || formGroup.name || '条目'} #${index + 1}`;
     }
     const nameValueMap = {};
     formGroup.fields.forEach(field => nameValueMap[field.name] = field.val);
@@ -20,7 +20,7 @@ export class TemplateInjectorPipe implements PipeTransform {
       const val = get(nameValueMap, getter, '');
       label = label.replace('${index}', (index + 1).toString());
       label = label.replace(variableArr[0], val === null ? '' : val);
-      label = label ? label : `${formGroup.title || formGroup.name || 'Item '} #${index + 1}`;
+      label = label ? label : `${formGroup.title || formGroup.name || '条目'} #${index + 1}`;
     });
     return label;
   }

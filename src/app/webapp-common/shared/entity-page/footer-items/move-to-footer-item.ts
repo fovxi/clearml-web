@@ -8,13 +8,13 @@ export class MoveToFooterItem extends ItemFooterModel {
     this.id = MenuItems.moveTo;
     this.emit = true;
     this.icon = ICONS.MOVE_TO as Partial<IconNames>;
-    this.disableDescription = 'Move To';
+    this.disableDescription = '移动到';
   }
 
   getItemState(state: IFooterState<{id: string}>): { icon?: IconNames; title?: string; description?: string; disable?: boolean; disableDescription?: string; emit?: boolean; emitValue?: boolean; preventCurrentItem?: boolean; class?: string; wrapperClass?: string } {
     return {
       disable: state.data[this.id]?.disable,
-      description: this.menuItemText.transform(state.data[MenuItems.moveTo]?.available, 'Move To') ,
+      description: this.menuItemText.transform(state.data[MenuItems.moveTo]?.available, '移动到') ,
       // disableDescription: selectionIsOnlyExamples ? 'Move To' : this.disableDescription
     };
   }

@@ -58,9 +58,7 @@ export class CommonProjectsEffects {
         ]),
         catchError(error => [deactivateLoader(action.type), requestFailed(error),
           setServerError(error, undefined, error?.error?.meta?.result_subcode === 800 ?
-            'Name should be 3 characters long' : error?.error?.meta?.result_subcode === 801 ? 'Name' +
-              ' already' +
-              ' exists in this project' : undefined)])
+            '名称长度需为 3 个字符' : error?.error?.meta?.result_subcode === 801 ? '当前项目中已存在同名项目' : undefined)])
       )
     )
   ));
@@ -214,8 +212,8 @@ export class CommonProjectsEffects {
                             id: projectId,
                             isRoot: true,
                             sub_projects: null,
-                            name: !selectedProjectName && currentProjectRes.projects[0].stats ? '[Root]' : `[${selectedProjectName}]`,
-                            basename: !selectedProjectName && currentProjectRes.projects[0].stats ? '[Root]' : `[${selectedProjectBasename}]`
+                            name: !selectedProjectName && currentProjectRes.projects[0].stats ? '[根项目]' : `[${selectedProjectName}]`,
+                            basename: !selectedProjectName && currentProjectRes.projects[0].stats ? '[根项目]' : `[${selectedProjectBasename}]`
                           },
                         ...projectsRes.projects
                       ] :

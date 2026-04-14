@@ -1,21 +1,21 @@
-<sm-dialog-template header="ABORT CHILD TASKS" [iconClass]="'al-ico-abort-all'">
+<sm-dialog-template header="中止子任务" [iconClass]="'al-ico-abort-all'">
   @if (shouldBeAbortedTasks!==null) {
     <div>
       <div class="message" [ngPlural]="shouldBeAbortedTasks?.length">
-        <ng-template ngPluralCase="=0">Couldn't find any child running tasks</ng-template>
-        <ng-template ngPluralCase="=1">this will abort one running child task</ng-template>
-        <ng-template ngPluralCase="other">This will abort all {{shouldBeAbortedTasks?.length}} running child tasks</ng-template>
+        <ng-template ngPluralCase="=0">未找到运行中的子任务</ng-template>
+        <ng-template ngPluralCase="=1">这将中止 1 个运行中的子任务</ng-template>
+        <ng-template ngPluralCase="other">这将中止全部 {{shouldBeAbortedTasks?.length}} 个运行中的子任务</ng-template>
       </div>
     </div>
   } @else {
-    Looking for child running tasks...
+    正在查找运行中的子任务...
   }
 </sm-dialog-template>
 <div mat-dialog-actions>
-  <button mat-stroked-button mat-dialog-close data-id ="CancelButton">CANCEL</button>
+  <button mat-stroked-button mat-dialog-close data-id ="CancelButton">取消</button>
   <button mat-flat-button
     [mat-dialog-close]="{shouldBeAbortedTasks}"
     [disabled]="!(shouldBeAbortedTasks?.length>0)"
     data-id ="AbortButton"
-  >ABORT</button>
+  >中止</button>
 </div>

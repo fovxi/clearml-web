@@ -15,14 +15,14 @@
       }
       <div class="navigator-container" [class.active]="bindNavigationMode()" [class.first]="$first"
         [class.last]="$last" [style.display]="hideNavigation() ? 'none' : 'flex'">
-        <div data-id="syncBrowsing" class="connector-icon-container pointer" smTooltip="Sync browsing" [matTooltipShowDelay]="500"
+        <div data-id="syncBrowsing" class="connector-icon-container pointer" smTooltip="同步浏览" [matTooltipShowDelay]="500"
           [class.active]="bindNavigationMode()" [class.hidden]="$last" (click)="toggleConnectNavigation()">
           <i class="al-icon" [class.al-ico-connect]="bindNavigationMode()" [class.al-ico-disconnect]="!bindNavigationMode()"></i>
         </div>
         @if (!thereAreNoMetrics(experimentId) && !disableStatusRefreshFilter()) {
           <div class="metric-bar" [class.minimized]="minimized()"
             data-id="metricBar">
-            <label data-id="metricText">Metric:</label>
+            <label data-id="metricText">指标：</label>
             <mat-form-field appearance="outline" class="no-bottom" data-id="metricField">
               <mat-select
                 #metricSelect
@@ -37,29 +37,29 @@
                 }
               </mat-select>
             </mat-form-field>
-            <label data-id="IterationText">Iterations:</label>
+            <label data-id="IterationText">迭代次数：</label>
             <div [class.disabled]="beginningOfTime()?.[experimentId]"
               (click)="nextBatch({task: experimentId, metric: metricSelect.value})"
               class="al-icon al-ico-next-batch"
-            smTooltip="Older images" data-id="OlderImages"></div>
+            smTooltip="更早的图片" data-id="OlderImages"></div>
             <b class="text-right">{{debugImages?.[experimentId]?.data?.slice(-1)[0].iter}}</b>
             <div class="al-icon al-ico-between"></div>
             <b>{{debugImages?.[experimentId]?.data?.[0].iter}}</b>
             <div [class.disabled]="timeIsNow()?.[experimentId]"
               (click)="previousBatch({task: experimentId, metric: metricSelect.value})"
               class="al-icon al-ico-prev-batch"
-            smTooltip="Newer images" data-id="NewerImages"></div>
+            smTooltip="更新的图片" data-id="NewerImages"></div>
             <div [class.disabled]="timeIsNow()?.[experimentId] && !allowAutorefresh"
               (click)="backToNow({task: experimentId, metric: metricSelect.value})"
               class="al-icon al-ico-back-to-top"
-            smTooltip="Newest samples" data-id="NewestSamples"></div>
+            smTooltip="最新样本" data-id="NewestSamples"></div>
           </div>
         }
       </div>
       @if (optionalMetricsDic()?.[experimentId]?.length === 0 && shouldShowNoImagesForExperiment(experimentId)) {
         <div class="no-images no-output">
           <mat-icon fontSet="al" fontIcon="al-ico-debug-samples"></mat-icon>
-          <h4>NO DEBUG SAMPLES</h4>
+          <h4>暂无调试样本</h4>
         </div>
       }
       @if (debugImages?.[experimentId]?.data) {
@@ -80,7 +80,7 @@
     <div
       class="limit-message-container">
       <div class="limit-message">
-        <i class="al-icon al-ico-info-circle mb-2"></i>Only the first 10 tasks are available for this view...
+        <i class="al-icon al-ico-info-circle mb-2"></i>此视图仅显示前 10 个任务...
       </div>
     </div>
   }

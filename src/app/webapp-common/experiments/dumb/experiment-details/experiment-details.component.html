@@ -7,7 +7,7 @@
   (cancelClicked)="onCancelComment() "
   (activateEditClicked)="onDescriptionEditMode()"
   >
-  <sm-section-header label="DESCRIPTION:"></sm-section-header>
+  <sm-section-header label="描述："></sm-section-header>
   <textarea #description
     rows="4"
     class="mb-2"
@@ -17,83 +17,83 @@
 
 
 <sm-editable-section [hideEditButton]="true" [disableEditable]="true" class="section">
-  <sm-section-header label="TASK DETAILS"></sm-section-header>
-  <sm-labeled-row label="ARCHIVED:">
-    <div style="width: 93px">{{ experiment()?.system_tags?.includes('archived') ? 'Yes' : 'No' }}</div>
+  <sm-section-header label="任务详情"></sm-section-header>
+  <sm-labeled-row label="已归档：">
+    <div style="width: 93px">{{ experiment()?.system_tags?.includes('archived') ? '是' : '否' }}</div>
   </sm-labeled-row>
 
-  <sm-labeled-row label="CHANGED AT:">
+  <sm-labeled-row label="状态变更时间：">
     {{ (experiment()?.status_changed | date : timeFormatString) | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="LAST ITERATION:">
+  <sm-labeled-row label="最后轮次：">
     {{ (experiment()?.last_iteration) | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="STATUS MESSAGE:">
+  <sm-labeled-row label="状态信息：">
     {{ experiment()?.status_message | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="STATUS REASON:">
+  <sm-labeled-row label="状态原因：">
     {{ experiment()?.status_reason | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="CREATED AT:">
+  <sm-labeled-row label="创建时间：">
     {{ (experiment()?.created | date : timeFormatString) | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="STARTED AT:">
+  <sm-labeled-row label="开始时间：">
     {{ (experiment()?.started | date : timeFormatString) | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="LAST UPDATED AT:">
+  <sm-labeled-row label="最后更新时间：">
     {{ (experiment()?.last_update | date:'MMM d yyyy H:mm') | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="COMPLETED AT:">
+  <sm-labeled-row label="完成时间：">
     {{ (experiment()?.completed | date : timeFormatString) | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="RUN TIME:">
+  <sm-labeled-row label="运行时长：">
     {{ (experiment()?.active_duration | duration) | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="QUEUE:">
+  <sm-labeled-row label="队列：">
     <a [routerLink]="'/workers-and-queues/queues'" [queryParams]="{id: experiment()?.execution?.queue?.id}" [class.na]="!experiment()?.execution?.queue?.name">
       {{ experiment()?.execution?.queue?.display_name || experiment()?.execution?.queue?.name | NA }}
     </a>
   </sm-labeled-row>
 
-  <sm-labeled-row label="WORKER:">
+  <sm-labeled-row label="工作节点：">
     <a [routerLink]="'/workers-and-queues/workers'" [queryParams]="{id: experiment()?.last_worker}" [class.na]="!experiment()?.last_worker">
       {{ experiment()?.last_worker | NA }}
     </a>
   </sm-labeled-row>
 
-  <sm-labeled-row label="CREATED BY:">
+  <sm-labeled-row label="创建者：">
     {{ experiment()?.user?.name | NA }}
   </sm-labeled-row>
 
 
-  <sm-labeled-row label="PARENT TASK:">
+  <sm-labeled-row label="父任务：">
     @if (experiment()?.parent) {
       <div class="d-flex align-items-center">
         <a [href]="'projects/*/tasks/'+ experiment()?.parent?.id"
         target="_blank">{{ experiment()?.parent?.name }}</a>
         <sm-copy-clipboard [smallIcon]="true" [clipboardText]="experiment()?.parent?.id"
           [label]="''"
-        [tooltipText]="'Copy parent task ID to clipboard'" class="copy-btn ms-2"></sm-copy-clipboard>
+        [tooltipText]="'复制父任务 ID 到剪贴板'" class="copy-btn ms-2"></sm-copy-clipboard>
       </div>
     } @else {
       {{ null| NA }}
     }
   </sm-labeled-row>
 
-  <sm-labeled-row label="PROJECT:">
+  <sm-labeled-row label="项目：">
     {{ experiment()?.project?.name | NA }}
   </sm-labeled-row>
 
-  <sm-labeled-row label="ID:">
+  <sm-labeled-row label="ID：">
     {{ experiment()?.id | NA }}
   </sm-labeled-row>
 
@@ -104,5 +104,4 @@
   }
 
 </sm-editable-section>
-
 

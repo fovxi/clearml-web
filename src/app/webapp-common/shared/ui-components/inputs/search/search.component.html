@@ -47,7 +47,7 @@
       }
       @if (searchResultsCount() > 0 && !empty()) {
         <div class="separator"></div>
-        <div class="match">{{ searchCounterIndex() + 1 }} of {{ searchResultsCount() }}</div>
+        <div class="match">第 {{ searchCounterIndex() + 1 }} 项，共 {{ searchResultsCount() }} 项</div>
         <div class="separator"></div>
       }
       <button mat-icon-button [disabled]="empty() || searchCounterIndex() < 1" (click)="findNext(true)">

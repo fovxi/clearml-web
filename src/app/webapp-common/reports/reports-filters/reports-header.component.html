@@ -2,10 +2,10 @@
   @if (!disableSort()) {
     <div class="recent-title">
       <sm-menu [header]="sortByTitle()" class="menu">
-        <sm-menu-item itemLabel="Recent"
+        <sm-menu-item itemLabel="最近"
                       [sortOrder]="sortByTitle() === 'RECENT' && sortOrder()"
                       (itemClicked)="orderByChanged.emit('last_update')"></sm-menu-item>
-        <sm-menu-item itemLabel="Name"
+        <sm-menu-item itemLabel="名称"
                       [sortOrder]="sortByTitle() === 'NAME' && sortOrder()"
                       (itemClicked)="orderByChanged.emit('name')"></sm-menu-item>
       </sm-menu>
@@ -15,8 +15,8 @@
         (ngModelChange)="!archive() && !(!!projectId() && $event) && toggleNestedView.emit($any($event))"
         [disabled]="archive()"
         [options]="[
-             {value: false, icon: 'al-ico-flat-view',  label: 'List view'},
-             {value: true, icon:'al-ico-project-path', label: 'Project view'}
+             {value: false, icon: 'al-ico-flat-view',  label: '列表视图'},
+             {value: true, icon:'al-ico-project-path', label: '项目视图'}
             ]"
       ></sm-button-toggle>
       <sm-common-search class="ms-3"></sm-common-search>
@@ -32,7 +32,7 @@
               [disabled]="archive()"
               (click)="createReportClicked.emit(projectId())">
         <mat-icon fontSet="al" fontIcon="al-ico-add"></mat-icon>
-        NEW REPORT
+        新建报告
       </button>
     }
   </div>

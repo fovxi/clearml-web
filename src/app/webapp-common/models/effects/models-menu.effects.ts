@@ -144,10 +144,10 @@ export class ModelsMenuEffects {
                 projectsActions.addCompanyTag({tag: action.tag}),
               ];
             } else {
-              return [addMessage(MESSAGES_SEVERITY.ERROR, 'Not all tags were applied')];
+              return [addMessage(MESSAGES_SEVERITY.ERROR, '并非所有标签都已应用')];
             }
           }),
-          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, 'Failed to apply tags')])
+          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, '应用标签失败')])
         );
     })
   ));
@@ -160,11 +160,11 @@ export class ModelsMenuEffects {
     }).pipe(
       switchMap(() => [
         menuActions.removeTagSuccess({models: action.models.map(e => e.id), tag: action.tag}),
-        addMessage('success', `“${action.tag}” tag has been removed from “${action.models[0]?.name}” model`, [
+        addMessage('success', `已从模型“${action.models[0]?.name}”移除标签“${action.tag}”`, [
             {
-              name: 'Undo',
+              name: '撤销',
               actions: [
-                addMessage('success', `“${action.tag}” tag has been restored`),
+                addMessage('success', `标签“${action.tag}”已恢复`),
                 ...action.models.map(() => addTag({
                     models: action.models,
                     tag: action.tag
@@ -193,7 +193,7 @@ export class ModelsMenuEffects {
             const allFailed = res.failed.length === models.length;
             const undoAction = [
               {
-                name: 'Undo', actions: [
+                name: '撤销', actions: [
                   viewActions.setSelectedModels({models}),
                   menuActions.restoreSelectedModels({selectedEntities: models, skipUndo: true})
                 ]
@@ -220,7 +220,7 @@ export class ModelsMenuEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            setServerError(error, null, 'Failed To Archive models')
+            setServerError(error, null, '归档模型失败')
           ])
         )
     )
@@ -240,7 +240,7 @@ export class ModelsMenuEffects {
           const allFailed = res.failed.length === models.length;
           const undoAction = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 viewActions.setSelectedModels({models}),
                 menuActions.archiveSelectedModels({selectedEntities: models, skipUndo: true})
               ]
@@ -265,7 +265,7 @@ export class ModelsMenuEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, 'Failed To Restore models')
+          setServerError(error, null, '恢复模型失败')
         ])
       )
     )

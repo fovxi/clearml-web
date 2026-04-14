@@ -50,27 +50,27 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     if (Number.isNaN(seconds)) {
       return '';
     } else if (seconds <= 45) {
-      return 'a few seconds ago';
+      return '几秒前';
     } else if (seconds <= 90) {
-      return 'a minute ago';
+      return '1分钟前';
     } else if (minutes <= 45) {
-      return minutes + ' minutes ago';
+      return `${minutes}分钟前`;
     } else if (minutes <= 90) {
-      return 'an hour ago';
+      return '1小时前';
     } else if (hours <= 22) {
-      return hours + ' hours ago';
+      return `${hours}小时前`;
     } else if (hours <= 36) {
-      return 'a day ago';
+      return '1天前';
     } else if (days <= 25) {
-      return days + ' days ago';
+      return `${days}天前`;
     } else if (days <= 45) {
-      return 'a month ago';
+      return '1个月前';
     } else if (days <= 345) {
-      return months + ' months ago';
+      return `${months}个月前`;
     } else if (days <= 545) {
-      return 'a year ago';
+      return '1年前';
     } else { // (days > 545)
-      return years + ' years ago';
+      return `${years}年前`;
     }
   }
 

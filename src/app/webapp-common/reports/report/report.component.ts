@@ -323,10 +323,10 @@ export class ReportComponent implements OnDestroy {
   publish() {
     this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'PUBLISH REPORT',
-        body: '<p class="text-center">After publishing the report it can no longer be edited</p>',
-        yes: 'Publish',
-        no: 'Cancel',
+        title: '发布报告',
+        body: '<p class="text-center">报告发布后将无法继续编辑</p>',
+        yes: '发布',
+        no: '取消',
         iconClass: 'al-ico-publish'
       }
     }).afterClosed().subscribe(accept =>

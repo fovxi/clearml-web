@@ -1,20 +1,20 @@
 <div class="list-container">
   @if (scatter) {
-    <div class="metric-title">Plot axes</div>
-    <div class="label">Y-axis</div>
+    <div class="metric-title">图表坐标轴</div>
+    <div class="label">Y 轴</div>
     <sm-metric-variant-selector
       class="param-selector"
-      [title]="'Metric'"
+      [title]="'指标'"
       [selectedMetricVariants]="selectedMetric ? [selectedMetric]: []"
       [metricVariants]="metricsResults$ | ngrxPush"
       (selectMetricVariant)="metricVariantSelected($event)"
       (clearSelection)="clearMetricsSelection()"
     ></sm-metric-variant-selector>
   } @else {
-    <div class="metric-title">Coordinates</div>
+    <div class="metric-title">坐标维度</div>
     <sm-metric-variant-selector
       class="param-selector"
-      [title]="'Performance Metrics'"
+      [title]="'性能指标'"
       [selectedMetricVariants]="selectedMetrics" [multiSelect]="true" [skipValueType]="false"
       [metricVariants]="metricsResults$ | ngrxPush"
       (selectMetricVariant)="multiMetricVariantSelected($event)"
@@ -23,12 +23,12 @@
     ></sm-metric-variant-selector>
   }
   @if (scatter) {
-    <div class="label">X-axis</div>
+    <div class="label">X 轴</div>
   }
   <sm-param-selector
     class="param-selector"
     [itemsList]="hyperParams"
-    [title]="'Hyperparameters'"
+    [title]="'超参数'"
     [selectedHyperParams]="encodedHyperParams"
     [single]="scatter"
     [selectFilteredItems]="selectHideIdenticalHyperParams$ | ngrxPush"
@@ -38,9 +38,9 @@
   ></sm-param-selector>
   @if (scatter) {
     <hr class="separate-margins">
-    <div class="metric-title">Additional data point information</div>
+    <div class="metric-title">附加数据点信息</div>
     <sm-metric-variant-selector class="param-selector"
-                                [title]="'Metrics'"
+                                [title]="'指标'"
                                 [selectedMetricVariants]="(selectedMetricsHoverInfo$ | ngrxPush)"
                                 [multiSelect]="true"
                                 [skipValueType]="true"
@@ -50,7 +50,7 @@
                                 (clearSelection)="clearMetricsSelectionForHover()"
     ></sm-metric-variant-selector>
     <sm-param-selector class="param-selector"
-                       [title]="'Hyperparameters'"
+                       [title]="'超参数'"
                        [itemsList]="hyperParams"
                        [selectedHyperParams]="selectedParamsHoverInfoEncoded$ | ngrxPush"
                        [single]="false"
@@ -81,8 +81,8 @@
     } @else if (selectedHyperParams) {
       <div class="d-flex align-items-center justify-content-center flex-column h-100 no-data">
         <mat-icon fontSet="al" fontIcon="al-ico-no-data-graph" class="xxl"></mat-icon>
-        <h4 class="no-data-title">NO DATA TO SHOW</h4>
-        <div class="sub-title">Please select hyperparameters & metrics</div>
+        <h4 class="no-data-title">暂无可显示数据</h4>
+        <div class="sub-title">请选择超参数和指标</div>
       </div>
     }
   }

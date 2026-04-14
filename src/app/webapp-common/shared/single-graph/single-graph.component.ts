@@ -562,7 +562,7 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
 
     if (!['scatter3d', 'surface'].includes(graph.type)) {
       modeBarButtonsToAdd.push({
-        name: 'Hover mode',
+        name: '悬停模式',
         title: this.getHoverModeTitle(this.hoverMode()),
         icon: {
           width: 24,
@@ -589,8 +589,8 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
       });
     } else {
       modeBarButtonsToAdd.push({
-        name: 'Hover mode',
-        title: 'Toggle show closest data on hover',
+        name: '悬停模式',
+        title: '切换悬停时显示最近数据点',
         toggle: true,
         icon: {
           width: 24,
@@ -643,8 +643,8 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     }
     if (!['table', 'parcoords'].includes(graph?.data?.[0]?.type) && !this.moveLegendToTitle()) {
       modeBarButtonsToAdd.push({
-        name: 'Hide legend',
-        title: !this.moveLegendToTitle() && !this.hideLegend() && (this.chartElm.layout && Object.prototype.hasOwnProperty.call(this.chartElm.layout, 'showlegend') ? this.chartElm.layout.showlegend : graph.layout?.showlegend !== false) ? 'Hide legend' : 'Show legend',
+        name: '图例',
+        title: !this.moveLegendToTitle() && !this.hideLegend() && (this.chartElm.layout && Object.prototype.hasOwnProperty.call(this.chartElm.layout, 'showlegend') ? this.chartElm.layout.showlegend : graph.layout?.showlegend !== false) ? '隐藏图例' : '显示图例',
         icon: this.getToggleLegendIcon(),
         click: (element, ev: MouseEvent) => {
           const pathElement = (ev.target as HTMLElement).tagName === 'path' ? (ev.target as HTMLElement) : (ev.target as HTMLElement).querySelector('path');
@@ -669,8 +669,8 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     }
     if (!['table', 'parcoords'].includes(graph?.data?.[0]?.type) && this.ratioEnable && !this.moveLegendToTitle()) {
       modeBarButtonsToAdd.push({
-        name: 'Auto Layout',
-        title: 'Auto Layout',
+        name: '自动布局',
+        title: '自动布局',
         icon: this.getToggleRatioIcon(),
         click: (element, ev: MouseEvent) => {
           const pathElement = (ev.target as HTMLElement).tagName === 'path' ? (ev.target as HTMLElement) : (ev.target as HTMLElement).querySelector('path');
@@ -684,8 +684,8 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     }
     if (!this.hideDownloadButtons) {
       modeBarButtonsToAdd.push({
-        name: 'Download JSON',
-        title: 'Download JSON',
+        name: '下载 JSON',
+        title: '下载 JSON',
         icon: this.getJsonDownloadIcon(),
         click: () => {
           this.downloadGraphAsJson(this.originalChart);
@@ -694,8 +694,8 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     }
     if (this.type[0] === 'table') {
       modeBarButtonsToAdd.push({
-        name: 'Download CSV',
-        title: 'Download CSV',
+        name: '下载 CSV',
+        title: '下载 CSV',
         icon: this.getCSVDownloadIcon(),
         click: () => {
           this.downloadTableAsCSV();
@@ -705,14 +705,14 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
 
     if (this.exportForReport) {
       const button: plotly.ModeBarButton = {
-        name: 'Embed',
-        title: 'Copy embed code',
+        name: '嵌入',
+        title: '复制嵌入代码',
         attr: 'plotly-embedded-modebar-button',
         icon: this.getEmbedIcon(),
         click: (event) => {
           this.createEmbedCode.emit({
             xaxis: this.xAxisType,
-            domRect: event.querySelector('[data-title="Copy embed code"]').getBoundingClientRect()
+            domRect: event.querySelector('[data-title="复制嵌入代码"]').getBoundingClientRect()
           });
         }
       };
@@ -721,8 +721,8 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
 
     if (this.hideMaximize !== 'hide') {
       const maximizeButton: plotly.ModeBarButton = {
-        name: 'Maximize',
-        title: this.hideMaximize === 'disabled' ? `Can't maximize because an iframe with the same name exists` : 'Maximize Graph',
+        name: '最大化',
+        title: this.hideMaximize === 'disabled' ? '存在同名 iframe，无法最大化' : '最大化图表',
         attr: this.hideMaximize === 'disabled' ? 'plotly-disabled-maximize' : '',
         icon: this.getMaximizeIcon(),
         click: () => this.hideMaximize !== 'disabled' && this.maximizeGraph()
@@ -744,7 +744,7 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
   }
 
   private updateHoverMode(gd: HTMLElement, nextHoverMode: ChartHoverModeEnum) {
-    const elm = gd.querySelectorAll('.modebar-btn[data-title^="Hover: "]')[0];
+    const elm = gd.querySelectorAll('.modebar-btn[data-title^="悬停："]')[0];
     if (elm) {
       elm.setAttribute('data-title', this.getHoverModeTitle(nextHoverMode));
       const path = elm.querySelectorAll('svg path')[0];
@@ -753,7 +753,7 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
   }
 
   private updateHoverMode3d(force?: boolean) {
-    const elm = this.plotlyContainer.nativeElement.querySelectorAll('.modebar-btn[data-title^="Toggle show closest"]')[0];
+    const elm = this.plotlyContainer.nativeElement.querySelectorAll('.modebar-btn[data-title^="切换悬停时显示最近数据点"]')[0];
     if (elm) {
       const toActivate = force !== undefined ? force : elm.classList.contains('active');
       if (toActivate) {
@@ -1103,7 +1103,7 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
   }
 
   getLogButtonTitle(onOrOff: boolean) {
-    return `Switch to ${onOrOff ? 'Linear' : 'Logarithmic'} scale`;
+    return `切换到${onOrOff ? '线性' : '对数'}刻度`;
   }
 
   private getAxisText(timeUnit: { time: number; str: string }) {
@@ -1112,11 +1112,11 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     }
     switch (this.xAxisType) {
       case ScalarKeyEnum.Iter:
-        return this.areAllSameXaxis() ? this.chart.data[0].x_axis_label ?? 'Iterations' : 'Iterations';
+        return this.areAllSameXaxis() ? this.chart.data[0].x_axis_label ?? '迭代' : '迭代';
       case ScalarKeyEnum.IsoTime:
-        return 'Wall Time';
+        return '墙上时间';
       case ScalarKeyEnum.Timestamp:
-        return (timeUnit && timeUnit.str) ? `${timeUnit.str} From Start` : 'Relative Time';
+        return (timeUnit && timeUnit.str) ? `${timeUnit.str}（自开始起）` : '相对时间';
       default:
         return null;
     }
@@ -1127,11 +1127,11 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
   }
 
   private getHideButtonTitle() {
-    return this.chartElm.layout?.showlegend ? 'Hide legend' : 'Show legend';
+    return this.chartElm.layout?.showlegend ? '隐藏图例' : '显示图例';
   }
 
   private getLockRatioTitle() {
-    return this.ratio ? 'Original Layout' : 'Auto Layout';
+    return this.ratio ? '原始布局' : '自动布局';
   }
 
   private maximizeGraph() {
@@ -1194,7 +1194,7 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     if (!name) {
       return name;
     }
-    return name + ((iter || (this.graphsNumber > 1 && iter === 0)) && !name.includes('(iteration') ? ` - Iteration ${iter}` : '');
+    return name + ((iter || (this.graphsNumber > 1 && iter === 0)) && !name.includes('(iteration') ? ` - 迭代 ${iter}` : '');
   }
 
   public repositionModeBar(singleGraphEl) {
@@ -1240,8 +1240,8 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     if (typeof hoverMode === 'string') {
       mode = hoverMode.charAt(0).toUpperCase() + hoverMode.slice(1);
     } else {
-      mode = 'None';
+      mode = '无';
     }
-    return `Hover: ${mode}`;
+    return `悬停：${mode}`;
   }
 }

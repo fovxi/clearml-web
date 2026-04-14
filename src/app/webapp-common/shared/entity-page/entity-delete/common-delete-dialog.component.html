@@ -8,20 +8,20 @@
     @if (resetMode) {
       <div class="mb-3">
         <span class="entity-name ellipsis inline" [smTooltip]="entityName" smShowTooltipIfEllipsis>{{entityName}}</span>
-        will be reset.
+        将被重置。
       </div>
     @if (devWarning) {
       <div class="mb-3">
-        <b>Note: resetting a DEV task</b> Any subsequent runs of the task will overwrite any changes made to it in the Web-App.
+        <b>注意：正在重置 DEV 任务</b> 该任务后续的任何运行都会覆盖您在 Web 应用中对它所做的修改。
         <div>
-          To avoid this, <b>clone the task</b> and work with the cloned task.</div>
+          为避免这种情况，请先<b>克隆该任务</b>，然后在克隆后的任务上继续工作。</div>
       </div>
     }
     } @else {
       <div class="d-flex text-center">
-        <span>Are you sure you want to delete @if (numSelected === 1) {"}</span>
+        <span>确定要删除@if (numSelected === 1) {"}</span>
         <span  class="entity-name ellipsis inline" [class.mx-1]="numSelected > 1" [smTooltip]="entityName" smShowTooltipIfEllipsis>{{entityName}}</span>
-        <span>@if (numSelected === 1) {"} ?</span>
+        <span>@if (numSelected === 1) {"} 吗？</span>
       </div>
       <div class="mb-3">
         {{bodyMessage}}
@@ -33,19 +33,19 @@
           #checkboxInput="ngModel"
           [(ngModel)]="deleteArtifacts"
           name="isApprove"
-          >Remove all related artifacts and debug samples from ClearML file server
+          >从 ClearML 文件服务器中删除所有相关工件和调试样本
         </mat-checkbox>
       </div>
       <div class="buttons">
         <button mat-flat-button cdkFocusInitial (click)="delete()" data-id="DeleteButton" class="yes-button">
-          {{resetMode ? 'RESET' : 'DELETE'}}
+          {{resetMode ? '重置' : '删除'}}
         </button>
         <button mat-stroked-button (click)="closeDialog(false)" data-id="CancelButton">
-          CANCEL
+          取消
         </button>
       </div>
     } @else {
-      <div>Deleting @if (progressPercent > 0) {
+      <div>正在删除@if (progressPercent > 0) {
         <span>{{progressPercent}}%</span>
       }</div>
       <mat-progress-bar class="progress-bar" [mode]="progressPercent? 'determinate' : 'indeterminate'"
@@ -54,17 +54,17 @@
       @if (totalFilesNumber > 0) {
         @if (!showFinishMessage) {
           <div class="progress-message">
-            Deleting artifacts. This may take some time. Please do not close the window.
+            正在删除工件，这可能需要一些时间。请不要关闭此窗口。
           </div>
         } @else {
           <div class="progress-message success">
-            <i class="al-icon al-ico-success sm-md me-2"></i>The artifacts were deleted
+            <i class="al-icon al-ico-success sm-md me-2"></i>工件已删除
           </div>
         }
       }
       <div [class.visible]="(failedEntities$ | ngrxPush)?.length > 0" class="files-list-container">
         <div (click)="openToggleEntities()" class="pointer">
-          <mat-icon fontSet="al" fontIcon="al-ico-caret-right" class="more-info-icon" [class.info-open]="isOpenEntities"></mat-icon>The following {{entityType}}s were not deleted:
+          <mat-icon fontSet="al" fontIcon="al-ico-caret-right" class="more-info-icon" [class.info-open]="isOpenEntities"></mat-icon>以下{{entityType}}未被删除：
         </div>
         <div class="more-info" [class]="{'info-open': isOpenEntities}">
           <ul class="list-container">
@@ -79,7 +79,7 @@
       </div>
       <div [class.visible]="failedFiles()?.length > 0" class="files-list-container">
         <div (click)="openToggle()" class="pointer">
-          <mat-icon fontSet="al" fontIcon="al-ico-caret-right" class="more-info-icon" [class.info-open]="isOpen()"></mat-icon>The following artifacts were not deleted:
+          <mat-icon fontSet="al" fontIcon="al-ico-caret-right" class="more-info-icon" [class.info-open]="isOpen()"></mat-icon>以下工件未被删除：
         </div>
         <div class="more-info mono" [class]="{'info-open': isOpen()}">
           <sm-copy-clipboard label="" [clipboardText]="failedFiles().join('\n')"
@@ -92,14 +92,14 @@
             </div>
           }
           @if (failedFiles().length > 1000) {
-            <div>** Additional artifacts may be left **</div>
+            <div>** 可能还有更多工件未删除 **</div>
           }
         </div>
       </div>
       <br><br>
       <div class="buttons">
         <button mat-stroked-button (click)="closeDialog(true)" [disabled]="progressPercent < 100">
-          CLOSE
+          关闭
         </button>
       </div>
     }

@@ -1,9 +1,9 @@
 <sm-card class="project-card"
   (click)="projectClicked()"
-  [isExample]="!['All Tasks'].includes(project.name) && !isRootProject && (!project.company || ! project.company.id)"
+  [isExample]="!['全部任务'].includes(project.name) && !isRootProject && (!project.company || ! project.company.id)"
   [showFolder]="false"
   [oneTabMode]="true"
-  [subFolderTitle]="project?.sub_projects?.length + ' sub projects'"
+  [subFolderTitle]="project?.sub_projects?.length + ' 个子项目'"
   >
   <div header-content [class.rename-state]="editName.active()">
     <div class="d-flex justify-content-between align-items-center card-name">
@@ -44,7 +44,7 @@
         class="last-run"
         [smTooltip]="project.last_update | date: timeFormatString"
         matTooltipPosition="after"
-      >Updated {{project.last_update | timeAgo}}</span>
+      >更新于 {{project.last_update | timeAgo}}</span>
     } @else {
       <span class="last-run"></span>
     }
@@ -52,14 +52,14 @@
   <div class="d-flex justify-content-around w-100">
     <sm-circle-counter
       [counter]="project.stats?.active?.total_tasks"
-      label="VERSIONS"
+      label="版本"
     ></sm-circle-counter>
     <sm-circle-counter
       [counter]="[
-        {value: project?.dataset_stats?.file_count | NA, label: 'FILES'},
-        {value: project?.dataset_stats?.total_size | filesize : fileSizeConfigStorage | NA, label: 'SIZE'}
+        {value: project?.dataset_stats?.file_count | NA, label: '文件'},
+        {value: project?.dataset_stats?.total_size | filesize : fileSizeConfigStorage | NA, label: '大小'}
       ]"
-      label="LATEST VERSION"
+      label="最新版本"
     ></sm-circle-counter>
   </div>
   <div footer class="footer-tags">

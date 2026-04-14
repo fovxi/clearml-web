@@ -37,7 +37,7 @@ export const INITIAL_MODEL_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
     id: EXPERIMENTS_TABLE_COL_FIELDS.NAME,
     headerType: ColHeaderTypeEnum.title,
     sortable: false,
-    header: 'NAME',
+    header: '名称',
     style: {width: '400px'},
   },
   {
@@ -47,7 +47,7 @@ export const INITIAL_MODEL_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
     filterable: true,
     searchableFilter: true,
     sortable: false,
-    header: 'TAGS',
+    header: '标签',
     style: {width: '300px'},
     excludeFilter: true,
     andFilter: true,
@@ -57,13 +57,13 @@ export const INITIAL_MODEL_EXPERIMENTS_TABLE_COLS: ISmCol[] = [
     id: EXPERIMENTS_TABLE_COL_FIELDS.STATUS,
     headerType: ColHeaderTypeEnum.sortFilter,
     filterable: true,
-    header: 'STATUS',
+    header: '状态',
     style: {width: '130px', minWidth: '130px'},
   },
   {
     id: EXPERIMENTS_TABLE_COL_FIELDS.ID,
     headerType: ColHeaderTypeEnum.title,
-    header: 'ID',
+    header: '编号',
     style: {width: '100px'},
   }
 ];

@@ -41,11 +41,11 @@
               <button mat-button data-id="AnyTagOption" class="link"
                       [class.selected]="!andFilter()"
                       (click)="toggleCombination(option.key)"
-              >Any</button>
+              >任意</button>
               <button mat-button data-id="allTagOption" class="link"
                       [class.selected]="andFilter()"
                       (click)="toggleCombination(option.key)"
-              >All</button>
+              >全部</button>
             </div>
           }
           <div #container class="results" [class.scroll]="col.searchableFilter" smClickStopPropagation>
@@ -90,7 +90,6 @@
       }
     }
     <hr>
-      <div mat-menu-item class="clear-all mat-menu-item" (click)="isFiltering() && clearAll.emit()" [disabled]="!isFiltering()">Clear all</div>
+      <div mat-menu-item class="clear-all mat-menu-item" (click)="isFiltering() && clearAll.emit()" [disabled]="!isFiltering()">清除全部</div>
     </mat-menu>
   </div>
-

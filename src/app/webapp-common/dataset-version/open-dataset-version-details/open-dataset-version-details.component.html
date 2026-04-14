@@ -1,6 +1,6 @@
 <mat-expansion-panel [expanded]="true" (transitionend)="$event.stopPropagation()">
   <mat-expansion-panel-header>
-    <div class="expand-header">VERSION INFO</div>
+    <div class="expand-header">版本信息</div>
   </mat-expansion-panel-header>
   @if (entity()) {
     <div class="panel-body">
@@ -12,42 +12,42 @@
       </div>
       <div class="section">
         <div class="param">
-          <div class="key" data-id="id">ID</div>
+          <div class="key" data-id="id">编号</div>
           <sm-id-badge [id]="entity().id" (copied)="copyToClipboard()"></sm-id-badge>
         </div>
         <div class="param continue">
-          <div class="key" data-id="size">Size</div>
-          <div data-id="sizeValue" class="value" [smTooltip]="entity()?.runtime?.ds_total_size + ' (original)'" smShowTooltipIfEllipsis>{{($any(entity()?.runtime?.ds_total_size) | filesize : fileSizeConfigStorage) || '-'}}<span class="comment">(original)</span></div>
+          <div class="key" data-id="size">大小</div>
+          <div data-id="sizeValue" class="value" [smTooltip]="entity()?.runtime?.ds_total_size + '（原始）'" smShowTooltipIfEllipsis>{{($any(entity()?.runtime?.ds_total_size) | filesize : fileSizeConfigStorage) || '-'}}<span class="comment">（原始）</span></div>
         </div>
         <div class="param">
           <div class="key"></div>
-          <div class="value" [smTooltip]="entity()?.runtime?.ds_total_size_compressed + ' (compressed)'" smShowTooltipIfEllipsis>{{($any(entity()?.runtime?.ds_total_size_compressed) | filesize : fileSizeConfigStorage) || '-'}}<span class="comment">(compressed)</span></div>
+          <div class="value" [smTooltip]="entity()?.runtime?.ds_total_size_compressed + '（压缩后）'" smShowTooltipIfEllipsis>{{($any(entity()?.runtime?.ds_total_size_compressed) | filesize : fileSizeConfigStorage) || '-'}}<span class="comment">（压缩后）</span></div>
         </div>
         <div class="param">
-          <div class="key" data-id="fileCount">File count</div>
+          <div class="key" data-id="fileCount">文件数</div>
           <div data-id="fileCountValue" class="value" [smTooltip]="entity()?.runtime?.ds_file_count" smShowTooltipIfEllipsis>{{entity()?.runtime?.ds_file_count ?? '-'}}</div>
         </div>
         <div class="param">
-          <div class="key" data-id="linkCount" >Link count</div>
+          <div class="key" data-id="linkCount" >链接数</div>
           <div data-id="linkCountValue" class="value" [smTooltip]="entity()?.runtime?.ds_link_count" smShowTooltipIfEllipsis>{{entity()?.runtime?.ds_link_count ?? '-'}}</div>
         </div>
       </div>
       <div class="section">
-        <div class="header">FILES CHANGED</div>
+        <div class="header">文件变更</div>
         <div class="param">
-          <div class="key" data-id="added">Added</div>
+          <div class="key" data-id="added">新增</div>
           <div data-id="addedValue" class="value" [smTooltip]="entity()?.runtime?.ds_change_add " smShowTooltipIfEllipsis>{{entity()?.runtime?.ds_change_add ?? '-'}}</div>
         </div>
         <div class="param">
-          <div class="key" data-id="modified">Modified</div>
+          <div class="key" data-id="modified">修改</div>
           <div data-id="modifiedValue" class="value" [smTooltip]="entity()?.runtime?.ds_change_modify " smShowTooltipIfEllipsis>{{entity()?.runtime?.ds_change_modify ?? '-'}}</div>
         </div>
         <div class="param">
-          <div class="key" data-id="removed">Removed</div>
+          <div class="key" data-id="removed">删除</div>
           <div data-id="removedValue" class="value" [smTooltip]="entity()?.runtime?.ds_change_remove " smShowTooltipIfEllipsis>{{entity()?.runtime?.ds_change_remove ?? '-'}}</div>
         </div>
         <div class="param">
-          <div class="key" data-id="size">Size Difference</div>
+          <div class="key" data-id="size">大小差异</div>
           @if (entity()?.runtime?.ds_change_size) {
             <div data-id="sizeValue" class="value"
                  [smTooltip]="$any(entity()?.runtime?.ds_change_size) | filesize: fileSizeConfigStorage"
@@ -58,7 +58,7 @@
       </div>
       <div class="section">
         <div class="header">
-          <span>DESCRIPTION</span>
+          <span>描述</span>
           <button mat-icon-button data-id="editIcon" (click)="editDescription.emit(entity())">
             <mat-icon fontSet="al" fontIcon="al-ico-edit"></mat-icon>
           </button>
@@ -75,7 +75,7 @@
       class="arr-link"
       target="_blank"
       [href]="'/projects/' + project() + '/tasks/' + entity()?.id + '/output/execution'">
-      Task information<i class="al-icon al-ico-link-arrow sm" data-id="taskInfoIcon" ></i>
+      任务信息<i class="al-icon al-ico-link-arrow sm" data-id="taskInfoIcon" ></i>
     </a>
   </footer>
 }

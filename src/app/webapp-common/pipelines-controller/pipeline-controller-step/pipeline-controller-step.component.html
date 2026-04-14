@@ -16,7 +16,7 @@
     >{{ stepWithStatus().name }}
     </div>
     @if (stepWithStatus().data?.isStage) {
-      <button mat-icon-button (click)="toggleEnlarge()" data-id="openStage" smTooltip="Expand stage">
+      <button mat-icon-button (click)="toggleEnlarge()" data-id="openStage" smTooltip="展开阶段">
         <mat-icon fontSet="al" fontIcon="al-ico-zoom-to-fit"></mat-icon>
       </button>
     } @else {
@@ -28,7 +28,7 @@
   </div>
   <div class="step-part step-footer" data-id="stepFooter" [class.stage-step]="stepWithStatus().data?.isStage">
     @if (stepWithStatus().data.isStage) {
-      {{ stepWithStatus().data.numberOfStepsInStage }} Step@if(stepWithStatus().data.numberOfStepsInStage > 1){s}
+      {{ stepWithStatus().data.numberOfStepsInStage }} 个步骤
     } @else {
       <div class="footer-container">
         <div class="justify-content-start">

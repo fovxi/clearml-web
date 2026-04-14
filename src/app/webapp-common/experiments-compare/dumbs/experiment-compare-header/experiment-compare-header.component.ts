@@ -138,7 +138,7 @@ export class ExperimentCompareHeaderComponent implements OnInit, OnDestroy {
         data: {
           selectionMode: 'multiple',
           selectedModels: selectedIds,
-          header: 'Select compared model'
+          header: '选择要比较的模型'
         },
         panelClass: 'full-screen',
       }).afterClosed().pipe(filter(ids => !!ids)).subscribe(ids => this.updateUrl(ids));

@@ -23,15 +23,15 @@
           data-id="New Report"
           (click)="openCreateReportDialog(projectId)">
     <mat-icon fontSet="al" fontIcon="al-ico-add"></mat-icon>
-    NEW REPORT
+    新建报告
   </button>
 
   <div empty-state class="empty-state justify-content-center">
     <mat-icon fontSet="al" fontIcon="al-ico-reports" class="xxl"></mat-icon>
-    <h4 class="title">NO REPORTS TO SHOW</h4>
+    <h4 class="title">暂无可显示的报告</h4>
     <div class="sub-title">
       <button mat-flat-button (click)="openCreateReportDialog(projectId)">
-        NEW REPORT
+        新建报告
       </button>
     </div>
   </div>
@@ -42,14 +42,13 @@
 <ng-template #cardContent let-project>
   <sm-circle-counter
     [counter]="project.stats?.active?.total_tasks ?? '0'"
-    label="REPORTS"
+    label="报告"
     [type]="circleTypeEnum.empty"></sm-circle-counter>
   <sm-circle-counter
     [counter]="project.stats?.active?.status_count?.published ?? '0'"
-    label="PUBLISHED"
+    label="已发布"
     [type]="project.stats?.active?.status_count?.published ===0 ? circleTypeEnum.empty :
             circleTypeEnum.published"
   ></sm-circle-counter>
 </ng-template>
-
 

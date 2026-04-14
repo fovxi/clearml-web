@@ -17,8 +17,8 @@ export class RetryFooterItem extends ItemFooterModel {
     return {
       disable: retry?.disable,
       preventCurrentItem: state.selectionAllIsArchive,
-      description: this.menuItemText.transform(retry?.available, 'Retry'),
-      disableDescription: state.selectionIsOnlyExamples ? 'Retry' : `You can only retry tasks with ‘Failed' status`
+      description: this.menuItemText.transform(retry?.available, '重试'),
+      disableDescription: state.selectionIsOnlyExamples ? '重试' : '仅可重试状态为“失败”的任务'
 
     };
   }

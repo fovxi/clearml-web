@@ -3,7 +3,7 @@
     <mat-expansion-panel (opened)="setMetricsPanel(true)" (closed)="setMetricsPanel(false)" [expanded]="panelOpen()">
       <mat-expansion-panel-header expandedHeight="48px" collapsedHeight="48px">
         <mat-panel-title>
-          Metric Snapshot
+          指标快照
         </mat-panel-title>
       </mat-expansion-panel-header>
       <ng-template matExpansionPanelContent>
@@ -23,9 +23,9 @@
       @if (!example()) {
         <div no-data class="flex-middle overview-placeholder">
           <i class="al-icon al-ico-no-data-markdown xxl"></i>
-          <div class="no-data-title">THERE’S NOTHING HERE YET…</div>
+          <div class="no-data-title">这里还没有内容…</div>
           <button mat-flat-button (click)="editor.editClicked()">
-            <span>ADD PROJECT OVERVIEW</span>
+            <span>添加项目概览</span>
           </button>
         </div>
       }

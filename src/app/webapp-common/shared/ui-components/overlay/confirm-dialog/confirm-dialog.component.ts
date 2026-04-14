@@ -32,8 +32,8 @@ export class ConfirmDialogComponent {
   body?: string;
   template?: TemplateRef<unknown>;
   templateContext: unknown;
-  yes = 'OK';
-  no = 'Cancel';
+  yes = '确定';
+  no = '取消';
   iconClass = '';
   iconData = '';
   codeSnippet = '';

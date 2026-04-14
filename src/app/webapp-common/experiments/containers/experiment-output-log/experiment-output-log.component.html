@@ -1,16 +1,16 @@
 @if (hasLog() && showHeader()) {
   <div class="header">
     <div class="ellipsis" [smTooltip]="creator()" matTooltipShowDelay="300" smShowTooltipIfEllipsis>
-      <b class="me-2">Hostname:</b>{{creator()}}
+      <b class="me-2">主机名：</b>{{creator()}}
     </div>
     <button mat-stroked-button (click)="downloadLog()">
       <mat-icon fontSet="al" fontIcon="al-ico-download"></mat-icon>
-      Download full log
+      下载完整日志
     </button>
     <mat-form-field appearance="fill" class="no-bottom">
       <input
         matInput
-        placeholder="Filter By Regex"
+        placeholder="按正则过滤"
         [value]="filter$ | ngrxPush"
         (keyup)="filterLog($event)"
       />
@@ -20,7 +20,7 @@
 @if (hasLog() === false) {
   <div class="no-output">
     <mat-icon fontSet="al" fontIcon="al-ico-log" class="xxl"></mat-icon>
-    <h4>NO LOG DATA</h4>
+    <h4>暂无日志数据</h4>
   </div>
 }
 

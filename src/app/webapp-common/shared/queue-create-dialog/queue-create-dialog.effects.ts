@@ -28,11 +28,11 @@ export class QueueCreateDialogEffects {
         mergeMap(() => [
           deactivateLoader(action.type),
           setCreationStatus({status: CREATION_STATUS.SUCCESS}),
-          addMessage(MESSAGES_SEVERITY.SUCCESS, 'Queue Created Successfully'),
+          addMessage(MESSAGES_SEVERITY.SUCCESS, '队列创建成功'),
         ]),
         catchError(error => [deactivateLoader(action.type),
           requestFailed(error),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Queue Created Failed'),
+          addMessage(MESSAGES_SEVERITY.ERROR, '队列创建失败'),
           setCreationStatus({status: CREATION_STATUS.FAILED})
         ])
       )
@@ -46,12 +46,12 @@ export class QueueCreateDialogEffects {
         mergeMap(() => [
           deactivateLoader(action.type),
           setCreationStatus({status: CREATION_STATUS.SUCCESS}),
-          addMessage(MESSAGES_SEVERITY.SUCCESS, 'Queue Updated Successfully'),
+          addMessage(MESSAGES_SEVERITY.SUCCESS, '队列更新成功'),
         ]),
         catchError(error => [
           deactivateLoader(action.type),
           requestFailed(error),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Queue Update Failed'),
+          addMessage(MESSAGES_SEVERITY.ERROR, '队列更新失败'),
           setCreationStatus({status: CREATION_STATUS.FAILED})
         ])
       )

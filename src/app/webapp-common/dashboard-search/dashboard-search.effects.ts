@@ -337,7 +337,7 @@ export class DashboardSearchEffects {
           }),
           deactivateLoader(action.type)
         ]),
-        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `Server error: ${this.errorService.getErrorMsg(error?.error)}`)])))
+        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `服务器错误：${this.errorService.getErrorMsg(error?.error)}`)])))
   ));
 
   searchPipelines = createEffect(() => this.actions.pipe(
@@ -382,7 +382,7 @@ export class DashboardSearchEffects {
         }),
         deactivateLoader(action.type)
       ]),
-      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `Server error: ${this.errorService.getErrorMsg(error?.error)}`)])))
+      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `服务器错误：${this.errorService.getErrorMsg(error?.error)}`)])))
   ));
 
   searchOpenDatasets = createEffect(() => this.actions.pipe(
@@ -430,7 +430,7 @@ export class DashboardSearchEffects {
         }),
         deactivateLoader(action.type)
       ]),
-      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `Server error: ${this.errorService.getErrorMsg(error?.error)}`)])))
+      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `服务器错误：${this.errorService.getErrorMsg(error?.error)}`)])))
   ));
 
 
@@ -474,7 +474,7 @@ export class DashboardSearchEffects {
         }),
         deactivateLoader(action.type)
       ]),
-      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `Server error: ${this.errorService.getErrorMsg(error?.error)}`)])))
+      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `服务器错误：${this.errorService.getErrorMsg(error?.error)}`)])))
   ));
 
   searchExperiments = createEffect(() => this.actions.pipe(
@@ -524,7 +524,7 @@ export class DashboardSearchEffects {
         catchError(error => [
           deactivateLoader(action.type),
           requestFailed(error),
-          addMessage(MESSAGES_SEVERITY.ERROR, `Server error: ${this.errorService.getErrorMsg(error?.error)}`)])))
+          addMessage(MESSAGES_SEVERITY.ERROR, `服务器错误：${this.errorService.getErrorMsg(error?.error)}`)])))
   ));
 
   searchReports = createEffect(() => this.actions.pipe(
@@ -567,7 +567,7 @@ export class DashboardSearchEffects {
         }),
         deactivateLoader(action.type)
       ]),
-      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `Server error: ${this.errorService.getErrorMsg(error?.error)}`)])))
+      catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, `服务器错误：${this.errorService.getErrorMsg(error?.error)}`)])))
   ));
 
   getEndpoints = createEffect(() => this.actions.pipe(
@@ -641,5 +641,4 @@ export class DashboardSearchEffects {
           catchError((error) => [requestFailed(error),  deactivateLoader(action.type)])))
   ));
 }
-
 

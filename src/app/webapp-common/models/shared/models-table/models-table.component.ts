@@ -201,14 +201,14 @@ export class ModelsTableComponent extends BaseTableView implements OnChanges {
       Array.from(new Set(this.frameworks().concat(this.sortByFilterValues()[MODELS_TABLE_COL_FIELDS.FRAMEWORK]))).map(framework =>
         ({
           label: framework ? framework :
-            (framework === null ? '(No framework)' : 'Unknown'), value: framework
+            (framework === null ? '（无框架）' : '未知'), value: framework
         })
       ),
       this.filtersValues()[MODELS_TABLE_COL_FIELDS.FRAMEWORK]
     ),
     [MODELS_TABLE_COL_FIELDS.READY]: this.modelsReadyOptions,
     [MODELS_TABLE_COL_FIELDS.USER]: this.sortOptionsList(this.users()?.map(user => ({
-      label: user.name ? user.name : 'Unknown User',
+      label: user.name ? user.name : '未知用户',
       value: user.id,
       tooltip: ''
     })) ?? [], [this.currentUserId(), ...this.sortByFilterValues()[MODELS_TABLE_COL_FIELDS.USER]]),
@@ -223,7 +223,7 @@ export class ModelsTableComponent extends BaseTableView implements OnChanges {
       ),
     ...Object.entries(this.metadataValuesOptions() || {}).reduce((acc, [id, values]) => {
       acc![id] = values === null ? null : [{
-        label: '(No Value)',
+        label: '（无值）',
         value: null
       }].concat(values.map(value => ({
         label: value,

@@ -31,7 +31,7 @@ export class ExperimentsCompareMetricsValuesEffects {
           deactivateLoader(action.type)]),
         catchError(error => [
           requestFailed(error), deactivateLoader(action.type),
-          setServerError(error, null, 'Failed to get Compared Experiments', action.autoRefresh)
+          setServerError(error, null, '获取对比实验失败', action.autoRefresh)
         ])
       )
     )

@@ -41,10 +41,10 @@ export const smooth1D = (data: number[], sigma: number, kernelSize: number): num
 
 export type SmoothTypeEnum = 'runningAverage' | 'exponential' | 'gaussian' | 'any';
 export const smoothTypeEnum = {
-  exponential: 'Exp. Moving Average' as SmoothTypeEnum,
-  runningAverage: 'Running Average' as SmoothTypeEnum,
-  gaussian: 'Gaussian' as SmoothTypeEnum,
-  any: 'No Smoothing' as SmoothTypeEnum
+  exponential: '指数移动平均' as SmoothTypeEnum,
+  runningAverage: '滑动平均' as SmoothTypeEnum,
+  gaussian: '高斯' as SmoothTypeEnum,
+  any: '不平滑' as SmoothTypeEnum
 };
 
 export const generateColorKey = (name: string, task: string, colorKey: string, isCompare)=> {
@@ -120,4 +120,3 @@ export const interpolateY = (y): { x: number[], y: number[] } => {
   const interpolatedY = newX.map((_, i, arr) => interpolator(i / arr.length));
   return {x: newX, y: interpolatedY};
 };
-

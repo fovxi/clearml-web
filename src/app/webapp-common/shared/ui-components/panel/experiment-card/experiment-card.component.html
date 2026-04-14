@@ -18,11 +18,11 @@
 
   <div footer class="brio-footer">
     <div  class="experiment-footer">
-    <div class="top-labels ellipsis">INITIAL INPUT MODEL:
+    <div class="top-labels ellipsis">初始输入模型：
       {{experiment()?.execution?.model?.name}}
     </div>
     <div class="top-labels d-flex justify-content-between">
-      <span [smTooltip]="experiment().created | date : TIME_FORMAT_STRING">Created {{experiment().created | timeAgo}}</span>
+      <span [smTooltip]="experiment().created | date : TIME_FORMAT_STRING">创建于 {{experiment().created | timeAgo}}</span>
       <span>{{experiment().user.name}}</span>
     </div>
     </div>

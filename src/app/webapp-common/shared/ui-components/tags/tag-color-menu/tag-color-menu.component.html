@@ -1,7 +1,7 @@
-<sm-dialog-template iconClass="al-ico-tag" header="TAG COLORS">
+<sm-dialog-template iconClass="al-ico-tag" header="标签颜色">
   <form class="filter-form">
     <mat-form-field appearance="fill" class="w-100">
-      <input smClickStopPropagation  matInput placeholder="Search" name="filter" [(ngModel)]="filterText" autocomplete="off">
+      <input smClickStopPropagation  matInput placeholder="搜索" name="filter" [(ngModel)]="filterText" autocomplete="off">
       @if (filterText) {
         <button matSuffix mat-icon-button (click)="clearSearch()">
           <mat-icon fontSet="al" fontIcon="al-ico-dialog-x"></mat-icon>
@@ -14,8 +14,8 @@
 
   <mat-menu #colorMenu="matMenu">
     <ng-template matMenuContent let-tag="tag" let-colors="colors">
-      <button mat-menu-item (click)="openColorPicker(tag, colors.background)" data-id="backgroundOption">Background</button>
-      <button mat-menu-item [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{tag: tag, color: colors.foreground}" data-id="foregroundOption">Foreground</button>
+      <button mat-menu-item (click)="openColorPicker(tag, colors.background)" data-id="backgroundOption">背景色</button>
+      <button mat-menu-item [matMenuTriggerFor]="subMenu" [matMenuTriggerData]="{tag: tag, color: colors.foreground}" data-id="foregroundOption">前景色</button>
     </ng-template>
   </mat-menu>
 
@@ -23,11 +23,11 @@
     <ng-template matMenuContent let-tag="tag" let-color="color">
       <button mat-menu-item (click)="setForeground(tag, 'black')">
         <mat-icon fontSet="al" [fontIcon]="color === 'black' && 'al-ico-success'"></mat-icon>
-        Black
+        黑色
       </button>
       <button mat-menu-item (click)="setForeground(tag, 'white')">
         <mat-icon fontSet="al" [fontIcon]="color === 'white' && 'al-ico-success'"></mat-icon>
-        White
+        白色
       </button>
     </ng-template>
   </mat-menu>
@@ -47,8 +47,8 @@
     ></div>
     <ng-template #buttons>
       <div class="buttons">
-        <button mat-stroked-button (click)="picker().closeDialog()">CLOSE</button>
-        <button mat-flat-button (click)="setBackground()">APPLY</button>
+        <button mat-stroked-button (click)="picker().closeDialog()">关闭</button>
+        <button mat-flat-button (click)="setBackground()">应用</button>
       </div>
     </ng-template>
   </div>
@@ -73,6 +73,6 @@
 
 
   <div class="btn-row">
-    <button mat-stroked-button class="center" (click)="close()" data-id="closeButton">CLOSE</button>
+    <button mat-stroked-button class="center" (click)="close()" data-id="closeButton">关闭</button>
   </div>
 </sm-dialog-template>

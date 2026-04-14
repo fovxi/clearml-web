@@ -50,7 +50,7 @@ export class ReportCodeEmbedBaseService {
     this._clipboardService.copyResponse$
       .pipe(take(1))
       .subscribe(() => this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS,
-        'Resource embed code copied to clipboard.You can paste it in your Reports.'))
+        '资源嵌入代码已复制到剪贴板，可粘贴到报告中。'))
       );
     this._clipboardService.copy(code);
   }

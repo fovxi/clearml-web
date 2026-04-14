@@ -1,4 +1,4 @@
-import {inject, NgModule, provideAppInitializer} from '@angular/core';
+import {inject, LOCALE_ID, NgModule, provideAppInitializer} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PreloadAllModules, RouteReuseStrategy, RouterModule} from '@angular/router';
@@ -70,7 +70,8 @@ import {ColorPickerWrapperComponent} from '@common/shared/ui-components/inputs/c
   ],
   providers: [
     UserPreferences,
-  {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always',  appearance: 'outline'}},
+    {provide: LOCALE_ID, useValue: 'zh-CN'},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always',  appearance: 'outline'}},
     provideAppInitializer(() => loadUserAndPreferences()),
     ColorHashService,
     {provide: HTTP_INTERCEPTORS, useClass: WebappInterceptor, multi: true},

@@ -188,7 +188,7 @@ export class SelectExperimentsForCompareComponent implements OnInit, OnDestroy {
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: 'Search for experiments'}));
+    this.store.dispatch(initSearch({payload: '搜索实验'}));
     this.store.dispatch(experimentsActions.getExperiments());
   }
 
@@ -243,14 +243,14 @@ export class SelectExperimentsForCompareComponent implements OnInit, OnDestroy {
   experimentsSelectionChanged(experiments: ITableExperiment[]) {
     this.reachedCompareLimit = experiments.length >= compareLimitations;
     if (experiments.length === 0) {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, 'Compare module should include at least one experiment'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, '至少选择一个实验进行比较'));
       this.selectedExperimentsIds = experiments.map(ex => ex.id);
       return;
     }
     if (experiments.length <= compareLimitations) {
       this.selectedExperimentsIds = experiments.map(ex => ex.id);
     } else {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, compareLimitations + ' or fewer experiments can be compared'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, `最多可比较 ${compareLimitations} 个实验`));
     }
   }
 

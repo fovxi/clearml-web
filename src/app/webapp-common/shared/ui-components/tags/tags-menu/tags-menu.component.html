@@ -13,7 +13,7 @@
         <input
           #nameInput
           matInput
-          placeholder="Add Tag"
+          placeholder="添加标签"
           name="filter"
           [(ngModel)]="filterText"
           class="filter"
@@ -24,7 +24,7 @@
             <i
               class="icon sm-md me-3 mb-2 pointer"
               [class]="tagsFilterByProject() ? 'i-project-tags-filter-active' : 'i-project-tags-filter'"
-              smTooltip="Toggle all/project-only tags"
+              smTooltip="切换全部标签或仅项目标签"
               data-id="tagFilterButton"
               (click)="projectTagsFilterToggle()"
               smClickStopPropagation></i>
@@ -42,7 +42,7 @@
           class="item"
           (click)="addTag(filterText)"
           (keyup.arrowUp)="focus($event)"
-        >"{{ filterText.trim() }}" <span class="new" data-id="createNewTag">(Create New)</span></button>
+        >"{{ filterText.trim() }}" <span class="new" data-id="createNewTag">（新建）</span></button>
       }
       @for (tag of allTags() | filter:tags() | filter:filterText; track tag; let i = $index) {
         <button
@@ -58,7 +58,7 @@
       </div>
     @if (!disableColorManagement()) {
       <hr>
-      <button mat-menu-item data-id="TagColors" class="item" (click)="openTagColors()">Tag Colors</button>
+      <button mat-menu-item data-id="TagColors" class="item" (click)="openTagColors()">标签颜色</button>
     }
       </span>
 </mat-menu>

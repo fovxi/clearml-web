@@ -7,7 +7,7 @@
   (saveClicked)="saveClicked()"
   (cancelClicked)="cancelEdit()"
   >
-  <sm-section-header label="MODEL CONFIGURATION"></sm-section-header>
+  <sm-section-header label="模型配置"></sm-section-header>
   <sm-scroll-textarea
     class="flex-grow-1"
     [editable]="inEditMode() && protoTextSection().inEditMode()"
@@ -18,13 +18,13 @@
       <button extra-buttons mat-flat-button
         class="terminal flex-1"
         (click)="protoTextSection().editModeChanged(true)"
-      >EDIT</button>
+      >编辑</button>
     }
     @if (!model()?.ready && model()?.company?.id && !isSharedAndNotOwner() && design()) {
       <button extra-buttons mat-stroked-button
               class="terminal flex-1"
               (click)="clearProtoText()"
-      ><mat-icon fontSet="al" fontIcon="al-ico-trash"></mat-icon>CLEAR</button>
+      ><mat-icon fontSet="al" fontIcon="al-ico-trash"></mat-icon>清空</button>
     }
     </sm-scroll-textarea>
   </sm-editable-section>

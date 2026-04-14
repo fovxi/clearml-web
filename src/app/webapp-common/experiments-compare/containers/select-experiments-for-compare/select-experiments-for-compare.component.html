@@ -1,10 +1,10 @@
-<sm-dialog-template [header]="'Select compared '+ data.entityType + 's'">
+<sm-dialog-template header="选择要比较的实验">
   <div class="select-experiments-container light-theme" (click)="closeSearch()">
     <div class="search-experiment-for-compare d-flex justify-content-between mb-3">
       <sm-search
         #search
         class="search outline"
-        placeholder="Start typing task name or ID to add to your comparison"
+        placeholder="输入任务名称或 ID 以加入比较"
         [value]="searchTerm()"
         (valueChanged)="searchTermChanged($event)">
       </sm-search>
@@ -13,7 +13,7 @@
           class="me-2"
           [checked]="showArchived$ | ngrxPush"
           (change)="showArchived($event)"
-        >Include Archived</mat-slide-toggle>
+        >包含已归档项</mat-slide-toggle>
         <sm-clear-filters-button
           [tableFilters]="(tableFilters$ | ngrxPush)"
           (clearTableFilters)="clearTableFilters()"
@@ -63,12 +63,12 @@
       type="submit"
             (click)="applyChanges()"
             class="yes-button" data-id="ApplyButton">
-      APPLY
+      应用
     </button>
     <button
       mat-stroked-button
       (click)="closeDialog()" data-id ="CancelButton">
-      CANCEL
+      取消
     </button>
   </div>
 </sm-dialog-template>

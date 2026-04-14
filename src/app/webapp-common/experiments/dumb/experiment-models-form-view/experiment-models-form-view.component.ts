@@ -47,7 +47,7 @@ export class ExperimentModelsFormViewComponent extends BaseClickableArtifactComp
   public chooseModel() {
     this.dialog.open<SelectModelComponent, SelectModelData, string>(SelectModelComponent, {
       data: {
-        header: 'Select a published model',
+        header: '选择已发布模型',
         hideShowArchived: true
       },
       panelClass: 'full-screen',

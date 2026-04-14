@@ -30,7 +30,7 @@ import {EXPERIMENTS_STATUS_LABELS} from '~/features/experiments/shared/experimen
   ]
 })
 export class ExperimentOperationsLogComponent {
-  OPERATIONS = {...EXPERIMENTS_STATUS_LABELS, archived: 'Archived'};
+  OPERATIONS = {...EXPERIMENTS_STATUS_LABELS, archived: '已归档'};
 
   columns: ISmCol[] = [
     {
@@ -49,44 +49,44 @@ export class ExperimentOperationsLogComponent {
     },
     {
       id: 'operation',
-      header: 'New status',
+      header: '新状态',
       key: 'operation',
       bodyStyleClass: '',
     },
     {
       id: 'reason',
-      header: 'Reason',
+      header: '原因',
       key: 'reason',
       style: {maxWidth: '360px'}
     },
     {
       id: 'created',
-      header: 'Timestamp',
+      header: '时间戳',
       key: 'created',
     }, {
       id: 'user',
-      header: 'User',
+      header: '用户',
       key: 'user',
       getter: 'user.name',
     },
     {
       id: 'ip',
-      header: 'ip',
+      header: 'IP',
       key: 'ip',
       hidden: true,
       includeInDownload: true,
       style: {maxWidth: '80px'}
     }, {
       id: 'originator',
-      header: 'Source',
+      header: '来源',
       key: 'originator',
     }, {
       id: 'originator_version',
-      header: 'Source version',
+      header: '来源版本',
       key: 'originator_version',
     }, {
       id: 'info',
-      header: 'Info',
+      header: '信息',
       key: 'info',
       style: {maxWidth: '360px'}
     },

@@ -69,7 +69,7 @@ import {ProjectsGetUserNamesRequest} from '~/business-logic/model/projects/proje
 import {ProjectsGetUserNamesResponse} from '~/business-logic/model/projects/projectsGetUserNamesResponse';
 import {fetchUsersForTypes} from '~/features/projects/projects.consts';
 
-export const ALL_PROJECTS_OBJECT = {id: '*', name: 'All Tasks'};
+export const ALL_PROJECTS_OBJECT = {id: '*', name: '全部任务'};
 
 
 @Injectable()
@@ -478,5 +478,4 @@ export class ProjectsEffects {
     }));
   }
 }
-
 

@@ -320,12 +320,12 @@ export class DeleteDialogEffectsBase {
   private handleLastRun(project: string) {
     return this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'Delete Pipeline',
-        body: 'Deleting the last run of a pipeline will also delete the pipeline',
+        title: '删除流水线',
+        body: '删除流水线的最后一次运行也会同时删除该流水线',
         iconClass: 'al-ico-alert',
         iconColor: 'var(--color-warning)',
-        yes: 'DELETE',
-        no: 'Cancel'
+        yes: '删除',
+        no: '取消'
       } as ConfirmDialogConfig
     }).afterClosed()
       .pipe(

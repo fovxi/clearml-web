@@ -57,7 +57,7 @@ export class ProjectStatsComponent implements OnDestroy {
   public graphData = null as ScatterPlotSeries[];
   public loading = true;
   public gotOptions;
-  public variantDisplay = 'Select Metric & Variant';
+  public variantDisplay = '选择指标和变体';
   private sub = new Subscription();
   states = [
     {label: 'Completed or Stopped', type: TaskStatusEnum.Completed},

@@ -2,7 +2,7 @@
   @if (!minimized) {
     <div class="list-container">
       <sm-selectable-grouped-filter-list
-        placeHolder="Find plots"
+        placeHolder="查找图表"
         [list]="graphList"
         [checkedList]="settings.selectedMetricsPlot"
         [searchTerm]="searchTerm$ | ngrxPush"
@@ -30,4 +30,3 @@
     </sm-experiment-graphs>
   </div>
 </div>
-

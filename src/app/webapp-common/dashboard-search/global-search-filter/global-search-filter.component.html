@@ -2,7 +2,7 @@
   @if (showUserFilter()) {
     <section>
       <div class="filter-head">
-        <h4>Users</h4>
+        <h4>用户</h4>
         <button mat-icon-button class="sm" [matMenuTriggerFor]="usersSubMenu?.smMenu()?.menu()" (menuOpened)="usersMenuChangedState(true)">
           <mat-icon fontSet="al" fontIcon="al-ico-add"></mat-icon>
         </button>
@@ -30,7 +30,7 @@
       </mat-chip-listbox>
       <!-- empty state  -->
       @if (userFilter.value?.length === 0) {
-        <div class="empty-state">No users selected</div>
+        <div class="empty-state">未选择用户</div>
       }
     </section>
   }
@@ -39,7 +39,7 @@
   @if (statusOptions()?.length > 0) {
     <section class="status-filter-container">
       <div class="filter-head">
-        <h4>Status</h4>
+        <h4>状态</h4>
       </div>
       <mat-chip-listbox
         formControlName="statusFilter"
@@ -60,7 +60,7 @@
   @if (typeOptions()?.length > 0) {
     <section class="status-filter-container">
       <div class="filter-head">
-        <h4>Type</h4>
+        <h4>类型</h4>
       </div>
       <mat-chip-listbox
         formControlName="typeFilter"
@@ -80,7 +80,7 @@
   }
   <section>
     <div class="filter-head mb-1">
-      <h4>Tags</h4>
+      <h4>标签</h4>
       <button mat-icon-button class="sm" (click)="openTagMenu()">
         <mat-icon fontSet="al" fontIcon="al-ico-add"></mat-icon>
       </button>
@@ -107,12 +107,11 @@
       (tagSelected)="addTag($event)"
     ></sm-tags-menu>
     @if (tagsFilter.value?.length === 0) {
-      <div class="empty-state">No tags selected</div>
+      <div class="empty-state">未选择标签</div>
     }
   </section>
 
   <div class="clear-all">
-    <a href="#" (click)="$event.preventDefault(); clearAllFilters()" [class.disabled]="!isFiltered()">Clear all filters</a>
+    <a href="#" (click)="$event.preventDefault(); clearAllFilters()" [class.disabled]="!isFiltered()">清除全部筛选</a>
   </div>
 </form>
-

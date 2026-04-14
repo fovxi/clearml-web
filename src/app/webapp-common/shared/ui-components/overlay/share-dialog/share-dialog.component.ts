@@ -44,8 +44,8 @@ export class ShareDialogComponent {
               public dialogRef: MatDialogRef<ShareDialogComponent>,
               private store: Store) {
     this.title = data.title || '';
-    this.sharedSubtitle =`<b>Any registered user with this link</b> has read-only access to this task and all its contents (Artifacts, Results, etc.)`;
-    this.privateSubtitle =  `Create a shareable link to grant read access to<b> any registered user</b> you provide this link to.`;
+    this.sharedSubtitle =`<b>任何持有此链接的已注册用户</b>都可只读访问该任务及其全部内容（工件、结果等）。`;
+    this.privateSubtitle =  `创建一个可分享链接，为<b>任何收到此链接的已注册用户</b>授予只读权限。`;
     this.task = data.task;
 
     this.link = data.link || '';
@@ -57,7 +57,7 @@ export class ShareDialogComponent {
   }
 
   copyToClipboardSuccess() {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'URL copied successfully'));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'URL 已成功复制'));
   }
 
   createLink() {

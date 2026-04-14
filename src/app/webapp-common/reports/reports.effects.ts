@@ -100,7 +100,7 @@ export class ReportsEffects {
     }),
     catchError(err => [
       requestFailed(err),
-      setServerError(err, null, 'failed to create a new report'),
+      setServerError(err, null, '创建新报告失败'),
       deactivateLoader(createReport.type),
     ])
   ));
@@ -163,7 +163,7 @@ export class ReportsEffects {
           ]),
           catchError(err => [
             requestFailed(err),
-            setServerError(err, null, 'failed to fetch reports'),
+            setServerError(err, null, '获取报告失败'),
             deactivateLoader(action.type),
           ])
         )
@@ -186,7 +186,7 @@ export class ReportsEffects {
     ]),
     catchError(err => [
       requestFailed(err),
-      setServerError(err, null, 'failed to fetch reports'),
+      setServerError(err, null, '获取报告失败'),
     ])
   ));
 
@@ -212,7 +212,7 @@ export class ReportsEffects {
     catchError(err => [
       deactivateLoader(getReport.type),
       requestFailed(err),
-      setServerError(err, null, 'failed to fetch report'),
+      setServerError(err, null, '获取报告失败'),
     ])
   ));
 
@@ -229,7 +229,7 @@ export class ReportsEffects {
         catchError(err => [
           deactivateLoader(action.type),
           requestFailed(err),
-          setServerError(err, null, 'failed to update report'),
+          setServerError(err, null, '更新报告失败'),
         ])
       )
     )
@@ -265,17 +265,17 @@ export class ReportsEffects {
             changes: {
               project: (moveRequest.project ?
                 {id: res.project_id, name: moveRequest.project_name} :
-                {id: res.project_id, name: moveRequest.project_name ?? 'Root project'})
+                {id: res.project_id, name: moveRequest.project_name ?? '根项目'})
             }
           }),
           deactivateLoader(moveReport.type),
-          addMessage(MESSAGES_SEVERITY.SUCCESS, `Report moved successfully to ${moveRequest.project_name ?? 'Projects root'}`),
+          addMessage(MESSAGES_SEVERITY.SUCCESS, `报告已成功移动到${moveRequest.project_name ?? '项目根目录'}`),
           navigateToProjectAfterMove({projectId: res.project_id})
         ]),
         catchError(err => [
           deactivateLoader(moveReport.type),
           requestFailed(err),
-          setServerError(err, null, 'failed to move report'),
+          setServerError(err, null, '移动报告失败'),
         ])
       )
     )
@@ -301,7 +301,7 @@ export class ReportsEffects {
         catchError(err => [
           deactivateLoader(action.type),
           requestFailed(err),
-          setServerError(err, null, 'failed to publish report'),
+          setServerError(err, null, '发布报告失败'),
         ])
       )
     )
@@ -314,7 +314,7 @@ export class ReportsEffects {
         mergeMap(() => {
           const undoActions = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 restoreReport({report: action.report, skipUndo: true})
               ]
             }
@@ -323,7 +323,7 @@ export class ReportsEffects {
             deactivateLoader(action.type),
             getReports(),
             ...(!action.skipUndo ?
-              [addMessage(MESSAGES_SEVERITY.SUCCESS, 'Report archived successfully', [null, ...undoActions
+              [addMessage(MESSAGES_SEVERITY.SUCCESS, '报告已成功归档', [null, ...undoActions
               ].filter(a => a))] : []),
             setReportChanges({
               id: action.report.id,
@@ -334,7 +334,7 @@ export class ReportsEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, 'Failed To Archive reports')
+          setServerError(error, null, '归档报告失败')
         ])
       )
     )
@@ -348,7 +348,7 @@ export class ReportsEffects {
         mergeMap(() => {
           const undoActions = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 archiveReport({report: action.report, skipUndo: true}),
               ]
             }
@@ -357,7 +357,7 @@ export class ReportsEffects {
             deactivateLoader(action.type),
             getReports(),
             ...(!action.skipUndo ?
-              [(addMessage(MESSAGES_SEVERITY.SUCCESS, 'Report restored successfully', [null, ...undoActions].filter(a => a)))] : []),
+              [(addMessage(MESSAGES_SEVERITY.SUCCESS, '报告已成功恢复', [null, ...undoActions].filter(a => a)))] : []),
             setReportChanges({
               id: action.report.id,
 
@@ -369,7 +369,7 @@ export class ReportsEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, 'Failed To restore reports')
+          setServerError(error, null, '恢复报告失败')
         ])
       )
     )
@@ -381,10 +381,10 @@ export class ReportsEffects {
       ConfirmDialogComponent,
       {
         data: {
-          title: 'DELETE',
-          body: '<p class="text-center">Permanently Delete Report</p>',
-          yes: 'DELETE',
-          no: 'Cancel',
+          title: '删除',
+          body: '<p class="text-center">永久删除报告</p>',
+          yes: '删除',
+          no: '取消',
           iconClass: 'al-ico-trash',
           width: 430
         }
@@ -397,13 +397,13 @@ export class ReportsEffects {
           removeReport({id: action.report.id}),
           getReports(),
           deactivateLoader(action.type),
-          addMessage(MESSAGES_SEVERITY.SUCCESS, 'Report deleted successfully')
+          addMessage(MESSAGES_SEVERITY.SUCCESS, '报告已成功删除')
         ];
       }),
       catchError(error => [
         requestFailed(error),
         deactivateLoader(action.type),
-        setServerError(error, null, 'Failed To delete reports')
+        setServerError(error, null, '删除报告失败')
       ])
     )),
   ));
@@ -412,7 +412,7 @@ export class ReportsEffects {
     ofType(deleteResource),
     switchMap(action => this.http.delete(action.resource)
       .pipe(
-        catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, 'failed to delete resource')]),
+        catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, '删除资源失败')]),
         concatLatestFrom(() => this.store.select(selectReport)),
         mergeMap(([, report]) => [updateReport({
           id: report.id,

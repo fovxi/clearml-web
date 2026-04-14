@@ -134,15 +134,15 @@ export class GraphViewerComponent implements AfterViewInit, OnInit, OnDestroy {
   smoothWeight: number | null = 0;
   xAxisTypeOption = [
     {
-      name: 'Iterations',
+      name: '迭代',
       value: ScalarKeyEnum.Iter
     },
     {
-      name: 'Time from start',
+      name: '自开始起的时间',
       value: ScalarKeyEnum.Timestamp
     },
     {
-      name: 'Wall time',
+      name: '墙上时间',
       value: ScalarKeyEnum.IsoTime
     }
   ];

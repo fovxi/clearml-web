@@ -222,7 +222,7 @@ export class ExperimentsTableComponent extends BaseTableView {
         value: type
       })),
     [EXPERIMENTS_TABLE_COL_FIELDS.USER]: this.sortOptionsList(this.users()?.map(user => ({
-      label: user.name ? user.name : 'Unknown User',
+      label: user.name ? user.name : '未知用户',
       value: user.id,
       tooltip: ''
     })) ?? [], [this.currentUserId(), ...this.sortByFilterValues()[EXPERIMENTS_TABLE_COL_FIELDS.USER]]),
@@ -231,7 +231,7 @@ export class ExperimentsTableComponent extends BaseTableView {
       this.sortOptionsList(
         Array.from(new Set(this.parents().concat(this.activeParentsFilter() || [])))
           .map(parent => ({
-            label: parent.name ? parent.name : 'Unknown Experiment',
+            label: parent.name ? parent.name : '未知实验',
             value: parent.id,
             tooltip: `${parent.project?.name} / ${parent.name}`
           })),
@@ -249,7 +249,7 @@ export class ExperimentsTableComponent extends BaseTableView {
     ...Object.entries(this.hyperParamsOptions() ?? []).reduce((acc, [id, values]) => {
       acc[id] = values === null ?
         null :
-        this.sortOptionsList([{label: '(No Value)', value: null}].concat(values.map(value => ({
+        this.sortOptionsList([{label: '（无值）', value: null}].concat(values.map(value => ({
           label: value,
           value
         }))), this.sortByFilterValues()[id]);

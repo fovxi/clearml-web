@@ -12,20 +12,20 @@ import {getTagsFilters} from '@common/shared/utils/tableParamEncode';
 
 export const isDeletableProject = readyForDeletion => (readyForDeletion.experiments.unarchived + readyForDeletion.models.unarchived) === 0;
 
-export const popupEntitiesListConst = 'tasks, pipelines or dataset';
+export const popupEntitiesListConst = '任务、流水线或数据集';
 
 export const getDeleteProjectPopupStatsBreakdown = (readyForDeletion, statsSubset: 'archived' | 'unarchived' | 'total', experimentCaption) => {
   const errors = [
     readyForDeletion.experiments[statsSubset] > 0 ?
-      `${readyForDeletion.experiments[statsSubset]} ${experimentCaption}${readyForDeletion.experiments[statsSubset] > 1 ? 's' : ''} ` : null,
-    readyForDeletion.models[statsSubset] > 0 ? readyForDeletion.models[statsSubset] + ' models ' : null,
-    readyForDeletion.pipelines[statsSubset] > 0 ? readyForDeletion.pipelines[statsSubset] + ' pipelines ' : null,
-    readyForDeletion.datasets[statsSubset] > 0 ? readyForDeletion.datasets[statsSubset] + ' datasets ' : null,
-    readyForDeletion.reports[statsSubset] > 0 ? readyForDeletion.reports[statsSubset] + ' reports' : null,
+      `${readyForDeletion.experiments[statsSubset]} 个${experimentCaption}` : null,
+    readyForDeletion.models[statsSubset] > 0 ? `${readyForDeletion.models[statsSubset]} 个模型` : null,
+    readyForDeletion.pipelines[statsSubset] > 0 ? `${readyForDeletion.pipelines[statsSubset]} 条流水线` : null,
+    readyForDeletion.datasets[statsSubset] > 0 ? `${readyForDeletion.datasets[statsSubset]} 个数据集` : null,
+    readyForDeletion.reports[statsSubset] > 0 ? `${readyForDeletion.reports[statsSubset]} 个报告` : null,
   ].filter(error => error !== null);
   const first = errors.slice(0, -2);
   const last = errors.slice(-2);
-  return [...first, last.join(' and ')].join(', ');
+  return [...first, last.join(' 和 ')].join('、');
 };
 
 export const readyForDeletionFilter = readyForDeletion => !(readyForDeletion.experiments === null || readyForDeletion.models === null);

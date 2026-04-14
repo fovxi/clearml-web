@@ -13,13 +13,13 @@
         (textChanged)="nameChange($event, currentUser())">
         <div class="d-flex-center">
           <div class="me-2">{{ currentUser().name }}</div>
-          <sm-id-badge caption="Copy user ID" [short]="true" [id]="currentUser().id" (copied)="copyToClipboard()"></sm-id-badge>
+          <sm-id-badge caption="复制用户 ID" [short]="true" [id]="currentUser().id" (copied)="copyToClipboard()"></sm-id-badge>
         </div>
       </sm-inline-edit>
     </div>
     @if (currentUser().email) {
       <div class="d-flex flex-column align-items-center">
-        <div class="profile-label">EMAIL ADDRESS</div>
+        <div class="profile-label">邮箱地址</div>
         <div class="d-flex align-items-center">
           <span class="me-2">{{ currentUser().email }}</span>
         </div>

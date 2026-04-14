@@ -5,7 +5,7 @@
       @for (entityName of moreInfoEntities; track entityName) {
         <div>
           <br>
-          <div>Relevant {{entityName}}:</div>
+          <div>相关{{entityName}}：</div>
           @for (entity of moreInfo[entityName]; track entity) {
             <div class="entities">
               <a [href]="buildUrl(entity, entityName)" target="_blank"> {{entity.name}}</a>

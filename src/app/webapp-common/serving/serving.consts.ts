@@ -12,7 +12,7 @@ export const servingTableCols: ISmCol[] = [
     id: servingTableColFields.name,
     headerType: ColHeaderTypeEnum.sortFilter,
     sortable: true,
-    header: 'ENDPOINT',
+    header: '端点',
     style: {width: '300px'}
   },
   {
@@ -22,7 +22,7 @@ export const servingTableCols: ISmCol[] = [
     searchableFilter: true,
     sortable: true,
     getter: 'model',
-    header: 'MODEL',
+    header: '模型',
     showInCardFilters: true,
     style: {width: '135px'}
   },
@@ -37,7 +37,7 @@ export const servingTableCols: ISmCol[] = [
     id: servingTableColFields.instances,
     headerType: ColHeaderTypeEnum.sortFilter,
     sortable: true,
-    header: '# INSTANCES',
+    header: '实例数',
     style: {width: '150px'}
   },
   {
@@ -46,7 +46,7 @@ export const servingTableCols: ISmCol[] = [
     sortable: true,
     filterable: true,
     filterType: ColHeaderFilterTypeEnum.duration,
-    header: 'UPTIME',
+    header: '运行时长',
     style: {width: '240px'}
   },
   {
@@ -55,7 +55,7 @@ export const servingTableCols: ISmCol[] = [
     sortable: true,
     filterType: ColHeaderFilterTypeEnum.durationNumeric,
     filterable: true,
-    header: '# REQUESTS',
+    header: '请求数',
     style: {width: '150px'}
   },
   {
@@ -64,7 +64,7 @@ export const servingTableCols: ISmCol[] = [
     sortable: true,
     filterable: true,
     filterType: ColHeaderFilterTypeEnum.durationNumeric,
-    header: 'REQUEST / MIN (avg)',
+    header: '每分钟请求数（平均）',
     style: {width: '240px'}
   },
   {
@@ -73,7 +73,7 @@ export const servingTableCols: ISmCol[] = [
     sortable: true,
     filterType: ColHeaderFilterTypeEnum.durationNumeric,
     filterable: true,
-    header: 'LATENCY (avg)',
+    header: '延迟（平均）',
     style: {width: '150px'}
   }
 ];
@@ -82,7 +82,7 @@ export const servingLoadingTableCols: ISmCol[] = [
     id: servingLoadingTableColFields.id,
     headerType: ColHeaderTypeEnum.sortFilter,
     sortable: true,
-    header: 'INSTANCE ID',
+    header: '实例 ID',
     style: {width: '200px'}
   },
   {
@@ -92,7 +92,7 @@ export const servingLoadingTableCols: ISmCol[] = [
     searchableFilter: true,
     sortable: true,
     getter: 'model',
-    header: 'MODEL',
+    header: '模型',
     style: {width: '400px'}
   },
   {
@@ -101,7 +101,7 @@ export const servingLoadingTableCols: ISmCol[] = [
     sortable: true,
     filterable: true,
     filterType: ColHeaderFilterTypeEnum.duration,
-    header: 'AGE',
+    header: '存活时长',
     style: {width: '240px'}
   },
   {
@@ -110,7 +110,7 @@ export const servingLoadingTableCols: ISmCol[] = [
     sortable: true,
     filterable: true,
     searchableFilter: true,
-    header: 'PREPROCESS ARTIFACT',
+    header: '预处理工件',
     style: {width: '340px'}
   },
   {
@@ -119,7 +119,7 @@ export const servingLoadingTableCols: ISmCol[] = [
     sortable: true,
     filterable: true,
     searchableFilter: true,
-    header: 'INPUT TYPE',
+    header: '输入类型',
     style: {width: '250px'}
   },
   {
@@ -128,24 +128,24 @@ export const servingLoadingTableCols: ISmCol[] = [
     sortable: true,
     filterable: true,
     filterType: ColHeaderFilterTypeEnum.durationNumeric,
-    header: 'INPUT SIZE',
+    header: '输入大小',
     style: {width: '340px'}
   }
 ];
 
 const MiB                            = 1024 * 1024;
 export const endpointsStatsParamInfo = {
-  cpu_usage      : {title: 'CPU Usage', multiply: 1},
-  gpu_usage      : {title: 'GPU Usage', multiply: 1},
-  memory_used    : {title: 'Memory Used', multiply: MiB},
-  gpu_memory_used: {title: 'GPU Memory', multiply: MiB},
-  network_rx     : {title: 'Network Receive', multiply: MiB},
-  network_tx     : {title: 'Network Transmit', multiply: MiB}
+  cpu_usage      : {title: 'CPU 使用率', multiply: 1},
+  gpu_usage      : {title: 'GPU 使用率', multiply: 1},
+  memory_used    : {title: '内存使用量', multiply: MiB},
+  gpu_memory_used: {title: 'GPU 显存', multiply: MiB},
+  network_rx     : {title: '网络接收', multiply: MiB},
+  network_tx     : {title: '网络发送', multiply: MiB}
 };
 
 export const modelServingRoutes = [
-  {header: 'ACTIVE', link: 'endpoints/active'},
-  {header: 'LOADING', subHeader: '', link: 'endpoints/loading'}
+  {header: '运行中', link: 'endpoints/active'},
+  {header: '加载中', subHeader: '', link: 'endpoints/loading'}
 ] as HeaderNavbarTabConfig[];
 
 export function sortAndFilterEndpoints(endpoints: EndpointStats[] | ContainerInfo[], filters: Record<string, FilterMetadata>, sortFields: SortMeta[]): EndpointStats[] | ContainerInfo[] {

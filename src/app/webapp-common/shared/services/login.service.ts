@@ -202,9 +202,9 @@ export class BaseLoginService {
       disableClose: true,
       data: {
         width: 440,
-        title: 'Server Unavailable',
+        title: '服务器不可用',
         body,
-        yes: 'Reload',
+        yes: '重新加载',
         iconClass: 'al-ico-alert-outline',
         centerText: true
       } as ConfirmDialogConfig

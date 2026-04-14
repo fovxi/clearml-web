@@ -157,7 +157,7 @@ export class BreadcrumbsComponent {
   }
 
   copyToClipboardSuccess() {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'URL copied successfully'));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'URL 已成功复制'));
   }
 
 
@@ -166,6 +166,6 @@ export class BreadcrumbsComponent {
   }
 
   copyToClipboard() {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'ID copied to clipboard'));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'ID 已复制到剪贴板'));
   }
 }

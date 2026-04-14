@@ -50,7 +50,7 @@ export class TipOfTheDayModalComponent {
   }
 
   copyToClipboardSuccess() {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'URL copied successfully'));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'URL 已成功复制'));
   }
 
   prev() {

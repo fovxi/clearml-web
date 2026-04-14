@@ -46,7 +46,7 @@ export class AlertDialogComponent {
     this.alertMessage    = data.alertMessage || '';
     this.alertSubMessage = data.alertSubMessage;
     this.moreInfo        = data.moreInfo;
-    this.okMessage       = data.okMessage || 'OK';
+    this.okMessage       = data.okMessage || '确定';
     this.resultMessage   = data.resultMessage;
   }
 

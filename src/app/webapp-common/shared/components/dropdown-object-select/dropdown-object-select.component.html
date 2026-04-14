@@ -8,7 +8,7 @@
         <sm-multi-line-tooltip [smallIcon]="true" [customClass]="'color-tertiary'"
                                class="xs pointer ms-1 color-tertiary"
                                iconClass="al-ico-settings">
-          <span class="me-2">Field key: <b>{{configurationInfo()}}</b></span>
+          <span class="me-2">字段键：<b>{{configurationInfo()}}</b></span>
           <sm-copy-clipboard [smallIcon]="true"
                              [clipboardText]="configurationInfo()"
                              (copySuccess)="copied.emit()"
@@ -31,7 +31,7 @@
     <ng-content></ng-content>
   </mat-error>
   @if (createNewSuffix()) {
-    <span matSuffix class="creat-new-suffix">(Create New)</span>
+    <span matSuffix class="creat-new-suffix">（新建）</span>
   }
   @if (inputRef.value && !control.disabled) {
     <button class="sm" mat-icon-button matSuffix (click)="$event.stopPropagation(); control.setValue(null); getEntities.emit(null); inputRef.focus(); previousLength = 0;">
@@ -48,7 +48,7 @@
                     autoActiveFirstOption>
     @if (createNewSuffix()) {
       <mat-option class="item" [value]="control.value" (onSelectionChange)="createNewSelected.emit($event.source.value)">
-        "{{ control.value }}" <span class="new">(Create New)</span>
+        "{{ control.value }}" <span class="new">（新建）</span>
       </mat-option>
     }
 

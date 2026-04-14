@@ -4,8 +4,11 @@ import {ConfigurationService, fetchConfigOutSideAngular} from '@common/shared/se
 import {updateHttpUrlBaseConstant} from '~/app.constants';
 import {Environment} from './environments/base';
 import {platformBrowser} from '@angular/platform-browser';
-import {APP_BASE_HREF} from '@angular/common';
+import {APP_BASE_HREF, registerLocaleData} from '@angular/common';
+import localeZh from '@angular/common/locales/zh';
 const environment = ConfigurationService.globalEnvironment;
+
+registerLocaleData(localeZh, 'zh-CN');
 
 if (environment.production) {
   enableProdMode();

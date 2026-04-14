@@ -22,13 +22,13 @@
     @if (dataTable()?.length === 0) {
       <div class="no-output">
         <mat-icon fontSet="al" fontIcon="al-ico-no-data-table" class="xxl"></mat-icon>
-        <h4>NO METRICS</h4>
+        <h4>没有指标</h4>
       </div>
     }
 
     @if (dataTable()?.length > 0 && dataTableFiltered()?.length === 0) {
       <div class="no-output all-filtered-message">
-        All metrics hidden. <a class="link" (click)="clear()">Clear filters</a>
+        所有指标均已隐藏。<a class="link" (click)="clear()">清除筛选</a>
       </div>
     }
 
@@ -64,7 +64,7 @@
                   #filterRef
                   name="filter"
                   [formControl]="variantFilter"
-                  placeholder="Search metric"
+                  placeholder="搜索指标"
                   matInput
                   autocomplete="off">
                 @if (variantFilter.value) {
@@ -102,7 +102,7 @@
               @if (metricVariant.min === metricVariant.max) {
                 <i
                   class="al-icon al-ico-equal-outline sm row-info-icon"
-                smTooltip="All values are the same in this row"></i>
+                smTooltip="这一行中的所有值都相同"></i>
               }
             </div>
           </td>

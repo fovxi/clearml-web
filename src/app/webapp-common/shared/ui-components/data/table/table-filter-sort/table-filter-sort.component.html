@@ -28,7 +28,7 @@
     >{{column().header}}</div>
     <sm-menu
       #smMenu
-      searchPlaceholder="Search"
+      searchPlaceholder="搜索"
       [enableSearch]="column().searchableFilter"
       [fixedOptionsSubheader]="subOptions()?.length ? fixedOptionsSubheader() : ''"
       [searchValue]="searchValue()"
@@ -61,8 +61,8 @@
         @default {
           @if (column().andFilter) {
             <div class="filter-type" smClickStopPropagation>
-              <button mat-button data-id="AnyTagOption" class="link" [class.selected]="!andFilter()" (click)="toggleCombination()">Any</button>
-              <button mat-button data-id="allTagOption" class="link" [class.selected]="andFilter()" (click)="toggleCombination()">All</button>
+              <button mat-button data-id="AnyTagOption" class="link" [class.selected]="!andFilter()" (click)="toggleCombination()">任意</button>
+              <button mat-button data-id="allTagOption" class="link" [class.selected]="andFilter()" (click)="toggleCombination()">全部</button>
             </div>
           }
           <div [class.options-section]="column().searchableFilter" smClickStopPropagation class="d-flex align-items-start flex-column checkbox-list">

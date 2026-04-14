@@ -42,8 +42,8 @@ export class ModelInfoLabelsViewComponent {
   public formData: { label: string; id: number }[] = [];
   public editable = false;
   public columns: ISmCol[] = [
-    {id: 'label', header: 'Label'},
-    {id: 'id', header: 'ID'}
+    {id: 'label', header: '标签'},
+    {id: 'id', header: '编号'}
   ];
 
   private unsavedValue: { label: string; id: number }[];

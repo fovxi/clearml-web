@@ -22,7 +22,7 @@
           <div>
             @if (minMaxIterations.maxIteration !== minMaxIterations.minIteration || minMaxIterations.minIteration > 0) {
               <span>
-                Iteration <span class="number">{{ iteration }}</span>
+                迭代 <span class="number">{{ iteration }}</span>
               </span>
             }
             @if (minMaxIterations.maxIteration !== minMaxIterations.minIteration) {
@@ -47,11 +47,11 @@
     <div class="header-actions gap-3">
       <div [class.load-spinner]="(isFetchingData$ | ngrxPush) || !plotLoaded" class="d-flex align-items-center"></div>
       @if ((isFetchingData$ | ngrxPush) === false && isFullDetailsMode) {
-        <button mat-icon-button smTooltip="Refresh" matTooltipPosition="below" (click)="refresh()">
+        <button mat-icon-button smTooltip="刷新" matTooltipPosition="below" (click)="refresh()">
           <mat-icon fontSet="al" fontIcon="al-ico-refresh"></mat-icon>
         </button>
       }
-      <button mat-icon-button smTooltip="Close" matTooltipPosition="below" (click)="closeGraphViewer()">
+      <button mat-icon-button smTooltip="关闭" matTooltipPosition="below" (click)="closeGraphViewer()">
         <mat-icon fontSet="al" fontIcon="al-ico-dialog-x"></mat-icon>
       </button>
     </div>
@@ -61,7 +61,7 @@
     <div class="graph-controls">
       @if (!isCompare && !reportWidget) {
         <div class="d-flex field">
-          <span class="label-text axis-text-margin-left" data-id="HorizontalAxisText">Horizontal Axis</span>
+          <span class="label-text axis-text-margin-left" data-id="HorizontalAxisText">横轴</span>
           <mat-form-field appearance="outline" class="axis-type-field no-bottom">
             <mat-select
               [value]="xAxisType$ | ngrxPush" (selectionChange)="setFreezeColor(); xAxisTypeChanged($event)"
@@ -77,7 +77,7 @@
       }
       <div class="d-flex smooth-options" [class.separator]="!isCompare && !reportWidget">
         <div class="d-flex field">
-          <span class="label-text axis-text-margin-left">Smoothing</span>
+          <span class="label-text axis-text-margin-left">平滑</span>
           <mat-form-field appearance="outline" class="smooth-selector no-bottom">
             <mat-select [value]="smoothType" (selectionChange)="setFreezeColor(); selectSmoothType($event)" [hideSingleSelectionIndicator]="true">
               @for (smoothTypeOption of smoothTypeEnum | keyvalue; track smoothTypeOption.key) {
@@ -92,8 +92,8 @@
           <div class="d-flex field">
         <span class="label-text axis-text-margin-left slider-label">
           {{
-            smoothType === smoothTypeEnum.gaussian ? 'Kernel size:' :
-              smoothType === smoothTypeEnum.runningAverage ? 'Window size:' :
+            smoothType === smoothTypeEnum.gaussian ? '核大小：' :
+              smoothType === smoothTypeEnum.runningAverage ? '窗口大小：' :
                 smoothType === smoothTypeEnum.exponential ? 'Alpha:' : ''
           }}
         </span>
@@ -113,7 +113,7 @@
         }
         @if (smoothType === smoothTypeEnum.gaussian) {
           <div class="d-flex field">
-            <span class="label-text axis-text-margin-left slider-label">Sigma:</span>
+            <span class="label-text axis-text-margin-left slider-label">标准差：</span>
             <div class="smooth-fields">
               <mat-slider
                 [max]="3"
@@ -130,7 +130,7 @@
         }
         @if (smoothType && smoothType !== smoothTypeEnum.any) {
           <div class="d-flex field  ms-3">
-            <span class="label-text axis-text-margin-left">Show Originals:</span>
+            <span class="label-text axis-text-margin-left">显示原始曲线：</span>
             <mat-slide-toggle class="smooth-slide-field" [(ngModel)]="showOrigin" labelPosition="after"></mat-slide-toggle>
           </div>
         }
@@ -181,4 +181,3 @@
     </div>
   }
 </div>
-

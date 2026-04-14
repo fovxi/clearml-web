@@ -1,14 +1,14 @@
 <div smClickStopPropagation class="meta-container ">
   <div class="head">
     <i (click)="goBack.emit()" data-id="customBackButton" class="al-icon sm-md al-ico-back pointer m-auto" smClickStopPropagation></i>
-    <h3>{{title() ?? 'SELECT METADATA KEY TO DISPLAY'}}</h3>
+    <h3>{{title() ?? '选择要显示的元数据键'}}</h3>
   </div>
   <sm-search
     class="underline-search"
     [value]="searchText()"
     [minimumChars]="0"
     [debounceTime]="0"
-    placeholder="Search metadata key"
+    placeholder="搜索元数据键"
     (valueChanged)="searchQ($event)"
   ></sm-search>
   @if ((metadataKeys() | simpleFilter: searchText())?.length > 0) {
@@ -31,7 +31,7 @@
         <mat-spinner class="spinner" [diameter]="32" [strokeWidth]="4" color="accent"></mat-spinner>
       }
       @if (metadataKeys()) {
-        <div class="empty-state">No data to show</div>
+        <div class="empty-state">暂无数据</div>
       }
     </div>
   }

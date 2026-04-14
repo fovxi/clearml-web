@@ -33,74 +33,74 @@ export interface SearchPageConfig {
 
 export const activeLinksList = [
   {
-    label: 'PROJECTS',
+    label: '项目',
     showUserFilter: true,
     name: activeSearchLink.projects,
     statusOptions: [],
     relevantSearchItems:{
-      [activeSearchLink.projects]:{name: activeSearchLink.projects, viewAllResults: true, viewAllResultsLink: 'projects',  title: 'Projects'}}
+      [activeSearchLink.projects]:{name: activeSearchLink.projects, viewAllResults: true, viewAllResultsLink: 'projects',  title: '项目'}}
   },
   {
-    label: 'DATASETS',
+    label: '数据集',
     showUserFilter: true,
     name: activeSearchLink.datasets,
     statusOptions:  TaskStatusOptions,
     statusOptionsLabels: {...EXPERIMENTS_TYPE_LABELS,...DATASETS_STATUS_LABEL},
     relevantSearchItems:{
-      [activeSearchLink.datasets]:{name: activeSearchLink.datasets, viewAllResults: true, viewAllResultsLink: 'datasets', title: 'Datasets'},
-      [activeSearchLink.openDatasetVersions]:{name: activeSearchLink.openDatasetVersions, viewAllResults: false, title: 'Dataset Versions'},
+      [activeSearchLink.datasets]:{name: activeSearchLink.datasets, viewAllResults: true, viewAllResultsLink: 'datasets', title: '数据集'},
+      [activeSearchLink.openDatasetVersions]:{name: activeSearchLink.openDatasetVersions, viewAllResults: false, title: '数据集版本'},
     }
   },
   {
-    label: 'TASKS',
+    label: '任务',
     showUserFilter: true,
     statusOptions:  TaskStatusOptions,
     statusOptionsLabels: EXPERIMENTS_TYPE_LABELS,
     typeOptions: TaskTypeOptions,
     name: activeSearchLink.experiments,
     relevantSearchItems:{
-      [activeSearchLink.experiments]:{name: activeSearchLink.experiments, viewAllResults: true, viewAllResultsLink: 'projects/*/tasks', title: 'Tasks'},
+      [activeSearchLink.experiments]:{name: activeSearchLink.experiments, viewAllResults: true, viewAllResultsLink: 'projects/*/tasks', title: '任务'},
     }
   },
   {
-    label: 'MODELS',
+    label: '模型',
     showUserFilter: true,
     statusOptions: ['created', 'published'],
     statusOptionsLabels: EXPERIMENTS_TYPE_LABELS,
     name: activeSearchLink.models,
     relevantSearchItems:{
-      [activeSearchLink.models]:{name: activeSearchLink.models, viewAllResults: true, viewAllResultsLink: 'projects/*/models/', title: 'Models'},
+      [activeSearchLink.models]:{name: activeSearchLink.models, viewAllResults: true, viewAllResultsLink: 'projects/*/models/', title: '模型'},
     }
   },
   {
-    label: 'PIPELINES',
+    label: '流水线',
     showUserFilter: true,
     name: activeSearchLink.pipelines,
     statusOptions: TaskStatusOptions,
     statusOptionsLabels: EXPERIMENTS_TYPE_LABELS,
     relevantSearchItems:{
-      'pipelines':{name: 'pipelines', viewAllResults: true, title: 'Pipelines', viewAllResultsLink: 'pipelines/'},
-      'pipelineRuns':{name: 'pipelineRuns', viewAllResults: false, loadMore: true, title: 'Pipeline runs'},
+      'pipelines':{name: 'pipelines', viewAllResults: true, title: '流水线', viewAllResultsLink: 'pipelines/'},
+      'pipelineRuns':{name: 'pipelineRuns', viewAllResults: false, loadMore: true, title: '流水线运行'},
     }
   },
   {
-    label: 'REPORTS',
+    label: '报告',
     showUserFilter: true,
     name: activeSearchLink.reports,
     statusOptions: ['created', 'published'],
-    statusOptionsLabels: {created: 'Draft',  published: 'Published'},
+    statusOptionsLabels: {created: '草稿',  published: '已发布'},
     relevantSearchItems:{
-      [activeSearchLink.reports]:{name: activeSearchLink.reports, viewAllResults: true, viewAllResultsLink: 'reports/', title: 'Reports'},
+      [activeSearchLink.reports]:{name: activeSearchLink.reports, viewAllResults: true, viewAllResultsLink: 'reports/', title: '报告'},
     }
   },
   {
-    label: 'ENDPOINTS',
+    label: '端点',
     showUserFilter: true,
     name: activeSearchLink.modelEndpoints,
     statusOptions: [],
     relevantSearchItems: {
-      [activeSearchLink.modelEndpoints]:{name: activeSearchLink.modelEndpoints, viewAllResults: true, viewAllResultsLink: 'endpoints/active', title: 'Active endpoints'},
-      [activeSearchLink.loadingEndpoints]:{name: activeSearchLink.loadingEndpoints, viewAllResults: true, viewAllResultsLink: 'endpoints/loading', title: 'Loading endpoints'},
+      [activeSearchLink.modelEndpoints]:{name: activeSearchLink.modelEndpoints, viewAllResults: true, viewAllResultsLink: 'endpoints/active', title: '活跃端点'},
+      [activeSearchLink.loadingEndpoints]:{name: activeSearchLink.loadingEndpoints, viewAllResults: true, viewAllResultsLink: 'endpoints/loading', title: '加载中的端点'},
     }
   },
 ] as {label: string; name: string; showUserFilter?: boolean, typeOptions: string[],statusOptions?: string[], statusOptionsLabels?:  Record<string,string> , relevantSearchItems: Record<string, SearchPageConfig>}[];

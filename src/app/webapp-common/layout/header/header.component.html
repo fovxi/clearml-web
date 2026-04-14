@@ -15,7 +15,7 @@
   @if (hideSideNav()) {
     <div class="logo-full middle">
       <div class="logo-full">
-        <img alt="logo" [priority]="true"
+        <img alt="ClearML 标志" [priority]="true"
              [ngSrc]="darkTheme() ? environment().branding.logo : environment().branding.logo.replace('-white', '')"
              width="124" height="42">
       </div>
@@ -32,7 +32,7 @@
   @if (!hideMenus()) {
     <div class="right-buttons" data-id="rightSideHeaderpanel">
       @if (!isShareMode()) {
-                <button class="me-2" mat-icon-button (click)="openGlobalSearch()" smTooltip="Search all [ctrl + k]">
+                <button class="me-2" mat-icon-button (click)="openGlobalSearch()" smTooltip="搜索全部 [ctrl + k]">
                     <mat-icon fontSet="al" fontIcon="al-ico-search" data-id="search Icon" ></mat-icon>
                   </button>
       }
@@ -44,7 +44,7 @@
       </button>
       <span class="pointer menu-trigger position-relative" data-id="Avatar" [matMenuTriggerFor]="profileMenu">
         @if (user().avatar; as avatar) {
-          <img alt="avatar" class="avatar" [src]="avatar">
+          <img alt="用户头像" class="avatar" [src]="avatar">
         } @else {
           <div class="user-icon">
             <i class="al-icon al-ico-account sm-md"></i>
@@ -59,51 +59,51 @@
           <mat-icon fontSet="al" [fontIcon]="userNotificationPath() ? 'al-ico-settings-alert' : 'al-ico-settings'">
             <span class="path1"></span><span class="path2"></span>
           </mat-icon>
-          <span>Settings</span>
+          <span>设置</span>
         </button>
         @if (!forcedTheme()) {
-          <button mat-menu-item (click)="openAppearance($event)" data-id="Theme Options">
+          <button mat-menu-item (click)="openThemeOptions($event)" data-id="Theme Options">
             <mat-icon fontSet="al" fontIcon="al-ico-palette"></mat-icon>
-            <span>Appearance</span>
+            <span>外观</span>
           </button>
         }
         <sm-header-user-menu-actions></sm-header-user-menu-actions>
         <hr/>
         <button mat-menu-item (click)="logout()" data-id="Logout">
           <mat-icon fontSet="al" fontIcon="al-ico-logout"></mat-icon>
-          Logout
+          退出登录
         </button>
       </mat-menu>
       <mat-menu #resourcesMenu="matMenu" class="user-menu">
         <button mat-menu-item (click)="openWelcome($event)" data-id="Python Package setup Option">
-          <mat-icon fontSet="al" fontIcon="al-ico-code-file">Code</mat-icon>
-          <span>ClearML Python Package setup</span>
+          <mat-icon fontSet="al" fontIcon="al-ico-code-file">代码</mat-icon>
+          <span>ClearML Python 包安装</span>
         </button>
         @if (environment().platformYoutubeChannel) {
           <a mat-menu-item [href]="environment().platformYoutubeChannel" target="_blank" data-id="Youtube Option">
-            <mat-icon fontSet="al" fontIcon="al-ico-youtube">Youtube</mat-icon>
-            <span>ClearML on Youtube</span>
+            <mat-icon fontSet="al" fontIcon="al-ico-youtube">YouTube</mat-icon>
+            <span>ClearML YouTube 频道</span>
           </a>
         }
         <a mat-menu-item [href]="environment().docsLink" target="_blank" data-id="Online Documentation Option">
-          <mat-icon fontSet="al" fontIcon="al-ico-documentation">Docs</mat-icon>
-          <span>Online Documentation</span>
+          <mat-icon fontSet="al" fontIcon="al-ico-documentation">文档</mat-icon>
+          <span>在线文档</span>
         </a>
         @if (tipsService.hasTips()) {
           <button mat-menu-item (click)="tipsService.showTipsModal(null, true)" data-id="Pro Tips Option">
-            <mat-icon fontSet="al" fontIcon="al-ico-tips">Tips</mat-icon>
-            <span>Pro Tips</span>
+            <mat-icon fontSet="al" fontIcon="al-ico-tips">技巧</mat-icon>
+            <span>使用技巧</span>
           </button>
         }
         @if (isAdmin() && !environment().communityServer && changesService.hasChanges()) {
           <button mat-menu-item (click)="changesService.showChangesModal()" data-id="Pro Tips Option">
-            <mat-icon fontSet="al" fontIcon="al-ico-bullhorn">Notifications</mat-icon>
-            <span>Version Notifications</span>
+            <mat-icon fontSet="al" fontIcon="al-ico-bullhorn">通知</mat-icon>
+            <span>版本通知</span>
           </button>
         }
         <a mat-menu-item [href]="'mailto:' + environment().supportEmail" data-id="Contact Us">
           <mat-icon fontSet="al" fontIcon="al-ico-email"></mat-icon>
-          <span>Contact Us</span>
+          <span>联系我们</span>
         </a>
       </mat-menu>
     </div>

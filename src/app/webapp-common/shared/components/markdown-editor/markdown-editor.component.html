@@ -8,7 +8,7 @@
             <button
               mat-stroked-button
               class="btn-expand-view me-2 icon-only"
-              [smTooltip]="isExpand ? 'Minimize view' : 'Expand view'"
+              [smTooltip]="isExpand ? '缩小视图' : '展开视图'"
               matTooltipPosition="below"
               (click)="expandClicked()"
             >
@@ -16,18 +16,18 @@
             </button>
           }
           @if (!readOnly()) {
-            <button mat-stroked-button class="outline" (click)="editClicked()">EDIT</button>
+            <button mat-stroked-button class="outline" (click)="editClicked()">编辑</button>
           }
         </div>
         }
       </div>
       @if (editMode) {
         <button mat-button class="preview-toggle" (click)="togglePreview()">
-          {{ editorVisible ? 'EDIT' : 'PREVIEW' }}
+          {{ editorVisible ? '编辑' : '预览' }}
         </button>
       }
       @if (editMode && !editorVisible) {
-        <span class="preview-header">PREVIEW</span>
+        <span class="preview-header">预览</span>
       }
       <md-editor #editorComponent
         name="Content"
@@ -52,7 +52,7 @@
               >
               <button mat-menu-item class="action" (click)="imgInput.click()">
                 <mat-icon fontSet="al" fontIcon="al-ico-upload"></mat-icon>
-                Upload Image
+                上传图片
               </button>
               <hr class="dark"/>
               @if (resources()?.length > 0) {
@@ -70,7 +70,7 @@
                   </button>
                 }
               } @else {
-                <div class="action src-empty">No uploads yet</div>
+                <div class="action src-empty">暂无上传内容</div>
               }
             </mat-menu>
             <button
@@ -78,7 +78,7 @@
               [matMenuTriggerFor]="imageActions"
               (menuOpened)="imageMenuOpened.emit(getData())"
               type="button"
-              smTooltip="Image resources"
+              smTooltip="图片资源"
               class="btn-upload-image"
             >
               <mat-icon fontSet="al" fontIcon="al-ico-image"></mat-icon>
@@ -89,21 +89,21 @@
         </md-editor>
       </div>
       <div class="md-footer">
-        <button mat-icon-button class="help" (click)="openMDCCheatSheet()" smTooltip="Markdown cheat sheet">
+        <button mat-icon-button class="help" (click)="openMDCCheatSheet()" smTooltip="Markdown 速查表">
           <mat-icon fontSet="al" fontIcon="al-ico-markdown"></mat-icon>
         </button>
         <div [class]="(editMode && isDirty ? 'active' : '') + ' md-warning'">
           @if (duplicateNames) {
-            <span>* You have duplicate names on different iframes</span>
+            <span>* 不同 iframe 中存在重复名称</span>
           }
           @if (!duplicateNames) {
-            <span>* You have unsaved changes</span>
+            <span>* 您有未保存的更改</span>
           }
         </div>
         @if (editMode) {
           <div class="right-buttons">
-            <button mat-stroked-button (click)="cancelClicked()">CANCEL</button>
-            <button mat-flat-button [disabled]="!isDirty || duplicateNames" (click)="save()">SAVE</button>
+            <button mat-stroked-button (click)="cancelClicked()">取消</button>
+            <button mat-flat-button [disabled]="!isDirty || duplicateNames" (click)="save()">保存</button>
           </div>
         }
       </div>

@@ -1,5 +1,5 @@
 <div class="input-model-container">
-  <sm-labeled-row label="MODEL NAME">
+  <sm-labeled-row label="模型名称">
     <div class="d-flex align-items-center">
       <div class="d-flex-center">
         <a [href]="'projects/' + projectId() + '/models/' + model()?.id" target="_blank"><span>{{model()?.name}}</span></a>
@@ -15,11 +15,11 @@
         }
       </div>
       @if (editable()) {
-        <button mat-icon-button smTooltip="Select model" class="ms-3" (click)="chooseModel()">
+        <button mat-icon-button smTooltip="选择模型" class="ms-3" (click)="chooseModel()">
           <mat-icon fontSet="al" fontIcon="al-ico-edit"></mat-icon>
         </button>
         @if (model()?.id) {
-          <button mat-icon-button class="ms-3" smTooltip="Remove model" (click)="removeModel()">
+          <button mat-icon-button class="ms-3" smTooltip="移除模型" (click)="removeModel()">
             <mat-icon fontSet="al" fontIcon="al-ico-trash"></mat-icon>
           </button>
         }
@@ -27,12 +27,12 @@
     </div>
   </sm-labeled-row>
   @if (model()?.id) {
-    <sm-labeled-row label="MODEL ID">
+    <sm-labeled-row label="模型 ID">
       <sm-id-badge [id]="model().id" (copied)="copySuccess()"></sm-id-badge>
     </sm-labeled-row>
   }
   @if (showCreatedExperiment()) {
-    <sm-labeled-row label="CREATING TASK">
+    <sm-labeled-row label="创建任务">
       <a [href]="'/projects/'+ ((source()?.projectId) ? source()?.projectId : '*') + '/experiments/' + (source()? source()?.experimentId: '')"
         target="_blank">
         {{source()?.experimentName}}

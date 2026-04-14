@@ -153,7 +153,7 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(WelcomeMessageComponent, {data: {step: 2}});
   }
 
-  openAppearance(event: MouseEvent) {
+  openThemeOptions(event: MouseEvent) {
     event.preventDefault();
     this.dialog.open(AppearanceComponent);
   }

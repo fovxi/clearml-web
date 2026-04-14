@@ -11,9 +11,9 @@
         <span class="d-flex sub-title">
           <span class="project ellipsis">{{ entity().project?.name | shortProjectName }}</span>
           <span class="dot">●</span>
-          <span title="Updated" class="sub-item">{{ entity().last_change | timeAgo }}</span>
+          <span title="已更新" class="sub-item">{{ entity().last_change | timeAgo }}</span>
           <span class="dot">●</span>
-          <span title="Created by" class="sub-item">{{ entity().user?.name }}</span>
+          <span title="创建者" class="sub-item">{{ entity().user?.name }}</span>
         </span>
   </ng-container>
 </sm-result-line>

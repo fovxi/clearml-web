@@ -26,8 +26,8 @@ export const MODELS_FRAMEWORK_LABELS = {
 };
 //
 export const MODELS_READY_LABELS = {
-  'true': 'Published',
-  'false': 'Draft'
+  'true': '已发布',
+  'false': '草稿'
 };
 
 // temp, will be taken from the generated code.

@@ -1,9 +1,9 @@
 <sm-card class="project-card"
   (click)="projectClicked()"
-  [isExample]="!['All Tasks'].includes(project.name) && !isRootProject() && (!project.company || ! project.company.id)"
+  [isExample]="!['全部任务'].includes(project.name) && !isRootProject() && (!project.company || ! project.company.id)"
   [showFolder]="true"
   [oneTabMode]="!(project?.sub_projects?.length > 0)"
-  [subFolderTitle]="project?.sub_projects?.length + ' sub projects'"
+  [subFolderTitle]="project?.sub_projects?.length + ' 个子项目'"
   >
   <div secondTab class="sub-projects-list">
     <cdk-virtual-scroll-viewport [itemSize]="30" [minBufferPx]="440" [maxBufferPx]="660" class="h-100">
@@ -26,10 +26,10 @@
       <span class="project-name me-2">{{ project.basename }}</span>
     </div>
     @if (!hideMenu() && project.default_output_destination) {
-      <mat-icon fontSet="al" fontIcon="al-ico-info-circle" class="sm info-icon" [smTooltip]="'Default output destination: ' + project.default_output_destination"></mat-icon>
+      <mat-icon fontSet="al" fontIcon="al-ico-info-circle" class="sm info-icon" [smTooltip]="'默认输出位置：' + project.default_output_destination"></mat-icon>
     }
     @if (project.system_tags?.includes('default')) {
-      <div class="justify-content-end project-tag">Sample</div>
+      <div class="justify-content-end project-tag">示例</div>
     }
     @if (!hideMenu()) {
       <sm-project-card-menu-extended
@@ -49,19 +49,19 @@
     <ng-template></ng-template>
     <sm-circle-counter
       [counter]="project.id === '*' ? '∞' : project.stats?.active?.total_tasks ?? '0'"
-      label="TOTAL"
+      label="总计"
       [type]="project.stats?.active?.total_tasks === 0 ? circleTypeEnum.empty : circleTypeEnum.total"
     ></sm-circle-counter>
     <sm-circle-counter
       [counter]="project.id === '*' ? '∞' : project.stats?.active?.status_count?.in_progress ?? '0'"
-      label="RUNNING"
+      label="运行中"
       [type]="project.stats?.active?.status_count?.in_progress === 0 ? circleTypeEnum.empty : circleTypeEnum.running"
     ></sm-circle-counter>
     <sm-circle-counter
       [counter]="project.id === '*' ? '∞' : project.stats?.active?.completed_tasks_24h ?? '0'"
-      label="COMPLETED"
+      label="已完成"
       [type]="project.stats?.active?.completed_tasks_24h === 0 ? circleTypeEnum.empty : circleTypeEnum.completed"
-      underLabel="(24 hrs)"
+      underLabel="（24 小时）"
     ></sm-circle-counter>
   </div>
   <div class="d-flex-center" footer>
@@ -70,7 +70,7 @@
     }</div>
     @if (project?.stats) {
       <div class="footer-title">
-        COMPUTE TIME: {{ computeTime }}
+        计算时间：{{ computeTime }}
       </div>
     }
     <div class="tag"></div>

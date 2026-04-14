@@ -397,10 +397,10 @@ export class CommonExperimentsMenuEffects {
                 projectsActions.addCompanyTag({tag: action.tag}),
               ];
             } else {
-              return [addMessage(MESSAGES_SEVERITY.ERROR, 'Not all tags were applied')]
+              return [addMessage(MESSAGES_SEVERITY.ERROR, '并非所有标签都已应用')]
             }
           }),
-          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, 'Failed to apply tags')])
+          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, '应用标签失败')])
         );
     }),
   ));
@@ -414,11 +414,11 @@ export class CommonExperimentsMenuEffects {
     }).pipe(
       switchMap(() => [
         menuActions.removeTagSuccess({experiments: action.experiments.map(e => e.id), tag: action.tag}),
-        addMessage('success', `“${action.tag}” tag has been removed from “${action.experiments[0]?.name}” task`, [
+        addMessage('success', `已从任务“${action.experiments[0]?.name}”移除标签“${action.tag}”`, [
           {
-            name: 'Undo',
+            name: '撤销',
             actions: [
-              addMessage('success', `“${action.tag}” tag has been restored`),
+              addMessage('success', `标签“${action.tag}”已恢复`),
               ...action.experiments.map(() => menuActions.addTag({
                 experiments: action.experiments,
                 tag: action.tag
@@ -451,7 +451,7 @@ export class CommonExperimentsMenuEffects {
           const allFailed = res.failed.length === experiments.length;
           const undoAction = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 viewActions.setSelectedExperiments({experiments}),
                 menuActions.restoreSelectedExperiments({
                   selectedEntities: experiments,
@@ -489,7 +489,7 @@ export class CommonExperimentsMenuEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, `Failed To Archive ${action.entityType || 'Task'}s`)
+          setServerError(error, null, '归档失败')
         ])
       )
     )
@@ -512,7 +512,7 @@ export class CommonExperimentsMenuEffects {
           const allFailed = res.failed.length === experiments.length;
           const undoAction = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 viewActions.setSelectedExperiments({experiments}),
                 menuActions.archiveSelectedExperiments({
                   selectedEntities: experiments,
@@ -550,7 +550,7 @@ export class CommonExperimentsMenuEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, `Failed To Restore ${action.entityType || 'Task'}s`)
+          setServerError(error, null, '恢复失败')
         ])
       )
     )

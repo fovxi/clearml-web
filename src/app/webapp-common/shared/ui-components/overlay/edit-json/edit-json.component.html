@@ -12,8 +12,8 @@
 <mat-dialog-actions>
   @if (!readOnly) {
       <button mat-stroked-button (click)="closeDialog(false)" class="yes-button" data-id="cancelButton">
-        CANCEL
+        取消
       </button>
     }
-    <button mat-flat-button (click)="closeDialog(!readOnly)" data-id="okButton">OK</button>
+    <button mat-flat-button (click)="closeDialog(!readOnly)" data-id="okButton">确定</button>
 </mat-dialog-actions>

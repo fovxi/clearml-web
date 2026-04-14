@@ -1,7 +1,7 @@
 @if (multiSelect) {
   <div class="d-flex title-container align-items-center" (click)="metricSelect.openMenu()">
     <span class="param-selector-title pointer">{{ title }}</span>
-    <sm-menu #metricSelect iconClass="al-ico-dropdown-arrow" buttonTooltip="Select metric"
+    <sm-menu #metricSelect iconClass="al-ico-dropdown-arrow" buttonTooltip="选择指标"
              smMenuClass="custom-columns" (menuClosed)="selectMetric.resetSearch()"
     >
       <sm-select-metric-for-custom-col #selectMetric class="normal-size"
@@ -17,8 +17,8 @@
 } @else {
   <div class="like-select d-flex justify-content-between align-items-center pointer" (click)="metricSelect.openMenu()">
     <span class="selected-parameter ellipsis" smShowTooltipIfEllipsis
-          [smTooltip]="(selectedMetricVariants[0] |metricVariantToName) + ' ' + (MetricValueTypeStrings[selectedMetricVariants[0]?.valueType] ?? '')">{{ selectedMetricVariants[0] ? (selectedMetricVariants[0] |metricVariantToName) : 'Select Metric' }} {{ (MetricValueTypeStrings[selectedMetricVariants[0]?.valueType] ?? '') }}</span>
-    <sm-menu #metricSelect iconClass="al-ico-dropdown-arrow" buttonTooltip="Select metric"
+          [smTooltip]="(selectedMetricVariants[0] |metricVariantToName) + ' ' + (MetricValueTypeStrings[selectedMetricVariants[0]?.valueType] ?? '')">{{ selectedMetricVariants[0] ? (selectedMetricVariants[0] |metricVariantToName) : '选择指标' }} {{ (MetricValueTypeStrings[selectedMetricVariants[0]?.valueType] ?? '') }}</span>
+    <sm-menu #metricSelect iconClass="al-ico-dropdown-arrow" buttonTooltip="选择指标"
              smMenuClass="custom-columns" (menuClosed)="selectMetric.resetSearch()"
     >
       <sm-select-metric-for-custom-col #selectMetric class="normal-size"
@@ -40,6 +40,6 @@
         <i class="al-icon sm al-ico-dialog-x pointer" (click)="removeMetric.emit(selectedMetricVariant)"></i></div>
     }
   } @else {
-    <div class="no-data">No metrics selected</div>
+    <div class="no-data">未选择指标</div>
   }
 }

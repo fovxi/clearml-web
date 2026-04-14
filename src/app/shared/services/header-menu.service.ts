@@ -16,7 +16,7 @@ export class HeaderMenuService {
       .map(route => {
         return {
           ...route,
-          ...(archive && !['overview', 'workloads'].includes(route.header)  && { subHeader: '(ARCHIVED)' }),
+          ...(archive && !['overview', 'workloads'].includes(route.header)  && { subHeader: '（已归档）' }),
           featureName: route.header,
           link: `projects/${projectId}/${route.header}${archive ? `?archive=${archive}` : ''}`,
         };

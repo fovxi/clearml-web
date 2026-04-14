@@ -35,7 +35,7 @@ export class SnippetErrorComponent {
   protected heightAboveLimit = signal(false);
 
   copyToClipboardSuccess(success: boolean) {
-    this.store.dispatch(addMessage(success ? MESSAGES_SEVERITY.SUCCESS : MESSAGES_SEVERITY.ERROR, success ? 'Path copied to clipboard' : 'No path to copy'));
+    this.store.dispatch(addMessage(success ? MESSAGES_SEVERITY.SUCCESS : MESSAGES_SEVERITY.ERROR, success ? '路径已复制到剪贴板' : '没有可复制的路径'));
   }
 
   onResize($event: ResizeResult) {

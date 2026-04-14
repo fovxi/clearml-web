@@ -46,7 +46,7 @@ export class DashboardComponent {
 
   constructor() {
     this.store.dispatch(setDeep({deep: false}));
-    this.store.dispatch(initSearch({payload: 'Search for all'}));
+    this.store.dispatch(initSearch({payload: '搜索全部'}));
 
     this.store.select(selectActiveSearch)
       .pipe(

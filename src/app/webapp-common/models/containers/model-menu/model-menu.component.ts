@@ -95,11 +95,11 @@ export class ModelMenuComponent extends BaseContextMenuComponent {
 
     const confirmDialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'PUBLISH',
-        body: `<b>${selectedModels.length === 1 ? htmlTextShort(selectedModels[0].name) : selectedModels.length + ' models'}</b> status will be set to Published.
-<br><br>Published models are read-only and cannot be reset.`,
-        yes: 'Publish',
-        no: 'Cancel',
+        title: '发布',
+        body: `<b>${selectedModels.length === 1 ? htmlTextShort(selectedModels[0].name) : selectedModels.length + ' 个模型'}</b> 的状态将被设置为“已发布”。
+<br><br>已发布模型为只读状态，且无法重置。`,
+        yes: '发布',
+        no: '取消',
         iconClass: 'al-ico-upload',
       }
     });

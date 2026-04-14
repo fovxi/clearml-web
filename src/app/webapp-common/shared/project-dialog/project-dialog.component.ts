@@ -44,15 +44,15 @@ export class ProjectDialogComponent {
   public header: string;
   public modeParameters: Record<string, { header: string; icon: string }> = {
     create: {
-      header: 'NEW PROJECT',
+      header: '新建项目',
       icon: 'al-ico-projects'
     },
     move: {
-      header: 'MOVE TO',
+      header: '移动到',
       icon: 'al-ico-move-to'
     },
     edit: {
-      header: 'EDIT PROJECT',
+      header: '编辑项目',
       icon: 'al-ico-projects'
     },
 

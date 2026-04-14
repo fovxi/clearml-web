@@ -66,25 +66,25 @@ export class ModelGeneralInfoComponent {
     if (model) {
       this.isLocalFile = this.adminService.isLocalFile(model.uri);
       this.kpis = [
-        {label: 'CREATED AT', value: model.created ? (formatDate(model.created, TIME_FORMAT_STRING, this.locale)) : 'NA'},
-        {label: 'UPDATED AT', value: model.last_update ? (formatDate(model.last_update, TIME_FORMAT_STRING, this.locale)) : 'NA'},
-        {label: 'FRAMEWORK', value: model.framework || NA},
-        {label: 'STATUS', value: (model.ready !== undefined) ? (model.ready ? 'Published' : 'Draft') : NA},
-        {label: 'MODEL URL', value: model.uri || NA, downloadable: true},
-        {label: 'USER', value: get( model,'user.name', NA)},
-        {label: 'ARCHIVED', value: model && model.system_tags && model.system_tags.includes(TAGS.HIDDEN) ? 'Yes' : 'No'},
-        {label: 'PROJECT', value: get(model, 'project.name', NA)},
+        {label: '创建时间', value: model.created ? (formatDate(model.created, TIME_FORMAT_STRING, this.locale)) : 'NA'},
+        {label: '更新时间', value: model.last_update ? (formatDate(model.last_update, TIME_FORMAT_STRING, this.locale)) : 'NA'},
+        {label: '框架', value: model.framework || NA},
+        {label: '状态', value: (model.ready !== undefined) ? (model.ready ? '已发布' : '草稿') : NA},
+        {label: '模型地址', value: model.uri || NA, downloadable: true},
+        {label: '用户', value: get( model,'user.name', NA)},
+        {label: '已归档', value: model && model.system_tags && model.system_tags.includes(TAGS.HIDDEN) ? '是' : '否'},
+        {label: '项目', value: get(model, 'project.name', NA)},
       ];
     } else {
       this.kpis = [
-        {label: 'CREATED AT', value: '-'},
-        {label: 'UPDATED AT', value: '-'},
-        {label: 'FRAMEWORK', value: '-'},
-        {label: 'STATUS', value: '-'},
-        {label: 'MODEL URL', value: '-'},
-        {label: 'USER', value: '-'},
-        {label: 'ARCHIVED', value: '-'},
-        {label: 'PROJECT', value: '-'},
+        {label: '创建时间', value: '-'},
+        {label: '更新时间', value: '-'},
+        {label: '框架', value: '-'},
+        {label: '状态', value: '-'},
+        {label: '模型地址', value: '-'},
+        {label: '用户', value: '-'},
+        {label: '已归档', value: '-'},
+        {label: '项目', value: '-'},
       ];
     }
   }

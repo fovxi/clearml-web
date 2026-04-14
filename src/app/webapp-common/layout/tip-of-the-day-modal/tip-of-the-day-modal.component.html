@@ -20,11 +20,11 @@
 
   <div class="footer" [class.no-gap]="hideDontShow() && tips().length === 1">
     <div class="tip-dont-show" [class.invisible]="hideDontShow()"
-         smTooltip="Can also be set from the User Preferences section in the Profile page"
+         smTooltip="也可在个人资料页面的用户偏好设置中配置"
 
          matTooltipShowDelay="300">
       <mat-checkbox [(ngModel)]="neverShowAgain">
-        <span class="tip-cbx">Don't show again</span>
+        <span class="tip-cbx">不再显示</span>
       </mat-checkbox>
     </div>
     @if (tips().length > 1) {

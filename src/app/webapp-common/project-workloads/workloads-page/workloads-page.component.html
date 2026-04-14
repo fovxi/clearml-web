@@ -1,5 +1,5 @@
 <header class="header">
-  <mat-slide-toggle [formControl]="localRunsControl">Include Local Runs</mat-slide-toggle>
+  <mat-slide-toggle [formControl]="localRunsControl">包含本地运行</mat-slide-toggle>
   <mat-divider [vertical]="true"></mat-divider>
 <!--  <mat-form-field appearance="outline" subscriptSizing="dynamic">-->
 <!--    <mat-select [formControl]="nominalControl">-->
@@ -22,52 +22,52 @@
       <div class="title-icon">
         <mat-icon fontSet="al" fontIcon="al-ico-no-data-graph" class="xxl"></mat-icon>
       </div>
-      <div class="title">No information available for the selected period</div>
-      <div class="sub-title">Run additional workloads to see resource utilization</div>
+      <div class="title">所选时间段暂无可用信息</div>
+      <div class="sub-title">运行更多工作负载后即可查看资源利用情况</div>
     </div>
   } @else {
     <div class="graphs">
       <div class="graph">
         <div class="graph__header">
-          Resource Breakdown
+          资源构成
         </div>
         <div class="graph__body">
           <sm-line-chart
             [data]="queueStats()" [colorScheme]="queueTotalsColors()" [showLoadingOverlay]="data.isLoading()"
-            yLabel="hours" minUnit="day" [yTickFormatter]="formatter" class="graph__line" unit="hour"
+            yLabel="小时" minUnit="day" [yTickFormatter]="formatter" class="graph__line" unit="小时"
           ></sm-line-chart>
           @if (this.nominal() === 'gpu' && usesDefaultWeight(data.value().queues)) {
-            <div class="graph__notice">* weight wasn't reported, using the default</div>
+            <div class="graph__notice">* 未上报权重，已使用默认值</div>
           }
           <sm-donut class="graph__donut" [data]="queueTotals()" [colors]="queueTotalsColors()" units="hour"></sm-donut>
         </div>
       </div>
       <div class="graph">
         <div class="graph__header">
-          Project Distribution
+          项目分布
         </div>
         <div class="graph__body">
           <sm-line-chart
             [data]="projectsStats()" [colorScheme]="projectTotalsColors()" [showLoadingOverlay]="data.isLoading()"
-            yLabel="hours" minUnit="day" [yTickFormatter]="formatter" class="graph__line" unit="hour"
+            yLabel="小时" minUnit="day" [yTickFormatter]="formatter" class="graph__line" unit="小时"
           ></sm-line-chart>
           @if (this.nominal() === 'gpu' && usesDefaultWeight(data.value().projects)) {
-            <div class="graph__notice">* weight wasn't reported, using the default</div>
+            <div class="graph__notice">* 未上报权重，已使用默认值</div>
           }
           <sm-donut class="graph__donut" [data]="projectsTotals()" [colors]="projectTotalsColors()" units="hour"></sm-donut>
         </div>
       </div>
       <div class="graph">
         <div class="graph__header">
-          User Activity
+          用户活动
         </div>
         <div class="graph__body">
           <sm-line-chart
             [data]="usersStats()" [colorScheme]="usersTotalsColors()" [showLoadingOverlay]="data.isLoading()"
-            yLabel="hours" minUnit="day" [yTickFormatter]="formatter" class="graph__line" unit="hour"
+            yLabel="小时" minUnit="day" [yTickFormatter]="formatter" class="graph__line" unit="小时"
           ></sm-line-chart>
           @if (this.nominal() === 'gpu' && usesDefaultWeight(data.value().users)) {
-            <div class="graph__notice">* weight wasn't reported, using the default</div>
+            <div class="graph__notice">* 未上报权重，已使用默认值</div>
           }
           <sm-donut class="graph__donut" [data]="usersTotals()" [colors]="usersTotalsColors()" units="hour"></sm-donut>
         </div>

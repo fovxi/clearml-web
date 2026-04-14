@@ -47,7 +47,7 @@
           class="last-run"
           [smTooltip]="report().last_update | date: timeFormatString"
           matTooltipPosition="after"
-        >Updated {{report().last_update | timeAgo}}</div>
+        >更新于 {{report().last_update | timeAgo}}</div>
       } @else {
         <div class="last-run"></div>
       }

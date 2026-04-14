@@ -212,7 +212,7 @@ export abstract class BaseExperimentOutputComponent implements OnInit, OnDestroy
             filterBaseNameWith: null,
             compareModule: null,
             showSelectedProject: selectedProject?.id !== '*',
-            ...(selectedProject && {selectedProjectBreadcrumb: {name: selectedProject?.id === '*' ? 'All Tasks' : selectedProject?.basename,
+            ...(selectedProject && {selectedProjectBreadcrumb: {name: selectedProject?.id === '*' ? '全部任务' : selectedProject?.basename,
                 url: this.minimizeViewUrl(params.projectId, params.experimentId), queryParamsHandling: 'preserve', linkLast: true
               }})
           }

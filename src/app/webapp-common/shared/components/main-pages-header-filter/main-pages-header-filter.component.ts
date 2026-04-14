@@ -105,7 +105,7 @@ export class MainPagesHeaderFilterComponent {
   users = this.store.selectSignal(selectAllProjectsUsers);
   usersOptions = computed(() => {
     return this.sortOptionsList(this.users()?.map(user => ({
-      label: user.name ? user.name : 'Unknown User',
+      label: user.name ? user.name : '未知用户',
       value: user.id,
       tooltip: ''
     })) ?? [], [this.currentUser().id, ...(this.sortByUsersFilter() ?? [])]);

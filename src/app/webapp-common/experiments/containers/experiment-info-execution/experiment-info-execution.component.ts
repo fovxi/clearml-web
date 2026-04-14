@@ -102,15 +102,15 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
   public backdropActive = this.store.selectSignal(selectBackdropActive);
   public redactedArguments$ = this.store.select(selectHideRedactedArguments);
   public formData: IExecutionForm;
-  links = ['details', 'uncommitted changes', 'python packages', 'container'];
-  currentLink = 'details';
+  links = ['详情', '未提交变更', 'Python 依赖包', '容器'];
+  currentLink = '详情';
   public selectedRequirement = 'pip';
   public editableRequirements = false;
   private requirementLabels: IExecutionForm['requirements'] = {
     pip: 'PIP',
-    orgPip: 'Original PIP',
+    orgPip: '原始 PIP',
     conda: 'Conda',
-    orgConda: 'Original Conda'
+    orgConda: '原始 Conda'
   };
   public requirementsOptions: IOption[];
 
@@ -141,7 +141,7 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
           this.selectedRequirement = 'pip';
         }
         this.editableRequirements = this.selectedRequirement === 'pip';
-        this.resetRequirementToolTip = `Set packages to originally recorded values (${formData.requirements?.orgPip ? 'original-pip' : ''}${formData.requirements?.orgPip && formData.requirements?.orgConda ? ' / ' : ''}${formData.requirements?.orgConda ? 'original-conda' : ''})`;
+        this.resetRequirementToolTip = `将依赖包重置为最初记录的值（${formData.requirements?.orgPip ? 'original-pip' : ''}${formData.requirements?.orgPip && formData.requirements?.orgConda ? ' / ' : ''}${formData.requirements?.orgConda ? 'original-conda' : ''}）`;
       }
     });
   }
@@ -197,10 +197,10 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
   discardDiff() {
     this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'Discard diff',
-        body: 'Uncommitted changes will be discarded',
-        yes: 'Discard',
-        no: 'Cancel',
+        title: '丢弃差异',
+        body: '未提交变更将被丢弃',
+        yes: '丢弃',
+        no: '取消',
         iconClass: 'al-ico-trash',
         centerText: true,
       }
@@ -218,7 +218,7 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
   editContainerSetupShellScript(smEditableSection?: EditableSectionComponent) {
     this.openEditJsonDialog({
       textData: this.formData.container?.setup_shell_script,
-      title: 'EDIT SETUP SHELL SCRIPT'
+      title: '编辑初始化 Shell 脚本'
     }, smEditableSection)
       .afterClosed()
       .pipe(filter(bool => !isUndefined(bool)))
@@ -244,7 +244,7 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
       data: {
         textData: this.formData?.requirements?.pip,
         readOnly: false,
-        title: 'EDIT PYTHON PACKAGES',
+        title: '编辑 Python 依赖包',
       } as EditJsonData
     });
 
@@ -269,7 +269,7 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
     this.openEditJsonDialog({
       textData: this.formData?.diff,
       readOnly: false,
-      title: 'EDIT UNCOMMITTED CHANGES',
+      title: '编辑未提交变更',
     }, this.diffSection)
       .afterClosed()
       .pipe(take(1))
@@ -307,10 +307,10 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
   resetInstalledPackages() {
     this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: `Reset python packages`,
-        body: `Are you sure you want to reset python packages?<br>This will set the packages to originally recorded values.`,
-        yes: 'Reset',
-        no: 'Keep',
+        title: `重置 Python 依赖包`,
+        body: `确定要重置 Python 依赖包吗？<br>这会将依赖包恢复为最初记录的值。`,
+        yes: '重置',
+        no: '保留',
         iconClass: 'al-ico-reset ',
       }
     }).afterClosed().pipe(take(1)).subscribe((confirmed) => {
@@ -331,7 +331,7 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
   }
 
   clearSetupShellScript() {
-    this.clearConfirmDialog('setup shell script').pipe(take(1)).subscribe((confirmed) => {
+    this.clearConfirmDialog('初始化 Shell 脚本').pipe(take(1)).subscribe((confirmed) => {
       if (confirmed) {
 
         this.store.dispatch(commonInfoActions.saveExperimentSection({
@@ -348,10 +348,10 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
   private clearConfirmDialog(title: string): Observable<boolean> {
     return this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: `Clear ${title}`,
-        body: `Are you sure you want to clear the entire contents of ${title.charAt(0).toUpperCase() + title.slice(1)}?`,
-        yes: 'Clear',
-        no: 'Keep',
+        title: `清空${title}`,
+        body: `确定要清空${title}的全部内容吗？`,
+        yes: '清空',
+        no: '保留',
         iconClass: 'al-ico-trash',
         centerText: true,
       }
