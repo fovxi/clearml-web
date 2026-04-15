@@ -15,6 +15,14 @@ $item-margin: 20px;
   .logo {
     width: 64px;
     height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-a {
+    width: 36px;
+    height: 36px;
   }
 
   .items-container {
@@ -53,21 +61,4 @@ $item-margin: 20px;
     }
   }
 
-
-  .account {
-    display: flex;
-    flex-direction: column;
-    margin-top: auto;
-
-    .item {
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
-
-  .i-slack-mark-color {
-    width: $icon-size;
-    height: $icon-size;
-    background-size: $icon-size;
-  }
 }

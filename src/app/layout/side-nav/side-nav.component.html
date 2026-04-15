@@ -1,7 +1,7 @@
 <div class="logo">
   <img
     [ngSrc]="darkTheme() ? environment().branding.logoSmall : environment().branding.logoSmall.replace('-white', '')"
-    [priority]="true" alt="平台标志" class="logo-a" width="64" height="64">
+    [priority]="true" alt="平台标志" class="logo-a" width="36" height="36">
 </div>
 
 @if (currentUser()) {
@@ -38,18 +38,6 @@
          routerLinkActive="active"
          smTooltip="了解企业版"
       ></a>
-    }
-  </div>
-}
-@if (currentUser()) {
-  <div class="account">
-    @if (environment().slackLink) {
-      <a class="item" [href]="environment().slackLink"
-         target="_blank"
-         smTooltip="Slack 社区支持"
-      >
-        <i class="i-slack-mark-color"></i>
-      </a>
     }
   </div>
 }
