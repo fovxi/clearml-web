@@ -32,12 +32,13 @@
        [class.active]="baseRouteConfig() ==='pipelines'"
        smTooltip="流水线"
     ></a>
-    @if (!hideEnterpriseFeatures()) {
+    <!-- enterprise sidebar entry hidden by request -->
+    <!-- @if (!hideEnterpriseFeatures()) {
       <a class="item al-ico-enterprise-rocket lm"
          routerLink="enterprise"
          routerLinkActive="active"
          smTooltip="了解企业版"
       ></a>
-    }
+    } -->
   </div>
 }
