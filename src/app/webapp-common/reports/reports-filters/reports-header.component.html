@@ -3,10 +3,10 @@
     <div class="recent-title">
       <sm-menu [header]="sortByTitle()" class="menu">
         <sm-menu-item itemLabel="最近"
-                      [sortOrder]="sortByTitle() === 'RECENT' && sortOrder()"
+                      [sortOrder]="sortByKey() === 'RECENT' && sortOrder()"
                       (itemClicked)="orderByChanged.emit('last_update')"></sm-menu-item>
         <sm-menu-item itemLabel="名称"
-                      [sortOrder]="sortByTitle() === 'NAME' && sortOrder()"
+                      [sortOrder]="sortByKey() === 'NAME' && sortOrder()"
                       (itemClicked)="orderByChanged.emit('name')"></sm-menu-item>
       </sm-menu>
       <sm-main-pages-header-filter [allTags]="allTags()"></sm-main-pages-header-filter>

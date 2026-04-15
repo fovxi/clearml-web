@@ -5,7 +5,7 @@ import {CrumbTypeEnum} from '@common/layout/breadcrumbs/breadcrumbs.component';
 import {resetContextMenuGuard} from '@common/shared/guards/resetContextMenuGuard.guard';
 
 const wQBreadcrumb = [[{
-  name: 'WORKERS AND QUEUES',
+  name: '工作节点与队列',
   type: CrumbTypeEnum.Feature
 }]];
 export const routes: Routes = [

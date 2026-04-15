@@ -4,7 +4,7 @@ import {EnterpriseComponent} from '@common/enterprise-visibility/enterprise/ente
 
 const data = {
   staticBreadcrumb: [[{
-    name: 'Enterprise Features (Overview)',
+    name: '企业功能（概览）',
     type: CrumbTypeEnum.Feature
   } as IBreadcrumbsLink]]
 };

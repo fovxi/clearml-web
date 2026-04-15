@@ -517,7 +517,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
   }
 
   downloadTableAsCSV() {
-    this.table.table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*'? '全部': this.selectedProject()?.basename?.substring(0, 60)} 模型`);
+    this.table.table().downloadTableAsCSV(`${this.selectedProject().id === '*'? '全部': this.selectedProject()?.basename?.substring(0, 60)} 模型`);
   }
 
   downloadFullTableAsCSV() {

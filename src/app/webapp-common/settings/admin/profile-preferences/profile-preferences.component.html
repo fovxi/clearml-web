@@ -12,7 +12,7 @@
     (change)="toggleExamples($event)"
     [checked]="hideExamples()"
     color="accent"
-    >不显示 ClearML 示例
+    >不显示示例
   </mat-slide-toggle>
   @if (supportReScaling) {
     <mat-slide-toggle
@@ -23,7 +23,7 @@
         禁用高分屏浏览器缩放覆盖
         <mat-icon fontSet="al" fontIcon="al-ico-info-circle" class="sm info ms-3"
                   data-id="hidpiInfoIcon"
-                  smTooltip="ClearML 会动态调整浏览器缩放比例，以获得更佳页面布局。关闭后将使用系统默认桌面缩放。"
+                  smTooltip="平台会动态调整浏览器缩放比例，以获得更佳页面布局。关闭后将使用系统默认桌面缩放。"
         ></mat-icon>
         <a href="#" class="reload hidden ms-3" [class.hidden]="!disableHidpiChanged" (click)="$event.preventDefault(); reload($event)">重新加载以应用</a>
       </div>

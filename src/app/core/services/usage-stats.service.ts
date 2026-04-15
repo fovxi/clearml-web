@@ -24,8 +24,8 @@ export class UsageStatsService {
           const dialogRef = this.dialog.open(ConfirmDialogComponent,
             {
               data: {
-                title: '帮助我们改进 ClearML',
-                body: `请允许 ClearML 服务器发送匿名使用统计信息，以便我们更好地了解 ClearML 的使用情况并持续改进。<BR>
+                title: '帮助我们改进平台',
+                body: `请允许服务器发送匿名使用统计信息，以便我们更好地了解平台使用情况并持续改进。<BR>
   你可以在个人资料页面更改此设置。`,
                 yes: '同意',
                 no: '拒绝',

@@ -8,7 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ProjectDialogModule} from '@common/shared/project-dialog/project-dialog.module';
 
 const staticBreadcrumb = [[{
-  name: 'PROJECTS DASHBOARD',
+  name: '项目看板',
   type: CrumbTypeEnum.Feature
 }]];
 

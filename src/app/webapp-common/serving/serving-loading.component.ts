@@ -222,7 +222,7 @@ export class ServingLoadingComponent extends BaseEntityPageComponent implements 
   }
 
   downloadTableAsCSV() {
-    this.table.table().downloadTableAsCSV('ClearML 全部端点');
+    this.table.table().downloadTableAsCSV('全部端点');
   }
 
   override onFooterHandler(): void {

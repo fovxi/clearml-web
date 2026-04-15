@@ -29,7 +29,7 @@ import {
   selectSelectedProject
 } from '@common/core/reducers/projects.reducer';
 import {selectActiveWorkspaceReady} from '~/core/reducers/view.reducer';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {concatLatestFrom} from '@ngrx/operators';
 import {selectShowOnlyUserWork} from '@common/core/reducers/users-reducer';
 import {ConfirmDialogConfig} from '@common/shared/ui-components/overlay/confirm-dialog/confirm-dialog.model';
@@ -299,7 +299,7 @@ export class ProjectsPageComponent implements OnDestroy {
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: `搜索${this.getName()}列表`}));
+    this.store.dispatch(initSearch({payload: `搜索${this.getSearchEntityDisplayName()}列表`}));
     this.searchQuery$
       .pipe(
         takeUntilDestroyed(),
@@ -313,6 +313,11 @@ export class ProjectsPageComponent implements OnDestroy {
         filter(query => query !== null)
       )
       .subscribe(query => this.search(query));
+  }
+
+  private getSearchEntityDisplayName(): string {
+    const entityName = this.getName();
+    return ENTITY_TYPE_LABELS[entityName as EntityTypeEnum] || entityName;
   }
 
   public projectCardClicked(project: ProjectsGetAllResponseSingle) {

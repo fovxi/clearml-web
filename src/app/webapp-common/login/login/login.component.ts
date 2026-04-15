@@ -105,7 +105,7 @@ export class LoginComponent {
   protected loginFailed = signal(false);
   protected showSpinner = signal<boolean>(null);
   protected loginTitle = signal<string>(this.isInvite ? '' : '登录');
-  private title = computed(() => this.config.configuration().branding?.faviconUrl ? '' : 'ClearML');
+  private title = computed(() => '');
   private titlePrefix = computed(() => this.title() ? this.title() + ' - ' : '')
   touLink = computed(() => this.environment().legal.TOULink);
   protected notice = computed(() => this.environment().loginNotice);
@@ -128,7 +128,7 @@ export class LoginComponent {
     effect(() => {
       if (this.config.configuration()) {
         const link = document.getElementById('favicon') as HTMLLinkElement;
-        link.href = this.config.configuration().branding?.faviconUrl ?? '/assets/favicon.ico';
+        link.href = this.config.configuration().branding?.faviconUrl ?? '/assets/small-logo.svg';
       }
     });
 

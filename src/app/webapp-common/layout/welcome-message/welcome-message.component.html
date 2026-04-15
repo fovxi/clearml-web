@@ -1,6 +1,6 @@
 <sm-dialog-template [displayX]="true"
-  [header]="queue? '队列暂无可用工作节点': (step() === 1 ? '欢迎使用 ClearML' : (showTabs? '创建新任务' : '开始使用'))"
-  [subHeader]="showTabs ? '要创建新任务，你可以运行已接入 ClearML SDK 的 ML 代码，或通过克隆之前运行过的任务重新启动。' : ''"
+  [header]="queue? '队列暂无可用工作节点': (step() === 1 ? '欢迎使用平台' : (showTabs? '创建新任务' : '开始使用'))"
+  [subHeader]="showTabs ? '要创建新任务，你可以运行已接入 SDK 的 ML 代码，或通过克隆之前运行过的任务重新启动。' : ''"
   (xClicked)="closeDialog()" [closeOnX]="false"
   [iconClass]="queue?'al-ico-queues': 'i-welcome-researcher'" xmlns="http://www.w3.org/1999/html">
 
@@ -35,7 +35,7 @@
             <mat-icon fontSet="al" fontIcon="al-ico-card-example" class="xl foreground"></mat-icon>
             <span class="background"></span>
           </span>
-          <div class="mt-2">查看预置示例，快速了解 ClearML 的各项能力。</div>
+          <div class="mt-2">查看预置示例，快速了解平台的各项能力。</div>
         </div>
         <div class="info">
           <mat-icon fontSet="al" fontIcon="al-ico-help-outlined" class="xl"></mat-icon>
@@ -43,7 +43,7 @@
         </div>
         <div class="info">
           <mat-icon fontSet="al" fontIcon="al-ico-documentation" class="xl"></mat-icon>
-          <div class="mt-2">查看 <a target="_blank" [href]="docsLink()">ClearML 文档</a>，了解更多高级信息与深入教程。
+          <div class="mt-2">查看 <a target="_blank" [href]="docsLink()">文档</a>，了解更多高级信息与深入教程。
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
   <div class="steps-content">
     @if (queue) {
       <div class="text">
-        {{entityName}} 已加入 <b>{{queue?.display_name || queue?.name}}</b> 队列，但该队列当前没有工作节点处理。它们将保持“待处理”状态，直到有 ClearML 工作节点接入该队列。
+        {{entityName}} 已加入 <b>{{queue?.display_name || queue?.name}}</b> 队列，但该队列当前没有工作节点处理。它们将保持“待处理”状态，直到有工作节点接入该队列。
       </div>
     }
     @if (!currentLink || currentLink === links[0]) {
@@ -70,7 +70,7 @@
               <mat-tab label="Jupyter 笔记本" data-id="JupyterNotebookTab"></mat-tab>
             </mat-tab-group>
           }
-          <div class="sub-note mt-2 mb-2">{{isJupyter() ? '为笔记本设置 ClearML 环境':'运行 ClearML 设置脚本'}}</div>
+          <div class="sub-note mt-2 mb-2">{{isJupyter() ? '为笔记本设置运行环境':'运行设置脚本'}}</div>
           <div class="code">
             <div class="content" #stepCode>{{step.code}}</div>
             <sm-copy-clipboard
@@ -99,7 +99,7 @@
     }
     <div class="step-container cred-step" [class.jupyter]="isJupyter()" [class.first-step]="!credentialsCreated()" [class.has-ws]="community() && workspace.name" [class.has-label]="credentialsLabel">
       @if (!isJupyter()) {
-        <div class="sub-note" >请按提示完成 ClearML 配置信息。</div>
+        <div class="sub-note" >请按提示完成配置信息。</div>
       }
       @if (!credentialsCreated()) {
         <button mat-flat-button class="my-2" data-id="New Credentials" (click)="createCredentials()">
@@ -157,7 +157,7 @@
       @if (!showTabs) {
         <div class="step">3. 集成</div>
       }
-      <div class="sub-note">将 ClearML 集成到你的代码中，例如：</div>
+      <div class="sub-note">将 SDK 集成到你的代码中，例如：</div>
       <div class="code">
         @if (!showTabs) {
           <div class="content">
@@ -175,14 +175,14 @@
             <div>
               <span class="variable">import</span> matplotlib.pyplot <span class="variable">as</span> plt
             </div>
-            <div># 在你的代码中加入下面两行，让 ClearML 自动记录任务</div>
+            <div># 在你的代码中加入下面两行，自动记录任务</div>
             <div>
               <span class="variable">from</span> clearml <span class="variable">import</span> Task
             </div>
             <div>task = Task.init(project_name=<span class="string">'我的项目'</span>, task_name=<span class="string">'我的任务'</span>)</div>
             <div># 使用 matplotlib 创建图表，也可以使用 plotly</div>
             <div><code>plt.scatter(np.random.rand(50), np.random.rand(50), c=np.random.rand(50), alpha=0.5)</code></div>
-            <div># 图表会自动上报到 ClearML</div>
+            <div># 图表会自动上报到服务端</div>
             <div>plt.show()</div>
             <div># 上报一些标量</div>
             <div>

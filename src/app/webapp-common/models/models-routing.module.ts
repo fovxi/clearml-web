@@ -13,7 +13,7 @@ export const routes: Routes = [
     loadComponent: () => import('./models.component').then(c => c.ModelsComponent),
     data: {
       staticBreadcrumb: [[{
-        name: 'Models',
+        name: '模型',
         type: CrumbTypeEnum.Feature
       } as IBreadcrumbsLink]]
     },
@@ -137,4 +137,3 @@ export const routes: Routes = [
 })
 export class ModelRouterModule {
 }
-

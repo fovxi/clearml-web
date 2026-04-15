@@ -1,8 +1,8 @@
 <div class="sm-card-list-header">
   <div class="recent-title">
     <sm-menu [header]="sortByTitle()" class="menu">
-      <sm-menu-item itemLabel="最近" (itemClicked)="orderByChanged.emit('last_update')" [sortOrder]="sortByTitle()==='RECENT' && sortOrder()" data-id="Recent"></sm-menu-item>
-      <sm-menu-item itemLabel="名称" (itemClicked)="orderByChanged.emit('basename')" [sortOrder]="sortByTitle()==='NAME' && sortOrder()"></sm-menu-item>
+      <sm-menu-item itemLabel="最近" (itemClicked)="orderByChanged.emit('last_update')" [sortOrder]="sortByKey()==='RECENT' && sortOrder()" data-id="Recent"></sm-menu-item>
+      <sm-menu-item itemLabel="名称" (itemClicked)="orderByChanged.emit('basename')" [sortOrder]="sortByKey()==='NAME' && sortOrder()"></sm-menu-item>
     </sm-menu>
     @if (!enableTagsFilter()) {
       <sm-show-only-user-work></sm-show-only-user-work>

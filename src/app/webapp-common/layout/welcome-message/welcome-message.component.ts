@@ -86,7 +86,7 @@ export class WelcomeMessageComponent {
     [{
       id: 1,
       header: null, code: null,
-      subNote: '了解不同的工作节点部署方式，请参阅 ClearML 文档'
+      subNote: '了解不同的工作节点部署方式，请参阅文档'
     }, {
       id: 2,
       header: '设置工作节点',
@@ -98,7 +98,7 @@ export class WelcomeMessageComponent {
       code: 'clearml-agent init'
     }
     ];
-  public links = ['设置 ClearML', '运行你的 ML 代码', '重新运行之前的实验'];
+  public links = ['设置环境', '运行你的 ML 代码', '重新运行之前的实验'];
   public doNotShowAgain: boolean;
   public credentialsLabel: string;
   public src: string;
@@ -219,13 +219,13 @@ export class WelcomeMessageComponent {
     if(this.showTabs) {
       return `import numpy as np
 import matplotlib.pyplot as plt
-# 在你的代码中加入下面两行，让 ClearML 自动记录实验
+# 在你的代码中加入下面两行，自动记录实验
 from ${this.configGettingStarted()?.packageName || 'clearml'} import Task
 
 task = Task.init(project_name='我的项目', task_name='我的实验')
 # 使用 matplotlib 创建一个图表，也可以使用 plotly
 plt.scatter(np.random.rand(50), np.random.rand(50), c=np.random.rand(50), alpha=0.5)
-# 图表会自动上报到 ClearML
+# 图表会自动上报到服务端
 plt.show()
 
 # 上报一些标量

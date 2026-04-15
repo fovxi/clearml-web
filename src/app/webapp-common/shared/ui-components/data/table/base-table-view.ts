@@ -27,6 +27,7 @@ export abstract class BaseTableView {
   public searchValues: Record<string, string> = {};
   protected prevSelected: string;
   protected prevDeselect: string;
+  private destroyed = false;
   public selectionChecked = new FormControl<boolean>(false);
 
   contextMenuActive = input<boolean>();
@@ -85,6 +86,11 @@ export abstract class BaseTableView {
     });
 
     this.destroy.onDestroy(() => {
+      this.destroyed = true;
+      if (this.clickDelayHandle) {
+        window.clearTimeout(this.clickDelayHandle);
+        this.clickDelayHandle = null;
+      }
       this.store.dispatch(resetTablesFilterProjectsOptions());
       this.store.dispatch(resetTablesFilterParentsOptions());
     });
@@ -177,14 +183,23 @@ export abstract class BaseTableView {
 
   abstract openContextMenu(data: { e: Event; rowData; single?: boolean; backdrop?: boolean });
 
-  private clickDelayHandle: number;
+  private clickDelayHandle: number | null = null;
   cardClicked($event: MouseEvent, experiment) {
+    if (this.destroyed) {
+      return;
+    }
+
     if (this.clickDelayHandle) {
       window.clearTimeout(this.clickDelayHandle);
       this.clickDelayHandle = null;
-      this.closePanel.emit()
+      if (!this.destroyed) {
+        this.closePanel.emit();
+      }
     } else {
       this.clickDelayHandle = window.setTimeout(() => {
+        if (this.destroyed) {
+          return;
+        }
         this.openContextMenu({e: $event, rowData: experiment, backdrop: true});
         this.clickDelayHandle = null;
       }, 250)

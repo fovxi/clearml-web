@@ -99,7 +99,7 @@ export class OpenDatasetVersionsComponent extends ControllersComponent {
   }
 
   override downloadTableAsCSV() {
-    this.table().table().downloadTableAsCSV(`ClearML ${this.selectedProject().id === '*'? '全部': this.selectedProject()?.basename?.substring(0,60)} 数据集`);
+    this.table().table().downloadTableAsCSV(`${this.selectedProject().id === '*'? '全部': this.selectedProject()?.basename?.substring(0,60)} 数据集`);
   }
   override setupBreadcrumbsOptions() {
     effect(() => {

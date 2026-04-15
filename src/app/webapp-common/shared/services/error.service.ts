@@ -39,7 +39,7 @@ export class ErrorService {
       57: this.template`此 ${'provider'} 身份已存在对应账户。请改用“登录”。`,
       58: this.template`账户不存在。请使用你注册时使用的身份提供方，或先注册创建新账户`,
       62: this.template`请检查你的邮箱以继续完成注册流程`,
-      67: this.template`${'email'} 无权访问 ClearML，请联系管理员将该地址加入白名单`,
+      67: this.template`${'email'} 无权访问该服务，请联系管理员将该地址加入白名单`,
       86: this.template`无法停用最后一个 SSO 配置`,
       92: this.template`无法登录租户 ${'tenant'}，当前用户不属于该租户`,
       1205: this.template`该工作区已达到并发运行实例数量上限。`,

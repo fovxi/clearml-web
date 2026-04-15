@@ -32,7 +32,6 @@
             },
             "assets": [
               "src/assets",
-              "src/favicon.ico",
               "src/env.js",
               "src/404.html",
               "src/manifest.webmanifest",
@@ -182,7 +181,6 @@
             },
             "assets": [
               "src/assets",
-              "src/favicon.ico",
               "src/version.json",
               "src/manifest.webmanifest",
               "src/app/webapp-common/assets"
@@ -226,7 +224,11 @@
             "tsConfig": "src/app/webapp-common/clearml-applications/report-widgets/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/app/webapp-common/clearml-applications/report-widgets/src/favicon.ico",
+              {
+                "glob": "small-logo.svg",
+                "input": "src/assets",
+                "output": "assets/"
+              },
               "src/app/webapp-common/clearml-applications/report-widgets/src/assets",
               "src/app/webapp-common/clearml-applications/report-widgets/src/app/webapp-common/assets",
               "src/app/webapp-common/clearml-applications/report-widgets/src/app/webapp-common/assets/fonts/trains.ttf"
@@ -326,7 +328,11 @@
             "karmaConfig": "src/app/webapp-common/clearml-applications/report-widgets/karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/app/webapp-common/clearml-applications/report-widgets/src/favicon.ico",
+              {
+                "glob": "small-logo.svg",
+                "input": "src/assets",
+                "output": "assets/"
+              },
               "src/app/webapp-common/clearml-applications/report-widgets/src/assets",
               "src/app/webapp-common/clearml-applications/report-widgets/src/app/webapp-common/assets"
             ],

@@ -26,7 +26,7 @@
     <div class="code-container" [class.jupyter]="isJupyter()">
       @if (!isJupyter()) {
         @if (serviceUserMode){
-          <div class="instructions mt-2 mb-2">将下方配置复制到 ClearML Agent 的 `clearml.conf` 文件中</div>
+          <div class="instructions mt-2 mb-2">将下方配置复制到 Agent 的 `clearml.conf` 文件中</div>
         } @else {
           <div class="instructions mt-2 mb-2">将下方信息用于 `clearml-init` 配置，或修改现有 `clearml.conf`</div>
         }
@@ -76,7 +76,7 @@
       }
     </div>
   } @else {
-    <div class="instructions mt-2 mb-2">将下方内容加入 Jupyter 笔记本以配置 ClearML</div>
+    <div class="instructions mt-2 mb-2">将下方内容加入 Jupyter 笔记本以完成配置</div>
     <div class="code">
       <div class="content">
         <div>
@@ -107,7 +107,7 @@
   }
 </div>
 <ng-template #jupyter>
-  <div class="instructions">将下方内容加入 Jupyter 笔记本以配置 ClearML</div>
+  <div class="instructions">将下方内容加入 Jupyter 笔记本以完成配置</div>
   <div class="code">
     <div class="content" #jupyterCodeEl>{{jupyterCode}}</div>
     <sm-copy-clipboard

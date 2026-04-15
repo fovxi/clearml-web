@@ -1,11 +1,12 @@
 import * as fs from 'fs';
 
 const targets = [
- 'http://localhost:8008',     // 1
+ 'http://10.8.129.168:18080', // 1
 ];
 
 const PROXY_CONFIG = {
-  '^/version.json$': {
+  '^/(version|configuration|onboarding)\\.json$': {
+    target: targets[0],
     bypass: (req, res, proxyOptions) => {
       let url;
       if (req.url === '/version.json') {
@@ -38,7 +39,7 @@ targets.forEach((target, i) => {
     cookieDomainRewrite: 'localhost',
     logLevel: 'debug',
     pathRewrite: {
-      [`^${path}`]: ''
+      [`^${path}`]: '/api'
     }
   };
 });

@@ -61,7 +61,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>仓库地址</mat-label>
                 <input
-                  matInput placeholder="例如：git@github.com:clearml/clearml.git" formControlName="repo"
+                  matInput placeholder="例如：git@github.com:your-org/your-repo.git" formControlName="repo"
                   (focusout)="typeChange(codeFormGroup.controls.type.value)"
                 >
               </mat-form-field>
@@ -226,7 +226,7 @@
                               [style.visibility]="envFormGroup.controls.venvType.value === 'discover' ? 'hidden' : null"
               >
                 <mat-label>预装虚拟环境</mat-label>
-                <input matInput placeholder="例如：clearml" formControlName="venv">
+                <input matInput placeholder="例如：ml-env" formControlName="venv">
               </mat-form-field>
             </div>
             <h6 [class.disabled]="envFormGroup.controls.poetry.value">附加依赖包</h6>

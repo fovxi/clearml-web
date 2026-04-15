@@ -111,7 +111,7 @@
           @if (sourceCodeForm.controls.binary.value && !(sourceCodeForm.controls.binary.value.substring(sourceCodeForm.controls.binary.value.lastIndexOf('/')+1)).match(binaryValidationRegexp)) {
             <i
               class="al-icon al-ico-alert-outline sm ms-2"
-              smTooltip="ClearML Agent 不支持该二进制文件，将使用系统 Python 执行"
+              smTooltip="Agent 不支持该二进制文件，将使用系统 Python 执行"
             ></i>
           }
         </div>

@@ -96,7 +96,7 @@ export const BASE_ENV: Environment = {
   docsLink: '/docs',
   useFilesProxy: true,
   branding: {logo: 'assets/logo-white.svg?v=7', logoSmall: 'assets/small-logo-white.svg?=2'},
-  serverDownMessage: 'The ClearML server is currently unavailable.<BR>' +
+  serverDownMessage: 'The server is currently unavailable.<BR>' +
     'Please try to reload this page in a little while.',
   legal: {TOULink: 'https://clear.ml/legal-platform-tou/', pricingLink: 'https://clear.ml/pricing/'},
   showMaskWithoutLabels: true,

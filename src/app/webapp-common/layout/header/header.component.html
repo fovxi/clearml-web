@@ -15,7 +15,7 @@
   @if (hideSideNav()) {
     <div class="logo-full middle">
       <div class="logo-full">
-        <img alt="ClearML 标志" [priority]="true"
+        <img alt="平台标志" [priority]="true"
              [ngSrc]="darkTheme() ? environment().branding.logo : environment().branding.logo.replace('-white', '')"
              width="124" height="42">
       </div>
@@ -77,12 +77,12 @@
       <mat-menu #resourcesMenu="matMenu" class="user-menu">
         <button mat-menu-item (click)="openWelcome($event)" data-id="Python Package setup Option">
           <mat-icon fontSet="al" fontIcon="al-ico-code-file">代码</mat-icon>
-          <span>ClearML Python 包安装</span>
+          <span>Python 包安装</span>
         </button>
         @if (environment().platformYoutubeChannel) {
           <a mat-menu-item [href]="environment().platformYoutubeChannel" target="_blank" data-id="Youtube Option">
             <mat-icon fontSet="al" fontIcon="al-ico-youtube">YouTube</mat-icon>
-            <span>ClearML YouTube 频道</span>
+            <span>YouTube 频道</span>
           </a>
         }
         <a mat-menu-item [href]="environment().docsLink" target="_blank" data-id="Online Documentation Option">

@@ -1,7 +1,7 @@
 <div class="logo">
   <img
     [ngSrc]="darkTheme() ? environment().branding.logoSmall : environment().branding.logoSmall.replace('-white', '')"
-    [priority]="true" alt="ClearML 标志" class="logo-a" width="64" height="64">
+    [priority]="true" alt="平台标志" class="logo-a" width="64" height="64">
 </div>
 
 @if (currentUser()) {
@@ -36,7 +36,7 @@
       <a class="item al-ico-enterprise-rocket lm"
          routerLink="enterprise"
          routerLinkActive="active"
-         smTooltip="了解 ClearML 企业版"
+         smTooltip="了解企业版"
       ></a>
     }
   </div>
