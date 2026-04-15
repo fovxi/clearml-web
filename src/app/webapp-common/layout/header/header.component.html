@@ -79,32 +79,6 @@
           <mat-icon fontSet="al" fontIcon="al-ico-code-file">代码</mat-icon>
           <span>Python 包安装</span>
         </button>
-        @if (environment().platformYoutubeChannel) {
-          <a mat-menu-item [href]="environment().platformYoutubeChannel" target="_blank" data-id="Youtube Option">
-            <mat-icon fontSet="al" fontIcon="al-ico-youtube">YouTube</mat-icon>
-            <span>YouTube 频道</span>
-          </a>
-        }
-        <a mat-menu-item [href]="environment().docsLink" target="_blank" data-id="Online Documentation Option">
-          <mat-icon fontSet="al" fontIcon="al-ico-documentation">文档</mat-icon>
-          <span>在线文档</span>
-        </a>
-        @if (tipsService.hasTips()) {
-          <button mat-menu-item (click)="tipsService.showTipsModal(null, true)" data-id="Pro Tips Option">
-            <mat-icon fontSet="al" fontIcon="al-ico-tips">技巧</mat-icon>
-            <span>使用技巧</span>
-          </button>
-        }
-        @if (isAdmin() && !environment().communityServer && changesService.hasChanges()) {
-          <button mat-menu-item (click)="changesService.showChangesModal()" data-id="Pro Tips Option">
-            <mat-icon fontSet="al" fontIcon="al-ico-bullhorn">通知</mat-icon>
-            <span>版本通知</span>
-          </button>
-        }
-        <a mat-menu-item [href]="'mailto:' + environment().supportEmail" data-id="Contact Us">
-          <mat-icon fontSet="al" fontIcon="al-ico-email"></mat-icon>
-          <span>联系我们</span>
-        </a>
       </mat-menu>
     </div>
   }

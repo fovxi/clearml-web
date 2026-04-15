@@ -72,8 +72,18 @@
   .description-button {
     background-color: var(--color-surface-container);
     --mat-button-outlined-container-shape: 4px;
-    --mat-button-outlined-container-height: 30px;
+    --mat-button-outlined-container-height: 40px;
     --mat-button-outlined-outline-color: var(--color-outline-variant);
+    min-width: 120px;
+    padding: 0 12px;
+    line-height: 1.2;
+
+    mat-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      line-height: 16px;
+    }
   }
 
   .mat-drawer {
