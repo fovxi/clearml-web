@@ -13,7 +13,7 @@ export const Colors = {
     lines: '#282c33',
     tick: '#9ea1a8',
     legend: '#bfc7d5',
-    icon: '#a1c9ff',
+    icon: '#bec2ff',
     iconActive: '#fff',
     polarbgcolor: 'transparent'
 
@@ -23,8 +23,8 @@ export const Colors = {
     lines: '#dee1ed',
     tick: '#666',
     legend: '#666',
-    icon: '#0060a8',
-    iconActive: '#00152c',
+    icon: '#4559ff',
+    iconActive: '#1f31b2',
     polarbgcolor: 'transparent'
   }
 };

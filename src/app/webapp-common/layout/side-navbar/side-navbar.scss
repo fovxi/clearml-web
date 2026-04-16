@@ -43,21 +43,22 @@ $item-margin: 20px;
     width: $link-item-size-width;
     height: $link-item-size-height;
     border-radius: 6px;
-    color: var(--color-primary);
+    color: #BDC4D9;
+    transition: background-color 0.18s ease, color 0.18s ease;
     // ICON SIZE
     &:before {
       font-size: $icon-size;
     }
 
     &:hover {
-      color: var(--color-primary);
-      background-color: var(--color-surface-container-highest);
+      color: #4559FF;
+      background-color: rgba(150, 168, 255, 0.22);
       text-decoration: none;
     }
 
     &.active {
-      background-color: var(--color-primary);
-      color: var(--color-on-primary);
+      background-color: rgba(150, 168, 255, 0.30);
+      color: #4559FF;
     }
   }
 

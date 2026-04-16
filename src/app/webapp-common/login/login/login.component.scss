@@ -20,7 +20,7 @@
         cursor: pointer;
 
         i {
-          color: #8492c2 !important;
+          color: #8f99ff !important;
         }
       }
     }
@@ -139,7 +139,7 @@
 
     &.dark-theme {
       color: rgba(255, 255, 255, 0.87);
-      background-image: url(../../assets/infinity_anim--on_light.svg), linear-gradient(100deg, #22408a 6%, #09173c 82%);
+      background-image: url(../../assets/infinity_anim--on_light.svg), linear-gradient(100deg, #3549d9 6%, #11173f 82%);
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -148,7 +148,7 @@
         color: rgba(255, 255, 255, 0.87);
 
         a[href] {
-          color: #A1C9FF;
+          color: #BEC2FF;
         }
       }
     }

@@ -131,7 +131,7 @@ export class ScatterPlotComponent {
           autoSkip: true,
           autoSkipPadding: 50,
           maxRotation: 0,
-          ...(this.theme() === 'dark' && {color: '#c1cdf3'})
+          ...(this.theme() === 'dark' && {color: '#d3d8ff'})
         },
         time: {
           displayFormats: {
@@ -154,25 +154,25 @@ export class ScatterPlotComponent {
         ...options.scales.x,
         title: {
           ...options.scales.x.title,
-          color: '#c1cdf3'
+          color: '#d3d8ff'
         },
-        ticks: {color: '#c1cdf3'}, grid: {color: '#39405f'}
+        ticks: {color: '#d3d8ff'}, grid: {color: '#424b7f'}
       };
       options.scales.y = {
         ...options.scales.y,
         title: {
           ...options.scales.y.title,
-          color: '#c1cdf3'
+          color: '#d3d8ff'
         },
-        ticks: {color: '#c1cdf3'}, grid: {color: '#39405f'}
+        ticks: {color: '#d3d8ff'}, grid: {color: '#424b7f'}
       };
       options.plugins.tooltip = {
         ...options.plugins.tooltip,
         backgroundColor: 'black',
-        borderColor: '#8492c2',
-        bodyColor: '#c3cdf0'
+        borderColor: '#8f99ff',
+        bodyColor: '#c7ceff'
       };
-      options.plugins.legend.labels.color = '#c1cdf3';
+      options.plugins.legend.labels.color = '#d3d8ff';
     }
     return options;
   });

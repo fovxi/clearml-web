@@ -55,25 +55,25 @@ export type IconNames = keyof typeof ICONS;
 export type IconsValues = typeof ICONS[keyof typeof ICONS];
 
 export const PALLET = {
-  blue25: '#f9fafb',
-  blue50: '#f2f4fc', //242,244,252
-  blue100: '#dce0ee', //220,224,238
-  blue200: '#c3cdf0', //195,205,240
-  blue250: '#A4ADCD',
-  blue280: '#a7b2d8',
-  blue300: '#8492c2', //132,146,19
-  blue400: '#5a658e', //90,101,142
-  blue450: '#657099',
-  blue480: '#707ba3',
-  blue500: '#384161', //56,65,97
-  blue550: '#47527A',
-  blue570: '#323a56',
-  blue600: '#2c3246', //44,50,70
-  blue650: '#24293c',
-  blue700: '#202432', //32,36,50
-  blue800: '#1a1e2c', //26,30,44
-  blue900: '#141722', //20,23,34
-  blue950: '#0d0e15', //20,23,34
+  blue25: '#f8f8ff',
+  blue50: '#eff0ff', //239,240,255
+  blue100: '#dee3ff', //222,227,255
+  blue200: '#c7ceff', //199,206,255
+  blue250: '#adb6ff',
+  blue280: '#a0a9ff',
+  blue300: '#8f99ff', //143,153,255
+  blue400: '#707bd4', //112,123,212
+  blue450: '#6470be',
+  blue480: '#5c68ad',
+  blue500: '#4a538f', //74,83,143
+  blue550: '#424b7f',
+  blue570: '#394473',
+  blue600: '#333b62', //51,59,98
+  blue650: '#2c3355',
+  blue700: '#252b49', //37,43,73
+  blue800: '#1d223d', //29,34,61
+  blue900: '#151a2f', //21,26,47
+  blue950: '#101322', //16,19,34
 };
 
 export enum ThemeEnum {

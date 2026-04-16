@@ -423,7 +423,7 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
         // override header design
         data.header = {
           ...data.header,
-          line: {width: 1, color: this.isDarkTheme() ? '#5a658e' : '#d4d6e0'},
+          line: {width: 1, color: this.isDarkTheme() ? '#707bd4' : '#dfe0ff'},
           height: 29,
           align: 'left',
           font: {

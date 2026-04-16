@@ -3,11 +3,11 @@
 
 @mixin cards($theme) {
   @if mat.get-theme-type($theme) == light {
-    --card-tab1-bg: var(--color-primary-container);
-    --card-tab1-hover-bg: var(--color-secondary-container-lower);
-    --card-footer-bg: var(--color-inverse-primary);
-    --card-tab2-bg: var(--color-inverse-primary);
-    --card-tab2-bg-hover: color-mix(in srgb, var(--color-inverse-primary), var(--color-on-surface) 5%);
+    --card-tab1-bg: #ffffff;
+    --card-tab1-hover-bg: #f7f9ff;
+    --card-footer-bg: #f5f8ff;
+    --card-tab2-bg: #eef3ff;
+    --card-tab2-bg-hover: #e6edff;
   } @else {
     --card-tab1-bg: #{variables.$blue-500};
     --card-tab1-hover-bg: #{variables.$blue-400};

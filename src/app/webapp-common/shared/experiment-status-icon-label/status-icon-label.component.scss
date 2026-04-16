@@ -77,7 +77,7 @@
 :host-context(.selected) {
   :host {
     .status-icon-container {
-      color: var(--color-surface-container-highest);
+      color: var(--row-selected-text-color);
     }
 
     .spinner {
@@ -93,4 +93,3 @@
     opacity: 1;
   }
 }
-
