@@ -112,5 +112,7 @@ export const BASE_ENV = {
     '如果问题持续存在，请确认你的网络连接正常，并检查服务器日志以排查可能的错误',
   platformYoutubeChannel: 'https://www.youtube.com/c/ClearML/featured',
   newExperimentYouTubeVideoId: 's3k9ntmQmD4',
+  forceTheme: 'light',
+  defaultTheme: 'light',
   displayTips: true,
 } as Environment;
