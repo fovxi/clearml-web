@@ -2,7 +2,7 @@
 
 :root {
   // Row header
-  --row-header-color: var(--color-surface-container-high);
+  --row-header-color: var(--color-surface-container-lowest);
   --row-header-hover-color: var(--color-tint-8);
   // --
 
@@ -20,9 +20,9 @@
   // --
 
   // Selected
-  --row-selected-text-color: var(--color-on-secondary);
-  --row-selected-color: var(--color-primary);
-  --row-selected-hover-color: color-mix(in srgb, var(--color-primary), var(--color-on-surface) 20%);
+  --row-selected-text-color: var(--color-on-surface);
+  --row-selected-color: #e3e9fb;
+  --row-selected-hover-color: #d7e0fa;
   // --
 
   // Border

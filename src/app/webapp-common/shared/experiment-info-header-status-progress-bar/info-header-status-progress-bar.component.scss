@@ -18,26 +18,26 @@
 
 
   &.published {
-    background-color: var(--color-published);
+    background-color: var(--color-completed-container);
   }
 
   &.in_progress {
-    background-color: #50e3c2;
+    background-color: var(--color-running-container);
   }
 
   &.queued {
-    background-color: #c4f0e4;
+    background-color: var(--color-pending-container);
   }
 
   &.created {
-    background-color: #dbdee6;
+    background-color: var(--color-draft-container);
   }
 
   &.failed {
-    background-color: var(--color-failed);
+    background-color: var(--color-failed-container);
   }
 
   &.completed, &.stopped {
-    background-color: var(--color-completed);
+    background-color: var(--color-completed-container);
   }
 }

@@ -96,7 +96,7 @@ $reqWidth: 56px;
 
     &.leave-space {
       min-height: 17px;
-      color: var(--color-outline);
+      color: color-mix(in srgb, var(--color-on-surface), transparent 35%);
     }
   }
 }

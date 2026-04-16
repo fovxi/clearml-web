@@ -9,9 +9,9 @@
     active-label-text-color: var(--color-primary),
     active-hover-label-text-color: var(--color-primary),
     active-focus-label-text-color: var(--color-primary),
-    inactive-focus-label-text-color: var(--color-primary),
-    inactive-hover-label-text-color: var(--color-primary),
-    inactive-label-text-color: var(--color-outline),
+    inactive-focus-label-text-color: #3F52EE,
+    inactive-hover-label-text-color: #3F52EE,
+    inactive-label-text-color: #5B6474,
   ));
 }
 
@@ -20,4 +20,3 @@
     border-bottom: solid 1px var(--mat-tab-divider-color, var(--mat-sys-surface-variant));
   }
 }
-

@@ -188,19 +188,19 @@ export class ProjectStatsComponent implements OnDestroy {
 
     switch (status) {
       case 'Completed or Stopped':
-        color = '#009aff';
+        color = '#4559FF';
         break;
       case TaskStatusEnum.Failed:
         color = '#ff001f';
         break;
       case TaskStatusEnum.Published:
-        color = '#d3ff00';
+        color = '#7B8DFF';
         break;
       case TaskStatusEnum.InProgress:
-        color = '#14aa8c';
+        color = '#4559FF';
         break;
       default:
-        color = '#50e3c2';
+        color = '#5C8CFC';
         break;
     }
     return color;

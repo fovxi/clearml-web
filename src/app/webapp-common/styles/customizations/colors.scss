@@ -72,7 +72,13 @@
     --color-on-primary-container-lower: #{mat.get-theme-color($theme, primary, 40)};
     --color-secondary-container-lower: #{mat.get-theme-color($theme, secondary, 95)};
     //--color-inverse-primary: #{mat.get-theme-color($theme, secondary, 80)};
-    --color-surface-container: #{mat.get-theme-color($theme, neutral, 98)}; // Override theme color (white), bug?
+    --color-surface: #f2f5fa;
+    --color-surface-bright: #f7f9fd;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #ffffff;
+    --color-surface-container: #ffffff;
+    --color-surface-container-high: #e5ebf5;
+    --color-surface-container-highest: #dbe3ef;
     --color-secondary-container-heigher: #{mat.get-theme-color($theme, secondary, 80)};
     --color-diff-line: #{mat.get-theme-color($theme, error,90)};
     --color-diff-line-hover: #{mat.get-theme-color($theme, error,80)};
@@ -80,21 +86,21 @@
     --color-diff-line-selected: #{mat.get-theme-color($theme, error,40)};
     --color-on-diff: #{mat.get-theme-color($theme, error, 100)};
     --color-no-diff-hover: var(--color-outline-variant);
-    --color-surface-variant: #DBE3F1;
-    //--color-on-surface-variant: #404753;
+    --color-surface-variant: #e9eef8;
+    --color-on-surface-variant: #586173;
 
-    --color-total: #87A9FF;
+    --color-total: #9CA8FF;
 
     --color-draft: #5D5E62;
-    --color-pending: #005B4C;
-    --color-running: #1EA26C;
-    --color-completed: #009aff;
+    --color-pending: #5C8CFC;
+    --color-running: #4559FF;
+    --color-completed: #4559FF;
     --color-failed: #A4020D;
     --color-published: #4c6f00;
     --color-draft-container:  #D9D9DD;
-    --color-pending-container: #68DAC0;
-    --color-running-container: #91D5AD;
-    --color-completed-container: #4fb9ff;
+    --color-pending-container: #DFE6FF;
+    --color-running-container: #BFCBFF;
+    --color-completed-container: #CCD8FF;
     --color-failed-container: #FFB4AB;
     --color-published-container: #D3FF00;
     --color-skipped-container: #{color.adjust(#cc9054, $lightness: 30%)};
@@ -105,7 +111,7 @@
     --color-neon-surface: #74C87A;
     --color-on-neon-surface: #223723;
 
-    --color-empty-state: #{mat.get-theme-color($theme, neutral, 70)};
+    --color-empty-state: var(--color-on-surface-variant);
 
   // DARK
   } @else {
@@ -124,18 +130,18 @@
     --color-surface-variant: #404753;
     //--color-on-surface-variant: #BFC7D5;
 
-    --color-total: #8492c2;
+    --color-total: #8F99FF;
 
     --color-draft:  #D9D9DD;
-    --color-pending: #68DAC0;
-    --color-running: #50e3c2;
-    --color-completed: #15a1ff;
+    --color-pending: #87A9FF;
+    --color-running: #7B8DFF;
+    --color-completed: #5C8CFC;
     --color-failed: #FFB4AB;
     --color-published: #D3FF00;
     --color-draft-container: #5D5E62;
-    --color-pending-container: #005B4C;
-    --color-running-container: #32937e;
-    --color-completed-container: #009aff;
+    --color-pending-container: #003688;
+    --color-running-container: #0C1463;
+    --color-completed-container: #1B58C5;
     --color-failed-container: #d65b52;
     --color-published-container: #98B800;
     --color-skipped-container: #cc9054;
